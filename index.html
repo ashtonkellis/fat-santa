@@ -90,6 +90,38 @@
   .empty-msg { color: var(--muted); padding: 40px; text-align: center; }
   footer { color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--line); }
   code { background: var(--panel2); padding: 1px 5px; border-radius: 4px; }
+  .linkbtn { text-decoration: none; background: var(--panel2); border: 1px solid var(--line);
+    padding: 7px 13px; border-radius: 8px; color: var(--text); font: inherit; font-weight: 600;
+    font-size: 13px; cursor: pointer; }
+  .linkbtn:hover { border-color: var(--accent); }
+
+  /* ---- print: lay out the currently-shown cards at real poker size ---- */
+  .print-area { display: none; }
+  @media print {
+    body { background: #fff; }
+    body > header, body > .controls, body > main, body > footer { display: none !important; }
+    .print-area { display: flex !important; flex-wrap: wrap; gap: 0; }
+    .print-area .pcard {
+      width: 63mm; height: 88mm; box-sizing: border-box; overflow: hidden;
+      border: 0.3mm solid #333; border-radius: 3mm; page-break-inside: avoid;
+      display: flex; flex-direction: column; background: #fbf7ec; color: #241d13;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .print-area .pchead { display: flex; align-items: center; gap: 2mm; padding: 2.5mm 3mm 1mm; }
+    .print-area .pcost { flex: 0 0 auto; width: 7mm; height: 7mm; border-radius: 50%;
+      background: #f4d03f; border: 0.5mm solid #8a6d1a; color: #4a3b10; font-weight: 800;
+      font-size: 3mm; display: flex; align-items: center; justify-content: center; }
+    .print-area .pcost.empty { visibility: hidden; }
+    .print-area .pname { font-weight: 700; font-size: 4mm; line-height: 1.1; }
+    .print-area .pvp { margin-left: auto; font-weight: 800; font-size: 3mm;
+      background: #cfe3c6; border: 0.3mm solid #9ec090; border-radius: 1.5mm; padding: 0.3mm 1.5mm; color: #2f5324; }
+    .print-area .ptypes { padding: 0 3mm 1mm; font-size: 2.6mm; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .3px; color: #6a5c3c; }
+    .print-area .ptext { padding: 1.5mm 3mm; font-size: 3mm; white-space: pre-wrap;
+      line-height: 1.25; border-top: 0.2mm solid rgba(0,0,0,.12); margin-top: auto; }
+    .print-area .pset { padding: 1.5mm 3mm 2mm; font-size: 2.4mm; font-style: italic; color: #7a6f5a; }
+    @page { size: A4; margin: 8mm; }
+  }
 </style>
 </head>
 <body>
@@ -98,6 +130,7 @@
     <h1>Dominion Card List</h1>
     <span class="count" id="count">loading…</span>
     <div class="links">
+      <button id="printBtn" class="linkbtn">🖨 Print cards</button>
       <a class="primary" href="card-generator.html">Open card generator →</a>
       <a href="data/dominion_cards.json">Raw JSON</a>
       <a href="data/dominion_cards.md">Markdown</a>
@@ -125,10 +158,11 @@
 </main>
 
 <footer id="footer"></footer>
+<div class="print-area" id="printArea"></div>
 
 <script>
 "use strict";
-const state = { cards: [], meta: {}, setOrder: {} };
+const state = { cards: [], meta: {}, setOrder: {}, filtered: [] };
 
 function costNum(c) {
   const m = String(c || "").match(/\d+/);
@@ -176,6 +210,7 @@ function initControls(d) {
   });
   ["q", "setSel", "typeSel", "sortSel"].forEach(id =>
     document.getElementById(id).addEventListener("input", render));
+  document.getElementById("printBtn").addEventListener("click", printCards);
 }
 
 function render() {
@@ -203,6 +238,7 @@ function render() {
            (costNum(a.cost) - costNum(b.cost)) || a.name.localeCompare(b.name);
   });
 
+  state.filtered = rows;
   const grid = document.getElementById("grid");
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
@@ -212,6 +248,41 @@ function render() {
   document.getElementById("empty").style.display = rows.length ? "none" : "block";
   document.getElementById("shown").textContent =
     "showing " + rows.length + " of " + state.cards.length;
+}
+
+function printCards() {
+  const rows = state.filtered;
+  if (!rows.length) { alert("No cards to print — adjust your filters."); return; }
+  if (rows.length > 100 &&
+      !confirm("You're about to print " + rows.length + " cards (" +
+               Math.ceil(rows.length / 9) + "+ pages). Continue?")) return;
+  const area = document.getElementById("printArea");
+  area.innerHTML = "";
+  rows.forEach(c => {
+    const card = document.createElement("div");
+    card.className = "pcard";
+    const head = document.createElement("div"); head.className = "pchead";
+    const cost = document.createElement("div");
+    cost.className = "pcost" + (c.cost ? "" : " empty"); cost.textContent = c.cost || "";
+    const name = document.createElement("div"); name.className = "pname"; name.textContent = c.name;
+    head.appendChild(cost); head.appendChild(name);
+    if (c.victory_points) {
+      const vp = document.createElement("div"); vp.className = "pvp";
+      vp.textContent = /vp/i.test(c.victory_points) ? c.victory_points : c.victory_points + " VP";
+      head.appendChild(vp);
+    }
+    card.appendChild(head);
+    const types = document.createElement("div"); types.className = "ptypes";
+    types.textContent = typesStr(c); card.appendChild(types);
+    if (c.text) {
+      const text = document.createElement("div"); text.className = "ptext";
+      text.textContent = c.text; card.appendChild(text);
+    }
+    const setline = document.createElement("div"); setline.className = "pset";
+    setline.textContent = c.set; card.appendChild(setline);
+    area.appendChild(card);
+  });
+  window.print();
 }
 
 function cardEl(c) {
