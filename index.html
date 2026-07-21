@@ -1,0 +1,261 @@
+<!doctype html>
+<!--
+  Card list browser — the GitHub Pages landing page for this repo.
+  Loads data/dominion_cards.json and lets you search / filter / sort the
+  full deck. Links to the card generator (card-generator.html).
+  Static, dependency-free.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dominion Card List</title>
+<style>
+  :root {
+    --bg: #14171c; --panel: #1e232b; --panel2: #262c36; --line: #333b47;
+    --text: #e8ebf0; --muted: #99a3b2; --accent: #f4b942; --accent2: #5aa9e6;
+    --action: #f6efe0; --victory: #d7ead0; --treasure: #f7ecc6; --attack: #eed7d3;
+    --reaction: #d4e2f2; --duration: #ffe6c2; --night: #d7d3e6; --curse: #e0d0e2;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  a { color: var(--accent2); }
+  header {
+    padding: 22px 24px 16px; background: linear-gradient(180deg, #1b2029, #14171c);
+    border-bottom: 1px solid var(--line);
+  }
+  header .top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 22px; }
+  header .count { color: var(--muted); font-size: 14px; }
+  header .links { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+  header .links a {
+    text-decoration: none; background: var(--panel2); border: 1px solid var(--line);
+    padding: 7px 13px; border-radius: 8px; color: var(--text); font-weight: 600; font-size: 13px;
+  }
+  header .links a.primary { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
+  header p.desc { color: var(--muted); margin: 8px 0 0; max-width: 780px; font-size: 13px; }
+
+  .controls {
+    position: sticky; top: 0; z-index: 5; display: flex; gap: 10px; flex-wrap: wrap;
+    align-items: center; padding: 12px 24px; background: var(--panel);
+    border-bottom: 1px solid var(--line);
+  }
+  .controls input[type=search], .controls select {
+    background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 8px; padding: 8px 11px; font: inherit;
+  }
+  .controls input[type=search] { flex: 1; min-width: 200px; }
+  .controls .muted { color: var(--muted); font-size: 13px; margin-left: auto; }
+  .chip { font-size: 12px; color: var(--muted); background: var(--panel2);
+    border: 1px solid var(--line); border-radius: 20px; padding: 3px 10px; }
+
+  main { padding: 20px 24px 60px; }
+  .grid { display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+
+  .card {
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    background: var(--action); color: #241d13; display: flex; flex-direction: column;
+    min-height: 150px; box-shadow: 0 3px 10px rgba(0,0,0,.25);
+  }
+  .card .chead { display: flex; align-items: center; gap: 8px; padding: 10px 12px 6px; }
+  .card .cost {
+    flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+    background: #f4d03f; border: 2px solid #8a6d1a; color: #4a3b10;
+    font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center;
+  }
+  .card .cost.empty { visibility: hidden; }
+  .card .name { font-weight: 700; font-size: 16px; line-height: 1.15; }
+  .card .vp { margin-left: auto; flex: 0 0 auto; font-weight: 800; font-size: 12px;
+    background: #cfe3c6; border: 1px solid #9ec090; border-radius: 6px; padding: 1px 6px; color: #2f5324; }
+  .card .types { padding: 0 12px 6px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .4px; color: #6a5c3c; }
+  .card .text { padding: 6px 12px 10px; font-size: 12.5px; white-space: pre-wrap;
+    line-height: 1.3; border-top: 1px solid rgba(0,0,0,.08); margin-top: auto; }
+  .card .setline { padding: 6px 12px 10px; font-size: 11px; font-style: italic; color: #7a6f5a;
+    display: flex; justify-content: space-between; }
+
+  /* tint by primary type */
+  .card.t-Victory { background: var(--victory); }
+  .card.t-Treasure { background: var(--treasure); }
+  .card.t-Attack { background: var(--attack); }
+  .card.t-Reaction { background: var(--reaction); }
+  .card.t-Duration { background: var(--duration); }
+  .card.t-Night { background: var(--night); color: #e8e6f2; }
+  .card.t-Night .types, .card.t-Night .setline { color: #cfcbe0; }
+  .card.t-Night .text { border-top-color: rgba(255,255,255,.12); }
+  .card.t-Curse { background: var(--curse); }
+
+  .empty-msg { color: var(--muted); padding: 40px; text-align: center; }
+  footer { color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--line); }
+  code { background: var(--panel2); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>Dominion Card List</h1>
+    <span class="count" id="count">loading…</span>
+    <div class="links">
+      <a class="primary" href="card-generator.html">Open card generator →</a>
+      <a href="data/dominion_cards.json">Raw JSON</a>
+      <a href="data/dominion_cards.md">Markdown</a>
+    </div>
+  </div>
+  <p class="desc" id="desc"></p>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search name or card text…" autocomplete="off" />
+  <select id="setSel"><option value="">All sets</option></select>
+  <select id="typeSel"><option value="">All types</option></select>
+  <select id="sortSel">
+    <option value="set">Sort: by set</option>
+    <option value="name">Sort: name A–Z</option>
+    <option value="cost">Sort: cost ↑</option>
+    <option value="costDesc">Sort: cost ↓</option>
+  </select>
+  <span class="muted" id="shown"></span>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty-msg" id="empty" style="display:none">No cards match your filters.</div>
+</main>
+
+<footer id="footer"></footer>
+
+<script>
+"use strict";
+const state = { cards: [], meta: {}, setOrder: {} };
+
+function costNum(c) {
+  const m = String(c || "").match(/\d+/);
+  return m ? parseInt(m[0], 10) : -1;
+}
+function typesStr(c) { return (c.types || []).join(" · "); }
+function primaryType(c) { return (c.types && c.types[0]) || ""; }
+
+function load() {
+  fetch("data/dominion_cards.json")
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(d => {
+      state.cards = d.cards || [];
+      state.meta = d;
+      (d.sets || []).forEach((s, i) => state.setOrder[s.name] = i);
+      initControls(d);
+      render();
+      document.getElementById("count").textContent = state.cards.length + " cards";
+      document.getElementById("desc").textContent = d.description || "";
+      document.getElementById("footer").innerHTML =
+        (d.source ? d.source + " " : "") +
+        (d.snapshot ? "<br>" + d.snapshot : "");
+    })
+    .catch(err => {
+      document.getElementById("count").textContent = "";
+      document.getElementById("grid").innerHTML =
+        '<div class="empty-msg">Could not load <code>data/dominion_cards.json</code> (' + err.message +
+        ').<br>This page must be served over HTTP (e.g. GitHub Pages or <code>python3 -m http.server</code>), not opened from disk.</div>';
+    });
+}
+
+function initControls(d) {
+  const setSel = document.getElementById("setSel");
+  (d.sets || []).forEach(s => {
+    const o = document.createElement("option");
+    o.value = s.name; o.textContent = s.name + " (" + s.count + ")";
+    setSel.appendChild(o);
+  });
+  const types = new Set();
+  state.cards.forEach(c => (c.types || []).forEach(t => types.add(t)));
+  const typeSel = document.getElementById("typeSel");
+  [...types].sort().forEach(t => {
+    const o = document.createElement("option");
+    o.value = t; o.textContent = t; typeSel.appendChild(o);
+  });
+  ["q", "setSel", "typeSel", "sortSel"].forEach(id =>
+    document.getElementById(id).addEventListener("input", render));
+}
+
+function render() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const set = document.getElementById("setSel").value;
+  const type = document.getElementById("typeSel").value;
+  const sort = document.getElementById("sortSel").value;
+
+  let rows = state.cards.filter(c => {
+    if (set && c.set !== set) return false;
+    if (type && !(c.types || []).includes(type)) return false;
+    if (q) {
+      const hay = (c.name + " " + (c.text || "") + " " + typesStr(c)).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  rows.sort((a, b) => {
+    if (sort === "name") return a.name.localeCompare(b.name);
+    if (sort === "cost") return costNum(a.cost) - costNum(b.cost) || a.name.localeCompare(b.name);
+    if (sort === "costDesc") return costNum(b.cost) - costNum(a.cost) || a.name.localeCompare(b.name);
+    // by set (release order), then cost, then name
+    return (state.setOrder[a.set] - state.setOrder[b.set]) ||
+           (costNum(a.cost) - costNum(b.cost)) || a.name.localeCompare(b.name);
+  });
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  const frag = document.createDocumentFragment();
+  rows.forEach(c => frag.appendChild(cardEl(c)));
+  grid.appendChild(frag);
+
+  document.getElementById("empty").style.display = rows.length ? "none" : "block";
+  document.getElementById("shown").textContent =
+    "showing " + rows.length + " of " + state.cards.length;
+}
+
+function cardEl(c) {
+  const el = document.createElement("article");
+  const pt = primaryType(c);
+  el.className = "card t-" + pt;
+
+  const head = document.createElement("div");
+  head.className = "chead";
+  const cost = document.createElement("div");
+  cost.className = "cost" + (c.cost ? "" : " empty");
+  cost.textContent = c.cost || "";
+  const name = document.createElement("div");
+  name.className = "name"; name.textContent = c.name;
+  head.appendChild(cost); head.appendChild(name);
+  if (c.victory_points) {
+    const vp = document.createElement("div");
+    vp.className = "vp";
+    vp.textContent = /vp/i.test(c.victory_points) ? c.victory_points : c.victory_points + " VP";
+    head.appendChild(vp);
+  }
+  el.appendChild(head);
+
+  const types = document.createElement("div");
+  types.className = "types"; types.textContent = typesStr(c);
+  el.appendChild(types);
+
+  if (c.text) {
+    const text = document.createElement("div");
+    text.className = "text"; text.textContent = c.text;
+    el.appendChild(text);
+  }
+  const setline = document.createElement("div");
+  setline.className = "setline";
+  setline.innerHTML = "<span>" + escapeHtml(c.set) + "</span>";
+  el.appendChild(setline);
+  return el;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"]/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]));
+}
+
+load();
+</script>
+</body>
+</html>
