@@ -1,0 +1,882 @@
+<!--
+  Card Generator — a self-contained clone of Dextrous's data-driven card
+  generation feature (dextrous.com.au).
+
+  The idea: design ONE card layout template (positioned text / image / shape
+  elements, each bound to a data column), point it at a data source
+  (CSV / JSON, one row per card), and the whole deck renders live. Edit the
+  template in one place and every card updates. Export to print-ready PDF
+  (via the browser print dialog) or per-card PNG.
+
+  No dependencies, no network required. Open the file in a browser.
+-->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Card Generator — data-driven deck maker</title>
+<style>
+  :root {
+    --bg: #1d2127;
+    --panel: #262b33;
+    --panel2: #2f353f;
+    --line: #3a414c;
+    --text: #e8ebf0;
+    --muted: #9aa4b2;
+    --accent: #f4b942;
+    --accent2: #5aa9e6;
+    --danger: #e2666b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 16px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+  }
+  header h1 { font-size: 16px; margin: 0; font-weight: 700; letter-spacing: .2px; }
+  header .sub { color: var(--muted); font-size: 12px; }
+  header .tabs { margin-left: auto; display: flex; gap: 6px; }
+  .tab-btn {
+    background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+    padding: 6px 14px; border-radius: 7px; cursor: pointer; font-weight: 600;
+  }
+  .tab-btn.active { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
+
+  main { flex: 1; overflow: hidden; }
+  .view { height: 100%; display: none; }
+  .view.active { display: flex; }
+
+  /* ---- Design view: 3 columns ---- */
+  .col { height: 100%; overflow-y: auto; }
+  .col.left  { width: 300px; background: var(--panel); border-right: 1px solid var(--line); }
+  .col.mid   { flex: 1; display: flex; flex-direction: column; align-items: center;
+               justify-content: center; padding: 20px; gap: 14px; overflow: auto; }
+  .col.right { width: 320px; background: var(--panel); border-left: 1px solid var(--line); }
+
+  .section { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  .section h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .8px;
+                color: var(--muted); margin: 0 0 10px; }
+  label.field { display: block; margin: 8px 0; }
+  label.field > span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+  input, select, textarea, button { font: inherit; }
+  input[type=text], input[type=number], select, textarea {
+    width: 100%; background: var(--panel2); color: var(--text);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px;
+  }
+  textarea { resize: vertical; min-height: 54px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  input[type=color] { width: 40px; height: 28px; padding: 0; border: 1px solid var(--line);
+                      border-radius: 6px; background: none; }
+  .row2 { display: flex; gap: 8px; }
+  .row2 > * { flex: 1; min-width: 0; }
+  button.btn {
+    background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 7px 10px; cursor: pointer; font-weight: 600;
+  }
+  button.btn:hover { border-color: var(--accent); }
+  button.btn.primary { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
+  button.btn.mini { padding: 3px 8px; font-size: 12px; }
+  button.btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+  .btnrow { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* element list */
+  .el-list { list-style: none; margin: 0; padding: 0; }
+  .el-list li {
+    display: flex; align-items: center; gap: 8px; padding: 7px 8px;
+    border: 1px solid var(--line); border-radius: 6px; margin-bottom: 6px;
+    background: var(--panel2); cursor: pointer;
+  }
+  .el-list li.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .el-list .tag { font-size: 10px; text-transform: uppercase; color: var(--muted);
+                  border: 1px solid var(--line); padding: 1px 5px; border-radius: 4px; }
+  .el-list .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .el-list .zbtns { display: flex; gap: 3px; }
+
+  /* card canvas */
+  .card-stage { position: relative; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+  .card {
+    position: relative; overflow: hidden; border-radius: 4.5% / 3.2%;
+    user-select: none;
+  }
+  .card .el { position: absolute; overflow: hidden; box-sizing: border-box;
+              white-space: pre-wrap; word-break: break-word; }
+  .card.editing .el { outline: 1px dashed rgba(120,140,170,.35); cursor: move; }
+  .card.editing .el.sel { outline: 2px solid var(--accent); }
+  .stage-meta { color: var(--muted); font-size: 12px; text-align: center; }
+
+  .rowpick { display: flex; align-items: center; gap: 8px; justify-content: center; }
+  .rowpick select { width: auto; max-width: 220px; }
+
+  /* deck view */
+  .deck-toolbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+                  background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .deck-scroll { flex: 1; overflow: auto; padding: 20px; width: 100%; }
+  .deck-grid { display: flex; flex-wrap: wrap; gap: 14px; align-content: flex-start; }
+  .deck-grid .card { box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+  .deck-col { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+  .hint { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .pill { font-size: 11px; background: var(--panel2); border: 1px solid var(--line);
+          border-radius: 20px; padding: 2px 9px; color: var(--muted); }
+  a { color: var(--accent2); }
+
+  /* print */
+  .print-area { display: none; }
+  @media print {
+    body * { visibility: hidden; }
+    .print-area, .print-area * { visibility: visible; }
+    .print-area { display: block; position: absolute; left: 0; top: 0; }
+    .print-grid { display: flex; flex-wrap: wrap; gap: 0; }
+    @page { margin: 8mm; }
+  }
+</style>
+
+<header>
+  <div>
+    <h1>Card Generator</h1>
+    <div class="sub">data-driven deck maker — a Dextrous-style card generation clone</div>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="design">Design</button>
+    <button class="tab-btn" data-tab="deck">Deck &amp; Export</button>
+  </div>
+</header>
+
+<main>
+  <!-- ================= DESIGN VIEW ================= -->
+  <section class="view active" id="view-design">
+    <!-- left: data + card settings -->
+    <div class="col left">
+      <div class="section">
+        <h2>Data source</h2>
+        <div class="btnrow">
+          <button class="btn mini" id="btnSample">Load sample deck</button>
+          <button class="btn mini" id="btnUpload">Import file…</button>
+        </div>
+        <input type="file" id="fileInput" accept=".json,.csv,.txt" style="display:none" />
+        <label class="field" style="margin-top:10px">
+          <span>Or paste CSV / JSON (one row per card)</span>
+          <textarea id="pasteBox" placeholder='name,cost,type&#10;Village,$3,Action'></textarea>
+        </label>
+        <div class="btnrow">
+          <button class="btn mini" id="btnParse">Use pasted data</button>
+        </div>
+        <div class="hint" id="dataInfo">No data loaded.</div>
+      </div>
+
+      <div class="section">
+        <h2>Card size</h2>
+        <label class="field">
+          <select id="sizeSel"></select>
+        </label>
+        <div class="hint" id="sizeInfo"></div>
+        <label class="field" style="margin-top:8px">
+          <span>Card background</span>
+          <input type="color" id="cardBg" value="#fbf7ec" />
+        </label>
+        <label class="field">
+          <span>Card border color</span>
+          <input type="color" id="cardBorder" value="#c9b98f" />
+        </label>
+      </div>
+
+      <div class="section">
+        <h2>Fields (bind with <code>{{name}}</code>)</h2>
+        <div id="fieldChips" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+        <div class="hint">Click a field to copy its token.</div>
+      </div>
+    </div>
+
+    <!-- middle: live card canvas -->
+    <div class="col mid">
+      <div class="rowpick">
+        <button class="btn mini" id="prevRow">‹</button>
+        <select id="rowSel"></select>
+        <button class="btn mini" id="nextRow">›</button>
+      </div>
+      <div class="card-stage" id="cardStage"></div>
+      <div class="stage-meta" id="stageMeta"></div>
+    </div>
+
+    <!-- right: layout elements + properties -->
+    <div class="col right">
+      <div class="section">
+        <h2>Layout elements</h2>
+        <div class="btnrow" style="margin-bottom:10px">
+          <button class="btn mini" data-add="text">+ Text</button>
+          <button class="btn mini" data-add="image">+ Image</button>
+          <button class="btn mini" data-add="rect">+ Shape</button>
+        </div>
+        <ul class="el-list" id="elList"></ul>
+        <div class="btnrow">
+          <button class="btn mini" id="resetTpl">Reset template</button>
+        </div>
+      </div>
+      <div class="section" id="propPanel">
+        <h2>Properties</h2>
+        <div id="propBody"><div class="hint">Select an element to edit it.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DECK VIEW ================= -->
+  <section class="view" id="view-deck">
+    <div class="deck-col">
+      <div class="deck-toolbar">
+        <span class="pill" id="deckCount">0 cards</span>
+        <label style="display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="fitScreen" checked /> fit preview to screen
+        </label>
+        <div style="margin-left:auto" class="btnrow">
+          <button class="btn primary" id="btnPrint">Print / Save as PDF</button>
+          <button class="btn" id="btnPngAll">Download PNGs (.zip-less)</button>
+        </div>
+      </div>
+      <div class="deck-scroll">
+        <div class="deck-grid" id="deckGrid"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="print-area" id="printArea"></div>
+
+<script>
+"use strict";
+let _c = 0;
+
+/* ------------------------------------------------------------------ *
+ * Card sizes (mm). Screen preview derives px from these.
+ * ------------------------------------------------------------------ */
+const SIZES = {
+  poker:    { label: "Poker (63 × 88 mm)",    w: 63,  h: 88 },
+  bridge:   { label: "Bridge (57 × 89 mm)",   w: 57,  h: 89 },
+  mini:     { label: "Mini (45 × 68 mm)",     w: 45,  h: 68 },
+  tarot:    { label: "Tarot (70 × 120 mm)",   w: 70,  h: 120 },
+  square:   { label: "Square (70 × 70 mm)",   w: 70,  h: 70 },
+  jumbo:    { label: "Jumbo (89 × 127 mm)",   w: 89,  h: 127 },
+  landscape:{ label: "Landscape (89 × 51 mm)",w: 89,  h: 51 },
+};
+const PREVIEW_PX_PER_MM = 3.4;   // screen editor scale
+
+/* ------------------------------------------------------------------ *
+ * Default template — a Dominion-ish card layout.
+ * Geometry (x,y,w,h) and sizes are PERCENTAGES of the card, so the
+ * same template renders identically at any card size or DPI.
+ *   fontSize / pad / border are % of card HEIGHT.
+ * ------------------------------------------------------------------ */
+function defaultTemplate() {
+  return {
+    elements: [
+      { id: id(), type: "rect", name: "Title band", x: 5, y: 4, w: 90, h: 12,
+        fill: "#e8dcc0", border: 0.4, borderColor: "#c9b98f", radius: 8,
+        content: "", fontSize: 0, weight: 400, italic: false, color: "#000",
+        align: "center", valign: "center", pad: 0, transform: "none", lineHeight: 1.2 },
+      { id: id(), type: "text", name: "Name", x: 5, y: 4, w: 90, h: 12,
+        content: "{{name}}", fontSize: 6.2, weight: 700, italic: false,
+        color: "#2a2117", align: "center", valign: "center", pad: 1,
+        fill: "", border: 0, borderColor: "#000", radius: 0, transform: "none", lineHeight: 1.1 },
+      { id: id(), type: "text", name: "Rules text", x: 9, y: 34, w: 82, h: 40,
+        content: "{{text}}", fontSize: 4.6, weight: 400, italic: false,
+        color: "#2a2117", align: "center", valign: "center", pad: 1.5,
+        fill: "#fdfaf0", border: 0.3, borderColor: "#d8cba6", radius: 4,
+        transform: "none", lineHeight: 1.28 },
+      { id: id(), type: "text", name: "Cost", x: 5, y: 79, w: 17, h: 17,
+        content: "{{cost}}", fontSize: 7, weight: 800, italic: false,
+        color: "#4a3b10", align: "center", valign: "center", pad: 0,
+        fill: "#f4d03f", border: 0.7, borderColor: "#8a6d1a", radius: 50,
+        transform: "none", lineHeight: 1 },
+      { id: id(), type: "text", name: "Type line", x: 22, y: 83, w: 56, h: 9,
+        content: "{{types}}", fontSize: 4.6, weight: 700, italic: false,
+        color: "#2a2117", align: "center", valign: "center", pad: 0,
+        fill: "", border: 0, borderColor: "#000", radius: 0,
+        transform: "uppercase", lineHeight: 1 },
+      { id: id(), type: "text", name: "Set", x: 60, y: 92.5, w: 36, h: 6,
+        content: "{{set}}", fontSize: 3.4, weight: 400, italic: true,
+        color: "#7a6f5a", align: "right", valign: "center", pad: 0.5,
+        fill: "", border: 0, borderColor: "#000", radius: 0,
+        transform: "none", lineHeight: 1 },
+    ],
+  };
+}
+
+/* Sample deck — a handful of real Dominion cards so the app works
+   with zero setup. Import data/dominion_cards.json for all 538. */
+const SAMPLE = [
+  { name: "Village",  set: "Base", cost: "$3", types: ["Action"], victory_points: "", text: "+1 Card\n+2 Actions" },
+  { name: "Smithy",   set: "Base", cost: "$4", types: ["Action"], victory_points: "", text: "+3 Cards" },
+  { name: "Market",   set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+1 Card\n+1 Action\n+1 Buy\n+$1" },
+  { name: "Laboratory",set:"Base", cost: "$5", types: ["Action"], victory_points: "", text: "+2 Cards\n+1 Action" },
+  { name: "Festival", set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+2 Actions\n+1 Buy\n+$2" },
+  { name: "Council Room", set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+4 Cards\n+1 Buy\nEach other player draws a card." },
+  { name: "Witch",    set: "Base", cost: "$5", types: ["Action","Attack"], victory_points: "", text: "+2 Cards\nEach other player gains a Curse." },
+  { name: "Moat",     set: "Base", cost: "$2", types: ["Action","Reaction"], victory_points: "", text: "+2 Cards\nWhen another player plays an Attack card, you may first reveal this from your hand, to be unaffected by it." },
+  { name: "Gardens",  set: "Base", cost: "$4", types: ["Victory"], victory_points: "", text: "Worth 1 VP per 10 cards you have (round down)." },
+  { name: "Cellar",   set: "Base", cost: "$2", types: ["Action"], victory_points: "", text: "+1 Action\nDiscard any number of cards, then draw that many." },
+  { name: "Chapel",   set: "Base", cost: "$2", types: ["Action"], victory_points: "", text: "Trash up to 4 cards from your hand." },
+  { name: "Bandit",   set: "Base", cost: "$5", types: ["Action","Attack"], victory_points: "", text: "Gain a Gold. Each other player reveals the top 2 cards of their deck, trashes a revealed Treasure other than Copper, and discards the rest." },
+];
+
+/* ------------------------------------------------------------------ *
+ * State
+ * ------------------------------------------------------------------ */
+const state = {
+  sizeKey: "poker",
+  cardBg: "#fbf7ec",
+  cardBorder: "#c9b98f",
+  data: [],
+  columns: [],
+  template: defaultTemplate(),
+  rowIndex: 0,
+  selEl: null,
+};
+
+function id() { return "e" + Math.floor(performance.now() * 1000).toString(36) + Math.floor(counterInc()).toString(36); }
+function counterInc() { _c += 1; return _c; }
+
+/* ------------------------------------------------------------------ *
+ * Data loading / flattening
+ * ------------------------------------------------------------------ */
+function flattenValue(v) {
+  if (v == null) return "";
+  if (Array.isArray(v)) return v.join(" – ");
+  if (typeof v === "object") {
+    return Object.entries(v).map(([k, val]) => (val === "" || val == null ? k : "+" + val + " " + k)).join(", ");
+  }
+  return String(v);
+}
+function flattenRow(obj) {
+  const out = {};
+  for (const k of Object.keys(obj)) out[k] = flattenValue(obj[k]);
+  return out;
+}
+function setData(rows) {
+  state.data = rows.map(flattenRow);
+  const cols = new Set();
+  state.data.forEach(r => Object.keys(r).forEach(k => cols.add(k)));
+  state.columns = [...cols];
+  state.rowIndex = 0;
+  renderAll();
+  document.getElementById("dataInfo").textContent =
+    state.data.length + " cards · fields: " + state.columns.join(", ");
+}
+
+function loadSample() { setData(SAMPLE); }
+
+function parseCSV(text) {
+  // minimal RFC-4180-ish CSV parser (handles quotes, commas, newlines)
+  const rows = [];
+  let row = [], cur = "", inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQ) {
+      if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false; }
+      else cur += ch;
+    } else {
+      if (ch === '"') inQ = true;
+      else if (ch === ",") { row.push(cur); cur = ""; }
+      else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+      else if (ch === "\r") { /* skip */ }
+      else cur += ch;
+    }
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  if (!rows.length) return [];
+  const header = rows.shift().map(h => h.trim());
+  return rows.filter(r => r.some(c => c !== "")).map(r => {
+    const o = {};
+    header.forEach((h, i) => o[h] = (r[i] ?? "").trim());
+    return o;
+  });
+}
+function parseAny(text) {
+  const t = text.trim();
+  if (!t) return [];
+  if (t[0] === "{" || t[0] === "[") {
+    const j = JSON.parse(t);
+    if (Array.isArray(j)) return j;
+    if (Array.isArray(j.cards)) return j.cards;
+    // object of arrays or single object
+    return [j];
+  }
+  return parseCSV(t);
+}
+
+/* ------------------------------------------------------------------ *
+ * Template binding + card rendering (unit-agnostic: px or mm)
+ * ------------------------------------------------------------------ */
+function bind(str, row) {
+  return String(str).replace(/\{\{\s*([\w.\- ]+)\s*\}\}/g, (_, key) => {
+    const k = key.trim();
+    return row[k] != null ? row[k] : "";
+  });
+}
+
+function renderCard(row, cardH, cardW, unit) {
+  const u = unit;
+  const card = document.createElement("div");
+  card.className = "card";
+  card.style.width = cardW + u;
+  card.style.height = cardH + u;
+  card.style.background = state.cardBg;
+  card.style.border = (cardH * 0.006) + u + " solid " + state.cardBorder;
+
+  state.template.elements.forEach(el => {
+    const box = document.createElement("div");
+    box.className = "el";
+    box.dataset.id = el.id;
+    box.style.left = el.x + "%";
+    box.style.top = el.y + "%";
+    box.style.width = el.w + "%";
+    box.style.height = el.h + "%";
+    box.style.display = "flex";
+    box.style.alignItems = el.valign === "top" ? "flex-start" : el.valign === "bottom" ? "flex-end" : "center";
+    box.style.justifyContent = el.align === "left" ? "flex-start" : el.align === "right" ? "flex-end" : "center";
+    box.style.textAlign = el.align;
+    if (el.fill) box.style.background = el.fill;
+    if (el.border > 0) box.style.border = (el.border / 100 * cardH) + u + " solid " + el.borderColor;
+    box.style.borderRadius = el.radius + "%";
+    box.style.padding = (el.pad / 100 * cardH) + u;
+
+    if (el.type === "image") {
+      const src = bind(el.content, row);
+      if (src) {
+        box.style.backgroundImage = "url('" + src.replace(/'/g, "%27") + "')";
+        box.style.backgroundSize = "cover";
+        box.style.backgroundPosition = "center";
+      }
+    } else if (el.type === "rect") {
+      /* fill/border only */
+    } else {
+      const span = document.createElement("div");
+      span.style.width = "100%";
+      span.style.fontSize = (el.fontSize / 100 * cardH) + u;
+      span.style.fontWeight = el.weight;
+      span.style.fontStyle = el.italic ? "italic" : "normal";
+      span.style.color = el.color;
+      span.style.lineHeight = el.lineHeight;
+      span.style.textTransform = el.transform;
+      span.style.whiteSpace = "pre-wrap";
+      span.style.textAlign = el.align;
+      span.textContent = bind(el.content, row);
+      box.appendChild(span);
+    }
+    card.appendChild(box);
+  });
+  return card;
+}
+
+/* ------------------------------------------------------------------ *
+ * Design view rendering
+ * ------------------------------------------------------------------ */
+function currentSize() { return SIZES[state.sizeKey]; }
+
+function renderStage() {
+  const sz = currentSize();
+  const stage = document.getElementById("cardStage");
+  stage.innerHTML = "";
+  const row = state.data[state.rowIndex] || {};
+  const card = renderCard(row, sz.h * PREVIEW_PX_PER_MM, sz.w * PREVIEW_PX_PER_MM, "px");
+  card.classList.add("editing");
+  if (state.selEl) {
+    const s = card.querySelector('[data-id="' + state.selEl + '"]');
+    if (s) s.classList.add("sel");
+  }
+  enableDrag(card);
+  stage.appendChild(card);
+  document.getElementById("stageMeta").textContent =
+    sz.label + "  ·  card " + (state.data.length ? state.rowIndex + 1 : 0) + " of " + state.data.length;
+  document.getElementById("sizeInfo").textContent = sz.w + " × " + sz.h + " mm";
+}
+
+function enableDrag(card) {
+  let drag = null;
+  card.addEventListener("pointerdown", e => {
+    const box = e.target.closest(".el");
+    if (!box) return;
+    const elId = box.dataset.id;
+    selectElement(elId);
+    const el = state.template.elements.find(x => x.id === elId);
+    const rect = card.getBoundingClientRect();
+    drag = { el, rect, startX: e.clientX, startY: e.clientY, ox: el.x, oy: el.y };
+    box.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  card.addEventListener("pointermove", e => {
+    if (!drag) return;
+    const dx = (e.clientX - drag.startX) / drag.rect.width * 100;
+    const dy = (e.clientY - drag.startY) / drag.rect.height * 100;
+    drag.el.x = clamp(round1(drag.ox + dx), -20, 100);
+    drag.el.y = clamp(round1(drag.oy + dy), -20, 100);
+    renderStage();
+    if (state.selEl === drag.el.id) fillProps(drag.el);
+  });
+  card.addEventListener("pointerup", () => { drag = null; });
+  card.addEventListener("pointercancel", () => { drag = null; });
+}
+
+function renderElList() {
+  const ul = document.getElementById("elList");
+  ul.innerHTML = "";
+  // show top-most first
+  [...state.template.elements].reverse().forEach(el => {
+    const li = document.createElement("li");
+    if (el.id === state.selEl) li.classList.add("sel");
+    li.innerHTML = '<span class="tag">' + el.type + '</span>' +
+                   '<span class="nm"></span>' +
+                   '<span class="zbtns">' +
+                     '<button class="btn mini" data-z="up">↑</button>' +
+                     '<button class="btn mini" data-z="down">↓</button>' +
+                     '<button class="btn mini danger" data-z="del">✕</button>' +
+                   '</span>';
+    li.querySelector(".nm").textContent = el.name || el.content || el.type;
+    li.addEventListener("click", e => {
+      if (e.target.dataset.z) return;
+      selectElement(el.id);
+    });
+    li.querySelector('[data-z="up"]').addEventListener("click", () => moveEl(el.id, 1));
+    li.querySelector('[data-z="down"]').addEventListener("click", () => moveEl(el.id, -1));
+    li.querySelector('[data-z="del"]').addEventListener("click", () => delEl(el.id));
+    ul.appendChild(li);
+  });
+}
+
+function selectElement(elId) {
+  state.selEl = elId;
+  renderElList();
+  renderStage();
+  const el = state.template.elements.find(x => x.id === elId);
+  if (el) fillProps(el);
+}
+
+function propInput(label, key, el, type, opts) {
+  const wrap = document.createElement("label");
+  wrap.className = "field";
+  const span = document.createElement("span");
+  span.textContent = label;
+  wrap.appendChild(span);
+  let input;
+  if (type === "select") {
+    input = document.createElement("select");
+    opts.forEach(o => {
+      const op = document.createElement("option");
+      op.value = o; op.textContent = o; input.appendChild(op);
+    });
+    input.value = el[key];
+  } else if (type === "textarea") {
+    input = document.createElement("textarea");
+    input.value = el[key];
+  } else if (type === "checkbox") {
+    input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = !!el[key];
+    input.style.width = "auto";
+  } else {
+    input = document.createElement("input");
+    input.type = type;
+    input.value = el[key];
+    if (type === "number") input.step = opts && opts.step ? opts.step : "0.1";
+  }
+  input.addEventListener("input", () => {
+    let v;
+    if (type === "checkbox") v = input.checked;
+    else if (type === "number") v = parseFloat(input.value) || 0;
+    else v = input.value;
+    el[key] = v;
+    renderStage();
+    renderElList();
+  });
+  wrap.appendChild(input);
+  return wrap;
+}
+
+function fillProps(el) {
+  const body = document.getElementById("propBody");
+  body.innerHTML = "";
+  const add = (...nodes) => nodes.forEach(n => body.appendChild(n));
+  add(propInput("Name", "name", el, "text"));
+
+  if (el.type !== "rect") {
+    add(propInput(el.type === "image" ? "Image URL (supports {{field}})" : "Content (supports {{field}})",
+                  "content", el, "textarea"));
+  }
+  const geo = document.createElement("div");
+  geo.className = "row2";
+  geo.appendChild(propInput("X %", "x", el, "number"));
+  geo.appendChild(propInput("Y %", "y", el, "number"));
+  const geo2 = document.createElement("div");
+  geo2.className = "row2";
+  geo2.appendChild(propInput("W %", "w", el, "number"));
+  geo2.appendChild(propInput("H %", "h", el, "number"));
+  add(geo, geo2);
+
+  if (el.type === "text") {
+    const f = document.createElement("div"); f.className = "row2";
+    f.appendChild(propInput("Font size %", "fontSize", el, "number"));
+    f.appendChild(propInput("Weight", "weight", el, "select", ["300","400","500","600","700","800"]));
+    add(f);
+    const a = document.createElement("div"); a.className = "row2";
+    a.appendChild(propInput("Align", "align", el, "select", ["left","center","right"]));
+    a.appendChild(propInput("V-Align", "valign", el, "select", ["top","center","bottom"]));
+    add(a);
+    const t = document.createElement("div"); t.className = "row2";
+    t.appendChild(propInput("Transform", "transform", el, "select", ["none","uppercase","capitalize","lowercase"]));
+    t.appendChild(propInput("Line height", "lineHeight", el, "number", {step:"0.05"}));
+    add(t);
+    add(propInput("Italic", "italic", el, "checkbox"));
+    add(colorRow("Text color", "color", el));
+  }
+
+  add(colorRow("Fill", "fill", el, true));
+  const b = document.createElement("div"); b.className = "row2";
+  b.appendChild(propInput("Border %", "border", el, "number"));
+  b.appendChild(propInput("Radius %", "radius", el, "number"));
+  add(b);
+  add(colorRow("Border color", "borderColor", el));
+  add(propInput("Padding %", "pad", el, "number"));
+}
+
+function colorRow(label, key, el, allowEmpty) {
+  const wrap = document.createElement("label");
+  wrap.className = "field";
+  const span = document.createElement("span"); span.textContent = label;
+  wrap.appendChild(span);
+  const holder = document.createElement("div");
+  holder.style.display = "flex"; holder.style.gap = "6px"; holder.style.alignItems = "center";
+  const color = document.createElement("input");
+  color.type = "color";
+  color.value = /^#[0-9a-f]{6}$/i.test(el[key]) ? el[key] : "#000000";
+  color.addEventListener("input", () => { el[key] = color.value; renderStage(); });
+  holder.appendChild(color);
+  if (allowEmpty) {
+    const none = document.createElement("button");
+    none.className = "btn mini"; none.textContent = "none";
+    none.addEventListener("click", () => { el[key] = ""; renderStage(); fillProps(el); });
+    holder.appendChild(none);
+    const cur = document.createElement("span");
+    cur.className = "hint"; cur.textContent = el[key] ? el[key] : "(transparent)";
+    holder.appendChild(cur);
+  }
+  wrap.appendChild(holder);
+  return wrap;
+}
+
+/* element ops */
+function addEl(type) {
+  const el = {
+    id: id(), type, name: type[0].toUpperCase() + type.slice(1),
+    x: 30, y: 40, w: 40, h: 14,
+    content: type === "text" ? "{{" + (state.columns[0] || "name") + "}}" : (type === "image" ? "{{image}}" : ""),
+    fontSize: 5, weight: 400, italic: false, color: "#2a2117",
+    align: "center", valign: "center", pad: 1,
+    fill: type === "rect" ? "#e8dcc0" : "", border: 0, borderColor: "#000", radius: type === "rect" ? 6 : 0,
+    transform: "none", lineHeight: 1.2,
+  };
+  state.template.elements.push(el);
+  selectElement(el.id);
+}
+function delEl(elId) {
+  state.template.elements = state.template.elements.filter(e => e.id !== elId);
+  if (state.selEl === elId) { state.selEl = null; document.getElementById("propBody").innerHTML =
+    '<div class="hint">Select an element to edit it.</div>'; }
+  renderElList(); renderStage();
+}
+function moveEl(elId, dir) {
+  const arr = state.template.elements;
+  const i = arr.findIndex(e => e.id === elId);
+  const j = i + dir;
+  if (j < 0 || j >= arr.length) return;
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  renderElList(); renderStage();
+}
+
+/* ------------------------------------------------------------------ *
+ * Deck view
+ * ------------------------------------------------------------------ */
+function renderDeck() {
+  const grid = document.getElementById("deckGrid");
+  grid.innerHTML = "";
+  const sz = currentSize();
+  const fit = document.getElementById("fitScreen").checked;
+  const scale = fit ? 2.6 : PREVIEW_PX_PER_MM;
+  state.data.forEach(row => {
+    grid.appendChild(renderCard(row, sz.h * scale, sz.w * scale, "px"));
+  });
+  document.getElementById("deckCount").textContent = state.data.length + " cards";
+}
+
+/* ------------------------------------------------------------------ *
+ * Export
+ * ------------------------------------------------------------------ */
+function doPrint() {
+  const sz = currentSize();
+  const area = document.getElementById("printArea");
+  area.innerHTML = "";
+  const grid = document.createElement("div");
+  grid.className = "print-grid";
+  state.data.forEach(row => {
+    const c = renderCard(row, sz.h, sz.w, "mm");
+    c.style.pageBreakInside = "avoid";
+    grid.appendChild(c);
+  });
+  area.appendChild(grid);
+  window.print();
+}
+
+function cardToPng(row, filename) {
+  const sz = currentSize();
+  const scale = 4; // px per mm -> ~ 250x350 * ~1.6
+  const wPx = Math.round(sz.w * scale * PREVIEW_PX_PER_MM / 3.4 * 1.6);
+  const hPx = Math.round(sz.h * scale * PREVIEW_PX_PER_MM / 3.4 * 1.6);
+  const card = renderCard(row, hPx, wPx, "px");
+  card.style.position = "absolute"; card.style.left = "-99999px";
+  document.body.appendChild(card);
+  const html = new XMLSerializer().serializeToString(card);
+  document.body.removeChild(card);
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + wPx + '" height="' + hPx + '">' +
+              '<foreignObject width="100%" height="100%">' +
+              '<div xmlns="http://www.w3.org/1999/xhtml">' + html + '</div>' +
+              '</foreignObject></svg>';
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = wPx; canvas.height = hPx;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    canvas.toBlob(blob => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+  };
+  img.onerror = () => alert("PNG export failed for this card (external images can't be captured). Use Print / Save as PDF instead.");
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+function downloadAllPngs() {
+  if (!state.data.length) return;
+  if (state.data.length > 20 &&
+      !confirm("This will trigger " + state.data.length + " separate PNG downloads. Continue?")) return;
+  state.data.forEach((row, i) => {
+    const nm = (row.name || ("card-" + (i + 1))).replace(/[^\w\-]+/g, "_");
+    setTimeout(() => cardToPng(row, nm + ".png"), i * 250);
+  });
+}
+
+/* ------------------------------------------------------------------ *
+ * Wiring
+ * ------------------------------------------------------------------ */
+function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+function round1(v) { return Math.round(v * 10) / 10; }
+
+function renderRowSel() {
+  const sel = document.getElementById("rowSel");
+  sel.innerHTML = "";
+  state.data.forEach((r, i) => {
+    const o = document.createElement("option");
+    o.value = i; o.textContent = (i + 1) + ". " + (r.name || "card " + (i + 1));
+    sel.appendChild(o);
+  });
+  sel.value = state.rowIndex;
+}
+
+function renderFieldChips() {
+  const box = document.getElementById("fieldChips");
+  box.innerHTML = "";
+  state.columns.forEach(c => {
+    const b = document.createElement("button");
+    b.className = "btn mini";
+    b.textContent = "{{" + c + "}}";
+    b.title = "Copy token";
+    b.addEventListener("click", () => {
+      navigator.clipboard && navigator.clipboard.writeText("{{" + c + "}}");
+      b.textContent = "copied!";
+      setTimeout(() => b.textContent = "{{" + c + "}}", 700);
+    });
+    box.appendChild(b);
+  });
+}
+
+function renderAll() {
+  renderRowSel();
+  renderFieldChips();
+  renderElList();
+  renderStage();
+  renderDeck();
+}
+
+function initSizes() {
+  const sel = document.getElementById("sizeSel");
+  Object.entries(SIZES).forEach(([k, v]) => {
+    const o = document.createElement("option");
+    o.value = k; o.textContent = v.label; sel.appendChild(o);
+  });
+  sel.value = state.sizeKey;
+  sel.addEventListener("change", () => { state.sizeKey = sel.value; renderStage(); renderDeck(); });
+}
+
+function initEvents() {
+  // tabs
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("view-" + btn.dataset.tab).classList.add("active");
+      if (btn.dataset.tab === "deck") renderDeck();
+    });
+  });
+  // data
+  document.getElementById("btnSample").addEventListener("click", loadSample);
+  document.getElementById("btnUpload").addEventListener("click", () => document.getElementById("fileInput").click());
+  document.getElementById("fileInput").addEventListener("change", e => {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { try { setData(parseAny(r.result)); } catch (err) { alert("Could not parse file: " + err.message); } };
+    r.readAsText(f);
+  });
+  document.getElementById("btnParse").addEventListener("click", () => {
+    try { setData(parseAny(document.getElementById("pasteBox").value)); }
+    catch (err) { alert("Could not parse: " + err.message); }
+  });
+  // card look
+  document.getElementById("cardBg").addEventListener("input", e => { state.cardBg = e.target.value; renderStage(); renderDeck(); });
+  document.getElementById("cardBorder").addEventListener("input", e => { state.cardBorder = e.target.value; renderStage(); renderDeck(); });
+  // row nav
+  document.getElementById("rowSel").addEventListener("change", e => { state.rowIndex = +e.target.value; renderStage(); });
+  document.getElementById("prevRow").addEventListener("click", () => { state.rowIndex = (state.rowIndex - 1 + state.data.length) % state.data.length; renderRowSel(); renderStage(); });
+  document.getElementById("nextRow").addEventListener("click", () => { state.rowIndex = (state.rowIndex + 1) % state.data.length; renderRowSel(); renderStage(); });
+  // add elements
+  document.querySelectorAll("[data-add]").forEach(b => b.addEventListener("click", () => addEl(b.dataset.add)));
+  document.getElementById("resetTpl").addEventListener("click", () => {
+    if (confirm("Reset the layout template to the default?")) { state.template = defaultTemplate(); state.selEl = null; renderAll(); document.getElementById("propBody").innerHTML = '<div class="hint">Select an element to edit it.</div>'; }
+  });
+  // deck / export
+  document.getElementById("fitScreen").addEventListener("change", renderDeck);
+  document.getElementById("btnPrint").addEventListener("click", doPrint);
+  document.getElementById("btnPngAll").addEventListener("click", downloadAllPngs);
+}
+
+/* try to auto-load the full Dominion dataset if served alongside; fall back to sample */
+function boot() {
+  initSizes();
+  initEvents();
+  document.getElementById("cardBg").value = state.cardBg;
+  document.getElementById("cardBorder").value = state.cardBorder;
+  fetch("data/dominion_cards.json")
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(j => { const cards = Array.isArray(j) ? j : j.cards; if (cards && cards.length) setData(cards); else loadSample(); })
+    .catch(() => loadSample());
+}
+boot();
+</script>
