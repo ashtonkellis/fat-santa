@@ -106,8 +106,18 @@
     position: relative; overflow: hidden; border-radius: 4.5% / 3.2%;
     user-select: none;
   }
+  .card { -webkit-print-color-adjust: exact; print-color-adjust: exact;
+          background-size: cover; background-position: center; }
   .card .el { position: absolute; overflow: hidden; box-sizing: border-box;
-              white-space: pre-wrap; word-break: break-word; }
+              white-space: pre-wrap; word-break: break-word;
+              -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .frame-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 4px; }
+  .frame-thumbs .fth { border: 2px solid transparent; border-radius: 5px; overflow: hidden;
+                       cursor: pointer; background: #1a1e24; aspect-ratio: 3/4; }
+  .frame-thumbs .fth.sel { border-color: var(--accent); }
+  .frame-thumbs .fth img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .frame-thumbs .fth.none { display: flex; align-items: center; justify-content: center;
+                            color: var(--muted); font-size: 10px; }
   .card.editing .el { outline: 1px dashed rgba(120,140,170,.35); cursor: move; }
   .card.editing .el.sel { outline: 2px solid var(--accent); }
   .stage-meta { color: var(--muted); font-size: 12px; text-align: center; }
@@ -186,6 +196,24 @@
           <span>Card border color</span>
           <input type="color" id="cardBorder" value="#c9b98f" />
         </label>
+      </div>
+
+      <div class="section">
+        <h2>Card frame</h2>
+        <label class="field">
+          <span>Frame artwork (background)</span>
+          <select id="frameSel"></select>
+        </label>
+        <label class="field">
+          <span>Layout preset (positions fields on the frame)</span>
+          <select id="presetSel">
+            <option value="dominion">Dominion (no frame)</option>
+            <option value="simple">Simple / banner frame</option>
+            <option value="templar">Templar / gem frame</option>
+          </select>
+        </label>
+        <div class="frame-thumbs" id="frameThumbs"></div>
+        <div class="hint">Picking a frame auto-applies a matching preset. Fine-tune any element on the right.</div>
       </div>
 
       <div class="section">
@@ -308,6 +336,51 @@ function defaultTemplate() {
   };
 }
 
+/* Element factory — fills defaults so presets stay terse. */
+function mkEl(o) {
+  return Object.assign({
+    id: id(), type: "text", name: "Element", x: 10, y: 10, w: 40, h: 12,
+    content: "", fontSize: 5, weight: 400, italic: false, color: "#2a2117",
+    align: "center", valign: "center", pad: 1, fill: "", border: 0,
+    borderColor: "#000", radius: 0, transform: "none", lineHeight: 1.2,
+  }, o);
+}
+
+/* Frame-tuned layout presets. Coordinates target the corresponding Dextrous
+   frame's regions (banner / cost gem / text panel). Text is transparent-
+   backed so the frame art shows through. */
+const PRESETS = {
+  dominion: () => defaultTemplate(),
+  // Simple / banner family: title banner across the top with a cost pill at
+  // its left, and a text panel across the bottom.
+  simple: () => ({ elements: [
+    mkEl({ name: "Cost",      content: "{{cost}}", x: 5.5, y: 5, w: 15, h: 8,
+           fontSize: 5.2, weight: 800, color: "#3a2f14" }),
+    mkEl({ name: "Name",      content: "{{name}}", x: 21, y: 5, w: 71, h: 8,
+           fontSize: 5.2, weight: 700, color: "#2a2117" }),
+    mkEl({ name: "Type line", content: "{{types}}", x: 8, y: 70, w: 84, h: 5,
+           fontSize: 3.6, weight: 700, transform: "uppercase", color: "#4a3f28" }),
+    mkEl({ name: "Rules text",content: "{{text}}", x: 9, y: 76, w: 82, h: 17,
+           fontSize: 4.2, valign: "center", color: "#3a3020", lineHeight: 1.25 }),
+    mkEl({ name: "Set",       content: "{{set}}", x: 8, y: 94, w: 84, h: 4.5,
+           fontSize: 3, italic: true, color: "#7a6f5a" }),
+  ] }),
+  // Templar / gem family: cost gem top-left, title in a mid banner, rules in
+  // the lower panel.
+  templar: () => ({ elements: [
+    mkEl({ name: "Cost",      content: "{{cost}}", x: 4, y: 3.5, w: 15, h: 11,
+           fontSize: 5.6, weight: 800, color: "#e9edf5" }),
+    mkEl({ name: "Name",      content: "{{name}}", x: 12, y: 59, w: 76, h: 10,
+           fontSize: 5.2, weight: 700, color: "#3a2c12" }),
+    mkEl({ name: "Type line", content: "{{types}}", x: 12, y: 70, w: 76, h: 4.5,
+           fontSize: 3.4, weight: 700, transform: "uppercase", color: "#5a4a28" }),
+    mkEl({ name: "Rules text",content: "{{text}}", x: 12, y: 75, w: 76, h: 16,
+           fontSize: 4, valign: "center", color: "#40361f", lineHeight: 1.22 }),
+    mkEl({ name: "Set",       content: "{{set}}", x: 12, y: 92, w: 76, h: 4,
+           fontSize: 3, italic: true, color: "#6f6350" }),
+  ] }),
+};
+
 /* Sample deck — a handful of real Dominion cards so the app works
    with zero setup. Import data/dominion_cards.json for all 538. */
 const SAMPLE = [
@@ -332,12 +405,32 @@ const state = {
   sizeKey: "poker",
   cardBg: "#fbf7ec",
   cardBorder: "#c9b98f",
+  frame: "",            // path to a frame image under assets/card-frames, or "" for none
   data: [],
   columns: [],
   template: defaultTemplate(),
   rowIndex: 0,
   selEl: null,
 };
+
+/* Card frames downloaded from Dextrous (assets/card-frames/). Each maps to
+   the layout preset that best fits its regions. */
+const FRAME_DIR = "assets/card-frames/";
+const FRAMES = [
+  { file: "Simple.png",        preset: "simple" },
+  { file: "Templar.png",       preset: "templar" },
+  { file: "Intrigue.png",      preset: "templar" },
+  { file: "Magic wood.png",    preset: "templar" },
+  { file: "Quasar.png",        preset: "simple" },
+  { file: "Sci-fi salt.png",   preset: "simple" },
+  { file: "Into the blue.png", preset: "simple" },
+  { file: "Fresh mint.png",    preset: "simple" },
+  { file: "Geometric.png",     preset: "simple" },
+  { file: "Bidding.png",       preset: "simple" },
+  { file: "DnD.png",           preset: "simple" },
+  { file: "Simple pixel.png",  preset: "simple" },
+];
+function frameURL(file) { return FRAME_DIR + file.split("/").map(encodeURIComponent).join("/"); }
 
 function id() { return "e" + Math.floor(performance.now() * 1000).toString(36) + Math.floor(counterInc()).toString(36); }
 function counterInc() { _c += 1; return _c; }
@@ -426,8 +519,15 @@ function renderCard(row, cardH, cardW, unit) {
   card.className = "card";
   card.style.width = cardW + u;
   card.style.height = cardH + u;
-  card.style.background = state.cardBg;
-  card.style.border = (cardH * 0.006) + u + " solid " + state.cardBorder;
+  if (state.frame) {
+    card.style.backgroundColor = state.cardBg;
+    card.style.backgroundImage = "url('" + frameURL(state.frame).replace(/'/g, "%27") + "')";
+    card.style.backgroundSize = "100% 100%";   // fill the card exactly
+    card.style.border = "none";
+  } else {
+    card.style.background = state.cardBg;
+    card.style.border = (cardH * 0.006) + u + " solid " + state.cardBorder;
+  }
 
   state.template.elements.forEach(el => {
     const box = document.createElement("div");
@@ -825,6 +925,60 @@ function initSizes() {
   sel.addEventListener("change", () => { state.sizeKey = sel.value; renderStage(); renderDeck(); });
 }
 
+function applyPreset(name) {
+  const make = PRESETS[name];
+  if (!make) return;
+  state.template = make();
+  state.selEl = null;
+  document.getElementById("presetSel").value = name;
+  renderAll();
+  const pb = document.getElementById("propBody");
+  if (pb) pb.innerHTML = '<div class="hint">Select an element to edit it.</div>';
+}
+
+function setFrame(file) {
+  state.frame = file || "";
+  document.querySelectorAll("#frameThumbs .fth").forEach(t =>
+    t.classList.toggle("sel", (t.dataset.file || "") === state.frame));
+  const frameSel = document.getElementById("frameSel");
+  if (frameSel) frameSel.value = state.frame;
+  renderStage(); renderDeck();
+}
+
+function initFrames() {
+  const sel = document.getElementById("frameSel");
+  const thumbs = document.getElementById("frameThumbs");
+  const none = document.createElement("option");
+  none.value = ""; none.textContent = "None (solid background)";
+  sel.appendChild(none);
+
+  // "none" thumb
+  const nthumb = document.createElement("div");
+  nthumb.className = "fth none sel"; nthumb.dataset.file = ""; nthumb.textContent = "None";
+  nthumb.addEventListener("click", () => setFrame(""));
+  thumbs.appendChild(nthumb);
+
+  FRAMES.forEach(f => {
+    const o = document.createElement("option");
+    o.value = f.file; o.textContent = f.file.replace(/\.png$/i, "");
+    sel.appendChild(o);
+    const t = document.createElement("div");
+    t.className = "fth"; t.dataset.file = f.file; t.title = f.file.replace(/\.png$/i, "");
+    const img = document.createElement("img");
+    img.loading = "lazy"; img.src = frameURL(f.file); img.alt = f.file;
+    t.appendChild(img);
+    t.addEventListener("click", () => { setFrame(f.file); applyPreset(f.preset); });
+    thumbs.appendChild(t);
+  });
+
+  sel.addEventListener("change", () => {
+    setFrame(sel.value);
+    const f = FRAMES.find(x => x.file === sel.value);
+    if (f) applyPreset(f.preset);
+  });
+  document.getElementById("presetSel").addEventListener("change", e => applyPreset(e.target.value));
+}
+
 function initEvents() {
   // tabs
   document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -870,6 +1024,7 @@ function initEvents() {
 /* try to auto-load the full Dominion dataset if served alongside; fall back to sample */
 function boot() {
   initSizes();
+  initFrames();
   initEvents();
   document.getElementById("cardBg").value = state.cardBg;
   document.getElementById("cardBorder").value = state.cardBorder;
