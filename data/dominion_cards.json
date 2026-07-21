@@ -1,0 +1,7509 @@
+{
+  "description": "Every card from the deck-building game Dominion (Donald X. Vaccarino, Rio Grande Games), grouped by expansion.",
+  "source": "Data scraped from the Dominion Strategy Wiki (wiki.dominionstrategy.com), packaged in the MIT-licensed PyPI 'dominion' project by Dan Foreman-Mackey (github.com/dfm/dominion).",
+  "snapshot": "Covers expansions released through Menagerie (2020). Does NOT include the three later large expansions: Allies (2022), Plunder (2023), or Rising Sun (2023). See the 'Expansions not in this dataset' section of dominion_cards.md for details.",
+  "card_count": 538,
+  "sets": [
+    {
+      "name": "Base",
+      "count": 33
+    },
+    {
+      "name": "Intrigue",
+      "count": 26
+    },
+    {
+      "name": "Seaside",
+      "count": 26
+    },
+    {
+      "name": "Alchemy",
+      "count": 13
+    },
+    {
+      "name": "Prosperity",
+      "count": 27
+    },
+    {
+      "name": "Cornucopia",
+      "count": 18
+    },
+    {
+      "name": "Hinterlands",
+      "count": 26
+    },
+    {
+      "name": "Dark Ages",
+      "count": 55
+    },
+    {
+      "name": "Guilds",
+      "count": 13
+    },
+    {
+      "name": "Adventures",
+      "count": 58
+    },
+    {
+      "name": "Empires",
+      "count": 70
+    },
+    {
+      "name": "Nocturne",
+      "count": 77
+    },
+    {
+      "name": "Renaissance",
+      "count": 50
+    },
+    {
+      "name": "Menagerie",
+      "count": 34
+    },
+    {
+      "name": "Promo",
+      "count": 12
+    }
+  ],
+  "cards": [
+    {
+      "name": "Artisan",
+      "set": "Base",
+      "cost": "$6",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a card to your hand costing up to $5.\nPut a card from your hand onto your deck."
+    },
+    {
+      "name": "Bandit",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a Gold. Each other player reveals the top 2 cards of their deck, trashes a revealed Treasure other than Copper, and discards the rest."
+    },
+    {
+      "name": "Bureaucrat",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a Silver onto your deck. Each other player reveals a Victory card from their hand and puts it onto their deck (or reveals a hand with no Victory cards)."
+    },
+    {
+      "name": "Cellar",
+      "set": "Base",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X,+X",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nDiscard any number of cards, then draw that many."
+    },
+    {
+      "name": "Chapel",
+      "set": "Base",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "4"
+      },
+      "text": "Trash up to 4 cards from your hand."
+    },
+    {
+      "name": "Copper",
+      "set": "Base",
+      "cost": "$0",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1"
+    },
+    {
+      "name": "Council Room",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+4",
+        "Buys": "+1"
+      },
+      "text": "+4 Cards\n+1 Buy\nEach other player draws a card."
+    },
+    {
+      "name": "Curse",
+      "set": "Base",
+      "cost": "$0",
+      "types": [
+        "Curse"
+      ],
+      "victory_points": "-1VP",
+      "effects": {},
+      "text": "-1VP"
+    },
+    {
+      "name": "Duchy",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "3VP",
+      "effects": {},
+      "text": "3VP"
+    },
+    {
+      "name": "Estate",
+      "set": "Base",
+      "cost": "$2",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "1VP",
+      "effects": {},
+      "text": "1VP"
+    },
+    {
+      "name": "Festival",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2",
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+2 Actions\n+1 Buy\n+$2"
+    },
+    {
+      "name": "Gardens",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 1VP per 10 cards you have (round down)."
+    },
+    {
+      "name": "Gold",
+      "set": "Base",
+      "cost": "$6",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3"
+      },
+      "text": "$3"
+    },
+    {
+      "name": "Harbinger",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nLook through your discard pile. You may put a card from it onto your deck."
+    },
+    {
+      "name": "Laboratory",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+2 Cards\n+1 Action"
+    },
+    {
+      "name": "Library",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X?"
+      },
+      "text": "Draw until you have 7 cards in hand, skipping any Action cards you choose to; set those aside, discarding them afterwards."
+    },
+    {
+      "name": "Market",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+1 Buy\n+$1"
+    },
+    {
+      "name": "Merchant",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "+1 Card\n+1 Action\nThe first time you play a Silver this turn, +$1."
+    },
+    {
+      "name": "Militia",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nEach other player discards down to 3 cards in hand."
+    },
+    {
+      "name": "Mine",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "You may trash a Treasure card from your hand. Gain a Treasure card to your hand costing up to $3 more than it."
+    },
+    {
+      "name": "Moat",
+      "set": "Base",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 CardsWhen another player plays an Attack card, you may first reveal this from your hand, to be unaffected by it."
+    },
+    {
+      "name": "Moneylender",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3?",
+        "Trash": "1"
+      },
+      "text": "You may trash a Copper from your hand for +$3."
+    },
+    {
+      "name": "Poacher",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1,-X",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1\nDiscard a card per empty Supply pile."
+    },
+    {
+      "name": "Province",
+      "set": "Base",
+      "cost": "$8",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "6VP",
+      "effects": {},
+      "text": "6VP"
+    },
+    {
+      "name": "Remodel",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "Trash a card from your hand. Gain a card costing up to $2 more than it."
+    },
+    {
+      "name": "Sentry",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "2?"
+      },
+      "text": "+1 Card\n+1 Action\nLook at the top 2 cards of your deck. Trash and/or discard any number of them. Put the rest back on top in any order."
+    },
+    {
+      "name": "Silver",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2"
+    },
+    {
+      "name": "Smithy",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3"
+      },
+      "text": "+3 Cards"
+    },
+    {
+      "name": "Throne Room",
+      "set": "Base",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "You may play an Action card from your hand twice."
+    },
+    {
+      "name": "Vassal",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nDiscard the top card of your deck. If it's an Action card, you may play it."
+    },
+    {
+      "name": "Village",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 Actions"
+    },
+    {
+      "name": "Witch",
+      "set": "Base",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Junk": "1"
+      },
+      "text": "+2 Cards\nEach other player gains a Curse."
+    },
+    {
+      "name": "Workshop",
+      "set": "Base",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a card costing up to $4."
+    },
+    {
+      "name": "Baron",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$4?",
+        "Gain": "1?"
+      },
+      "text": "+1 Buy\nYou may discard an Estate for +$4. If you don't, gain an Estate."
+    },
+    {
+      "name": "Bridge",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Buy\n+$1\nThis turn, cards (everywhere) cost $1 less, but not less than $0."
+    },
+    {
+      "name": "Conspirator",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nIf you’ve played 3 or more Actions this turn (counting this), +1 Card and +1 Action."
+    },
+    {
+      "name": "Courtier",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1?",
+        "Buys": "+1?",
+        "Coins / Coffers": "+$3?",
+        "Gain": "1?"
+      },
+      "text": "Reveal a card from your hand. For each type it has (Action, Attack, etc.), choose one: +1 Action; or +1 Buy; or +$3; or gain a Gold. The choices must be different."
+    },
+    {
+      "name": "Courtyard",
+      "set": "Intrigue",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3,-1"
+      },
+      "text": "+3 Cards\nPut a card from your hand onto your deck."
+    },
+    {
+      "name": "Diplomat",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+2?"
+      },
+      "text": "+2 Cards\nIf you have 5 or fewer cards in hand (after drawing), +2 Actions.When another player plays an Attack card, you may first reveal this from a hand of 5 or more cards, to draw 2 cards then discard 3."
+    },
+    {
+      "name": "Duke",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 1VP per Duchy you have."
+    },
+    {
+      "name": "Harem",
+      "set": "Intrigue",
+      "cost": "$6",
+      "types": [
+        "Treasure",
+        "Victory"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$22VP"
+    },
+    {
+      "name": "Ironworks",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?",
+        "Coins / Coffers": "+$1?",
+        "Gain": "1"
+      },
+      "text": "Gain a card costing up to $4. If the gained card is an…\nAction card, +1 Action\nTreasure card, +$1\nVictory card, +1 Card"
+    },
+    {
+      "name": "Lurker",
+      "set": "Intrigue",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+1 Action\nChoose one: Trash an Action card from the Supply; or gain an Action card from the trash."
+    },
+    {
+      "name": "Masquerade",
+      "set": "Intrigue",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Trash": "1?"
+      },
+      "text": "+2 Cards\nEach player with any cards in hand passes one to the next such player to their left, at once. Then you may trash a card from your hand."
+    },
+    {
+      "name": "Mill",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Victory"
+      ],
+      "victory_points": "1VP",
+      "effects": {
+        "Cards": "+1,-2?",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$2?"
+      },
+      "text": "+1 Card\n+1 Action\nYou may discard 2 cards, for +$21VP"
+    },
+    {
+      "name": "Mining Village",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2",
+        "Coins / Coffers": "+$2?",
+        "Trash": "Self?"
+      },
+      "text": "+1 Card\n+2 Actions\nYou may trash this for +$2."
+    },
+    {
+      "name": "Minion",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X?,+4?",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$2?"
+      },
+      "text": "+1 Action\nChoose one: +$2; or discard your hand, +4 Cards, and each other player with at least 5 cards in hand discards their hand and draws 4 cards."
+    },
+    {
+      "name": "Nobles",
+      "set": "Intrigue",
+      "cost": "$6",
+      "types": [
+        "Action",
+        "Victory"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Cards": "+3?",
+        "Actions / Villagers": "+2?"
+      },
+      "text": "Choose one: +3 Cards; or +2 Actions.2VP"
+    },
+    {
+      "name": "Patrol",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3-7"
+      },
+      "text": "+3 Cards\nReveal the top 4 cards of your deck. Put the Victory cards and Curses into your hand. Put the rest back in any order."
+    },
+    {
+      "name": "Pawn",
+      "set": "Intrigue",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?",
+        "Buys": "+1?",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "Choose two: +1 Card; +1 Action; +1 Buy; +$1. The choices must be different."
+    },
+    {
+      "name": "Replace",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1",
+        "Junk": "1?"
+      },
+      "text": "Trash a card from your hand. Gain a card costing up to $2 more than it. If the gained card is an Action or Treasure, put it onto your deck; if it's a Victory card, each other player gains a Curse."
+    },
+    {
+      "name": "Secret Passage",
+      "set": "Intrigue",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2,-1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+2 Cards\n+1 Action\nTake a card from your hand and put it anywhere in your deck."
+    },
+    {
+      "name": "Shanty Town",
+      "set": "Intrigue",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2?",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nReveal your hand. If you have no Action cards in hand, +2 Cards."
+    },
+    {
+      "name": "Steward",
+      "set": "Intrigue",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2?",
+        "Coins / Coffers": "+$2?",
+        "Trash": "2?"
+      },
+      "text": "Choose one: +2 Cards; or +$2; or trash 2 cards from your hand."
+    },
+    {
+      "name": "Swindler",
+      "set": "Intrigue",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nEach other player trashes the top card of their deck and gains a card with the same cost that you choose."
+    },
+    {
+      "name": "Torturer",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Junk": "1?"
+      },
+      "text": "+3 Cards\nEach other player either discards 2 cards or gains a Curse to their hand, their choice. (They may pick an option they can't do.)"
+    },
+    {
+      "name": "Trading Post",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2",
+        "Gain": "1"
+      },
+      "text": "Trash 2 cards from your hand. If you did, gain a Silver to your hand."
+    },
+    {
+      "name": "Upgrade",
+      "set": "Intrigue",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "+1 Card\n+1 Action\nTrash a card from your hand. Gain a card costing exactly $1 more than it."
+    },
+    {
+      "name": "Wishing Well",
+      "set": "Intrigue",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1-2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nName a card, then reveal the top card of your deck. If you named it, put it into your hand."
+    },
+    {
+      "name": "Ambassador",
+      "set": "Seaside",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2?",
+        "Junk": "1?"
+      },
+      "text": "Reveal a card from your hand. Return up to 2 copies of it from your hand to the Supply. Then each other player gains a copy of it."
+    },
+    {
+      "name": "Bazaar",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+2 Actions\n+$1"
+    },
+    {
+      "name": "Caravan",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, N+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nAt the start of your next turn, +1 Card."
+    },
+    {
+      "name": "Cutpurse",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nEach other player discards a Copper (or reveals a hand with no Copper)."
+    },
+    {
+      "name": "Embargo",
+      "set": "Seaside",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Trash": "Self",
+        "Junk": "1?"
+      },
+      "text": "+$2\nTrash this. If you did, add an Embargo token to a Supply pile. (For the rest of the game, when a player buys a card from that pile, they gain a Curse.)"
+    },
+    {
+      "name": "Explorer",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "You may reveal a Province from your hand. If you do, gain a Gold to your hand. If you don't, gain a Silver to your hand."
+    },
+    {
+      "name": "Fishing Village",
+      "set": "Seaside",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2, N +1",
+        "Coins / Coffers": "+$1, N +$1"
+      },
+      "text": "+2 Actions\n+$1\nAt the start of your next turn: +1 Action and +$1."
+    },
+    {
+      "name": "Ghost Ship",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 Cards\nEach other player with 4 or more cards in hand puts cards from their hand onto their deck until they have 3 cards in hand."
+    },
+    {
+      "name": "Haven",
+      "set": "Seaside",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, -1, N+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nSet aside a card from your hand face down (under this). At the start of your next turn, put it into your hand."
+    },
+    {
+      "name": "Island",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Victory"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Trash": "1,Self"
+      },
+      "text": "Put this and a card from your hand onto your Island mat.2VP"
+    },
+    {
+      "name": "Lighthouse",
+      "set": "Seaside",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1, N +$1"
+      },
+      "text": "+1 Action\nNow and at the start of your next turn: +$1.While this is in play, when another player plays an Attack card, it doesn’t affect you."
+    },
+    {
+      "name": "Lookout",
+      "set": "Seaside",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Trash": "1"
+      },
+      "text": "+1 Action\nLook at the top 3 cards of your deck. Trash one of them. Discard one of them. Put the other one back on top of your deck."
+    },
+    {
+      "name": "Merchant Ship",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2, N +$2"
+      },
+      "text": "Now and at the start of your next turn: +$2."
+    },
+    {
+      "name": "Native Village",
+      "set": "Seaside",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X?",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nChoose one: Put the top card of your deck face down on your Native Village mat (you may look at those cards at any time); or put all the cards from your mat into your hand."
+    },
+    {
+      "name": "Navigator",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nLook at the top 5 cards of your deck. Either discard them all, or put them back in any order."
+    },
+    {
+      "name": "Outpost",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "If this is the first time you played an Outpost this turn, and the previous turn wasn't yours, then take an extra turn after this one, and you only draw 3 cards for your next hand."
+    },
+    {
+      "name": "Pearl Diver",
+      "set": "Seaside",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nLook at the bottom card of your deck. You may put it on top."
+    },
+    {
+      "name": "Pirate Ship",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x?"
+      },
+      "text": "Choose one: +$1 per Coin token on your Pirate Ship mat; or each other player reveals the top 2 cards of their deck, trashes one of those Treasures that you choose, and discards the rest, and then if anyone trashed a Treasure you add a Coin token to your Pirate Ship mat."
+    },
+    {
+      "name": "Salvager",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$x",
+        "Trash": "1"
+      },
+      "text": "+1 Buy\nTrash a card from your hand. +$1 per $1 it costs."
+    },
+    {
+      "name": "Sea Hag",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Junk": "1"
+      },
+      "text": "Each other player discards the top card of their deck, then gains a Curse onto their deck."
+    },
+    {
+      "name": "Smugglers",
+      "set": "Seaside",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a copy of a card costing up to $6 that the player to your right gained on their last turn."
+    },
+    {
+      "name": "Tactician",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X, N +5?",
+        "Actions / Villagers": "N +1?",
+        "Buys": "N +1?"
+      },
+      "text": "If you have at least one card in hand, discard your hand, and at the start of your next turn, +5 Cards, +1 Action, and +1 Buy."
+    },
+    {
+      "name": "Treasure Map",
+      "set": "Seaside",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self +1?",
+        "Gain": "4?"
+      },
+      "text": "Trash this and a Treasure Map from your hand. If you trashed two Treasure Maps, gain 4 Golds onto your deck."
+    },
+    {
+      "name": "Treasury",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1When you discard this from play, if you didn’t buy a Victory card this turn, you may put this onto your deck."
+    },
+    {
+      "name": "Warehouse",
+      "set": "Seaside",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3,-3",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+3 Cards\n+1 Action\nDiscard 3 cards."
+    },
+    {
+      "name": "Wharf",
+      "set": "Seaside",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2, N +2",
+        "Buys": "+1, N+1"
+      },
+      "text": "Now and at the start of your next turn: +2 Cards and +1 Buy."
+    },
+    {
+      "name": "Alchemist",
+      "set": "Alchemy",
+      "cost": "$3P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+2 Cards\n+1 ActionWhen you discard this from play, if you have a Potion in play, you may put this onto your deck."
+    },
+    {
+      "name": "Apothecary",
+      "set": "Alchemy",
+      "cost": "$2P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1-5",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top 4 cards of your deck. Put the Coppers and Potions into your hand. Put the rest back in any order."
+    },
+    {
+      "name": "Apprentice",
+      "set": "Alchemy",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+1",
+        "Trash": "1"
+      },
+      "text": "+1 Action\nTrash a card from your hand. +1 Card per $1 it costs. +2 Cards if it has P in its cost."
+    },
+    {
+      "name": "Familiar",
+      "set": "Alchemy",
+      "cost": "$3P",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Junk": "1"
+      },
+      "text": "+1 Card\n+1 Action\nEach other player gains a Curse."
+    },
+    {
+      "name": "Golem",
+      "set": "Alchemy",
+      "cost": "$4P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Reveal cards from your deck until you reveal 2 Action cards other than Golems. Discard the other cards, then play the Action cards in either order."
+    },
+    {
+      "name": "Herbalist",
+      "set": "Alchemy",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Buy\n+$1When you discard this from play, you may put one of your Treasures from play onto your deck."
+    },
+    {
+      "name": "Philosopher's Stone",
+      "set": "Alchemy",
+      "cost": "$3P",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x"
+      },
+      "text": "When you play this, count your deck and discard pile. Worth $1 per 5 cards total between them (round down)."
+    },
+    {
+      "name": "Possession",
+      "set": "Alchemy",
+      "cost": "$6P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "X"
+      },
+      "text": "The player to your left takes an extra turn after this one, in which you can see all cards they can and make all decisions for them. Any cards or D they would gain on that turn, you gain instead; any cards of theirs that are trashed are set aside and put in their discard pile at end of turn."
+    },
+    {
+      "name": "Potion",
+      "set": "Alchemy",
+      "cost": "$4",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+P"
+      },
+      "text": "P"
+    },
+    {
+      "name": "Scrying Pool",
+      "set": "Alchemy",
+      "cost": "$2P",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nEach player (including you) reveals the top card of their deck and either discards it or puts it back, your choice. Then reveal cards from your deck until revealing one that isn’t an Action. Put all of those revealed cards into your hand."
+    },
+    {
+      "name": "Transmute",
+      "set": "Alchemy",
+      "cost": "P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "Trash a card from your hand. If it is an…\nAction card, gain a Duchy\nTreasure card, gain a Transmute\nVictory card, gain a Gold"
+    },
+    {
+      "name": "University",
+      "set": "Alchemy",
+      "cost": "$2P",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2",
+        "Gain": "1"
+      },
+      "text": "+2 Actions\nYou may gain an Action card costing up to $5."
+    },
+    {
+      "name": "Vineyard",
+      "set": "Alchemy",
+      "cost": "P",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 1VP per 3 Action cards you have (round down)."
+    },
+    {
+      "name": "Bank",
+      "set": "Prosperity",
+      "cost": "$7",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x"
+      },
+      "text": "When you play this, it’s worth $1 per Treasure card you have in play (counting this)."
+    },
+    {
+      "name": "Bishop",
+      "set": "Prosperity",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Trash": "1"
+      },
+      "text": "+$1\n+1VP\nTrash a card from your hand. +1VP per $2 it costs (round down). Each other player may trash a card from their hand."
+    },
+    {
+      "name": "City",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1-2",
+        "Actions / Villagers": "+2",
+        "Buys": "+1?",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "+1 Card\n+2 Actions\nIf there are one or more empty Supply piles, +1 Card. If there are two or more, +1 Buy and +$1"
+    },
+    {
+      "name": "Colony",
+      "set": "Prosperity",
+      "cost": "$11",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "10VP",
+      "effects": {},
+      "text": "10VP"
+    },
+    {
+      "name": "Contraband",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$3"
+      },
+      "text": "$3\n+1 Buy\nWhen you play this, the player to your left names a card. You can’t buy that card this turn."
+    },
+    {
+      "name": "Counting House",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X"
+      },
+      "text": "Look through your discard pile, reveal any number of Coppers from it, and put them into your hand."
+    },
+    {
+      "name": "Expand",
+      "set": "Prosperity",
+      "cost": "$7",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "Trash a card from your hand. Gain a card costing up to $3 more than it."
+    },
+    {
+      "name": "Forge",
+      "set": "Prosperity",
+      "cost": "$7",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "X",
+        "Gain": "1"
+      },
+      "text": "Trash any number of cards from your hand. Gain a card with cost exactly equal to the total cost in $ of the trashed cards."
+    },
+    {
+      "name": "Goons",
+      "set": "Prosperity",
+      "cost": "$6",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Buy\n+$2\nEach other player discards down to 3 cards in hand.While this is in play, when you buy a card, +1VP."
+    },
+    {
+      "name": "Grand Market",
+      "set": "Prosperity",
+      "cost": "$6star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Card\n+1 Action\n+1 Buy\n+$2.You can’t buy this if you have any Coppers in play."
+    },
+    {
+      "name": "Hoard",
+      "set": "Prosperity",
+      "cost": "$6",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "1?"
+      },
+      "text": "$2While this is in play, when you buy a Victory card, gain a Gold."
+    },
+    {
+      "name": "King's Court",
+      "set": "Prosperity",
+      "cost": "$7",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "You may play an Action card from your hand three times."
+    },
+    {
+      "name": "Loan",
+      "set": "Prosperity",
+      "cost": "$3",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Trash": "1?"
+      },
+      "text": "$1\nWhen you play this, reveal cards from your deck until you reveal a Treasure. Discard it or trash it. Discard the other cards."
+    },
+    {
+      "name": "Mint",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "X",
+        "Gain": "1"
+      },
+      "text": "You may reveal a Treasure card from your hand. Gain a copy of it.When you buy this, trash all Treasures you have in play."
+    },
+    {
+      "name": "Monument",
+      "set": "Prosperity",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "+1VP",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\n+1VP"
+    },
+    {
+      "name": "Mountebank",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Junk": "2?"
+      },
+      "text": "+$2\nEach other player may discard a Curse. If they don’t, they gain a Curse and a Copper."
+    },
+    {
+      "name": "Peddler",
+      "set": "Prosperity",
+      "cost": "$8star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1During your Buy phase, this costs $2 less per Action card you have in play, but not less than $0."
+    },
+    {
+      "name": "Platinum",
+      "set": "Prosperity",
+      "cost": "$9",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$5"
+      },
+      "text": "$5"
+    },
+    {
+      "name": "Quarry",
+      "set": "Prosperity",
+      "cost": "$4",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1While this is in play, Action cards cost $2 less, but not less than $0."
+    },
+    {
+      "name": "Rabble",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3"
+      },
+      "text": "+3 Cards\nEach other player reveals the top 3 cards of their deck, discards the revealed Actions and Treasures, and puts the rest back in any order they choose."
+    },
+    {
+      "name": "Royal Seal",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2While this is in play, when you gain a card, you may put that card onto your deck."
+    },
+    {
+      "name": "Talisman",
+      "set": "Prosperity",
+      "cost": "$4",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Gain": "1?"
+      },
+      "text": "$1While this is in play, when you buy a non-Victory card costing $4 or less, gain a copy of it."
+    },
+    {
+      "name": "Trade Route",
+      "set": "Prosperity",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$x",
+        "Trash": "1"
+      },
+      "text": "+1 Buy\nTrash a card from your hand. +$1 per Coin token on the Trade Route mat.Setup: Add a Coin token to each Victory Supply pile; move that token to the Trade Route mat when a card is gained from that pile."
+    },
+    {
+      "name": "Vault",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2,-X",
+        "Coins / Coffers": "+$x"
+      },
+      "text": "+2 Cards\nDiscard any number of cards for +$1 each. Each other player may discard 2 cards, to draw a card."
+    },
+    {
+      "name": "Venture",
+      "set": "Prosperity",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1\nWhen you play this, reveal cards from your deck until you reveal a Treasure. Discard the other cards. Play that Treasure."
+    },
+    {
+      "name": "Watchtower",
+      "set": "Prosperity",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X"
+      },
+      "text": "Draw until you have 6 cards in hand.When you gain a card, you may reveal this from your hand, to either trash that card or put it onto your deck."
+    },
+    {
+      "name": "Worker's Village",
+      "set": "Prosperity",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2",
+        "Buys": "+1"
+      },
+      "text": "+1 Card\n+2 Actions\n+1 Buy"
+    },
+    {
+      "name": "Bag of Gold",
+      "set": "Cornucopia",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Prize"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Gain": "1"
+      },
+      "text": "+1 Action\nGain a Gold onto your deck.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Diadem",
+      "set": "Cornucopia",
+      "cost": "$0star",
+      "types": [
+        "Treasure",
+        "Prize"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x"
+      },
+      "text": "$2\nWhen you play this, +$1 per unused Action you have (Action, not Action card).\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Fairgrounds",
+      "set": "Cornucopia",
+      "cost": "$6",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 2VP per 5 differently named cards you have (round down)."
+    },
+    {
+      "name": "Farming Village",
+      "set": "Cornucopia",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nReveal cards from your deck until you reveal a Treasure or Action card. Put that card into your hand and discard the rest."
+    },
+    {
+      "name": "Followers",
+      "set": "Cornucopia",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Attack",
+        "Prize"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Gain": "1",
+        "Junk": "1"
+      },
+      "text": "+2 Cards\nGain an Estate. Each other player gains a Curse and discards down to 3 cards in hand.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Fortune Teller",
+      "set": "Cornucopia",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nEach other player reveals cards from the top of their deck until they reveal a Victory card or a Curse. They put it on top and discard the rest."
+    },
+    {
+      "name": "Hamlet",
+      "set": "Cornucopia",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, -2?",
+        "Actions / Villagers": "+1-2",
+        "Buys": "+1?"
+      },
+      "text": "+1 Card\n+1 Action\nYou may discard a card for +1 Action. You may discard a card for +1 Buy."
+    },
+    {
+      "name": "Harvest",
+      "set": "Cornucopia",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x"
+      },
+      "text": "Reveal the top 4 cards of your deck, then discard them. +$1 per differently named card revealed."
+    },
+    {
+      "name": "Horn of Plenty",
+      "set": "Cornucopia",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self?",
+        "Gain": "1"
+      },
+      "text": "When you play this, gain a card costing up to $1 per differently named card you have in play (counting this). If it’s a Victory card, trash this."
+    },
+    {
+      "name": "Horse Traders",
+      "set": "Cornucopia",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-2",
+        "Buys": "+1",
+        "Coins / Coffers": "+$3"
+      },
+      "text": "+1 Buy\n+$3\nDiscard 2 cards.When another player plays an Attack card, you may first set this aside from your hand. If you do, then at the start of your next turn, +1 Card and return this to your hand."
+    },
+    {
+      "name": "Hunting Party",
+      "set": "Cornucopia",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal your hand. Reveal cards from your deck until you reveal one that isn’t a copy of one in your hand. Put it into your hand and discard the rest."
+    },
+    {
+      "name": "Jester",
+      "set": "Cornucopia",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Exile": "1?",
+        "Junk": "1?"
+      },
+      "text": "+$2\nEach other player discards the top card of their deck. If it’s a Victory card they gain a Curse; otherwise they gain a copy of the discarded card or you do, your choice."
+    },
+    {
+      "name": "Menagerie",
+      "set": "Cornucopia",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +2?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nReveal your hand. If the revealed cards all have different names, +3 Cards. Otherwise, +1 Card."
+    },
+    {
+      "name": "Princess",
+      "set": "Cornucopia",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Prize"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nWhile this is in play, cards cost $2 less, but not less than $0.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Remake",
+      "set": "Cornucopia",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2",
+        "Gain": "2"
+      },
+      "text": "Do this twice: Trash a card from your hand, then gain a card costing exactly $1 more than it."
+    },
+    {
+      "name": "Tournament",
+      "set": "Cornucopia",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1?",
+        "Gain": "1?"
+      },
+      "text": "+1 Action\nEach player may reveal a Province from their hand. If you do, discard it and gain any Prize (from the Prize pile) or a Duchy, onto your deck. If no-one else does, +1 Card and +$1."
+    },
+    {
+      "name": "Trusty Steed",
+      "set": "Cornucopia",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Prize"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2?",
+        "Actions / Villagers": "+2?",
+        "Coins / Coffers": "+$2?",
+        "Gain": "4?"
+      },
+      "text": "Choose two: +2 Cards; or +2 Actions; or +$2; or gain 4 Silvers and put your deck into your discard pile. The choices must be different.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Young Witch",
+      "set": "Cornucopia",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2, -2",
+        "Junk": "1?"
+      },
+      "text": "+2 Cards\nDiscard 2 cards. Each other player may reveal a Bane card from their hand; if they don’t, they gain a Curse.Setup: Add an extra Kingdom card pile costing $2 or $3 to the Supply. Cards from that pile are Bane cards."
+    },
+    {
+      "name": "Border Village",
+      "set": "Hinterlands",
+      "cost": "$6",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 ActionsWhen you gain this, gain a cheaper card."
+    },
+    {
+      "name": "Cache",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3"
+      },
+      "text": "$3When you gain this, gain 2 Coppers."
+    },
+    {
+      "name": "Cartographer",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nLook at the top 4 cards of your deck. Discard any number of them, then put the rest back in any order."
+    },
+    {
+      "name": "Crossroads",
+      "set": "Hinterlands",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+3?"
+      },
+      "text": "Reveal your hand. +1 Card per Victory card revealed. If this is the first time you played a Crossroads this turn, +3 Actions."
+    },
+    {
+      "name": "Develop",
+      "set": "Hinterlands",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "2"
+      },
+      "text": "Trash a card from your hand. Gain two cards onto your deck, with one costing exactly $1 more than it, and one costing exactly $1 less than it, in either order."
+    },
+    {
+      "name": "Duchess",
+      "set": "Hinterlands",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2. Each player (including you) looks at the top card of their deck and may discard it.In games using this, when you gain a Duchy, you may gain a Duchess."
+    },
+    {
+      "name": "Embassy",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+5,-3"
+      },
+      "text": "+5 Cards\nDiscard 3 cards.When you gain this, each other player gains a Silver."
+    },
+    {
+      "name": "Farmland",
+      "set": "Hinterlands",
+      "cost": "$6",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "2VP",
+      "effects": {},
+      "text": "2VPWhen you buy this, trash a card from your hand and gain a card costing exactly $2 more than it."
+    },
+    {
+      "name": "Fool's Gold",
+      "set": "Hinterlands",
+      "cost": "$2",
+      "types": [
+        "Treasure",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1, +$3?"
+      },
+      "text": "Worth $1 if it's the first time you played a Fool's Gold this turn, otherwise worth $4.When another player gains a Province, you may trash this from your hand, to gain a Gold onto your deck."
+    },
+    {
+      "name": "Haggler",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "X"
+      },
+      "text": "+$2While this is in play, when you buy a card, gain a cheaper non-Victory card."
+    },
+    {
+      "name": "Highway",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 ActionWhile this is in play, cards cost $1 less, but not less than $0."
+    },
+    {
+      "name": "Ill-Gotten Gains",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Gain": "1?"
+      },
+      "text": "$1\nWhen you play this, you may gain a Copper to your hand.When you gain this, each other player gains a Curse."
+    },
+    {
+      "name": "Inn",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2,-2",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Cards\n+2 Actions\nDiscard 2 cards.When you gain this, look through your discard pile, reveal any number of Action cards from it (which can include this), and shuffle them into your deck."
+    },
+    {
+      "name": "Jack of All Trades",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Trash": "1?",
+        "Gain": "1"
+      },
+      "text": "Gain a Silver. Look at the top card of your deck; you may discard it. Draw until you have 5 cards in hand. You may trash a non-Treasure card from your hand."
+    },
+    {
+      "name": "Mandarin",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1",
+        "Coins / Coffers": "+$3"
+      },
+      "text": "+$3\nPut a card from your hand onto your deck.When you gain this, put all Treasures you have in play onto your deck in any order."
+    },
+    {
+      "name": "Margrave",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Buys": "+1"
+      },
+      "text": "+3 Cards\n+1 Buy\nEach other player draws a card, then discards down to 3 cards in hand."
+    },
+    {
+      "name": "Noble Brigand",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Gain": "X",
+        "Junk": "1?"
+      },
+      "text": "+$1\nWhen you buy or play this, each other player reveals the top 2 cards of their deck, trashes a revealed Silver or Gold you choose, discards the rest, and gains a Copper if they didn't reveal a Treasure. You gain the trashed cards."
+    },
+    {
+      "name": "Nomad Camp",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Buy\n+$2This is gained onto your deck (instead of to your discard pile)."
+    },
+    {
+      "name": "Oasis",
+      "set": "Hinterlands",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1,-1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1\nDiscard a card."
+    },
+    {
+      "name": "Oracle",
+      "set": "Hinterlands",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "Each player (including you) reveals the top 2 cards of their deck, and discards them or puts them back, your choice. They choose the order to return them. Afterwards, you draw 2 cards."
+    },
+    {
+      "name": "Scheme",
+      "set": "Hinterlands",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nThis turn, you may put one of your Action cards onto your deck when you discard it from play."
+    },
+    {
+      "name": "Silk Road",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 1VP for every 4 Victory cards you have (round down)."
+    },
+    {
+      "name": "Spice Merchant",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2?",
+        "Actions / Villagers": "+1?",
+        "Buys": "+1?",
+        "Coins / Coffers": "+$2?",
+        "Trash": "1?"
+      },
+      "text": "You may trash a Treasure from your hand to choose one: +2 Cards and +1 Action; or +1 Buy and +$2."
+    },
+    {
+      "name": "Stables",
+      "set": "Hinterlands",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1?,+3?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "You may discard a Treasure, for +3 Cards and +1 Action."
+    },
+    {
+      "name": "Trader",
+      "set": "Hinterlands",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "X"
+      },
+      "text": "Trash a card from your hand. Gain a Silver per $1 it costs.When you would gain a card, you may reveal this from your hand, to instead gain a Silver."
+    },
+    {
+      "name": "Tunnel",
+      "set": "Hinterlands",
+      "cost": "$3",
+      "types": [
+        "Victory",
+        "Reaction"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Gain": "1?"
+      },
+      "text": "2VPWhen you discard this other than during Clean-up, you may reveal it to gain a Gold."
+    },
+    {
+      "name": "Abandoned Mine",
+      "set": "Dark Ages",
+      "cost": "$0",
+      "types": [
+        "Action",
+        "Ruins"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+$1"
+    },
+    {
+      "name": "Altar",
+      "set": "Dark Ages",
+      "cost": "$6",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "Trash a card from your hand. Gain a card costing up to $5."
+    },
+    {
+      "name": "Armory",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a card onto your deck costing up to $4."
+    },
+    {
+      "name": "Band of Misfits",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Command"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Play a non-Command Action card from the Supply that costs less than this, leaving it there."
+    },
+    {
+      "name": "Bandit Camp",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2",
+        "Gain": "1"
+      },
+      "text": "+1 Card\n+2 Actions\nGain a Spoils from the Spoils pile."
+    },
+    {
+      "name": "Beggar",
+      "set": "Dark Ages",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "3"
+      },
+      "text": "Gain 3 Coppers to your hand.When another player plays an Attack card, you may first discard this to gain 2 Silvers, putting one onto your deck."
+    },
+    {
+      "name": "Catacombs",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3"
+      },
+      "text": "Look at the top 3 cards of your deck. Choose one: Put them into your hand; or discard them and +3 Cards.When you trash this, gain a cheaper card."
+    },
+    {
+      "name": "Count",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1?, -2?",
+        "Coins / Coffers": "+$3?",
+        "Trash": "X?",
+        "Gain": "1?, 1?"
+      },
+      "text": "Choose one: Discard 2 cards; or put a card from your hand onto your deck; or gain a Copper.\nChoose one: +$3; or trash your hand; or gain a Duchy."
+    },
+    {
+      "name": "Counterfeit",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1",
+        "Trash": "1?"
+      },
+      "text": "$1\n+1 Buy\nWhen you play this, you may play a Treasure from your hand twice. If you do, trash that Treasure."
+    },
+    {
+      "name": "Cultist",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Looter"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Junk": "1"
+      },
+      "text": "+2 Cards. Each other player gains a Ruins. You may play a Cultist from your hand.When you trash this, +3 Cards."
+    },
+    {
+      "name": "Dame Anna",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2?, Self?"
+      },
+      "text": "You may trash up to 2 cards from your hand. \nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Dame Josephine",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Victory",
+        "Knight"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Trash": "Self?"
+      },
+      "text": "Each other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this.2VP"
+    },
+    {
+      "name": "Dame Molly",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2",
+        "Trash": "Self?"
+      },
+      "text": "+2 Actions\nEach other player discards the top 2 cards of their deck, and trashes one of them costing from $3 to $6. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Dame Natalie",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self?",
+        "Gain": "1?"
+      },
+      "text": "You may gain a card costing up to $3. \nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Dame Sylvia",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Trash": "Self?"
+      },
+      "text": "+$2\nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Death Cart",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Looter"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$5",
+        "Trash": "1?, Self?"
+      },
+      "text": "You may trash this or an Action card from your hand, for +$5.When you gain this, gain 2 Ruins."
+    },
+    {
+      "name": "Feodum",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 1VP per 3 Silvers you have (round down).When you trash this, gain 3 Silvers."
+    },
+    {
+      "name": "Forager",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Buys": "+1",
+        "Coins / Coffers": "+$x",
+        "Trash": "1"
+      },
+      "text": "+1 Action\n+1 Buy\nTrash a card from your hand, then +$1 per differently named Treasure in the trash."
+    },
+    {
+      "name": "Fortress",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 ActionsWhen you trash this, put it into your hand."
+    },
+    {
+      "name": "Graverobber",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1?",
+        "Gain": "1"
+      },
+      "text": "Choose one: Gain a card from the trash costing from $3 to $6, onto your deck; or trash an Action card from your hand and gain a card costing up to $3 more than it."
+    },
+    {
+      "name": "Hermit",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1?, Self?",
+        "Gain": "1, 1?"
+      },
+      "text": "Look through your discard pile. You may trash a non-Treasure card from your discard pile or hand. Gain a card costing up to $3.When you discard this from play, if you didn’t buy any cards this turn, trash this and gain a Madman from the Madman pile."
+    },
+    {
+      "name": "Hovel",
+      "set": "Dark Ages",
+      "cost": "$1",
+      "types": [
+        "Reaction",
+        "Shelter"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you buy a Victory card, you may trash this from your hand."
+    },
+    {
+      "name": "Hunting Grounds",
+      "set": "Dark Ages",
+      "cost": "$6",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3"
+      },
+      "text": "+4 CardsWhen you trash this, gain a Duchy or 3 Estates."
+    },
+    {
+      "name": "Ironmonger",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1, +1?",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck; you may discard it. Either way, if it is an…\nAction card, +1 Action\nTreasure card, +$1\nVictory card, +1 Card"
+    },
+    {
+      "name": "Junk Dealer",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1",
+        "Trash": "1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1.\nTrash a card from your hand."
+    },
+    {
+      "name": "Madman",
+      "set": "Dark Ages",
+      "cost": "$0star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+2",
+        "Trash": "Self"
+      },
+      "text": "+2 Actions\nReturn this to the Madman pile. If you do, +1 Card per card in your hand.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Marauder",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack",
+        "Looter"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1",
+        "Junk": "1"
+      },
+      "text": "Gain a Spoils from the Spoils pile. Each other player gains a Ruins."
+    },
+    {
+      "name": "Market Square",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Buys": "+1"
+      },
+      "text": "+1 Card\n+1 Action\n+1 BuyWhen one of your cards is trashed, you may discard this from your hand to gain a Gold."
+    },
+    {
+      "name": "Mercenary",
+      "set": "Dark Ages",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2?",
+        "Coins / Coffers": "+$2?",
+        "Trash": "2?"
+      },
+      "text": "You may trash 2 cards from your hand. If you did, +2 Cards, + $2, and each other player discards down to 3 cards in hand.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Mystic",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "1?",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Action\n+$2\nName a card, then reveal the top card of your deck. If you named it, put it into your hand."
+    },
+    {
+      "name": "Necropolis",
+      "set": "Dark Ages",
+      "cost": "$1",
+      "types": [
+        "Action",
+        "Shelter"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions"
+    },
+    {
+      "name": "Overgrown Estate",
+      "set": "Dark Ages",
+      "cost": "$1",
+      "types": [
+        "Victory",
+        "Shelter"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "0VPWhen you trash this, +1 Card."
+    },
+    {
+      "name": "Pillage",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self",
+        "Gain": "2"
+      },
+      "text": "Trash this. If you did, gain 2 Spoils, and each other player with 5 or more cards in hand reveals their hand and discards a card that you choose."
+    },
+    {
+      "name": "Poor House",
+      "set": "Dark Ages",
+      "cost": "$1",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$4, -$x"
+      },
+      "text": "+$4\nReveal your hand. –$1 per Treasure card in your hand. (You can't go below $0.)"
+    },
+    {
+      "name": "Procession",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "You may play a non-Duration Action card from your hand twice. Trash it. Gain an Action card costing exactly $1 more than it."
+    },
+    {
+      "name": "Rats",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "+1 Card\n+1 Action\nGain a Rats. Trash a card from your hand other than a Rats (or reveal a hand of all Rats).When you trash this, +1 Card."
+    },
+    {
+      "name": "Rebuild",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+1 Action\n Name a card. Reveal cards from your deck until you reveal a Victory card you did not name. Discard the rest, trash the Victory card, and gain a Victory card costing up to $3 more than it."
+    },
+    {
+      "name": "Rogue",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "1?"
+      },
+      "text": "+$2\nIf there are any cards in the trash costing from $3 to $6, gain one of them. Otherwise, each other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest."
+    },
+    {
+      "name": "Ruined Library",
+      "set": "Dark Ages",
+      "cost": "$0",
+      "types": [
+        "Action",
+        "Ruins"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1"
+      },
+      "text": "+1 Card"
+    },
+    {
+      "name": "Ruined Market",
+      "set": "Dark Ages",
+      "cost": "$0",
+      "types": [
+        "Action",
+        "Ruins"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy"
+    },
+    {
+      "name": "Ruined Village",
+      "set": "Dark Ages",
+      "cost": "$0",
+      "types": [
+        "Action",
+        "Ruins"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action"
+    },
+    {
+      "name": "Sage",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Buys": "+1"
+      },
+      "text": "+1 Action\nReveal cards from the top of your deck until you reveal one costing $3 or more. Put that card into your hand and discard the rest."
+    },
+    {
+      "name": "Scavenger",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nYou may put your deck into your discard pile. Look through your discard pile and put one card from it onto your deck."
+    },
+    {
+      "name": "Sir Bailey",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "Self?"
+      },
+      "text": "+1 Card\n+1 Action\nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Sir Destry",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Trash": "Self?"
+      },
+      "text": "+2 Cards\nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Sir Martin",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+2",
+        "Trash": "Self?"
+      },
+      "text": "+2 Buys\nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Sir Michael",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self?"
+      },
+      "text": "Each other player discards down to 3 cards in hand. \nEach other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this."
+    },
+    {
+      "name": "Sir Vander",
+      "set": "Dark Ages",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Knight"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self?"
+      },
+      "text": "Each other player reveals the top 2 cards of their deck, trashes one of them costing from $3 to $6, and discards the rest. If a Knight is trashed by this, trash this.When you trash this, gain a Gold."
+    },
+    {
+      "name": "Spoils",
+      "set": "Dark Ages",
+      "cost": "$0star",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3",
+        "Trash": "Self"
+      },
+      "text": "$3\nWhen you play this, return it to the Spoils pile.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Squire",
+      "set": "Dark Ages",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2?",
+        "Buys": "+2?",
+        "Coins / Coffers": "+$1",
+        "Gain": "1?"
+      },
+      "text": "+$1\nChoose one: +2 Actions; or +2 Buys; or gain a Silver.When you trash this, gain an Attack card."
+    },
+    {
+      "name": "Storeroom",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-Y,+Y, -X",
+        "Buys": "+1",
+        "Coins / Coffers": "+$x"
+      },
+      "text": "+1 Buy\nDiscard any number of cards, then draw that many. Then discard any number of cards for +$1 each."
+    },
+    {
+      "name": "Survivors",
+      "set": "Dark Ages",
+      "cost": "$0",
+      "types": [
+        "Action",
+        "Ruins"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Look at the top 2 cards of your deck. Discard them or put them back in any order."
+    },
+    {
+      "name": "Urchin",
+      "set": "Dark Ages",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "Self?",
+        "Gain": "1?"
+      },
+      "text": "+1 Card\n+1 Action\nEach other player discards down to 4 cards in hand.When you play another Attack card with this in play, you may first trash this, to gain a Mercenary from the Mercenary pile."
+    },
+    {
+      "name": "Vagrant",
+      "set": "Dark Ages",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck. If it’s a Curse, Ruins, Shelter, or Victory card, put it into your hand."
+    },
+    {
+      "name": "Wandering Minstrel",
+      "set": "Dark Ages",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 Actions\nReveal the top 3 cards of your deck. Put the Action cards back in any order and discard the rest."
+    },
+    {
+      "name": "Advisor",
+      "set": "Guilds",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nReveal the top 3 cards of your deck. The player to your left chooses one of them. Discard that card and put the rest into your hand."
+    },
+    {
+      "name": "Baker",
+      "set": "Guilds",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\n+1 CoffersSetup: Each player gets +1 Coffers."
+    },
+    {
+      "name": "Butcher",
+      "set": "Guilds",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+2",
+        "Trash": "1?",
+        "Junk": "1?"
+      },
+      "text": "+2 Coffers\nYou may trash a card from your hand. If you do, remove any number of tokens from your Coffers and gain a card, costing up to the cost of the trashed card plus $1 per token removed."
+    },
+    {
+      "name": "Candlestick Maker",
+      "set": "Guilds",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Buys": "+1",
+        "Coins / Coffers": "+1"
+      },
+      "text": "+1 Action\n+1 Buy\n+1 Coffers"
+    },
+    {
+      "name": "Doctor",
+      "set": "Guilds",
+      "cost": "$3plus",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "0-3"
+      },
+      "text": "Name a card. Reveal the top 3 cards of your deck. Trash the matches. Put the rest back in any order.When you buy this, you may overpay for it. For each $1 you overpaid, look at the top card of your deck; trash it, discard it, or put it back."
+    },
+    {
+      "name": "Herald",
+      "set": "Guilds",
+      "cost": "$4plus",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1, +1?"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck. If it's an Action, play it.When you buy this, you may overpay for it. For each $1 you overpaid, look through your discard pile and put a card from it onto your deck."
+    },
+    {
+      "name": "Journeyman",
+      "set": "Guilds",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3"
+      },
+      "text": "Name a card. Reveal cards from your deck until you reveal 3 cards without that name. Put those cards into your hand and discard the rest."
+    },
+    {
+      "name": "Masterpiece",
+      "set": "Guilds",
+      "cost": "$3plus",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1When you buy this, you may overpay for it. For each $1 you overpaid, gain a Silver."
+    },
+    {
+      "name": "Merchant Guild",
+      "set": "Guilds",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+1,+X"
+      },
+      "text": "+1 Buy\n+$1While this is in play, when you buy a card, +1 Coffers."
+    },
+    {
+      "name": "Plaza",
+      "set": "Guilds",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, -1?",
+        "Actions / Villagers": "+2",
+        "Coins / Coffers": "+1?"
+      },
+      "text": "+1 Card\n+2 Actions\nYou may discard a Treasure for +1 Coffers."
+    },
+    {
+      "name": "Soothsayer",
+      "set": "Guilds",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1",
+        "Junk": "1"
+      },
+      "text": "Gain a Gold. Each other player gains a Curse, and if they did, draws a card."
+    },
+    {
+      "name": "Stonemason",
+      "set": "Guilds",
+      "cost": "$2plus",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "2"
+      },
+      "text": "Trash a card from your hand. Gain 2 cards each costing less than it.When you buy this, you may overpay for it. If you do, gain 2 Action cards each costing the amount you overpaid."
+    },
+    {
+      "name": "Taxman",
+      "set": "Guilds",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "You may trash a Treasure from your hand. Each other player with 5 or more cards in hand discards a copy of it (or reveals they can't). Gain a Treasure onto your deck costing up to $3 more than it."
+    },
+    {
+      "name": "Alms",
+      "set": "Adventures",
+      "cost": "$0",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Once per turn: If you have no Treasures in play, gain a card costing up to $4."
+    },
+    {
+      "name": "Amulet",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1?, N +$1?",
+        "Trash": "1?, N 1?",
+        "Gain": "1?, N 1?"
+      },
+      "text": "Now and at the start of your next turn, choose one: +$1; or trash a card from your hand; or gain a Silver."
+    },
+    {
+      "name": "Artificer",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1,-X",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1",
+        "Gain": "1?"
+      },
+      "text": "+1 Card\n+1 Action\n+$1\nDiscard any number of cards. You may gain a card onto your deck costing exactly $1 per card discarded."
+    },
+    {
+      "name": "Ball",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "-$1",
+        "Gain": "2"
+      },
+      "text": "Take your –$1 token. Gain 2 cards each costing up to $4."
+    },
+    {
+      "name": "Bonfire",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2"
+      },
+      "text": "Trash up to 2 cards you have in play."
+    },
+    {
+      "name": "Borrow",
+      "set": "Adventures",
+      "cost": "$0",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "Once per turn: +1 Buy. If your –1 Card token isn't on your deck, put it there and +$1."
+    },
+    {
+      "name": "Bridge Troll",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1, N +1"
+      },
+      "text": "Each other player takes their –$1 token. Now and at the start of your next turn: +1 Buy.While this is in play, cards cost $1 less on your turns, but not less than $0."
+    },
+    {
+      "name": "Caravan Guard",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "N +$1"
+      },
+      "text": "+1 Card\n+1 Action\nAt the start of your next turn, +$1.When another player plays an Attack card, you may first play this from your hand.\n(+1 Action has no effect if it's not your turn.)"
+    },
+    {
+      "name": "Champion",
+      "set": "Adventures",
+      "cost": "$6star",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nFor the rest of the game, when another player plays an Attack card, it doesn't affect you, and when you play an Action, +1 Action.\n(This stays in play. This is not in the Supply.)"
+    },
+    {
+      "name": "Coin of the Realm",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Treasure",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2?",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1\nWhen you play this, put it on your Tavern mat.Directly after you finish playing an Action card, you may call this, for +2 Actions."
+    },
+    {
+      "name": "Disciple",
+      "set": "Adventures",
+      "cost": "$5star",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "You may play an Action card from your hand twice. Gain a copy of it.When you discard this from play, you may exchange it for a Teacher.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Distant Lands",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Reserve",
+        "Victory"
+      ],
+      "victory_points": "4VP?",
+      "effects": {},
+      "text": "Put this on your Tavern mat.Worth 4VP if on your Tavern mat at the end of the game (otherwise worth 0VP)."
+    },
+    {
+      "name": "Dungeon",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2,-2, N +2, N -1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nNow and at the start of your next turn: +2 Cards, then discard 2 cards."
+    },
+    {
+      "name": "Duplicate",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Put this on your Tavern mat.When you gain a card costing up to $6, you may call this, to gain a copy of that card."
+    },
+    {
+      "name": "Expedition",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +2"
+      },
+      "text": "Draw 2 extra cards for your next hand."
+    },
+    {
+      "name": "Ferry",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Move your –$2 cost token to an Action Supply pile. (Cards from that pile cost $2 less on your turns, but not less than $0.)"
+    },
+    {
+      "name": "Fugitive",
+      "set": "Adventures",
+      "cost": "$4star",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2, -1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+2 Cards\n+1 Action\nDiscard a card.When you discard this from play, you may exchange it for a Disciple.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Gear",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2, -0-2(X), N +X"
+      },
+      "text": "+2 Cards\nSet aside up to 2 cards from your hand face down (under this). At the start of your next turn, put them into your hand."
+    },
+    {
+      "name": "Giant",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1, +$4?",
+        "Junk": "1?"
+      },
+      "text": "Turn your Journey token over (it starts face up). Then if it's face down, +$1. If it's face up, +$5, and each other player reveals the top card of his deck, trashes it if it costs from $3 to $6, and otherwise discards it and gains a Curse."
+    },
+    {
+      "name": "Guide",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, -X?,+5?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nPut this on your Tavern mat.At the start of your turn, you may call this, to discard your hand and draw 5 cards."
+    },
+    {
+      "name": "Haunted Woods",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +3"
+      },
+      "text": "Until your next turn, when any other player buys a card, they put their hand onto their deck in any order. At the start of your next turn: +3 Cards"
+    },
+    {
+      "name": "Hero",
+      "set": "Adventures",
+      "cost": "$5star",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "1"
+      },
+      "text": "+$2\nGain a Treasure.When you discard this from play, you may exchange it for a Champion.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Hireling",
+      "set": "Adventures",
+      "cost": "$6",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1"
+      },
+      "text": "At the start of each of your turns for the rest of the game: +1 Card\n(This stays in play.)"
+    },
+    {
+      "name": "Inheritance",
+      "set": "Adventures",
+      "cost": "$7",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Once per game: Set aside a non-Command Action card from the Supply costing up to $4. Move your Estate token to it. (During your turns, Estates are also Actions with \"Play the card with your Estate token, leaving it there.\")"
+    },
+    {
+      "name": "Lost Arts",
+      "set": "Adventures",
+      "cost": "$6",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Move your +1 Action token to an Action Supply pile. (When you play a card from that pile, you first get +1 Action.)"
+    },
+    {
+      "name": "Lost City",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Cards\n+2 ActionsWhen you gain this, each other player draws a card."
+    },
+    {
+      "name": "Magpie",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1",
+        "Gain": "1?"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck. If it's a Treasure, put it into your hand. If it's an Action or Victory card, gain a Magpie."
+    },
+    {
+      "name": "Messenger",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Buy\n+$2\nYou may put your deck into your discard pile.When this is your first buy in a turn, gain a card costing up to $4, and each other player gains a copy of it."
+    },
+    {
+      "name": "Miser",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$x?",
+        "Trash": "1?"
+      },
+      "text": "Choose one: Put a Copper from your hand onto your Tavern mat; or +$1 per Copper on your Tavern mat."
+    },
+    {
+      "name": "Mission",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Once per turn: If the previous turn wasn't yours, take another turn after this one, during which you can't buy cards."
+    },
+    {
+      "name": "Page",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 ActionWhen you discard this from play, you may exchange it for a Treasure Hunter."
+    },
+    {
+      "name": "Pathfinding",
+      "set": "Adventures",
+      "cost": "$8",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Move your +1 Card token to an Action Supply pile. (When you play a card from that pile, you first get +1 Card.)"
+    },
+    {
+      "name": "Peasant",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Buy\n+$1When you discard this from play, you may exchange it for a Soldier."
+    },
+    {
+      "name": "Pilgrimage",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "3?"
+      },
+      "text": "Once per turn: Turn your Journey token over (it starts face up); then if it's face up, choose up to 3 differently named cards you have in play and gain a copy of each."
+    },
+    {
+      "name": "Plan",
+      "set": "Adventures",
+      "cost": "$3",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Move your Trashing token to an Action Supply pile. (When you buy a card from that pile, you may trash a card from your hand.)"
+    },
+    {
+      "name": "Port",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 ActionsWhen you buy this, gain another Port."
+    },
+    {
+      "name": "Quest",
+      "set": "Adventures",
+      "cost": "$0",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X",
+        "Gain": "1?"
+      },
+      "text": "You may discard an Attack, two Curses, or six cards. If you do, gain a Gold."
+    },
+    {
+      "name": "Raid",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "X"
+      },
+      "text": "Gain a Silver per Silver you have in play. Each other player puts their –1 Card token on their deck."
+    },
+    {
+      "name": "Ranger",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+5?",
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nTurn your Journey token over (it starts face up). Then if it's face up, +5 Cards."
+    },
+    {
+      "name": "Ratcatcher",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "1"
+      },
+      "text": "+1 Card\n+1 Action\nPut this on your Tavern mat.At the start of your turn, you may call this, to trash a card from your hand."
+    },
+    {
+      "name": "Raze",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1",
+        "Trash": "1?, Self?"
+      },
+      "text": "+1 Action\nTrash this or a card from your hand. Look at one card from the top of your deck per $1 the trashed card costs. Put one of them into your hand and discard the rest."
+    },
+    {
+      "name": "Relic",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Treasure",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2\nWhen you play this, each other player puts their –1 Card token on their deck."
+    },
+    {
+      "name": "Royal Carriage",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nPut this on your Tavern mat.Directly after you finish playing an Action card, if it's still in play, you may call this, to replay that Action."
+    },
+    {
+      "name": "Save",
+      "set": "Adventures",
+      "cost": "$1",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "Once per turn: +1 Buy. Set aside a card from your hand, and put it into your hand at end of turn (after drawing)."
+    },
+    {
+      "name": "Scouting Party",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nLook at the top 5 cards of your deck. Discard 3 and put the rest back in any order."
+    },
+    {
+      "name": "Seaway",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain an Action card costing up to $4. Move your +1 Buy token to its pile. (When you play a card from that pile, you first get +1 Buy.)"
+    },
+    {
+      "name": "Soldier",
+      "set": "Adventures",
+      "cost": "$3star",
+      "types": [
+        "Action",
+        "Attack",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\n+$1 per other Attack you have in play. Each other player with 4 or more cards in hand discards a card.When you discard this from play, you may exchange it for a Fugitive.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Storyteller",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+(X+1)",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "-$x"
+      },
+      "text": "+1 Action\n+$1\nPlay up to 3 Treasures from your hand. Then pay all of your $ (including the $1 from this) and draw a card per $1 you paid."
+    },
+    {
+      "name": "Swamp Hag",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "N +$3",
+        "Junk": "1?"
+      },
+      "text": "Until your next turn, when any other player buys a card, they gain a Curse. At the start of your next turn: +$3."
+    },
+    {
+      "name": "Teacher",
+      "set": "Adventures",
+      "cost": "$6star",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Put this on your Tavern mat.At the start of your turn, you may call this, to move your +1 Card, +1 Action, +1 Buy, or +$1 token to an Action Supply pile you have no tokens on. (When you play a card from that pile, you first get that bonus.)\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Trade",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "0-2",
+        "Gain": "0-2"
+      },
+      "text": "Trash up to 2 cards from your hand. Gain a Silver per card you trashed."
+    },
+    {
+      "name": "Training",
+      "set": "Adventures",
+      "cost": "$6",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Move your +$1 token to an Action Supply pile. (When you play a card from that pile, you first get +$1.)"
+    },
+    {
+      "name": "Transmogrify",
+      "set": "Adventures",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+1 Action\nPut this on your Tavern mat.At the start of your turn, you may call this, to trash a card from your hand, and gain a card to your hand costing up to $1 more than it."
+    },
+    {
+      "name": "Travelling Fair",
+      "set": "Adventures",
+      "cost": "$2",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+2"
+      },
+      "text": "+2 Buys\nWhen you gain a card this turn, you may put it onto your deck."
+    },
+    {
+      "name": "Treasure Hunter",
+      "set": "Adventures",
+      "cost": "$3star",
+      "types": [
+        "Action",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1",
+        "Gain": "X"
+      },
+      "text": "+1 Action\n+$1\nGain a Silver per card the player to your right gained on their last turn.When you discard this from play, you may exchange it for a Warrior.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Treasure Trove",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "2"
+      },
+      "text": "$2\nWhen you play this, gain a Gold and a Copper."
+    },
+    {
+      "name": "Warrior",
+      "set": "Adventures",
+      "cost": "$4star",
+      "types": [
+        "Action",
+        "Attack",
+        "Traveller"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 Cards\nOnce per Traveller you have in play (including this), each other player discards the top card of their deck and trashes it if it costs $3 or $4.When you discard this from play, you may exchange it for a Hero.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Wine Merchant",
+      "set": "Adventures",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Reserve"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$4, -$2?"
+      },
+      "text": "+$4\n+1 Buy\nPut this on your Tavern mat.At the end of your Buy phase, if you have at least $2 unspent, you may discard this from your Tavern mat."
+    },
+    {
+      "name": "Advance",
+      "set": "Empires",
+      "cost": "$0",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "You may trash an Action card from your hand. If you do, gain an Action card costing up to $6."
+    },
+    {
+      "name": "Annex",
+      "set": "Empires",
+      "cost": "8D",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Look through your discard pile. Shuffle all but up to 5 cards from it into your deck. Gain a Duchy."
+    },
+    {
+      "name": "Aqueduct",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you gain a Treasure, move 1VP from its pile to this. When you gain a Victory card, take the VP from this.Setup: Put 8VP on the Silver and Gold piles."
+    },
+    {
+      "name": "Archive",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, N+1, NN+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nSet aside the top 3 cards of your deck face down (you may look at them). Now and at the start of your next two turns, put one into your hand."
+    },
+    {
+      "name": "Arena",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "At the start of your Buy phase, you may discard an Action card. If you do, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Bandit Fort",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, -2VP for each Silver and each Gold you have."
+    },
+    {
+      "name": "Banquet",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "3"
+      },
+      "text": "Gain 2 Coppers and a non-Victory card costing up to $5."
+    },
+    {
+      "name": "Basilica",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you buy a card, if you have $2 or more left, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Baths",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you end your turn without having gained a card, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Battlefield",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you gain a Victory card, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Bustling Village",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+3"
+      },
+      "text": "+1 Card\n+3 Actions\nLook through your discard pile. You may reveal a Settlers from it and put it into your hand."
+    },
+    {
+      "name": "Capital",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$6, N +6D"
+      },
+      "text": "$6\n+1 BuyWhen you discard this from play, take 6D, and then you may pay off D"
+    },
+    {
+      "name": "Catapult",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Trash": "1",
+        "Junk": "1?"
+      },
+      "text": "+$1\nTrash a card from your hand. If it costs $3 or more, each other player gains a Curse. If it's a Treasure, each other player discards down to 3 cards in hand."
+    },
+    {
+      "name": "Chariot Race",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "+1VP?",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "+1 Action\nReveal the top card of your deck and put it into your hand. The player to your left reveals the top card of their deck. If your card costs more, +$1 and +1VP."
+    },
+    {
+      "name": "Charm",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1?",
+        "Coins / Coffers": "+$2?",
+        "Gain": "1?"
+      },
+      "text": "When you play this, choose one: +1 Buy and +$2; or the next time you buy a card this turn, you may also gain a differently named card with the same cost."
+    },
+    {
+      "name": "City Quarter",
+      "set": "Empires",
+      "cost": "8D",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nReveal your hand. +1 Card per Action card revealed."
+    },
+    {
+      "name": "Colonnade",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you buy an Action card, if you have a copy of it in play, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Conquest",
+      "set": "Empires",
+      "cost": "$6",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Gain": "2"
+      },
+      "text": "Gain 2 Silvers. +1VP per Silver you've gained this turn."
+    },
+    {
+      "name": "Crown",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "If it's your Action phase, you may play an Action from your hand twice. If it's your Buy phase, you may play a Treasure from your hand twice."
+    },
+    {
+      "name": "Crumbling Castle",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "1VP",
+      "effects": {},
+      "text": "1VPWhen you gain or trash this, +1VP and gain a Silver."
+    },
+    {
+      "name": "Defiled Shrine",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you gain an Action, move 1VP from its pile to this. When you buy a Curse, take the VP from this.Setup: Put 2VP on each non-Gathering Action Supply pile."
+    },
+    {
+      "name": "Delve",
+      "set": "Empires",
+      "cost": "$2",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Gain": "1"
+      },
+      "text": "+1 Buy\nGain a Silver."
+    },
+    {
+      "name": "Dominate",
+      "set": "Empires",
+      "cost": "$14",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "+9VP",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a Province. If you do, +9VP."
+    },
+    {
+      "name": "Donate",
+      "set": "Empires",
+      "cost": "8D",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "X"
+      },
+      "text": "After this turn, put all cards from your deck and discard pile into your hand, trash any number, shuffle your hand into your deck, then draw 5 cards."
+    },
+    {
+      "name": "Emporium",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Card\n+1 Action\n+$1When you gain this, if you have at least 5 Action cards in play, +2VP."
+    },
+    {
+      "name": "Encampment",
+      "set": "Empires",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+2",
+        "Trash": "Self?"
+      },
+      "text": "+2 Cards\n+2 Actions\nYou may reveal a Gold or Plunder from your hand. If you do not, set this aside, and return it to the Supply at the start of Clean-up."
+    },
+    {
+      "name": "Enchantress",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Attack",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +2"
+      },
+      "text": "Until your next turn, the first time each other player plays an Action card on their turn, they get +1 Card and +1 Action instead of following its instructions.\nAt the start of your next turn, +2 Cards."
+    },
+    {
+      "name": "Engineer",
+      "set": "Empires",
+      "cost": "4D",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self?",
+        "Gain": "1, 1?"
+      },
+      "text": "Gain a card costing up to $4. You may trash this. If you do, gain a card costing up to $4."
+    },
+    {
+      "name": "Farmers' Market",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Gathering"
+      ],
+      "victory_points": "+4VP?",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1?, +$1?, +$1?, +$1?",
+        "Trash": "Self?"
+      },
+      "text": "+1 Buy\nIf there are 4VP or more on the Farmers' Market Supply pile, take them and trash this. Otherwise, add 1VP to the pile and then +$1 per 1VP on the pile."
+    },
+    {
+      "name": "Fortune",
+      "set": "Empires",
+      "cost": "$88D",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "$xP?"
+      },
+      "text": "+1 Buy\nWhen you play this, double your $ if you haven't yet this turn.When you gain this, gain a Gold per Gladiator you have in play."
+    },
+    {
+      "name": "Forum",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3, -2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+3 Cards\n+1 Action\nDiscard 2 cardsWhen you buy this, +1 Buy."
+    },
+    {
+      "name": "Fountain",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 15VP if you have at least 10 Coppers."
+    },
+    {
+      "name": "Gladiator",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2, +$1?"
+      },
+      "text": "+$2\nReveal a card from your hand. The player to your left may reveal a copy from their hand. If they do not, +$1 and trash a Gladiator from the Supply."
+    },
+    {
+      "name": "Grand Castle",
+      "set": "Empires",
+      "cost": "$9",
+      "types": [
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "5VP",
+      "effects": {},
+      "text": "5VPWhen you gain this, reveal your hand. +1VP per Victory card in your hand and/or in play."
+    },
+    {
+      "name": "Groundskeeper",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 ActionWhile this is in play, when you gain a Victory card, +1VP."
+    },
+    {
+      "name": "Haunted Castle",
+      "set": "Empires",
+      "cost": "$6",
+      "types": [
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "2VP",
+      "effects": {},
+      "text": "2VPWhen you gain this during your turn, gain a Gold, and each other player with 5 or more cards in hand puts 2 cards from their hand onto their deck."
+    },
+    {
+      "name": "Humble Castle",
+      "set": "Empires",
+      "cost": "$3",
+      "types": [
+        "Treasure",
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "XVP",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1Worth 1VP per Castle you have."
+    },
+    {
+      "name": "Keep",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 5VP per differently named Treasure you have, that you have more copies of than each other player, or tied for most."
+    },
+    {
+      "name": "King's Castle",
+      "set": "Empires",
+      "cost": "$10",
+      "types": [
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "XVP",
+      "effects": {},
+      "text": "Worth 2VP per Castle you have."
+    },
+    {
+      "name": "Labyrinth",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you gain a 2nd card in one of your turns, take 2VP from here.Setup: Put 6VP here per player."
+    },
+    {
+      "name": "Legionary",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3"
+      },
+      "text": "+$3\nYou may reveal a Gold from your hand. If you do, each other player discards down to 2 cards in hand, then draws a card."
+    },
+    {
+      "name": "Mountain Pass",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you are the first player to gain a Province, after that turn, each player bids once, up to 40D, ending with you. High bidder gets +8VP and takes the D they bid."
+    },
+    {
+      "name": "Museum",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 2VP per differently named card you have."
+    },
+    {
+      "name": "Obelisk",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 2VP per card you have from the chosen pile.Setup: Choose a random Action Supply pile."
+    },
+    {
+      "name": "Opulent Castle",
+      "set": "Empires",
+      "cost": "$7",
+      "types": [
+        "Action",
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "3VP",
+      "effects": {
+        "Cards": "-X",
+        "Coins / Coffers": "+$xx2"
+      },
+      "text": "Discard any number of Victory cards. +$2 per card discarded.3VP"
+    },
+    {
+      "name": "Orchard",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 4VP per differently named Action card you have 3 or more copies of."
+    },
+    {
+      "name": "Overlord",
+      "set": "Empires",
+      "cost": "8D",
+      "types": [
+        "Action",
+        "Command"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Play a non-Command Action card from the Supply costing up to $5, leaving it there."
+    },
+    {
+      "name": "Palace",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 3VP per set you have of Copper - Silver - Gold."
+    },
+    {
+      "name": "Patrician",
+      "set": "Empires",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck. If it costs $5 or more, put it into your hand."
+    },
+    {
+      "name": "Plunder",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "+1VP",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2\n+1VP"
+    },
+    {
+      "name": "Ritual",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1",
+        "Exile": "Self"
+      },
+      "text": "Gain a Curse. If you do, trash a card from your hand. +1VP per $1 it cost."
+    },
+    {
+      "name": "Rocks",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1When you gain or trash this, gain a Silver; if it is your Buy phase, put the Silver on your deck, otherwise put it into your hand."
+    },
+    {
+      "name": "Royal Blacksmith",
+      "set": "Empires",
+      "cost": "8D",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+5,-X"
+      },
+      "text": "+5 Cards\nReveal your hand; discard the Coppers."
+    },
+    {
+      "name": "Sacrifice",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "+2VP",
+      "effects": {
+        "Cards": "+2?",
+        "Actions / Villagers": "+2?",
+        "Coins / Coffers": "+$2?",
+        "Trash": "1"
+      },
+      "text": "Trash a card from your hand. If it's an…\nAction card, +2 Cards, +2 Actions\nTreasure card, +$2\nVictory card, +2VP"
+    },
+    {
+      "name": "Salt the Earth",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1"
+      },
+      "text": "+1VP\nTrash a Victory card from the Supply."
+    },
+    {
+      "name": "Settlers",
+      "set": "Empires",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1?"
+      },
+      "text": "+1 Card\n+1 Action\nLook through your discard pile. You may reveal a Copper from it and put it into your hand."
+    },
+    {
+      "name": "Small Castle",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "2VP",
+      "effects": {
+        "Trash": "1?, Self?",
+        "Gain": "1"
+      },
+      "text": "Trash this or a Castle from your hand. If you do, gain a Castle.2VP"
+    },
+    {
+      "name": "Sprawling Castle",
+      "set": "Empires",
+      "cost": "$8",
+      "types": [
+        "Victory",
+        "Castle"
+      ],
+      "victory_points": "4VP",
+      "effects": {},
+      "text": "4VPWhen you gain this, gain a Duchy or 3 Estates."
+    },
+    {
+      "name": "Tax",
+      "set": "Empires",
+      "cost": "$2",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Add 2D to a Supply pile.Setup: Add 1D to each Supply pile. When a player buys a card, they take the D from its pile."
+    },
+    {
+      "name": "Temple",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Gathering"
+      ],
+      "victory_points": "+1VP",
+      "effects": {
+        "Trash": "1-3"
+      },
+      "text": "+1VP\nTrash from 1 to 3 differently named cards from your hand. Add 1VP to the Temple Supply pileWhen you gain this, take the VP from the Temple Supply pile."
+    },
+    {
+      "name": "Tomb",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you trash a card, +1VP."
+    },
+    {
+      "name": "Tower",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 1VP per non-Victory card you have from an empty Supply pile."
+    },
+    {
+      "name": "Triumph",
+      "set": "Empires",
+      "cost": "5D",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain an Estate. If you did, +1VP per card you've gained this turn."
+    },
+    {
+      "name": "Triumphal Arch",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, 3VP per copy you have of the 2nd most common Action card among your cards (if it’s a tie, count either)."
+    },
+    {
+      "name": "Villa",
+      "set": "Empires",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2",
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+2 Actions\n+1 Buy\n+$1When you gain this, put it into your hand, +1 Action, and if it's your Buy phase return to your Action phase."
+    },
+    {
+      "name": "Wall",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, -1VP per card you have after the first 15."
+    },
+    {
+      "name": "Wedding",
+      "set": "Empires",
+      "cost": "$43D",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "+1VP",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "+1VP\nGain a Gold."
+    },
+    {
+      "name": "Wild Hunt",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Gathering"
+      ],
+      "victory_points": "+XVP",
+      "effects": {
+        "Cards": "+3?",
+        "Gain": "1?"
+      },
+      "text": "Choose one: +3 Cards and add 1VP to the Wild Hunt Supply pile; or gain an Estate, and if you do, take the VP from the pile."
+    },
+    {
+      "name": "Windfall",
+      "set": "Empires",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "3"
+      },
+      "text": "If your deck and discard pile are empty, gain 3 Golds."
+    },
+    {
+      "name": "Wolf Den",
+      "set": "Empires",
+      "cost": "",
+      "types": [
+        "Landmark"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When scoring, -3VP per card you have exactly one copy of."
+    },
+    {
+      "name": "Bad Omens",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Junk": "2"
+      },
+      "text": "Put your deck into your discard pile. Look through it and put 2 Coppers from it onto your deck (or reveal you can't)."
+    },
+    {
+      "name": "Bard",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nReceive a Boon."
+    },
+    {
+      "name": "Bat",
+      "set": "Nocturne",
+      "cost": "$2star",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "2, Self?",
+        "Gain": "1?"
+      },
+      "text": "Trash up to 2 cards from your hand. If you trashed at least one, exchange this for a Vampire.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Blessed Village",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 ActionsWhen you gain this, take a Boon. Receive it now or at the start of your next turn."
+    },
+    {
+      "name": "Cemetery",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Victory"
+      ],
+      "victory_points": "2VP",
+      "effects": {},
+      "text": "2VPWhen you gain this, trash up to 4 cards from your hand.\nHeirloom: Haunted Mirror"
+    },
+    {
+      "name": "Changeling",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self",
+        "Gain": "1"
+      },
+      "text": "Trash this. Gain a copy of a card you have in play.In games using this, when you gain a card costing $3 or more, you may exchange it for a Changeling."
+    },
+    {
+      "name": "Cobbler",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Night",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "N 1"
+      },
+      "text": "At the start of your next turn, gain a card to your hand costing up to $4."
+    },
+    {
+      "name": "Conclave",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2?",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nYou may play an Action card from your hand that you don't have a copy of in play. If you do, +1 Action."
+    },
+    {
+      "name": "Crypt",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Night",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N+1, NN+1 …"
+      },
+      "text": "Set aside any number of Treasures you have in play, face down (under this). While any remain, at the start of each of your turns, put one of them into your hand."
+    },
+    {
+      "name": "Cursed Gold",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3",
+        "Junk": "Self"
+      },
+      "text": "$3\nWhen you play this, gain a Curse."
+    },
+    {
+      "name": "Cursed Village",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nDraw until you have 6 cards in hand.When you gain this, receive a Hex."
+    },
+    {
+      "name": "Deluded",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "State"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "At the start of your Buy phase, return this, and you can't buy Actions this turn."
+    },
+    {
+      "name": "Delusion",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "If you don't have Deluded or Envious, take Deluded."
+    },
+    {
+      "name": "Den of Sin",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Night",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +2"
+      },
+      "text": "At the start of your next turn, +2 Cards.This is gained to your hand (instead of your discard pile)."
+    },
+    {
+      "name": "Devil's Workshop",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "If the number of cards you've gained this turn is:\n2+, gain an Imp from its pile;\n1, gain a card costing up to $4;\n0, gain a Gold."
+    },
+    {
+      "name": "Druid",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nReceive one of the set-aside Boons (leaving it there).Setup: Set aside the top 3 Boons face up."
+    },
+    {
+      "name": "Envious",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "State"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "At the start of your Buy phase, return this, and Silver and Gold make $1 this turn."
+    },
+    {
+      "name": "Envy",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "If you don't have Deluded or Envious, take Envious."
+    },
+    {
+      "name": "Exorcist",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1"
+      },
+      "text": "Trash a card from your hand. Gain a cheaper Spirit from one of the Spirit piles."
+    },
+    {
+      "name": "Faithful Hound",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 CardsWhen you discard this other than during Clean-up, you may set it aside, and put it into your hand at end of turn."
+    },
+    {
+      "name": "Famine",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Reveal the top 3 cards of your deck. Discard the Actions. Shuffle the rest into your deck."
+    },
+    {
+      "name": "Fear",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1"
+      },
+      "text": "If you have at least 5 cards in hand, discard an Action or Treasure (or reveal you can't)."
+    },
+    {
+      "name": "Fool",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "If you aren't the player with Lost in the Woods, take it, take 3 Boons, and receive the Boons in any order.\nHeirloom: Lucky Coin"
+    },
+    {
+      "name": "Ghost",
+      "set": "Nocturne",
+      "cost": "$4star",
+      "types": [
+        "Night",
+        "Duration",
+        "Spirit"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Reveal cards from your deck until you reveal an Action. Discard the other cards and set aside the Action. At the start of your next turn, play it twice.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Ghost Town",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Night",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +1",
+        "Actions / Villagers": "N +1"
+      },
+      "text": "At the start of your next turn, +1 Card and +1 Action.This is gained to your hand (instead of your discard pile)."
+    },
+    {
+      "name": "Goat",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Trash": "1?"
+      },
+      "text": "$1\nWhen you play this, you may trash a card from your hand."
+    },
+    {
+      "name": "Greed",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Junk": "1"
+      },
+      "text": "Gain a Copper onto your deck."
+    },
+    {
+      "name": "Guardian",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Night",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "N +$1"
+      },
+      "text": "Until your next turn, when another player plays an Attack card, it doesn't affect you. At the start of your next turn, +$1.This is gained to your hand (instead of your discard pile)."
+    },
+    {
+      "name": "Haunted Mirror",
+      "set": "Nocturne",
+      "cost": "$0",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1When you trash this, you may discard an Action card, to gain a Ghost from its pile."
+    },
+    {
+      "name": "Haunting",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1"
+      },
+      "text": "If you have at least 4 cards in hand, put one of them onto your deck."
+    },
+    {
+      "name": "Idol",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Treasure",
+        "Attack",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Junk": "1?"
+      },
+      "text": "$2\nWhen you play this, if you then have an odd number of Idols in play, receive a Boon; if an even number, each other player gains a Curse."
+    },
+    {
+      "name": "Imp",
+      "set": "Nocturne",
+      "cost": "$2star",
+      "types": [
+        "Action",
+        "Spirit"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1?"
+      },
+      "text": "+2 Cards\nYou may play an Action card from your hand that you don't have a copy of in play.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Leprechaun",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1, 1?"
+      },
+      "text": "Gain a Gold. If you have exactly 7 cards in play, gain a Wish from its pile. Otherwise, receive a Hex."
+    },
+    {
+      "name": "Locusts",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1?",
+        "Junk": "1?"
+      },
+      "text": "Trash the top card of your deck. If it's Copper or Estate, gain a Curse. Otherwise, gain a cheaper card that shares a type with it."
+    },
+    {
+      "name": "Lost in the Woods",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "State"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1?"
+      },
+      "text": "At the start of your turn, you may discard a card to receive a Boon."
+    },
+    {
+      "name": "Lucky Coin",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Gain": "1"
+      },
+      "text": "$1\nWhen you play this, gain a Silver."
+    },
+    {
+      "name": "Magic Lamp",
+      "set": "Nocturne",
+      "cost": "$0",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Trash": "Self?",
+        "Gain": "3?"
+      },
+      "text": "$1\nWhen you play this, if there are at least 6 cards that you have exactly 1 copy of in play, trash this. If you do, gain 3 Wishes from their pile."
+    },
+    {
+      "name": "Miserable",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "State"
+      ],
+      "victory_points": "-2VP",
+      "effects": {},
+      "text": "-2VP"
+    },
+    {
+      "name": "Misery",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "-2VP",
+      "effects": {},
+      "text": "If this is your first Misery this game, take Miserable. Otherwise, flip it over to Twice Miserable."
+    },
+    {
+      "name": "Monastery",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "X"
+      },
+      "text": "For each card you've gained this turn, you may trash a card from your hand or a Copper you have in play."
+    },
+    {
+      "name": "Necromancer",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Play a face up, non-Duration Action card from the trash, leaving it there and turning it face down for the turn.Setup: Put the 3 Zombies into the trash."
+    },
+    {
+      "name": "Night Watchman",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Night"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Look at the top 5 cards of your deck, discard any number, and put the rest back in any order.This is gained to your hand (instead of your discard pile)."
+    },
+    {
+      "name": "Pasture",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Treasure",
+        "Victory",
+        "Heirloom"
+      ],
+      "victory_points": "XVP",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "$1Worth 1VP per Estate you have."
+    },
+    {
+      "name": "Pixie",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1",
+        "Trash": "Self?"
+      },
+      "text": "+1 Card\n+1 Action\nDiscard the top Boon. You may trash this to receive that Boon twice.\nHeirloom: Goat"
+    },
+    {
+      "name": "Plague",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Junk": "1"
+      },
+      "text": "Gain a Curse to your hand."
+    },
+    {
+      "name": "Pooka",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+4?",
+        "Trash": "1?"
+      },
+      "text": "You may trash a Treasure other than Cursed Gold from your hand, for +4 Cards.\nHeirloom: Cursed Gold"
+    },
+    {
+      "name": "Pouch",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Treasure",
+        "Heirloom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+{Cost|1}}"
+      },
+      "text": "$1\n+1 Buy"
+    },
+    {
+      "name": "Poverty",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X"
+      },
+      "text": "Discard down to 3 cards in hand."
+    },
+    {
+      "name": "Raider",
+      "set": "Nocturne",
+      "cost": "$6",
+      "types": [
+        "Night",
+        "Duration",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "N +$3"
+      },
+      "text": "Each other player with 5 or more cards in hand discards a copy of a card you have in play (or reveals they can't).\nAt the start of your next turn, +$3."
+    },
+    {
+      "name": "Sacred Grove",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$3"
+      },
+      "text": "+1 Buy\n+$3\nReceive a Boon. If it doesn't give +$1, each other player may receive it."
+    },
+    {
+      "name": "Secret Cave",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, -3?",
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "N +$3?"
+      },
+      "text": "+1 Card\n+1 Action\nYou may discard 3 cards. If you did, then at the start of your next turn, +$3.\nHeirloom: Magic Lamp"
+    },
+    {
+      "name": "Shepherd",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X, +2X",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nDiscard any number of Victory cards, revealing them. +2 Cards per card discarded.\nHeirloom: Pasture"
+    },
+    {
+      "name": "Skulk",
+      "set": "Nocturne",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nEach other player receives the next Hex.When you gain this, gain a Gold."
+    },
+    {
+      "name": "The Earth's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1?",
+        "Gain": "1?"
+      },
+      "text": "You may discard a Treasure to gain a card costing up to $4."
+    },
+    {
+      "name": "The Field's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Action\n+$1\n(Keep this until Clean-up.)"
+    },
+    {
+      "name": "The Flame's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1"
+      },
+      "text": "You may trash a card from your hand."
+    },
+    {
+      "name": "The Forest's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+1 Buy\n+$1\n(Keep this until Clean-up.)"
+    },
+    {
+      "name": "The Moon's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Look through your discard pile. You may put a card from it onto your deck."
+    },
+    {
+      "name": "The Mountain's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a Silver."
+    },
+    {
+      "name": "The River's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +1"
+      },
+      "text": "+1 Card at the end of this turn.\n(Keep this until Clean-up.)"
+    },
+    {
+      "name": "The Sea's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1"
+      },
+      "text": "+1 Card"
+    },
+    {
+      "name": "The Sky's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-3?",
+        "Gain": "1?"
+      },
+      "text": "You may discard 3 cards to gain a Gold."
+    },
+    {
+      "name": "The Sun's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Look at the top 4 cards of your deck. Discard any number of them and put the rest back in any order."
+    },
+    {
+      "name": "The Swamp's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a Will-o'-Wisp from its pile."
+    },
+    {
+      "name": "The Wind's Gift",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Boon"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2,-2"
+      },
+      "text": "+2 Cards\nDiscard 2 cards."
+    },
+    {
+      "name": "Tormentor",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "1?"
+      },
+      "text": "+$2\nIf you have no other cards in play, gain an Imp from its pile. Otherwise, each other player receives the next Hex."
+    },
+    {
+      "name": "Tracker",
+      "set": "Nocturne",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Fate"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "+$1\nReceive a Boon.While this is in play, when you gain a card, you may put that card onto your deck.\nHeirloom: Pouch"
+    },
+    {
+      "name": "Tragic Hero",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Buys": "+1",
+        "Trash": "Self?",
+        "Gain": "1?"
+      },
+      "text": "+3 Cards\n+1 Buy\nIf you have 8 or more cards in hand (after drawing), trash this and gain a Treasure."
+    },
+    {
+      "name": "Twice Miserable",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "State"
+      ],
+      "victory_points": "-4VP",
+      "effects": {},
+      "text": "-4VP"
+    },
+    {
+      "name": "Vampire",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Night",
+        "Attack",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "Self",
+        "Gain": "2"
+      },
+      "text": "Each other player receives the next Hex.\nGain a card costing up to $5 other than a Vampire. Exchange this for a Bat."
+    },
+    {
+      "name": "War",
+      "set": "Nocturne",
+      "cost": "",
+      "types": [
+        "Hex"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1"
+      },
+      "text": "Reveal cards from your deck until revealing one costing $3 or $4. Trash it and discard the rest."
+    },
+    {
+      "name": "Werewolf",
+      "set": "Nocturne",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Night",
+        "Attack",
+        "Doom"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3?"
+      },
+      "text": "If it's your Night phase, each other player receives the next Hex. Otherwise, +3 Cards."
+    },
+    {
+      "name": "Will-o'-Wisp",
+      "set": "Nocturne",
+      "cost": "$0star",
+      "types": [
+        "Action",
+        "Spirit"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top card of your deck. If it costs $2 or less, put it into your hand.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Wish",
+      "set": "Nocturne",
+      "cost": "$0star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Trash": "Self",
+        "Gain": "1"
+      },
+      "text": "+1 Action\nReturn this to its pile. If you did, gain a card to your hand costing up to $6.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Zombie Apprentice",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Zombie"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3?",
+        "Actions / Villagers": "+1?",
+        "Trash": "1"
+      },
+      "text": "You may trash an Action card from your hand for +3 Cards and +1 Action."
+    },
+    {
+      "name": "Zombie Mason",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Zombie"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "1?"
+      },
+      "text": "Trash the top card of your deck. You may gain a card costing up to $1 more than it."
+    },
+    {
+      "name": "Zombie Spy",
+      "set": "Nocturne",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Zombie"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nLook at the top card of your deck. Discard it or put it back."
+    },
+    {
+      "name": "Academy",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1"
+      },
+      "text": "When you gain an Action card, +1 Villager."
+    },
+    {
+      "name": "Acting Troupe",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+4",
+        "Trash": "Self"
+      },
+      "text": "+4 Villagers\nTrash this."
+    },
+    {
+      "name": "Barracks",
+      "set": "Renaissance",
+      "cost": "$6",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1"
+      },
+      "text": "At the start of your turn, +1 Action."
+    },
+    {
+      "name": "Border Guard",
+      "set": "Renaissance",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nReveal the top 2 cards of your deck. Put one into your hand and discard the other. If both were Actions, take the Lantern or Horn."
+    },
+    {
+      "name": "Canal",
+      "set": "Renaissance",
+      "cost": "$7",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "During your turns, cards cost $1 less, but not less than $0."
+    },
+    {
+      "name": "Capitalism",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "During your turns, Actions with +$ amounts in their text are also Treasures."
+    },
+    {
+      "name": "Cargo Ship",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nOnce this turn, when you gain a card, you may set it aside face up (on this). At the start of your next turn, put it into your hand."
+    },
+    {
+      "name": "Cathedral",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1"
+      },
+      "text": "At the start of your turn, trash a card from your hand."
+    },
+    {
+      "name": "Citadel",
+      "set": "Renaissance",
+      "cost": "$8",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "The first time you play an Action card during each of your turns, play it again afterward."
+    },
+    {
+      "name": "City Gate",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1,-1"
+      },
+      "text": "At the start of your turn, +1 Card, then put a card from your hand onto your deck."
+    },
+    {
+      "name": "Crop Rotation",
+      "set": "Renaissance",
+      "cost": "$6",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-1?,+2?"
+      },
+      "text": "At the start of your turn, you may discard a Victory card for +2 Cards."
+    },
+    {
+      "name": "Ducat",
+      "set": "Renaissance",
+      "cost": "$2",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+1"
+      },
+      "text": "+1 Coffers\n+1 BuyWhen you gain this, you may trash a Copper from your hand."
+    },
+    {
+      "name": "Experiment",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1",
+        "Trash": "Self"
+      },
+      "text": "+2 Cards\n+1 Action\nReturn this to the Supply.When you gain this, gain another Experiment (that doesn't come with another)."
+    },
+    {
+      "name": "Exploration",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1?",
+        "Coins / Coffers": "+1?"
+      },
+      "text": "At the end of your Buy phase, if you didn't buy any cards, +1 Coffers and +1 Villager."
+    },
+    {
+      "name": "Fair",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "At the start of your turn, +1 Buy."
+    },
+    {
+      "name": "Flag",
+      "set": "Renaissance",
+      "cost": "",
+      "types": [
+        "Artifact"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1"
+      },
+      "text": "When drawing your hand, +1 Card."
+    },
+    {
+      "name": "Flag Bearer",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2When you gain or trash this, take the Flag."
+    },
+    {
+      "name": "Fleet",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "After the game ends, there's an extra round of turns just for players with this."
+    },
+    {
+      "name": "Guildhall",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+1"
+      },
+      "text": "When you gain a Treasure, +1 Coffers."
+    },
+    {
+      "name": "Hideout",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2",
+        "Trash": "1",
+        "Junk": "Self?"
+      },
+      "text": "+1 Card\n+2 Actions\nTrash a card from your hand. If it's a Victory card, gain a Curse."
+    },
+    {
+      "name": "Horn",
+      "set": "Renaissance",
+      "cost": "",
+      "types": [
+        "Artifact"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Once per turn, when you discard a Border Guard from play, you may put it onto your deck."
+    },
+    {
+      "name": "Improve",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+$2\nAt the start of Clean-up, you may trash an Action card you would discard from play this turn, to gain a card costing exactly $1 more than it."
+    },
+    {
+      "name": "Innovation",
+      "set": "Renaissance",
+      "cost": "$6",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "The first time you gain an Action card in each of your turns, you may set it aside. If you do, play it."
+    },
+    {
+      "name": "Inventor",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain a card costing up to $4, then cards cost $1 less this turn (but not less than $0)."
+    },
+    {
+      "name": "Key",
+      "set": "Renaissance",
+      "cost": "",
+      "types": [
+        "Artifact"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1"
+      },
+      "text": "At the start of your turn, +$1."
+    },
+    {
+      "name": "Lackeys",
+      "set": "Renaissance",
+      "cost": "$2",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 CardsWhen you gain this, +2 Villagers."
+    },
+    {
+      "name": "Lantern",
+      "set": "Renaissance",
+      "cost": "",
+      "types": [
+        "Artifact"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Border Guards you play reveal 3 cards and discard 2. (It takes all 3 being Actions to take the Horn.)"
+    },
+    {
+      "name": "Mountain Village",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions\nLook through your discard pile and put a card from it into your hand; if you can't, +1 Card."
+    },
+    {
+      "name": "Old Witch",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Junk": "1"
+      },
+      "text": "+3 Cards\nEach other player gains a Curse and may trash a Curse from their hand."
+    },
+    {
+      "name": "Pageant",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "-$x, +X"
+      },
+      "text": "At the end of your Buy phase, you may pay $1 for +1 Coffers."
+    },
+    {
+      "name": "Patron",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+1 Villager\n+$2When something causes you to reveal this (using the word \"reveal\"), +1 Coffers."
+    },
+    {
+      "name": "Piazza",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?"
+      },
+      "text": "At the start of your turn, reveal the top card of your deck. If it's an Action, play it."
+    },
+    {
+      "name": "Priest",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2,+$x",
+        "Trash": "1"
+      },
+      "text": "+$2\nTrash a card from your hand. For the rest of this turn, when you trash a card, +$2."
+    },
+    {
+      "name": "Recruiter",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+X",
+        "Trash": "1"
+      },
+      "text": "+2 Cards\nTrash a card from your hand. +1 Villager per $1 it costs."
+    },
+    {
+      "name": "Research",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "N +X",
+        "Actions / Villagers": "+1",
+        "Trash": "1"
+      },
+      "text": "+1 Action\nTrash a card from your hand. Per $1 it costs, set aside a card from your deck face down (on this). At the start of your next turn, put those cards into your hand."
+    },
+    {
+      "name": "Road Network",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1"
+      },
+      "text": "When another player gains a Victory card, +1 Card."
+    },
+    {
+      "name": "Scepter",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2?"
+      },
+      "text": "When you play this, choose one: +$2; or replay an Action card you played this turn that's still in play."
+    },
+    {
+      "name": "Scholar",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X,+7"
+      },
+      "text": "Discard your hand. +7 Cards."
+    },
+    {
+      "name": "Sculptor",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1?",
+        "Gain": "1"
+      },
+      "text": "Gain a card to your hand costing up to $4. If it's a Treasure, +1 Villager."
+    },
+    {
+      "name": "Seer",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1-4",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action\nReveal the top 3 cards of your deck. Put the ones costing from $2 to $4 into your hand. Put the rest back in any order."
+    },
+    {
+      "name": "Sewers",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "?"
+      },
+      "text": "When you trash a card other than with this, you may trash a card from your hand."
+    },
+    {
+      "name": "Silk Merchant",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Buys": "+1"
+      },
+      "text": "+2 Cards\n+1 BuyWhen you gain or trash this, +1 Coffers and +1 Villager."
+    },
+    {
+      "name": "Silos",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-X,+X"
+      },
+      "text": "At the start of your turn, discard any number of Coppers, revealed, and draw that many cards."
+    },
+    {
+      "name": "Sinister Plot",
+      "set": "Renaissance",
+      "cost": "$4",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X?"
+      },
+      "text": "At the start of your turn, add a token here, or remove your tokens here for +1 Card each."
+    },
+    {
+      "name": "Spices",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2\n+1 BuyWhen you gain this, +2 Coffers."
+    },
+    {
+      "name": "Star Chart",
+      "set": "Renaissance",
+      "cost": "$3",
+      "types": [
+        "Project"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "When you shuffle, you may pick one of the cards to go on top."
+    },
+    {
+      "name": "Swashbuckler",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Coins / Coffers": "+1?"
+      },
+      "text": "+3 Cards\nIf your discard pile has any cards in it: +1 Coffers, then if you have at least 4 Coffers tokens, take the Treasure Chest."
+    },
+    {
+      "name": "Treasure Chest",
+      "set": "Renaissance",
+      "cost": "",
+      "types": [
+        "Artifact"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "At the start of your Buy phase, gain a Gold."
+    },
+    {
+      "name": "Treasurer",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+$3\nChoose one: Trash a Treasure from your hand; or gain a Treasure from the trash to your hand; or take the Key."
+    },
+    {
+      "name": "Villain",
+      "set": "Renaissance",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+2"
+      },
+      "text": "+2 Coffers\nEach other player with 5 or more cards in hand discards one costing $2 or more (or reveals they can't)."
+    },
+    {
+      "name": "Animal Fair",
+      "set": "Menagerie",
+      "cost": "$7star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "X",
+        "Coins / Coffers": "$4"
+      },
+      "text": "+$4\n+1 Buy per empty supply pile.Instead of paying this card's cost, you may trash an Action card from your hand."
+    },
+    {
+      "name": "Barge",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3?, N+3?",
+        "Buys": "+1? , N+1?"
+      },
+      "text": "Either now or at the start of your next turn, +3 Cards and +1 Buy."
+    },
+    {
+      "name": "Black Cat",
+      "set": "Menagerie",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Junk": "1?"
+      },
+      "text": "+2 Cards\nIf it isn't your turn, each other player gains a Curse.When another player gains a Victory card, you may play this from your hand."
+    },
+    {
+      "name": "Bounty Hunter",
+      "set": "Menagerie",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$3?",
+        "Exile": "1"
+      },
+      "text": "+1 Action\nExile a card from your hand. If you didn't have a copy of it in Exile, +$3."
+    },
+    {
+      "name": "Camel Train",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Exile a non-Victory card from the Supply.When you gain this, Exile a Gold from the Supply."
+    },
+    {
+      "name": "Cardinal",
+      "set": "Menagerie",
+      "cost": "$4",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\nEach other player reveals the top 2 cards of their deck, Exiles one costing from $3 to $6, and discards the rest."
+    },
+    {
+      "name": "Commerce",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "X"
+      },
+      "text": "Gain a Gold per differently named card you've gained this turn."
+    },
+    {
+      "name": "Coven",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Attack"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+1",
+        "Coins / Coffers": "+$2",
+        "Junk": "1*"
+      },
+      "text": "+1 Action\n+$2\nEach other player Exiles a Curse from the Supply. If they can't, they discard their Exiled Curses."
+    },
+    {
+      "name": "Goatherd",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Actions / Villagers": "+1",
+        "Trash": "1"
+      },
+      "text": "+1 Action\nYou may trash a card from your hand.\n+1 Card per card the player to your right trashed on their last turn."
+    },
+    {
+      "name": "Groom",
+      "set": "Menagerie",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?",
+        "Gain": "+1?"
+      },
+      "text": "Gain a card costing up to $4 If it's an...\nAction card, gain a Horse;\nTreasure card, gain a Silver;\nVictory card, +1 Card and +1 Action."
+    },
+    {
+      "name": "Horse",
+      "set": "Menagerie",
+      "cost": "$3star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+2 Cards\n+1 Action\nReturn this to its pile.\n(This is not in the Supply.)"
+    },
+    {
+      "name": "Kiln",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2",
+        "Gain": "1?"
+      },
+      "text": "+$2\nThe next time you play a card this turn, you may first gain a copy of it."
+    },
+    {
+      "name": "Livery",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$3",
+        "Gain": "X"
+      },
+      "text": "+$3\nThis turn, when you gain a card costing $4 or more, gain a Horse."
+    },
+    {
+      "name": "Mastermind",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "At the start of your next turn, you may play an Action card from your hand three times."
+    },
+    {
+      "name": "Paddock",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+X",
+        "Coins / Coffers": "+$2",
+        "Gain": "2"
+      },
+      "text": "+$2\nGain 2 Horses.\n+1 Action per empty Supply pile."
+    },
+    {
+      "name": "Populate",
+      "set": "Menagerie",
+      "cost": "$10",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "X"
+      },
+      "text": "Gain one card from each Action Supply pile."
+    },
+    {
+      "name": "Scrap",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1?",
+        "Actions / Villagers": "+1?",
+        "Buys": "+1?",
+        "Coins / Coffers": "+$1?",
+        "Trash": "1",
+        "Gain": "0-2"
+      },
+      "text": "Trash a card from your hand. Choose a different thing per $1 it costs: +1 Card; +1 Action; +1 Buy; +$1; gain a Silver; gain a Horse."
+    },
+    {
+      "name": "Sheepdog",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 CardsWhen you gain a card, you may play this from your hand."
+    },
+    {
+      "name": "Sleigh",
+      "set": "Menagerie",
+      "cost": "$2",
+      "types": [
+        "Action",
+        "Reaction"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Gain 2 Horses.When you gain a card, you may discard this to put that card into your hand or onto your deck."
+    },
+    {
+      "name": "Snowy Village",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+4*",
+        "Buys": "+1"
+      },
+      "text": "+1 Card\n+4 Actions\n+1 Buy\nIgnore any further +Actions you get this turn."
+    },
+    {
+      "name": "Stampede",
+      "set": "Menagerie",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "5"
+      },
+      "text": "If you have 5 or fewer cards in play, gain 5 Horses onto you deck."
+    },
+    {
+      "name": "Stockpile",
+      "set": "Menagerie",
+      "cost": "$3",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1",
+        "Coins / Coffers": "+$3",
+        "Exile": "Self"
+      },
+      "text": "$3\n+1 Buy\nWhen you play this, Exile it."
+    },
+    {
+      "name": "Supplies",
+      "set": "Menagerie",
+      "cost": "$2",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$1",
+        "Gain": "1"
+      },
+      "text": "$1\nWhen you play this, gain a Horse onto your deck."
+    },
+    {
+      "name": "Toil",
+      "set": "Menagerie",
+      "cost": "$2",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Buys": "+1"
+      },
+      "text": "+1 Buy\nYou may play an Action card from your hand."
+    },
+    {
+      "name": "Way of the Chameleon",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+X",
+        "Coins / Coffers": "+$x"
+      },
+      "text": "Follow this card's instructions; each time that would give you +Cards this turn, you get +$ instead, and vice-versa."
+    },
+    {
+      "name": "Way of the Horse",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2",
+        "Actions / Villagers": "+1",
+        "Exile": "Self"
+      },
+      "text": "+2 Cards\n+1 Action\nReturn this to its pile."
+    },
+    {
+      "name": "Way of the Mole",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Action\nDiscard your hand. +3 Cards."
+    },
+    {
+      "name": "Way of the Ox",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Actions / Villagers": "+2"
+      },
+      "text": "+2 Actions"
+    },
+    {
+      "name": "Way of the Pig",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+1"
+      },
+      "text": "+1 Card\n+1 Action"
+    },
+    {
+      "name": "Way of the Rat",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "You may discard a Treasure to gain a copy of this."
+    },
+    {
+      "name": "Way of the Sheep",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2"
+    },
+    {
+      "name": "Way of the Squirrel",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+2"
+      },
+      "text": "+2 Cards at the end of this turn."
+    },
+    {
+      "name": "Way of the Turtle",
+      "set": "Menagerie",
+      "cost": "",
+      "types": [
+        "Way"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Set this aside. If you did, play it at the start of your next turn."
+    },
+    {
+      "name": "Wayfarer",
+      "set": "Menagerie",
+      "cost": "$6star",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Gain": "1?"
+      },
+      "text": "+3 Cards\nYou may gain a Silver.This has the same cost as the last other card gained this turn, if any."
+    },
+    {
+      "name": "Avanto",
+      "set": "Promo",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3",
+        "Actions / Villagers": "+1?"
+      },
+      "text": "+3 Cards\nYou may play a Sauna from your hand."
+    },
+    {
+      "name": "Black Market",
+      "set": "Promo",
+      "cost": "$3",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "+$2\n Reveal the top 3 cards of the Black Market deck. Play any number of Treasures from your hand. You may buy one of the revealed cards. Put the rest on the bottom of the Black Market deck in any order.Setup: Make a Black Market deck out of different unused Kingdom cards."
+    },
+    {
+      "name": "Captain",
+      "set": "Promo",
+      "cost": "$6",
+      "types": [
+        "Action",
+        "Duration",
+        "Command"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "Now and at the start of your next turn:\nPlay a non-Duration non-Command Action card from the Supply costing up to $4, leaving it there."
+    },
+    {
+      "name": "Church",
+      "set": "Promo",
+      "cost": "$3",
+      "types": [
+        "Action",
+        "Duration"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "-0-3, N +0-3",
+        "Actions / Villagers": "+1",
+        "Trash": "N 1?"
+      },
+      "text": "+1 Action\nSet aside up to 3 cards from your hand face down. At the start of your next turn, put them into your hand, then you may trash a card from your hand."
+    },
+    {
+      "name": "Dismantle",
+      "set": "Promo",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Trash": "1",
+        "Gain": "2?"
+      },
+      "text": "Trash a card from your hand. If it costs $1 or more, gain a cheaper card and a Gold."
+    },
+    {
+      "name": "Envoy",
+      "set": "Promo",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+4"
+      },
+      "text": "Reveal the top 5 cards of your deck. The player to your left chooses one. Discard that one and put the rest into your hand."
+    },
+    {
+      "name": "Governor",
+      "set": "Promo",
+      "cost": "$5",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+3?",
+        "Actions / Villagers": "+1",
+        "Trash": "1?",
+        "Gain": "1?"
+      },
+      "text": "+1 Action\nChoose one; you get the version in parentheses: Each player gets +1 (+3) Cards; or each player gains a Silver (Gold); or each player may trash a card from their hand and gain a card costing exactly $1 ($2) more."
+    },
+    {
+      "name": "Prince",
+      "set": "Promo",
+      "cost": "$8",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {},
+      "text": "You may set this aside. If you do, set aside an Action card from your hand costing up to $4. At the start of each of your turns, play that Action, setting it aside again when you discard it from play. (Stop playing it if you fail to set it aside on a turn you play it.)"
+    },
+    {
+      "name": "Sauna",
+      "set": "Promo",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1, +1?",
+        "Actions / Villagers": "+1",
+        "Trash": "X"
+      },
+      "text": "+1 Card\n+1 Action\nYou may play an Avanto from your hand.While this is in play, when you play a Silver, you may trash a card from your hand."
+    },
+    {
+      "name": "Stash",
+      "set": "Promo",
+      "cost": "$5",
+      "types": [
+        "Treasure"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Coins / Coffers": "+$2"
+      },
+      "text": "$2\nWhen shuffling, you may look through your remaining deck, and may put this anywhere in the shuffled cards."
+    },
+    {
+      "name": "Summon",
+      "set": "Promo",
+      "cost": "$5",
+      "types": [
+        "Event"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Gain": "1"
+      },
+      "text": "Gain an Action card costing up to $4. Set it aside. If you did, then at the start of your next turn, play it."
+    },
+    {
+      "name": "Walled Village",
+      "set": "Promo",
+      "cost": "$4",
+      "types": [
+        "Action"
+      ],
+      "victory_points": "",
+      "effects": {
+        "Cards": "+1",
+        "Actions / Villagers": "+2"
+      },
+      "text": "+1 Card\n+2 ActionsAt the start of Clean-up, if you have this and no more than one other Action card in play, you may put this onto your deck."
+    }
+  ]
+}
