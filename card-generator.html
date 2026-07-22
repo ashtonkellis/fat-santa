@@ -210,9 +210,14 @@
             <option value="dominion">Dominion (no frame)</option>
             <option value="simple">Simple / banner frame</option>
             <option value="templar">Templar / gem frame</option>
+            <option value="corners">Corner-number frame</option>
           </select>
         </label>
         <div class="frame-thumbs" id="frameThumbs"></div>
+        <label class="field" style="display:flex;align-items:center;gap:7px;margin-top:10px">
+          <input type="checkbox" id="autofit" checked style="width:auto" />
+          <span style="margin:0">Shrink long text to fit its box</span>
+        </label>
         <div class="hint">Picking a frame auto-applies a matching preset. Fine-tune any element on the right.</div>
       </div>
 
@@ -379,6 +384,20 @@ const PRESETS = {
     mkEl({ name: "Set",       content: "{{set}}", x: 12, y: 92, w: 76, h: 4,
            fontSize: 3, italic: true, color: "#6f6350" }),
   ] }),
+  // Corner-number family (playing-card style): cost in the top-left corner, a
+  // title strip near the top, rules across the lower third.
+  corners: () => ({ elements: [
+    mkEl({ name: "Cost",      content: "{{cost}}", x: 4, y: 3, w: 15, h: 10,
+           fontSize: 5.5, weight: 800, align: "left", color: "#2a2117" }),
+    mkEl({ name: "Name",      content: "{{name}}", x: 20, y: 4, w: 72, h: 9,
+           fontSize: 4.8, weight: 700, align: "right", color: "#2a2117" }),
+    mkEl({ name: "Type line", content: "{{types}}", x: 8, y: 62, w: 84, h: 5,
+           fontSize: 3.4, weight: 700, transform: "uppercase", color: "#4a3f28" }),
+    mkEl({ name: "Rules text",content: "{{text}}", x: 8, y: 68, w: 84, h: 24,
+           fontSize: 4, valign: "center", color: "#2f2717", lineHeight: 1.25 }),
+    mkEl({ name: "Set",       content: "{{set}}", x: 8, y: 93, w: 84, h: 4.5,
+           fontSize: 3, italic: true, align: "right", color: "#7a6f5a" }),
+  ] }),
 };
 
 /* Sample deck — a handful of real Dominion cards so the app works
@@ -406,6 +425,7 @@ const state = {
   cardBg: "#fbf7ec",
   cardBorder: "#c9b98f",
   frame: "",            // path to a frame image under assets/card-frames, or "" for none
+  autofit: true,        // shrink overflowing text to fit its box
   data: [],
   columns: [],
   template: defaultTemplate(),
@@ -421,14 +441,14 @@ const FRAMES = [
   { file: "Templar.png",       preset: "templar" },
   { file: "Intrigue.png",      preset: "templar" },
   { file: "Magic wood.png",    preset: "templar" },
-  { file: "Quasar.png",        preset: "simple" },
-  { file: "Sci-fi salt.png",   preset: "simple" },
+  { file: "Quasar.png",        preset: "corners" },
+  { file: "Sci-fi salt.png",   preset: "corners" },
   { file: "Into the blue.png", preset: "simple" },
   { file: "Fresh mint.png",    preset: "simple" },
   { file: "Geometric.png",     preset: "simple" },
-  { file: "Bidding.png",       preset: "simple" },
-  { file: "DnD.png",           preset: "simple" },
-  { file: "Simple pixel.png",  preset: "simple" },
+  { file: "Bidding.png",       preset: "corners" },
+  { file: "DnD.png",           preset: "corners" },
+  { file: "Simple pixel.png",  preset: "corners" },
 ];
 function frameURL(file) { return FRAME_DIR + file.split("/").map(encodeURIComponent).join("/"); }
 
@@ -558,7 +578,10 @@ function renderCard(row, cardH, cardW, unit) {
     } else {
       const span = document.createElement("div");
       span.style.width = "100%";
-      span.style.fontSize = (el.fontSize / 100 * cardH) + u;
+      const basePx = el.fontSize / 100 * cardH;
+      span.style.fontSize = basePx + u;
+      span.dataset.base = basePx;         // remember the designed size (used as the max)
+      span.dataset.unit = u;
       span.style.fontWeight = el.weight;
       span.style.fontStyle = el.italic ? "italic" : "normal";
       span.style.color = el.color;
@@ -568,10 +591,30 @@ function renderCard(row, cardH, cardW, unit) {
       span.style.textAlign = el.align;
       span.textContent = bind(el.content, row);
       box.appendChild(span);
+      box.dataset.fit = "1";              // eligible for shrink-to-fit
     }
     card.appendChild(box);
   });
   return card;
+}
+
+/* Shrink any text that overflows its box down to fit (never grows past the
+   designed size). Must run after the card is in the DOM so heights measure. */
+function fitCard(card) {
+  if (!state.autofit) return;
+  card.querySelectorAll('.el[data-fit="1"]').forEach(box => {
+    const span = box.firstElementChild;
+    if (!span) return;
+    let size = parseFloat(span.dataset.base);
+    const unit = span.dataset.unit;
+    let guard = 0;
+    while (box.scrollHeight > box.clientHeight + 1 && guard < 40) {
+      size *= 0.94;
+      span.style.fontSize = size + unit;
+      if (size <= 0.2) break;
+      guard++;
+    }
+  });
 }
 
 /* ------------------------------------------------------------------ *
@@ -592,6 +635,7 @@ function renderStage() {
   }
   enableDrag(card);
   stage.appendChild(card);
+  fitCard(card);
   document.getElementById("stageMeta").textContent =
     sz.label + "  ·  card " + (state.data.length ? state.rowIndex + 1 : 0) + " of " + state.data.length;
   document.getElementById("sizeInfo").textContent = sz.w + " × " + sz.h + " mm";
@@ -808,7 +852,9 @@ function renderDeck() {
   const fit = document.getElementById("fitScreen").checked;
   const scale = fit ? 2.6 : PREVIEW_PX_PER_MM;
   state.data.forEach(row => {
-    grid.appendChild(renderCard(row, sz.h * scale, sz.w * scale, "px"));
+    const c = renderCard(row, sz.h * scale, sz.w * scale, "px");
+    grid.appendChild(c);
+    fitCard(c);
   });
   document.getElementById("deckCount").textContent = state.data.length + " cards";
 }
@@ -826,6 +872,7 @@ function doPrint() {
     const c = renderCard(row, sz.h, sz.w, "mm");
     c.style.pageBreakInside = "avoid";
     grid.appendChild(c);
+    fitCard(c);
   });
   area.appendChild(grid);
   window.print();
@@ -839,6 +886,7 @@ function cardToPng(row, filename) {
   const card = renderCard(row, hPx, wPx, "px");
   card.style.position = "absolute"; card.style.left = "-99999px";
   document.body.appendChild(card);
+  fitCard(card);
   const html = new XMLSerializer().serializeToString(card);
   document.body.removeChild(card);
   const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + wPx + '" height="' + hPx + '">' +
@@ -1006,6 +1054,7 @@ function initEvents() {
   // card look
   document.getElementById("cardBg").addEventListener("input", e => { state.cardBg = e.target.value; renderStage(); renderDeck(); });
   document.getElementById("cardBorder").addEventListener("input", e => { state.cardBorder = e.target.value; renderStage(); renderDeck(); });
+  document.getElementById("autofit").addEventListener("change", e => { state.autofit = e.target.checked; renderStage(); renderDeck(); });
   // row nav
   document.getElementById("rowSel").addEventListener("change", e => { state.rowIndex = +e.target.value; renderStage(); });
   document.getElementById("prevRow").addEventListener("click", () => { state.rowIndex = (state.rowIndex - 1 + state.data.length) % state.data.length; renderRowSel(); renderStage(); });
