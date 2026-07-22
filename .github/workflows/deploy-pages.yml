@@ -3,9 +3,10 @@ name: Deploy to GitHub Pages
 # Publishes the repo (index.html card browser, card-generator.html, data/,
 # assets/) as a static GitHub Pages site.
 #
-# One-time setup: in the repo, go to Settings -> Pages -> "Build and
-# deployment" -> Source: "GitHub Actions". After that this workflow deploys
-# on every push to the default branch, or on manual dispatch.
+# No manual setup needed: the "Configure Pages" step below runs with
+# enablement: true, so the first successful run on main enables GitHub Pages
+# (build type: GitHub Actions) automatically. After that this workflow
+# deploys on every push to the default branch, or on manual dispatch.
 
 on:
   push:
@@ -34,6 +35,9 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable GitHub Pages automatically on first run (no Settings toggle).
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
