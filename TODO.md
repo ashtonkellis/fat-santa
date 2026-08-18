@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Saved an original-wording summary of the Dominion rules to `docs/dominion-rules.md` (setup, ABC turn structure, card types, end-of-game/scoring, first-game set, quick reference), verified against online sources and with a copyright note.
 - Added shrink-to-fit text to the generator: a "Shrink long text to fit its box" toggle (default on) auto-reduces any overflowing text element's font size so verbose Dominion cards fit their frame's text panel instead of clipping; applies in the editor, deck, print, and PNG export.
 - Fine-tuned the frame layout presets: added a third "Corner-number" preset (cost top-left, name top strip, rules across the lower third) and remapped the 12 frames across the simple / templar / corners presets to better match each frame family.
 - Wired the Dextrous card frames into the generator: a frame picker (thumbnails of the 12 `assets/card-frames/` frames + None) sets the card's full-bleed background, and choosing a frame auto-applies a matching layout preset (Simple/banner or Templar/gem) that positions the Dominion name/cost/type/text into the frame's regions. Frame art now also prints (background images print-enabled).
