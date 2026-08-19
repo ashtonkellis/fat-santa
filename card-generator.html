@@ -400,21 +400,17 @@ const PRESETS = {
   ] }),
 };
 
-/* Sample deck — a handful of real Dominion cards so the app works
-   with zero setup. Import data/dominion_cards.json for all 538. */
+/* Sample deck — a handful of fat-santa cards so the app works with zero setup.
+   The full 100-card set loads from data/fat_santa_cards.csv when served. */
 const SAMPLE = [
-  { name: "Village",  set: "Base", cost: "$3", types: ["Action"], victory_points: "", text: "+1 Card\n+2 Actions" },
-  { name: "Smithy",   set: "Base", cost: "$4", types: ["Action"], victory_points: "", text: "+3 Cards" },
-  { name: "Market",   set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+1 Card\n+1 Action\n+1 Buy\n+$1" },
-  { name: "Laboratory",set:"Base", cost: "$5", types: ["Action"], victory_points: "", text: "+2 Cards\n+1 Action" },
-  { name: "Festival", set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+2 Actions\n+1 Buy\n+$2" },
-  { name: "Council Room", set: "Base", cost: "$5", types: ["Action"], victory_points: "", text: "+4 Cards\n+1 Buy\nEach other player draws a card." },
-  { name: "Witch",    set: "Base", cost: "$5", types: ["Action","Attack"], victory_points: "", text: "+2 Cards\nEach other player gains a Curse." },
-  { name: "Moat",     set: "Base", cost: "$2", types: ["Action","Reaction"], victory_points: "", text: "+2 Cards\nWhen another player plays an Attack card, you may first reveal this from your hand, to be unaffected by it." },
-  { name: "Gardens",  set: "Base", cost: "$4", types: ["Victory"], victory_points: "", text: "Worth 1 VP per 10 cards you have (round down)." },
-  { name: "Cellar",   set: "Base", cost: "$2", types: ["Action"], victory_points: "", text: "+1 Action\nDiscard any number of cards, then draw that many." },
-  { name: "Chapel",   set: "Base", cost: "$2", types: ["Action"], victory_points: "", text: "Trash up to 4 cards from your hand." },
-  { name: "Bandit",   set: "Base", cost: "$5", types: ["Action","Attack"], victory_points: "", text: "Gain a Gold. Each other player reveals the top 2 cards of their deck, trashes a revealed Treasure other than Copper, and discards the rest." },
+  { name: "Spare Change",     set: "North Pole", cost: "$0", types: "Money", presents: "", text: "+$1" },
+  { name: "Workshop Elf",     set: "North Pole", cost: "$3", types: "Action", presents: "", text: "+1 Card\n+2 Actions" },
+  { name: "Toy Stack",        set: "North Pole", cost: "$4", types: "Action", presents: "", text: "+3 Cards" },
+  { name: "Sturdy Reindeer",  set: "North Pole", cost: "$4", types: "Reindeer", presents: "", text: "+2 Reindeer" },
+  { name: "Cargo Sled",       set: "North Pole", cost: "$5", types: "Sled", presents: "", text: "+2 Sled" },
+  { name: "Gift Box",         set: "North Pole", cost: "$5", types: "Present", presents: "3", text: "Worth 3 presents." },
+  { name: "Delivery Run",     set: "Sleigh & Stable", cost: "$5", types: "Action/Delivery", presents: "", text: "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box." },
+  { name: "Blizzard",         set: "Naughty & Nice", cost: "$5", types: "Action/Attack", presents: "", text: "+2 Cards\nEach other player gains a Lump of Coal." },
 ];
 
 /* ------------------------------------------------------------------ *
@@ -1070,16 +1066,16 @@ function initEvents() {
   document.getElementById("btnPngAll").addEventListener("click", downloadAllPngs);
 }
 
-/* try to auto-load the full Dominion dataset if served alongside; fall back to sample */
+/* try to auto-load the full fat-santa card set if served alongside; fall back to sample */
 function boot() {
   initSizes();
   initFrames();
   initEvents();
   document.getElementById("cardBg").value = state.cardBg;
   document.getElementById("cardBorder").value = state.cardBorder;
-  fetch("data/dominion_cards.json")
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(j => { const cards = Array.isArray(j) ? j : j.cards; if (cards && cards.length) setData(cards); else loadSample(); })
+  fetch("data/fat_santa_cards.csv")
+    .then(r => r.ok ? r.text() : Promise.reject())
+    .then(t => { const cards = parseAny(t); if (cards && cards.length) setData(cards); else loadSample(); })
     .catch(() => loadSample());
 }
 boot();

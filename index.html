@@ -1,15 +1,15 @@
 <!doctype html>
 <!--
   Card list browser — the GitHub Pages landing page for this repo.
-  Loads data/dominion_cards.json and lets you search / filter / sort the
-  full deck. Links to the card generator (card-generator.html).
+  Loads data/fat_santa_cards.csv (the fat-santa deckbuilder card set) and lets
+  you search / filter / sort it. Links to the card generator.
   Static, dependency-free.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dominion Card List</title>
+<title>fat-santa Cards</title>
 <style>
   :root {
     --bg: #14171c; --panel: #1e232b; --panel2: #262c36; --line: #333b47;
@@ -76,16 +76,17 @@
   .card .setline { padding: 6px 12px 10px; font-size: 11px; font-style: italic; color: #7a6f5a;
     display: flex; justify-content: space-between; }
 
-  /* tint by primary type */
-  .card.t-Victory { background: var(--victory); }
-  .card.t-Treasure { background: var(--treasure); }
+  /* tint by primary type (fat-santa resource types) */
+  .card.t-Money { background: var(--treasure); }
+  .card.t-Present { background: var(--victory); }
+  .card.t-Reindeer { background: #ecdfc8; }
+  .card.t-Sled { background: var(--reaction); }
   .card.t-Attack { background: var(--attack); }
   .card.t-Reaction { background: var(--reaction); }
   .card.t-Duration { background: var(--duration); }
-  .card.t-Night { background: var(--night); color: #e8e6f2; }
-  .card.t-Night .types, .card.t-Night .setline { color: #cfcbe0; }
-  .card.t-Night .text { border-top-color: rgba(255,255,255,.12); }
-  .card.t-Curse { background: var(--curse); }
+  .card.t-Coal { background: #35353f; color: #e8e6f2; }
+  .card.t-Coal .types, .card.t-Coal .setline { color: #c9c6d4; }
+  .card.t-Coal .text { border-top-color: rgba(255,255,255,.14); }
 
   .empty-msg { color: var(--muted); padding: 40px; text-align: center; }
   footer { color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--line); }
@@ -127,13 +128,12 @@
 <body>
 <header>
   <div class="top">
-    <h1>Dominion Card List</h1>
+    <h1>🎅 fat-santa Cards</h1>
     <span class="count" id="count">loading…</span>
     <div class="links">
       <button id="printBtn" class="linkbtn">🖨 Print cards</button>
       <a class="primary" href="card-generator.html">Open card generator →</a>
-      <a href="data/dominion_cards.json">Raw JSON</a>
-      <a href="data/dominion_cards.md">Markdown</a>
+      <a href="data/fat_santa_cards.csv">Raw CSV</a>
     </div>
   </div>
   <p class="desc" id="desc"></p>
@@ -170,26 +170,72 @@ function costNum(c) {
 }
 function typesStr(c) { return (c.types || []).join(" · "); }
 function primaryType(c) { return (c.types && c.types[0]) || ""; }
+function presentBadge(v) {
+  if (v == null || v === "") return "";
+  if (v === "*" || v === "?") return "★🎁";      // variable-value Present card
+  return v + "🎁";
+}
+
+/* minimal RFC-4180-ish CSV parser (handles quotes, commas, embedded newlines) */
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cur = "", inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQ) {
+      if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false; }
+      else cur += ch;
+    } else {
+      if (ch === '"') inQ = true;
+      else if (ch === ",") { row.push(cur); cur = ""; }
+      else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+      else if (ch === "\r") { /* skip */ }
+      else cur += ch;
+    }
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  if (!rows.length) return [];
+  const header = rows.shift().map(h => h.trim());
+  return rows.filter(r => r.some(c => c !== "")).map(r => {
+    const o = {}; header.forEach((h, i) => o[h] = (r[i] ?? "").trim()); return o;
+  });
+}
 
 function load() {
-  fetch("data/dominion_cards.json")
-    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(d => {
-      state.cards = d.cards || [];
-      state.meta = d;
-      (d.sets || []).forEach((s, i) => state.setOrder[s.name] = i);
-      initControls(d);
+  fetch("data/fat_santa_cards.csv")
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+    .then(text => {
+      const raw = parseCSV(text);
+      state.cards = raw.map(r => ({
+        name: r.name,
+        cost: r.cost,
+        set: r.set,
+        types: (r.types || "").split("/").map(s => s.trim()).filter(Boolean),
+        presents: r.presents || "",
+        text: r.text || "",
+      }));
+      // derive set order + counts by first appearance
+      const counts = {}, order = [];
+      state.cards.forEach(c => {
+        if (!(c.set in counts)) { counts[c.set] = 0; order.push(c.set); }
+        counts[c.set]++;
+      });
+      order.forEach((s, i) => state.setOrder[s] = i);
+      const setsList = order.map(s => ({ name: s, count: counts[s] }));
+      initControls({ sets: setsList });
       render();
       document.getElementById("count").textContent = state.cards.length + " cards";
-      document.getElementById("desc").textContent = d.description || "";
+      document.getElementById("desc").textContent =
+        "An original Christmas deckbuilder with Dominion-style rules and four resources — " +
+        "🪙 Money (buy currency), 🦌 Reindeer, 🛷 Sled, and 🎁 Presents (victory points). " +
+        "Delivery cards convert reindeer + sled into presents; most presents wins.";
       document.getElementById("footer").innerHTML =
-        (d.source ? d.source + " " : "") +
-        (d.snapshot ? "<br>" + d.snapshot : "");
+        "Card data: <code>data/fat_santa_cards.csv</code> · original game content (not affiliated with Dominion).";
     })
     .catch(err => {
       document.getElementById("count").textContent = "";
       document.getElementById("grid").innerHTML =
-        '<div class="empty-msg">Could not load <code>data/dominion_cards.json</code> (' + err.message +
+        '<div class="empty-msg">Could not load <code>data/fat_santa_cards.csv</code> (' + err.message +
         ').<br>This page must be served over HTTP (e.g. GitHub Pages or <code>python3 -m http.server</code>), not opened from disk.</div>';
     });
 }
@@ -266,9 +312,9 @@ function printCards() {
     cost.className = "pcost" + (c.cost ? "" : " empty"); cost.textContent = c.cost || "";
     const name = document.createElement("div"); name.className = "pname"; name.textContent = c.name;
     head.appendChild(cost); head.appendChild(name);
-    if (c.victory_points) {
+    if (c.presents) {
       const vp = document.createElement("div"); vp.className = "pvp";
-      vp.textContent = /vp/i.test(c.victory_points) ? c.victory_points : c.victory_points + " VP";
+      vp.textContent = presentBadge(c.presents);
       head.appendChild(vp);
     }
     card.appendChild(head);
@@ -298,10 +344,10 @@ function cardEl(c) {
   const name = document.createElement("div");
   name.className = "name"; name.textContent = c.name;
   head.appendChild(cost); head.appendChild(name);
-  if (c.victory_points) {
+  if (c.presents) {
     const vp = document.createElement("div");
     vp.className = "vp";
-    vp.textContent = /vp/i.test(c.victory_points) ? c.victory_points : c.victory_points + " VP";
+    vp.textContent = presentBadge(c.presents);
     head.appendChild(vp);
   }
   el.appendChild(head);

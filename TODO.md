@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Switched the UI to render the fat-santa card set instead of Dominion: the card browser (`index.html`) and generator (`card-generator.html`) now load `data/fat_santa_cards.csv`, with fat-santa theming (resource legend, 🎁 present badges, type tints for Money/Reindeer/Sled/Present/Coal) and the offline sample swapped to fat-santa cards.
 - Generated a 100-card example set for the original "fat-santa" deckbuilder (Dominion-style rules, four resources: Money/Reindeer/Sled/Presents) as `data/fat_santa_cards.csv` (columns: name, cost, types, presents, text, set; no images), reproducible via `scripts/gen_fat_santa_cards.py`. Cards span four themed sets and import cleanly into the card generator.
 - Saved an original-wording summary of the Dominion rules to `docs/dominion-rules.md` (setup, ABC turn structure, card types, end-of-game/scoring, first-game set, quick reference), verified against online sources and with a copyright note.
 - Added shrink-to-fit text to the generator: a "Shrink long text to fit its box" toggle (default on) auto-reduces any overflowing text element's font size so verbose Dominion cards fit their frame's text panel instead of clipping; applies in the editor, deck, print, and PNG export.
