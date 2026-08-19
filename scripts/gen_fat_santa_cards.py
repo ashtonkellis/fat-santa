@@ -38,7 +38,6 @@ C("Cargo Sled", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
 C("Stocking Stuffer", S, "$2", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
 C("Gift Box", S, "$5", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
 C("Grand Present", S, "$8", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
-C("Lump of Coal", S, "$0", ["Coal"], "Worth -1 present.", {"Presents": "-1"}, "-1")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Toy Stack", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("General Store", S, "$5", ["Action"], "+1 Card\n+1 Action\n+1 Buy\n+$1",
@@ -148,37 +147,11 @@ C("Lead Reindeer", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 C
   {"Reindeer": "+2", "Cards": "+1"})
 
 # ========================= SET: Naughty & Nice =========================
-# Attacks, reactions and interactive tricks.
+# Interactive tricks and effects (no attacks).
 S = "Naughty & Nice"
-C("Snowball Fight", S, "$4", ["Action", "Attack"],
-  "+$2\nEach other player discards down to 3 cards in hand.", {"Coins": "+2"})
-C("Blizzard", S, "$5", ["Action", "Attack"], "+2 Cards\nEach other player gains a Lump of Coal.",
-  {"Cards": "+2"})
-C("Cozy Blanket", S, "$2", ["Action", "Reaction"],
-  "+2 Cards\nWhen another player plays an Attack, you may reveal this from your hand to be unaffected.",
-  {"Cards": "+2"})
-C("Krampus", S, "$6", ["Action", "Attack"],
-  "Each other player discards down to 4 cards in hand and gains a Lump of Coal.")
-C("Icy Patch", S, "$5", ["Action", "Attack"],
-  "Gain a Reindeer.\nEach other player reveals the top 2 cards of their deck, trashes a revealed Reindeer or Money card, and discards the rest.",
-  {"Gain": "Reindeer"})
-C("Naughty Prank", S, "$3", ["Action", "Attack"],
-  "Each other player with 4+ cards in hand puts one onto their deck.")
 C("Warm Cocoa", S, "$3", ["Action", "Reaction"],
   "+1 Card\n+1 Action\nWhen you discard this other than during Clean-up, you may reveal it for +$1.",
   {"Cards": "+1", "Actions": "+1"})
-C("Chimney Block", S, "$4", ["Action", "Attack"],
-  "+$2\nEach other player with 5+ cards in hand puts one onto their deck.", {"Coins": "+2"})
-C("Coal Truck", S, "$5", ["Action", "Attack"],
-  "+$2\nEach other player gains a Lump of Coal unless they discard a Present.", {"Coins": "+2"})
-C("Elf Spy", S, "$3", ["Action", "Attack"],
-  "+1 Card\n+1 Action\nEach player reveals the top card of their deck; you may discard the ones you choose (each other player's, or your own).",
-  {"Cards": "+1", "Actions": "+1"})
-C("Reindeer Rustler", S, "$5", ["Action", "Attack"],
-  "Gain a Sturdy Reindeer.\nEach other player reveals the top 2 cards of their deck, trashes a revealed Reindeer, and discards the rest.",
-  {"Gain": "Sturdy Reindeer"})
-C("Frostbite", S, "$4", ["Action", "Attack"],
-  "Each other player reveals their hand and discards a Sled card if they can.")
 C("Nice List Bonus", S, "$5", ["Action"], "+2 Cards\n+1 Buy\nEach other player draws a card.",
   {"Cards": "+2", "Buys": "+1"})
 C("Secret Santa", S, "$3", ["Action"],
@@ -186,17 +159,6 @@ C("Secret Santa", S, "$3", ["Action"],
   {"Cards": "+2", "Actions": "+1"})
 C("Regifting", S, "$4", ["Action"],
   "You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.")
-C("Watchdog", S, "$3", ["Action", "Reaction"],
-  "+1 Card\n+1 Action\nWhen another player plays an Attack, you may draw a card.",
-  {"Cards": "+1", "Actions": "+1"})
-C("Snow Fort", S, "$5", ["Action", "Reaction"],
-  "+$2\n+1 Buy\nWhen another player plays an Attack, you may reveal this to be unaffected.",
-  {"Coins": "+2", "Buys": "+1"})
-C("Mischief Elf", S, "$4", ["Action", "Attack"],
-  "Each other player discards the top card of their deck. If it is an Action, they gain a Lump of Coal.")
-C("Candy Cane Trap", S, "$2", ["Action", "Reaction"],
-  "+1 Action\nWhen you would gain a Lump of Coal, you may reveal this from your hand to trash that Coal instead.",
-  {"Actions": "+1"})
 C("Holiday Cheer", S, "$6", ["Action"], "+2 Cards\n+1 Buy\n+$2", {"Cards": "+2", "Buys": "+1", "Coins": "+2"})
 C("Sugar Rush", S, "$3", ["Action"], "+1 Card\n+3 Actions", {"Cards": "+1", "Actions": "+3"})
 C("Long Winter", S, "$5", ["Action", "Duration"],
@@ -214,7 +176,7 @@ for c in cards:
     by_group.setdefault(c["_group"], 0)
     by_group[c["_group"]] += 1
 
-assert len(cards) == 96, f"expected 96 cards, got {len(cards)}"
+assert len(cards) == 80, f"expected 80 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"
@@ -225,7 +187,7 @@ assert not dupes, f"duplicate names: {dupes}"
 #   +2 Actions -> "The next card you play this turn loses Rest."
 #   +1 Action  -> removed (non-terminal; no Rest)
 #   no +Action -> gain the keyword "Rest" on a new line at the end
-# Non-Action cards (Money/Reindeer/Sled/Present/Coal) are untouched.
+# Non-Action cards (Money/Reindeer/Sled/Present) are untouched.
 import re
 REST_1 = "The next card you play this turn loses Rest."
 REST_2 = "The next 2 cards you play this turn lose Rest."

@@ -5,7 +5,6 @@
     "Reindeer": { "label": "light Christmas green",  "hex": "#d9edcf" },
     "Sled":     { "label": "light blue",             "hex": "#d4e2f2" },
     "Present":  { "label": "light purple",           "hex": "#e6dbf4" },
-    "Coal":     { "label": "dark (penalty)",         "hex": "#35353f", "text": "#e8e6f2" },
     "Rest":     { "label": "coal grey (cards with the Rest keyword; overrides type tint)", "hex": "#c3c7cd" },
     "Action":   { "label": "subtle Christmas off-white (default for all other cards)", "hex": "#f3f6ef" }
   }

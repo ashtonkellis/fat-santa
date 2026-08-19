@@ -393,13 +393,13 @@ const PRESETS = {
    The full 100-card set loads from data/fat_santa_cards.csv when served. */
 const SAMPLE = [
   { name: "Spare Change",     cost: "$0", types: "Money", presents: "", text: "+$1" },
-  { name: "Workshop Elf",     cost: "$3", types: "Action", presents: "", text: "+1 Card\n+2 Actions" },
-  { name: "Toy Stack",        cost: "$4", types: "Action", presents: "", text: "+3 Cards" },
+  { name: "Workshop Elf",     cost: "$3", types: "Action", presents: "", text: "+1 Card\nThe next card you play this turn loses Rest." },
+  { name: "Toy Stack",        cost: "$4", types: "Action", presents: "", text: "+3 Cards\nRest" },
   { name: "Sturdy Reindeer",  cost: "$4", types: "Reindeer", presents: "", text: "+2 Reindeer" },
   { name: "Cargo Sled",       cost: "$5", types: "Sled", presents: "", text: "+2 Sled" },
   { name: "Gift Box",         cost: "$5", types: "Present", presents: "2", text: "Worth 2 presents." },
-  { name: "Delivery Run",     cost: "$5", types: "Action/Delivery", presents: "", text: "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box." },
-  { name: "Blizzard",         cost: "$5", types: "Action/Attack", presents: "", text: "+2 Cards\nEach other player gains a Lump of Coal." },
+  { name: "Delivery Run",     cost: "$5", types: "Action/Delivery", presents: "", text: "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box.\nRest" },
+  { name: "Holiday Cheer",    cost: "$6", types: "Action", presents: "", text: "+2 Cards\n+1 Buy\n+$2\nRest" },
 ];
 
 /* ------------------------------------------------------------------ *

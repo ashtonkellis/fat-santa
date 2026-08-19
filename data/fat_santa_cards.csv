@@ -11,7 +11,6 @@ Cargo Sled,$5,Sled,,+2 Sled
 Stocking Stuffer,$2,Present,1,Worth 1 present.
 Gift Box,$5,Present,2,Worth 2 presents.
 Grand Present,$8,Present,3,Worth 3 presents.
-Lump of Coal,$0,Coal,-1,Worth -1 present.
 Workshop Elf,$3,Action,,"+1 Card
 The next card you play this turn loses Rest."
 Toy Stack,$4,Action,,"+3 Cards
@@ -150,37 +149,8 @@ Stable Master,$5,Action,,"+1 Card
 Sled Wright,$4,Action,,Gain a Kick Sled.
 Lead Reindeer,$5,Reindeer,,"+2 Reindeer
 When you play this, +1 Card."
-Snowball Fight,$4,Action/Attack,,"+$2
-Each other player discards down to 3 cards in hand.
-Rest"
-Blizzard,$5,Action/Attack,,"+2 Cards
-Each other player gains a Lump of Coal.
-Rest"
-Cozy Blanket,$2,Action/Reaction,,"+2 Cards
-When another player plays an Attack, you may reveal this from your hand to be unaffected.
-Rest"
-Krampus,$6,Action/Attack,,"Each other player discards down to 4 cards in hand and gains a Lump of Coal.
-Rest"
-Icy Patch,$5,Action/Attack,,"Gain a Reindeer.
-Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer or Money card, and discards the rest.
-Rest"
-Naughty Prank,$3,Action/Attack,,"Each other player with 4+ cards in hand puts one onto their deck.
-Rest"
 Warm Cocoa,$3,Action/Reaction,,"+1 Card
 When you discard this other than during Clean-up, you may reveal it for +$1."
-Chimney Block,$4,Action/Attack,,"+$2
-Each other player with 5+ cards in hand puts one onto their deck.
-Rest"
-Coal Truck,$5,Action/Attack,,"+$2
-Each other player gains a Lump of Coal unless they discard a Present.
-Rest"
-Elf Spy,$3,Action/Attack,,"+1 Card
-Each player reveals the top card of their deck; you may discard the ones you choose (each other player's, or your own)."
-Reindeer Rustler,$5,Action/Attack,,"Gain a Sturdy Reindeer.
-Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer, and discards the rest.
-Rest"
-Frostbite,$4,Action/Attack,,"Each other player reveals their hand and discards a Sled card if they can.
-Rest"
 Nice List Bonus,$5,Action,,"+2 Cards
 +1 Buy
 Each other player draws a card.
@@ -189,15 +159,6 @@ Secret Santa,$3,Action,,"+2 Cards
 Each player passes a card from their hand to the player on their left, at once."
 Regifting,$4,Action,,"You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.
 Rest"
-Watchdog,$3,Action/Reaction,,"+1 Card
-When another player plays an Attack, you may draw a card."
-Snow Fort,$5,Action/Reaction,,"+$2
-+1 Buy
-When another player plays an Attack, you may reveal this to be unaffected.
-Rest"
-Mischief Elf,$4,Action/Attack,,"Each other player discards the top card of their deck. If it is an Action, they gain a Lump of Coal.
-Rest"
-Candy Cane Trap,$2,Action/Reaction,,"When you would gain a Lump of Coal, you may reveal this from your hand to trash that Coal instead."
 Holiday Cheer,$6,Action,,"+2 Cards
 +1 Buy
 +$2

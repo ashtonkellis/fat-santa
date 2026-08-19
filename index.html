@@ -20,7 +20,6 @@
     --c-reindeer: #d9edcf;            /* Reindeer — light Christmas green */
     --c-sled:     #d4e2f2;            /* Sled — light blue */
     --c-present:  #e6dbf4;            /* Presents — light purple */
-    --c-coal:     #35353f;            /* Coal — dark (penalty) */
     --c-rest:     #c3c7cd;            /* cards with the Rest keyword (terminal / "stop") — coal grey */
   }
   * { box-sizing: border-box; }
@@ -85,9 +84,6 @@
   .card.t-Reindeer { background: var(--c-reindeer); }
   .card.t-Sled     { background: var(--c-sled); }
   .card.t-Present  { background: var(--c-present); }
-  .card.t-Coal     { background: var(--c-coal); color: #e8e6f2; }
-  .card.t-Coal .types { color: #c9c6d4; }
-  .card.t-Coal .text { border-top-color: rgba(255,255,255,.14); }
   /* cards carrying the Rest keyword ("stop") — coal grey, overrides type tint */
   .card.has-rest   { background: var(--c-rest); }
 

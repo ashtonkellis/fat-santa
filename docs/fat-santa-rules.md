@@ -152,10 +152,8 @@ as non-terminal so your chain can continue.
   Kingdom treasures).
 - **Victory** — worth points at the end; does nothing useful in hand during play.
 - **Action** — played in the Action phase for its printed effect.
-- **Action – Attack** — an Action that also affects your opponents (e.g. *Militia*
-  forces others to discard down to 3 cards; *Witch* hands them Curses).
-- **Action – Reaction** — can be revealed out of turn in response to something
-  (e.g. *Moat* reveals from your hand to block an Attack).
+- **Action – Reaction** — can be revealed out of turn in response to a triggering
+  event described on the card.
 
 ---
 
