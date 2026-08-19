@@ -1,205 +1,205 @@
-name,cost,types,presents,text,set
-Spare Change,$0,Money,,+$1,North Pole
-Coin Purse,$3,Money,,+$2,North Pole
-Gold Hoard,$6,Money,,+$3,North Pole
+name,cost,types,presents,text
+Spare Change,$0,Money,,+$1
+Coin Purse,$3,Money,,+$2
+Gold Hoard,$6,Money,,+$3
 Peppermint Coin,$4,Money,,"+$1
-+1 Buy",North Pole
-Yearling Reindeer,$2,Reindeer,,+1 Reindeer,North Pole
-Sturdy Reindeer,$4,Reindeer,,+2 Reindeer,North Pole
-Kick Sled,$2,Sled,,+1 Sled,North Pole
-Cargo Sled,$5,Sled,,+2 Sled,North Pole
-Stocking Stuffer,$2,Present,1,Worth 1 present.,North Pole
-Gift Box,$5,Present,3,Worth 3 presents.,North Pole
-Grand Present,$8,Present,6,Worth 6 presents.,North Pole
-Lump of Coal,$0,Coal,-1,Worth -1 present.,North Pole
++1 Buy"
+Yearling Reindeer,$2,Reindeer,,+1 Reindeer
+Sturdy Reindeer,$4,Reindeer,,+2 Reindeer
+Kick Sled,$2,Sled,,+1 Sled
+Cargo Sled,$5,Sled,,+2 Sled
+Stocking Stuffer,$2,Present,1,Worth 1 present.
+Gift Box,$5,Present,3,Worth 3 presents.
+Grand Present,$8,Present,6,Worth 6 presents.
+Lump of Coal,$0,Coal,-1,Worth -1 present.
 Workshop Elf,$3,Action,,"+1 Card
-+2 Actions",North Pole
-Toy Stack,$4,Action,,+3 Cards,North Pole
++2 Actions"
+Toy Stack,$4,Action,,+3 Cards
 General Store,$5,Action,,"+1 Card
 +1 Action
 +1 Buy
-+$1",North Pole
++$1"
 Tidy Sack,$2,Action,,"+1 Action
-Discard any number of cards, then draw that many.",North Pole
+Discard any number of cards, then draw that many."
 Sorting Table,$5,Action,,"+2 Cards
-+1 Action",North Pole
++1 Action"
 Winter Fair,$5,Action,,"+2 Buys
-+$2",North Pole
++$2"
 Extra Hands,$3,Action,,"+2 Actions
-+1 Buy",North Pole
++1 Buy"
 Careful Count,$2,Action,,"+1 Card
 +1 Action
-Look at the top card of your deck. You may discard it.",North Pole
+Look at the top card of your deck. You may discard it."
 Chimney Sweep,$4,Action,,"+$2
-+1 Buy",North Pole
++1 Buy"
 Gift Fund,$3,Money,,"+$2
-If you have a Sled in play, +$1.",North Pole
+If you have a Sled in play, +$1."
 Reindeer Feed,$3,Action,,"+2 Reindeer
-+1 Action",North Pole
++1 Action"
 Sled Shed,$4,Action,,"+2 Sled
-+1 Action",North Pole
++1 Action"
 Bell Ringer,$3,Action,,"+1 Card
 +1 Action
-+$1",North Pole
++$1"
 North Star,$6,Action,,"+3 Cards
-+1 Buy",North Pole
-Snow Globe,$4,Present,*,Worth 1 present per 10 cards in your deck (round down).,North Pole
++1 Buy"
+Snow Globe,$4,Present,*,Worth 1 present per 10 cards in your deck (round down).
 Candy Coins,$4,Money,,"+$2
-When you play this, +1 Reindeer.",North Pole
+When you play this, +1 Reindeer."
 Wrapping Station,$4,Action,,"+1 Action
-Gain a Stocking Stuffer.",Santa's Workshop
+Gain a Stocking Stuffer."
 Toy Maker,$5,Action,,"+$2
-Gain a Present card costing up to $5.",Santa's Workshop
+Gain a Present card costing up to $5."
 Assembly Line,$6,Action,,"+2 Cards
 +1 Action
-You may play an Action card from your hand.",Santa's Workshop
+You may play an Action card from your hand."
 Master Craftself,$6,Action,,"Gain a card costing up to $5 to your hand.
-Put a card from your hand onto your deck.",Santa's Workshop
+Put a card from your hand onto your deck."
 Gift Wrap,$3,Action,,"+2 Actions
-The next Present you buy this turn costs $2 less.",Santa's Workshop
+The next Present you buy this turn costs $2 less."
 Recycler,$4,Action,,"Trash a card from your hand.
-Gain a card costing up to $2 more than it.",Santa's Workshop
+Gain a card costing up to $2 more than it."
 Present Press,$5,Action,,"+1 Card
 +1 Action
-You may trash a Money card from your hand. If you do, gain a Present costing up to $6.",Santa's Workshop
+You may trash a Money card from your hand. If you do, gain a Present costing up to $6."
 Cookie Bribe,$3,Action,,"+1 Card
-+$2",Santa's Workshop
++$2"
 Overtime,$3,Action,,"+1 Card
 +2 Actions
-Discard a card.",Santa's Workshop
+Discard a card."
 Big Batch,$7,Action,,"+2 Cards
-Gain 2 Stocking Stuffers.",Santa's Workshop
+Gain 2 Stocking Stuffers."
 Quality Control,$4,Action,,"+1 Card
 +1 Action
-You may trash a card. If you do, +$1.",Santa's Workshop
+You may trash a card. If you do, +$1."
 Ribbon Roll,$2,Money,,"+$1
-+1 Reindeer",Santa's Workshop
++1 Reindeer"
 Tinsel Stash,$5,Money,,"+$3
-+1 Buy",Santa's Workshop
++1 Buy"
 Gingerbread Crew,$5,Action,,"+2 Cards
-+2 Actions",Santa's Workshop
++2 Actions"
 Inventory,$3,Action,,"+1 Card
 +1 Action
-Look at the top 2 cards of your deck; put them back in any order.",Santa's Workshop
+Look at the top 2 cards of your deck; put them back in any order."
 Golden Ticket,$5,Action,,"+1 Buy
 +$2
-Gain a Present costing up to $4.",Santa's Workshop
+Gain a Present costing up to $4."
 Bulk Order,$6,Action,,"+1 Buy
-+$3",Santa's Workshop
++$3"
 Craft Fair,$4,Action,,"+1 Card
 +1 Action
-+1 Buy",Santa's Workshop
++1 Buy"
 Elf Union,$5,Action,,"+1 Card
 +2 Actions
-+$1",Santa's Workshop
++$1"
 Present Prototype,$0,Action,,"+1 Card
-+1 Action",Santa's Workshop
++1 Action"
 Ledger,$3,Action,,"+1 Card
 +1 Action
 +1 Buy
-When you discard this, +$1.",Santa's Workshop
-Present Vault,$6,Present,*,Worth 1 present per 4 Sled cards you have (round down).,Santa's Workshop
-Keepsake,$3,Present,2,Worth 2 presents.,Santa's Workshop
+When you discard this, +$1."
+Present Vault,$6,Present,*,Worth 1 present per 4 Sled cards you have (round down).
+Keepsake,$3,Present,2,Worth 2 presents.
 Charity Drive,$5,Action,,"+$2
-Gain a Present costing up to $5; if you do, +1 Card.",Santa's Workshop
+Gain a Present costing up to $5; if you do, +1 Card."
 Reindeer Stable,$4,Action,,"+1 Card
 +1 Action
-+1 Reindeer",Sleigh & Stable
++1 Reindeer"
 Prancing Reindeer,$5,Action,,"+2 Reindeer
-+1 Card",Sleigh & Stable
-Blitzen Boost,$6,Action,,+3 Reindeer,Sleigh & Stable
++1 Card"
+Blitzen Boost,$6,Action,,+3 Reindeer
 Sleigh Bells,$3,Action,,"+1 Sled
-+2 Actions",Sleigh & Stable
-Heavy Sled,$6,Sled,,+3 Sled,Sleigh & Stable
-Delivery Run,$5,Action/Delivery,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box.",Sleigh & Stable
-Rooftop Drop,$4,Action/Delivery,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Stocking Stuffer, then +2 Cards.",Sleigh & Stable
++2 Actions"
+Heavy Sled,$6,Sled,,+3 Sled
+Delivery Run,$5,Action/Delivery,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box."
+Rooftop Drop,$4,Action/Delivery,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Stocking Stuffer, then +2 Cards."
 Express Sleigh,$7,Action/Delivery,,"+2 Reindeer
 +2 Sled
-Delivery: gain a Gift Box.",Sleigh & Stable
-Midnight Flight,$8,Action/Delivery,,"Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Grand Present.",Sleigh & Stable
+Delivery: gain a Gift Box."
+Midnight Flight,$8,Action/Delivery,,"Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Grand Present."
 Team Harness,$4,Action,,"+1 Card
 +1 Action
 +1 Reindeer
-+1 Sled",Sleigh & Stable
++1 Sled"
 Feed Bag,$2,Money,,"+$1
-+1 Reindeer",Sleigh & Stable
++1 Reindeer"
 Sleigh Garage,$5,Action,,"+2 Sled
-+1 Buy",Sleigh & Stable
++1 Buy"
 Dasher,$5,Action,,"+1 Card
 +1 Action
-+2 Reindeer",Sleigh & Stable
++2 Reindeer"
 Dancer,$5,Action,,"+2 Reindeer
-+$1",Sleigh & Stable
++$1"
 Vixen,$4,Action,,"+1 Card
 +1 Action
-+1 Reindeer",Sleigh & Stable
++1 Reindeer"
 Comet,$6,Action,,"+3 Reindeer
-+1 Buy",Sleigh & Stable
++1 Buy"
 Cupid,$4,Action,,"+1 Card
 +1 Action
-+1 Sled",Sleigh & Stable
++1 Sled"
 Donner,$5,Action,,"+2 Sled
-+1 Card",Sleigh & Stable
++1 Card"
 Rudolph,$6,Action,,"+2 Reindeer
 +2 Sled
-While this is in play, your Deliveries need 1 fewer Reindeer.",Sleigh & Stable
-Loaded Sleigh,$6,Action/Delivery,,"Delivery: If you have 3+ Reindeer, gain up to two Gift Boxes (one per 2 Sled you have).",Sleigh & Stable
+While this is in play, your Deliveries need 1 fewer Reindeer."
+Loaded Sleigh,$6,Action/Delivery,,"Delivery: If you have 3+ Reindeer, gain up to two Gift Boxes (one per 2 Sled you have)."
 Stable Master,$5,Action,,"+1 Card
 +1 Action
-+2 Reindeer",Sleigh & Stable
++2 Reindeer"
 Sled Wright,$4,Action,,"+1 Action
-Gain a Kick Sled.",Sleigh & Stable
+Gain a Kick Sled."
 Lead Reindeer,$5,Reindeer,,"+2 Reindeer
-When you play this, +1 Card.",Sleigh & Stable
+When you play this, +1 Card."
 Snowball Fight,$4,Action/Attack,,"+$2
-Each other player discards down to 3 cards in hand.",Naughty & Nice
+Each other player discards down to 3 cards in hand."
 Blizzard,$5,Action/Attack,,"+2 Cards
-Each other player gains a Lump of Coal.",Naughty & Nice
+Each other player gains a Lump of Coal."
 Cozy Blanket,$2,Action/Reaction,,"+2 Cards
-When another player plays an Attack, you may reveal this from your hand to be unaffected.",Naughty & Nice
-Krampus,$6,Action/Attack,,Each other player discards down to 4 cards in hand and gains a Lump of Coal.,Naughty & Nice
+When another player plays an Attack, you may reveal this from your hand to be unaffected."
+Krampus,$6,Action/Attack,,Each other player discards down to 4 cards in hand and gains a Lump of Coal.
 Icy Patch,$5,Action/Attack,,"Gain a Reindeer.
-Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer or Money card, and discards the rest.",Naughty & Nice
-Naughty Prank,$3,Action/Attack,,Each other player with 4+ cards in hand puts one onto their deck.,Naughty & Nice
+Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer or Money card, and discards the rest."
+Naughty Prank,$3,Action/Attack,,Each other player with 4+ cards in hand puts one onto their deck.
 Warm Cocoa,$3,Action/Reaction,,"+1 Card
 +1 Action
-When you discard this other than during Clean-up, you may reveal it for +$1.",Naughty & Nice
+When you discard this other than during Clean-up, you may reveal it for +$1."
 Chimney Block,$4,Action/Attack,,"+$2
-Each other player with 5+ cards in hand puts one onto their deck.",Naughty & Nice
+Each other player with 5+ cards in hand puts one onto their deck."
 Coal Truck,$5,Action/Attack,,"+$2
-Each other player gains a Lump of Coal unless they discard a Present.",Naughty & Nice
+Each other player gains a Lump of Coal unless they discard a Present."
 Elf Spy,$3,Action/Attack,,"+1 Card
 +1 Action
-Each player reveals the top card of their deck; you may discard the ones you choose (each other player's, or your own).",Naughty & Nice
+Each player reveals the top card of their deck; you may discard the ones you choose (each other player's, or your own)."
 Reindeer Rustler,$5,Action/Attack,,"Gain a Sturdy Reindeer.
-Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer, and discards the rest.",Naughty & Nice
-Frostbite,$4,Action/Attack,,Each other player reveals their hand and discards a Sled card if they can.,Naughty & Nice
+Each other player reveals the top 2 cards of their deck, trashes a revealed Reindeer, and discards the rest."
+Frostbite,$4,Action/Attack,,Each other player reveals their hand and discards a Sled card if they can.
 Nice List Bonus,$5,Action,,"+2 Cards
 +1 Buy
-Each other player draws a card.",Naughty & Nice
+Each other player draws a card."
 Secret Santa,$3,Action,,"+2 Cards
 +1 Action
-Each player passes a card from their hand to the player on their left, at once.",Naughty & Nice
-Regifting,$4,Action,,"You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.",Naughty & Nice
+Each player passes a card from their hand to the player on their left, at once."
+Regifting,$4,Action,,"You may trash a Present from your hand. If you do, +$ equal to its cost plus $1."
 Watchdog,$3,Action/Reaction,,"+1 Card
 +1 Action
-When another player plays an Attack, you may draw a card.",Naughty & Nice
+When another player plays an Attack, you may draw a card."
 Snow Fort,$5,Action/Reaction,,"+$2
 +1 Buy
-When another player plays an Attack, you may reveal this to be unaffected.",Naughty & Nice
-Mischief Elf,$4,Action/Attack,,"Each other player discards the top card of their deck. If it is an Action, they gain a Lump of Coal.",Naughty & Nice
+When another player plays an Attack, you may reveal this to be unaffected."
+Mischief Elf,$4,Action/Attack,,"Each other player discards the top card of their deck. If it is an Action, they gain a Lump of Coal."
 Candy Cane Trap,$2,Action/Reaction,,"+1 Action
-When you would gain a Lump of Coal, you may reveal this from your hand to trash that Coal instead.",Naughty & Nice
+When you would gain a Lump of Coal, you may reveal this from your hand to trash that Coal instead."
 Holiday Cheer,$6,Action,,"+2 Cards
 +1 Buy
-+$2",Naughty & Nice
++$2"
 Sugar Rush,$3,Action,,"+1 Card
-+3 Actions",Naughty & Nice
-Long Winter,$5,Action/Duration,,Now and at the start of your next turn: +1 Card and +$1.,Naughty & Nice
-Sackful of Gifts,$7,Present,4,Worth 4 presents.,Naughty & Nice
++3 Actions"
+Long Winter,$5,Action/Duration,,Now and at the start of your next turn: +1 Card and +$1.
+Sackful of Gifts,$7,Present,4,Worth 4 presents.
 Mrs. Claus,$5,Action,,"+1 Card
 +1 Action
 +1 Reindeer
 +1 Sled
-+$1",Naughty & Nice
-Santa's Sack,$6,Action/Delivery,,"Delivery: If you have 3+ Reindeer and 2+ Sled this turn, gain a Present costing up to $8.",Naughty & Nice
++$1"
+Santa's Sack,$6,Action/Delivery,,"Delivery: If you have 3+ Reindeer and 2+ Sled this turn, gain a Present costing up to $8."

@@ -332,11 +332,6 @@ function defaultTemplate() {
         color: "#2a2117", align: "center", valign: "center", pad: 0,
         fill: "", border: 0, borderColor: "#000", radius: 0,
         transform: "uppercase", lineHeight: 1 },
-      { id: id(), type: "text", name: "Set", x: 60, y: 92.5, w: 36, h: 6,
-        content: "{{set}}", fontSize: 3.4, weight: 400, italic: true,
-        color: "#7a6f5a", align: "right", valign: "center", pad: 0.5,
-        fill: "", border: 0, borderColor: "#000", radius: 0,
-        transform: "none", lineHeight: 1 },
     ],
   };
 }
@@ -365,10 +360,8 @@ const PRESETS = {
            fontSize: 5.2, weight: 700, color: "#2a2117" }),
     mkEl({ name: "Type line", content: "{{types}}", x: 8, y: 70, w: 84, h: 5,
            fontSize: 3.6, weight: 700, transform: "uppercase", color: "#4a3f28" }),
-    mkEl({ name: "Rules text",content: "{{text}}", x: 9, y: 76, w: 82, h: 17,
+    mkEl({ name: "Rules text",content: "{{text}}", x: 9, y: 76, w: 82, h: 19,
            fontSize: 4.2, valign: "center", color: "#3a3020", lineHeight: 1.25 }),
-    mkEl({ name: "Set",       content: "{{set}}", x: 8, y: 94, w: 84, h: 4.5,
-           fontSize: 3, italic: true, color: "#7a6f5a" }),
   ] }),
   // Templar / gem family: cost gem top-left, title in a mid banner, rules in
   // the lower panel.
@@ -379,10 +372,8 @@ const PRESETS = {
            fontSize: 5.2, weight: 700, color: "#3a2c12" }),
     mkEl({ name: "Type line", content: "{{types}}", x: 12, y: 70, w: 76, h: 4.5,
            fontSize: 3.4, weight: 700, transform: "uppercase", color: "#5a4a28" }),
-    mkEl({ name: "Rules text",content: "{{text}}", x: 12, y: 75, w: 76, h: 16,
+    mkEl({ name: "Rules text",content: "{{text}}", x: 12, y: 75, w: 76, h: 17,
            fontSize: 4, valign: "center", color: "#40361f", lineHeight: 1.22 }),
-    mkEl({ name: "Set",       content: "{{set}}", x: 12, y: 92, w: 76, h: 4,
-           fontSize: 3, italic: true, color: "#6f6350" }),
   ] }),
   // Corner-number family (playing-card style): cost in the top-left corner, a
   // title strip near the top, rules across the lower third.
@@ -393,24 +384,22 @@ const PRESETS = {
            fontSize: 4.8, weight: 700, align: "right", color: "#2a2117" }),
     mkEl({ name: "Type line", content: "{{types}}", x: 8, y: 62, w: 84, h: 5,
            fontSize: 3.4, weight: 700, transform: "uppercase", color: "#4a3f28" }),
-    mkEl({ name: "Rules text",content: "{{text}}", x: 8, y: 68, w: 84, h: 24,
+    mkEl({ name: "Rules text",content: "{{text}}", x: 8, y: 68, w: 84, h: 26,
            fontSize: 4, valign: "center", color: "#2f2717", lineHeight: 1.25 }),
-    mkEl({ name: "Set",       content: "{{set}}", x: 8, y: 93, w: 84, h: 4.5,
-           fontSize: 3, italic: true, align: "right", color: "#7a6f5a" }),
   ] }),
 };
 
 /* Sample deck — a handful of fat-santa cards so the app works with zero setup.
    The full 100-card set loads from data/fat_santa_cards.csv when served. */
 const SAMPLE = [
-  { name: "Spare Change",     set: "North Pole", cost: "$0", types: "Money", presents: "", text: "+$1" },
-  { name: "Workshop Elf",     set: "North Pole", cost: "$3", types: "Action", presents: "", text: "+1 Card\n+2 Actions" },
-  { name: "Toy Stack",        set: "North Pole", cost: "$4", types: "Action", presents: "", text: "+3 Cards" },
-  { name: "Sturdy Reindeer",  set: "North Pole", cost: "$4", types: "Reindeer", presents: "", text: "+2 Reindeer" },
-  { name: "Cargo Sled",       set: "North Pole", cost: "$5", types: "Sled", presents: "", text: "+2 Sled" },
-  { name: "Gift Box",         set: "North Pole", cost: "$5", types: "Present", presents: "3", text: "Worth 3 presents." },
-  { name: "Delivery Run",     set: "Sleigh & Stable", cost: "$5", types: "Action/Delivery", presents: "", text: "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box." },
-  { name: "Blizzard",         set: "Naughty & Nice", cost: "$5", types: "Action/Attack", presents: "", text: "+2 Cards\nEach other player gains a Lump of Coal." },
+  { name: "Spare Change",     cost: "$0", types: "Money", presents: "", text: "+$1" },
+  { name: "Workshop Elf",     cost: "$3", types: "Action", presents: "", text: "+1 Card\n+2 Actions" },
+  { name: "Toy Stack",        cost: "$4", types: "Action", presents: "", text: "+3 Cards" },
+  { name: "Sturdy Reindeer",  cost: "$4", types: "Reindeer", presents: "", text: "+2 Reindeer" },
+  { name: "Cargo Sled",       cost: "$5", types: "Sled", presents: "", text: "+2 Sled" },
+  { name: "Gift Box",         cost: "$5", types: "Present", presents: "3", text: "Worth 3 presents." },
+  { name: "Delivery Run",     cost: "$5", types: "Action/Delivery", presents: "", text: "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box." },
+  { name: "Blizzard",         cost: "$5", types: "Action/Attack", presents: "", text: "+2 Cards\nEach other player gains a Lump of Coal." },
 ];
 
 /* ------------------------------------------------------------------ *

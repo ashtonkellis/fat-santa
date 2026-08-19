@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
 """Generate 100 example cards for 'fat-santa', a Christmas deckbuilder with
-four resources: Money ($), Reindeer, Sled, Presents. Output matches the schema
-used by data/dominion_cards.json so the existing generator/browser can read it.
+four resources: Money ($), Reindeer, Sled, Presents.
+
+Output is data/fat_santa_cards.csv with columns: name, cost, types, presents,
+text. (Cards carry no "set" — the second argument to C() is only a build-time
+grouping label used for the summary printed below; it is not written out.)
 """
 import csv, collections
 
 cards = []
 
-def C(name, cset, cost, types, text, effects=None, presents=""):
+def C(name, _group, cost, types, text, effects=None, presents=""):
     cards.append({
         "name": name,
-        "set": cset,
         "cost": cost,                     # money cost, e.g. "$4"
         "types": types,
         "presents": presents,             # victory points (presents) at game end
         "effects": effects or {},         # machine-readable resource outputs
         "text": text,
+        "_group": _group,                 # build-time grouping only; not written
     })
 
 # ============================ SET: North Pole ============================
@@ -209,22 +212,22 @@ C("Santa's Sack", S, "$6", ["Action", "Delivery"],
   {"Gain": "Present <= $8"})
 
 # ------------------------------------------------------------------ build
-by_set = collections.OrderedDict()
+by_group = collections.OrderedDict()
 for c in cards:
-    by_set.setdefault(c["set"], 0)
-    by_set[c["set"]] += 1
+    by_group.setdefault(c["_group"], 0)
+    by_group[c["_group"]] += 1
 
 assert len(cards) == 100, f"expected 100 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"
 
-# Write a plain CSV (one row per card). No image fields.
-# Columns: name, cost, types, presents, text, set
+# Write a plain CSV (one row per card). No image fields, no "set" column.
+# Columns: name, cost, types, presents, text
 out = "/home/user/fat-santa/data/fat_santa_cards.csv"
 with open(out, "w", newline="") as f:
     w = csv.writer(f)
-    w.writerow(["name", "cost", "types", "presents", "text", "set"])
+    w.writerow(["name", "cost", "types", "presents", "text"])
     for c in cards:
         w.writerow([
             c["name"],
@@ -232,12 +235,11 @@ with open(out, "w", newline="") as f:
             "/".join(c["types"]),
             c["presents"],
             c["text"],                 # newlines within the card text are kept (quoted)
-            c["set"],
         ])
 print("wrote", out)
 print("total:", len(cards))
-for k, v in by_set.items():
-    print(f"  {k}: {v}")
+for k, v in by_group.items():
+    print(f"  (group) {k}: {v}")
 # type distribution
 types = collections.Counter()
 for c in cards:

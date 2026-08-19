@@ -71,10 +71,8 @@
     background: #cfe3c6; border: 1px solid #9ec090; border-radius: 6px; padding: 1px 6px; color: #2f5324; }
   .card .types { padding: 0 12px 6px; font-size: 11px; font-weight: 700;
     text-transform: uppercase; letter-spacing: .4px; color: #6a5c3c; }
-  .card .text { padding: 6px 12px 10px; font-size: 12.5px; white-space: pre-wrap;
+  .card .text { padding: 6px 12px 12px; font-size: 12.5px; white-space: pre-wrap;
     line-height: 1.3; border-top: 1px solid rgba(0,0,0,.08); margin-top: auto; }
-  .card .setline { padding: 6px 12px 10px; font-size: 11px; font-style: italic; color: #7a6f5a;
-    display: flex; justify-content: space-between; }
 
   /* tint by primary type (fat-santa resource types) */
   .card.t-Money { background: var(--treasure); }
@@ -85,7 +83,7 @@
   .card.t-Reaction { background: var(--reaction); }
   .card.t-Duration { background: var(--duration); }
   .card.t-Coal { background: #35353f; color: #e8e6f2; }
-  .card.t-Coal .types, .card.t-Coal .setline { color: #c9c6d4; }
+  .card.t-Coal .types { color: #c9c6d4; }
   .card.t-Coal .text { border-top-color: rgba(255,255,255,.14); }
 
   .empty-msg { color: var(--muted); padding: 40px; text-align: center; }
@@ -118,9 +116,8 @@
       background: #cfe3c6; border: 0.3mm solid #9ec090; border-radius: 1.5mm; padding: 0.3mm 1.5mm; color: #2f5324; }
     .print-area .ptypes { padding: 0 3mm 1mm; font-size: 2.6mm; font-weight: 700;
       text-transform: uppercase; letter-spacing: .3px; color: #6a5c3c; }
-    .print-area .ptext { padding: 1.5mm 3mm; font-size: 3mm; white-space: pre-wrap;
+    .print-area .ptext { padding: 1.5mm 3mm 2.5mm; font-size: 3mm; white-space: pre-wrap;
       line-height: 1.25; border-top: 0.2mm solid rgba(0,0,0,.12); margin-top: auto; }
-    .print-area .pset { padding: 1.5mm 3mm 2mm; font-size: 2.4mm; font-style: italic; color: #7a6f5a; }
     @page { size: A4; margin: 8mm; }
   }
 </style>
@@ -141,13 +138,11 @@
 
 <div class="controls">
   <input type="search" id="q" placeholder="Search name or card text…" autocomplete="off" />
-  <select id="setSel"><option value="">All sets</option></select>
   <select id="typeSel"><option value="">All types</option></select>
   <select id="sortSel">
-    <option value="set">Sort: by set</option>
-    <option value="name">Sort: name A–Z</option>
     <option value="cost">Sort: cost ↑</option>
     <option value="costDesc">Sort: cost ↓</option>
+    <option value="name">Sort: name A–Z</option>
   </select>
   <span class="muted" id="shown"></span>
 </div>
@@ -162,7 +157,7 @@
 
 <script>
 "use strict";
-const state = { cards: [], meta: {}, setOrder: {}, filtered: [] };
+const state = { cards: [], meta: {}, filtered: [] };
 
 function costNum(c) {
   const m = String(c || "").match(/\d+/);
@@ -209,20 +204,11 @@ function load() {
       state.cards = raw.map(r => ({
         name: r.name,
         cost: r.cost,
-        set: r.set,
         types: (r.types || "").split("/").map(s => s.trim()).filter(Boolean),
         presents: r.presents || "",
         text: r.text || "",
       }));
-      // derive set order + counts by first appearance
-      const counts = {}, order = [];
-      state.cards.forEach(c => {
-        if (!(c.set in counts)) { counts[c.set] = 0; order.push(c.set); }
-        counts[c.set]++;
-      });
-      order.forEach((s, i) => state.setOrder[s] = i);
-      const setsList = order.map(s => ({ name: s, count: counts[s] }));
-      initControls({ sets: setsList });
+      initControls();
       render();
       document.getElementById("count").textContent = state.cards.length + " cards";
       document.getElementById("desc").textContent =
@@ -240,13 +226,7 @@ function load() {
     });
 }
 
-function initControls(d) {
-  const setSel = document.getElementById("setSel");
-  (d.sets || []).forEach(s => {
-    const o = document.createElement("option");
-    o.value = s.name; o.textContent = s.name + " (" + s.count + ")";
-    setSel.appendChild(o);
-  });
+function initControls() {
   const types = new Set();
   state.cards.forEach(c => (c.types || []).forEach(t => types.add(t)));
   const typeSel = document.getElementById("typeSel");
@@ -254,19 +234,17 @@ function initControls(d) {
     const o = document.createElement("option");
     o.value = t; o.textContent = t; typeSel.appendChild(o);
   });
-  ["q", "setSel", "typeSel", "sortSel"].forEach(id =>
+  ["q", "typeSel", "sortSel"].forEach(id =>
     document.getElementById(id).addEventListener("input", render));
   document.getElementById("printBtn").addEventListener("click", printCards);
 }
 
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase();
-  const set = document.getElementById("setSel").value;
   const type = document.getElementById("typeSel").value;
   const sort = document.getElementById("sortSel").value;
 
   let rows = state.cards.filter(c => {
-    if (set && c.set !== set) return false;
     if (type && !(c.types || []).includes(type)) return false;
     if (q) {
       const hay = (c.name + " " + (c.text || "") + " " + typesStr(c)).toLowerCase();
@@ -277,11 +255,9 @@ function render() {
 
   rows.sort((a, b) => {
     if (sort === "name") return a.name.localeCompare(b.name);
-    if (sort === "cost") return costNum(a.cost) - costNum(b.cost) || a.name.localeCompare(b.name);
     if (sort === "costDesc") return costNum(b.cost) - costNum(a.cost) || a.name.localeCompare(b.name);
-    // by set (release order), then cost, then name
-    return (state.setOrder[a.set] - state.setOrder[b.set]) ||
-           (costNum(a.cost) - costNum(b.cost)) || a.name.localeCompare(b.name);
+    // default: cost ascending, then name
+    return costNum(a.cost) - costNum(b.cost) || a.name.localeCompare(b.name);
   });
 
   state.filtered = rows;
@@ -324,8 +300,6 @@ function printCards() {
       const text = document.createElement("div"); text.className = "ptext";
       text.textContent = c.text; card.appendChild(text);
     }
-    const setline = document.createElement("div"); setline.className = "pset";
-    setline.textContent = c.set; card.appendChild(setline);
     area.appendChild(card);
   });
   window.print();
@@ -361,15 +335,7 @@ function cardEl(c) {
     text.className = "text"; text.textContent = c.text;
     el.appendChild(text);
   }
-  const setline = document.createElement("div");
-  setline.className = "setline";
-  setline.innerHTML = "<span>" + escapeHtml(c.set) + "</span>";
-  el.appendChild(setline);
   return el;
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"]/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]));
 }
 
 load();
