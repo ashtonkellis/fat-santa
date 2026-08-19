@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Started a fat-santa rules doc (`docs/fat-santa-rules.md`) as a copy of the Dominion rules baseline, with the Rest keyword folded into the Action phase, keywords, quick reference, and a dedicated "The Rest keyword" section. To be adapted further as the design is specified.
 - Introduced the "Rest" keyword to replace +Actions on Action cards (via a transform pass in the build script): +3 Actions → "The next 2 cards you play this turn lose Rest."; +2 Actions → "The next card you play this turn loses Rest."; +1 Action → removed (non-terminal); Action cards with no +Actions gain "Rest" on a new line at the end. Non-Action cards untouched.
 - Added a resource-based card color scheme (Money = light yellow, Reindeer = light Christmas green, Sled = light blue, Presents = light purple, Coal = dark, Actions/other = subtle Christmas off-white), applied via CSS variables in `index.html` and saved canonically in `docs/color-scheme.md` and `data/resource_colors.json`.
 - Trimmed the Present (victory) cards to three tiers following a 2/5/8 cost → 1/2/3 presents pattern (Stocking Stuffer $2→1, Gift Box $5→2, Grand Present $8→3); removed Keepsake, Sackful of Gifts, Snow Globe, and Present Vault (deck is now 96 cards). Lump of Coal (−1 penalty) kept.
