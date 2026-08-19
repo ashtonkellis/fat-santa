@@ -219,6 +219,42 @@ names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"
 
+# ------------------------------------------------------------------ Rest keyword
+# The "Rest" mechanic replaces +Actions on Action cards:
+#   +3 Actions -> "The next 2 cards you play this turn lose Rest."
+#   +2 Actions -> "The next card you play this turn loses Rest."
+#   +1 Action  -> removed (non-terminal; no Rest)
+#   no +Action -> gain the keyword "Rest" on a new line at the end
+# Non-Action cards (Money/Reindeer/Sled/Present/Coal) are untouched.
+import re
+REST_1 = "The next card you play this turn loses Rest."
+REST_2 = "The next 2 cards you play this turn lose Rest."
+
+def apply_rest(c):
+    if "Action" not in c["types"]:
+        return
+    out, had_plus_action = [], False
+    for line in c["text"].split("\n"):
+        m = re.fullmatch(r"\+(\d+) Actions?", line.strip())
+        if m:
+            had_plus_action = True
+            n = int(m.group(1))
+            if n >= 3:
+                out.append(REST_2)
+            elif n == 2:
+                out.append(REST_1)
+            # n == 1: drop the line entirely
+            continue
+        out.append(line)
+    text = "\n".join(out).strip("\n")
+    if not had_plus_action:                      # terminal Action card gains Rest
+        text = (text + "\n" if text else "") + "Rest"
+    c["text"] = text
+    c["effects"].pop("Actions", None)
+
+for c in cards:
+    apply_rest(c)
+
 # Write a plain CSV (one row per card). No image fields, no "set" column.
 # Columns: name, cost, types, presents, text
 out = "/home/user/fat-santa/data/fat_santa_cards.csv"
