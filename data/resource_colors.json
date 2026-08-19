@@ -1,0 +1,11 @@
+{
+  "description": "fat-santa card color scheme, keyed by primary card type. See docs/color-scheme.md.",
+  "colors": {
+    "Money":    { "label": "light yellow",          "hex": "#f7ecc6" },
+    "Reindeer": { "label": "light Christmas green",  "hex": "#d9edcf" },
+    "Sled":     { "label": "light blue",             "hex": "#d4e2f2" },
+    "Present":  { "label": "light purple",           "hex": "#e6dbf4" },
+    "Coal":     { "label": "dark (penalty)",         "hex": "#35353f", "text": "#e8e6f2" },
+    "Action":   { "label": "subtle Christmas off-white (default for all other cards)", "hex": "#f3f6ef" }
+  }
+}

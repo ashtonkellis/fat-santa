@@ -14,8 +14,13 @@
   :root {
     --bg: #14171c; --panel: #1e232b; --panel2: #262c36; --line: #333b47;
     --text: #e8ebf0; --muted: #99a3b2; --accent: #f4b942; --accent2: #5aa9e6;
-    --action: #f6efe0; --victory: #d7ead0; --treasure: #f7ecc6; --attack: #eed7d3;
-    --reaction: #d4e2f2; --duration: #ffe6c2; --night: #d7d3e6; --curse: #e0d0e2;
+    /* fat-santa resource color scheme (see docs/color-scheme.md) */
+    --c-default:  #f3f6ef;            /* Action / all other cards — subtle Christmas off-white */
+    --c-money:    #f7ecc6;            /* Money — light yellow */
+    --c-reindeer: #d9edcf;            /* Reindeer — light Christmas green */
+    --c-sled:     #d4e2f2;            /* Sled — light blue */
+    --c-present:  #e6dbf4;            /* Presents — light purple */
+    --c-coal:     #35353f;            /* Coal — dark (penalty) */
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--text);
@@ -56,7 +61,7 @@
 
   .card {
     border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
-    background: var(--action); color: #241d13; display: flex; flex-direction: column;
+    background: var(--c-default); color: #241d13; display: flex; flex-direction: column;
     min-height: 150px; box-shadow: 0 3px 10px rgba(0,0,0,.25);
   }
   .card .chead { display: flex; align-items: center; gap: 8px; padding: 10px 12px 6px; }
@@ -74,15 +79,12 @@
   .card .text { padding: 6px 12px 12px; font-size: 12.5px; white-space: pre-wrap;
     line-height: 1.3; border-top: 1px solid rgba(0,0,0,.08); margin-top: auto; }
 
-  /* tint by primary type (fat-santa resource types) */
-  .card.t-Money { background: var(--treasure); }
-  .card.t-Present { background: var(--victory); }
-  .card.t-Reindeer { background: #ecdfc8; }
-  .card.t-Sled { background: var(--reaction); }
-  .card.t-Attack { background: var(--attack); }
-  .card.t-Reaction { background: var(--reaction); }
-  .card.t-Duration { background: var(--duration); }
-  .card.t-Coal { background: #35353f; color: #e8e6f2; }
+  /* tint by primary type — fat-santa resource color scheme */
+  .card.t-Money    { background: var(--c-money); }
+  .card.t-Reindeer { background: var(--c-reindeer); }
+  .card.t-Sled     { background: var(--c-sled); }
+  .card.t-Present  { background: var(--c-present); }
+  .card.t-Coal     { background: var(--c-coal); color: #e8e6f2; }
   .card.t-Coal .types { color: #c9c6d4; }
   .card.t-Coal .text { border-top-color: rgba(255,255,255,.14); }
 
