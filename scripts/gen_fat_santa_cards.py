@@ -147,11 +147,8 @@ C("Lead Reindeer", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 C
   {"Reindeer": "+2", "Cards": "+1"})
 
 # ========================= SET: Naughty & Nice =========================
-# Interactive tricks and effects (no attacks).
+# Interactive tricks and effects (no attacks, no reactions).
 S = "Naughty & Nice"
-C("Warm Cocoa", S, "$3", ["Action", "Reaction"],
-  "+1 Card\n+1 Action\nWhen you discard this other than during Clean-up, you may reveal it for +$1.",
-  {"Cards": "+1", "Actions": "+1"})
 C("Nice List Bonus", S, "$5", ["Action"], "+2 Cards\n+1 Buy\nEach other player draws a card.",
   {"Cards": "+2", "Buys": "+1"})
 C("Secret Santa", S, "$3", ["Action"],
@@ -176,7 +173,7 @@ for c in cards:
     by_group.setdefault(c["_group"], 0)
     by_group[c["_group"]] += 1
 
-assert len(cards) == 80, f"expected 80 cards, got {len(cards)}"
+assert len(cards) == 79, f"expected 79 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"

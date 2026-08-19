@@ -152,8 +152,6 @@ as non-terminal so your chain can continue.
   Kingdom treasures).
 - **Victory** — worth points at the end; does nothing useful in hand during play.
 - **Action** — played in the Action phase for its printed effect.
-- **Action – Reaction** — can be revealed out of turn in response to a triggering
-  event described on the card.
 
 ---
 
