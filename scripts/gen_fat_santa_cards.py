@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""Generate 100 example cards for 'fat-santa', a Christmas deckbuilder with
+"""Generate the example cards for 'fat-santa', a Christmas deckbuilder with
 four resources: Money ($), Reindeer, Sled, Presents.
+
+The three Present (victory) cards follow a 2/5/8 cost -> 1/2/3 presents pattern.
 
 Output is data/fat_santa_cards.csv with columns: name, cost, types, presents,
 text. (Cards carry no "set" — the second argument to C() is only a build-time
@@ -32,9 +34,10 @@ C("Yearling Reindeer", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
 C("Sturdy Reindeer", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
 C("Kick Sled", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
 C("Cargo Sled", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
+# The three Present (victory) tiers follow a 2/5/8 cost -> 1/2/3 presents pattern.
 C("Stocking Stuffer", S, "$2", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
-C("Gift Box", S, "$5", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
-C("Grand Present", S, "$8", ["Present"], "Worth 6 presents.", {"Presents": "6"}, "6")
+C("Gift Box", S, "$5", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
+C("Grand Present", S, "$8", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
 C("Lump of Coal", S, "$0", ["Coal"], "Worth -1 present.", {"Presents": "-1"}, "-1")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Toy Stack", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
@@ -54,8 +57,6 @@ C("Reindeer Feed", S, "$3", ["Action"], "+2 Reindeer\n+1 Action", {"Reindeer": "
 C("Sled Shed", S, "$4", ["Action"], "+2 Sled\n+1 Action", {"Sled": "+2", "Actions": "+1"})
 C("Bell Ringer", S, "$3", ["Action"], "+1 Card\n+1 Action\n+$1", {"Cards": "+1", "Actions": "+1", "Coins": "+1"})
 C("North Star", S, "$6", ["Action"], "+3 Cards\n+1 Buy", {"Cards": "+3", "Buys": "+1"})
-C("Snow Globe", S, "$4", ["Present"], "Worth 1 present per 10 cards in your deck (round down).",
-  {"Presents": "?"}, "*")
 C("Candy Coins", S, "$4", ["Money"], "+$2\nWhen you play this, +1 Reindeer.", {"Coins": "+2", "Reindeer": "+1"})
 
 # ========================== SET: Santa's Workshop ==========================
@@ -98,9 +99,6 @@ C("Elf Union", S, "$5", ["Action"], "+1 Card\n+2 Actions\n+$1", {"Cards": "+1", 
 C("Present Prototype", S, "$0", ["Action"], "+1 Card\n+1 Action", {"Cards": "+1", "Actions": "+1"})
 C("Ledger", S, "$3", ["Action"], "+1 Card\n+1 Action\n+1 Buy\nWhen you discard this, +$1.",
   {"Cards": "+1", "Actions": "+1", "Buys": "+1"})
-C("Present Vault", S, "$6", ["Present"], "Worth 1 present per 4 Sled cards you have (round down).",
-  {"Presents": "?"}, "*")
-C("Keepsake", S, "$3", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
 C("Charity Drive", S, "$5", ["Action"], "+$2\nGain a Present costing up to $5; if you do, +1 Card.",
   {"Coins": "+2", "Gain": "Present <= $5"})
 
@@ -203,7 +201,6 @@ C("Holiday Cheer", S, "$6", ["Action"], "+2 Cards\n+1 Buy\n+$2", {"Cards": "+2",
 C("Sugar Rush", S, "$3", ["Action"], "+1 Card\n+3 Actions", {"Cards": "+1", "Actions": "+3"})
 C("Long Winter", S, "$5", ["Action", "Duration"],
   "Now and at the start of your next turn: +1 Card and +$1.", {"Cards": "+1", "Coins": "+1"})
-C("Sackful of Gifts", S, "$7", ["Present"], "Worth 4 presents.", {"Presents": "4"}, "4")
 C("Mrs. Claus", S, "$5", ["Action"],
   "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled\n+$1",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1", "Coins": "+1"})
@@ -217,7 +214,7 @@ for c in cards:
     by_group.setdefault(c["_group"], 0)
     by_group[c["_group"]] += 1
 
-assert len(cards) == 100, f"expected 100 cards, got {len(cards)}"
+assert len(cards) == 96, f"expected 96 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"
