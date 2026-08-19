@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Added a coal-grey color for cards carrying the Rest keyword ("stop" / terminal): any card whose text has the standalone `Rest` line is tinted `#c3c7cd`, overriding its type tint (cards that merely "…lose Rest" are excluded). Added to the palette in `index.html`, `docs/color-scheme.md`, and `data/resource_colors.json`.
 - Started a fat-santa rules doc (`docs/fat-santa-rules.md`) as a copy of the Dominion rules baseline, with the Rest keyword folded into the Action phase, keywords, quick reference, and a dedicated "The Rest keyword" section. To be adapted further as the design is specified.
 - Introduced the "Rest" keyword to replace +Actions on Action cards (via a transform pass in the build script): +3 Actions → "The next 2 cards you play this turn lose Rest."; +2 Actions → "The next card you play this turn loses Rest."; +1 Action → removed (non-terminal); Action cards with no +Actions gain "Rest" on a new line at the end. Non-Action cards untouched.
 - Added a resource-based card color scheme (Money = light yellow, Reindeer = light Christmas green, Sled = light blue, Presents = light purple, Coal = dark, Actions/other = subtle Christmas off-white), applied via CSS variables in `index.html` and saved canonically in `docs/color-scheme.md` and `data/resource_colors.json`.

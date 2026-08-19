@@ -13,10 +13,14 @@ reference for the palette; the same values live as CSS variables in
 | **Sled** | hauling capacity | light blue | `#d4e2f2` |
 | **Presents** | victory points | light purple | `#e6dbf4` |
 | **Coal** | penalty (−1 present) | dark | `#35353f` |
+| **Rest** ("stop") | cards with the Rest keyword (terminal — end your turn) | coal grey | `#c3c7cd` |
 | _Action / all other cards_ | default card face | subtle Christmas off-white | `#f3f6ef` |
 
 Notes:
 - The tint is chosen from a card's **first** type, so e.g. an `Action/Delivery`
   or `Action/Attack` card uses the default Action face.
+- **Rest overrides the type tint:** any card whose text carries the standalone
+  `Rest` keyword (a terminal card that ends your turn) is coal grey, regardless
+  of type. Cards that merely say "…loses Rest" do **not** count.
 - Coal is deliberately dark (it's the junk/penalty card), with light text.
 - Text, badges, and borders are kept constant across tints for consistency.

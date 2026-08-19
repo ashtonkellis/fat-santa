@@ -21,6 +21,7 @@
     --c-sled:     #d4e2f2;            /* Sled — light blue */
     --c-present:  #e6dbf4;            /* Presents — light purple */
     --c-coal:     #35353f;            /* Coal — dark (penalty) */
+    --c-rest:     #c3c7cd;            /* cards with the Rest keyword (terminal / "stop") — coal grey */
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--text);
@@ -87,6 +88,8 @@
   .card.t-Coal     { background: var(--c-coal); color: #e8e6f2; }
   .card.t-Coal .types { color: #c9c6d4; }
   .card.t-Coal .text { border-top-color: rgba(255,255,255,.14); }
+  /* cards carrying the Rest keyword ("stop") — coal grey, overrides type tint */
+  .card.has-rest   { background: var(--c-rest); }
 
   .empty-msg { color: var(--muted); padding: 40px; text-align: center; }
   footer { color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--line); }
@@ -307,10 +310,14 @@ function printCards() {
   window.print();
 }
 
+function hasRest(c) {
+  return (c.text || "").split("\n").some(l => l.trim() === "Rest");
+}
+
 function cardEl(c) {
   const el = document.createElement("article");
   const pt = primaryType(c);
-  el.className = "card t-" + pt;
+  el.className = "card t-" + pt + (hasRest(c) ? " has-rest" : "");
 
   const head = document.createElement("div");
   head.className = "chead";
