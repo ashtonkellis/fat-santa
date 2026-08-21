@@ -4,8 +4,8 @@ Coin Purse,$3,Money,,+$2
 Gold Hoard,$6,Money,,+$3
 Peppermint Coin,$4,Money,,"+$1
 +1 Buy"
-Yearling Reindeer,$2,Reindeer,,+1 Reindeer
-Sturdy Reindeer,$4,Reindeer,,+2 Reindeer
+Reindeer Energy Drink,$2,Reindeer,,+1 Reindeer
+Magical Reindeer DNA,$4,Reindeer,,+2 Reindeer
 Kick Sled,$2,Sled,,+1 Sled
 Cargo Sled,$5,Sled,,+2 Sled
 Stocking Stuffer,$2,Present,1,Worth 1 present.
@@ -147,7 +147,7 @@ Rest"
 Stable Master,$5,Action,,"+1 Card
 +2 Reindeer"
 Sled Wright,$4,Action,,Gain a Kick Sled.
-Lead Reindeer,$5,Reindeer,,"+2 Reindeer
+Bionic Antler Upgrade,$5,Reindeer,,"+2 Reindeer
 When you play this, +1 Card."
 Nice List Bonus,$5,Action,,"+2 Cards
 +1 Buy

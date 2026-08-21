@@ -30,8 +30,8 @@ C("Spare Change", S, "$0", ["Money"], "+$1", {"Coins": "+1"})
 C("Coin Purse", S, "$3", ["Money"], "+$2", {"Coins": "+2"})
 C("Gold Hoard", S, "$6", ["Money"], "+$3", {"Coins": "+3"})
 C("Peppermint Coin", S, "$4", ["Money"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
-C("Yearling Reindeer", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
-C("Sturdy Reindeer", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
+C("Reindeer Energy Drink", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
+C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
 C("Kick Sled", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
 C("Cargo Sled", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
 # The three Present (victory) tiers follow a 2/5/8 cost -> 1/2/3 presents pattern.
@@ -143,7 +143,7 @@ C("Loaded Sleigh", S, "$6", ["Action", "Delivery"],
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
 C("Sled Wright", S, "$4", ["Action"], "+1 Action\nGain a Kick Sled.", {"Actions": "+1", "Gain": "Kick Sled"})
-C("Lead Reindeer", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 Card.",
+C("Bionic Antler Upgrade", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 Card.",
   {"Reindeer": "+2", "Cards": "+1"})
 
 # ========================= SET: Naughty & Nice =========================

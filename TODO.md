@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Renamed the three Reindeer-type cards with silly "make your reindeer better" names: Yearling Reindeer → Reindeer Energy Drink, Sturdy Reindeer → Magical Reindeer DNA, Lead Reindeer → Bionic Antler Upgrade.
 - Added a "by type / color" sort to the card browser (now the default) that groups cards by their displayed color: Money, Reindeer, Sled, Present, default Actions, then Rest (coal grey), cost-ordered within each group.
 - Removed all Reaction cards: deleted the last remaining reaction (Warm Cocoa) and removed the Reaction card-type reference from the rules doc. Deck is now 79 cards (no Reaction type remains).
 - Removed all Attack cards and references to them, and removed the Lump of Coal card and every reference to it: deleted 11 attacks, the 3 attack-blocking reactions (Cozy Blanket, Watchdog, Snow Fort), Lump of Coal, and the coal-only cards (Coal Truck, Candy Cane Trap); dropped the Coal color from the palette (`index.html`, `docs/color-scheme.md`, `data/resource_colors.json`); removed the Attack card-type reference from the rules doc; and fixed the generator's sample deck. Deck is now 80 cards (no Attack or Coal types remain).
