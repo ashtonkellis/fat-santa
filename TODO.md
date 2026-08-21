@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Added versioning: a repo-root `VERSION` file (integer build number) shown as a badge at the top of the card browser, a `scripts/bump_version.py` helper, and a documented deploy/versioning workflow in `CLAUDE.md` (bump VERSION before each deploy to main, then report the version).
 - Gave the whole deck a playfulness pass: renamed 23 flat/generic cards to festive-silly names (e.g. Spare Change → Chimney Change, Gold Hoard → Scrooge's Vault, General Store → Elf-Mart, Careful Count → Checking It Twice, Quality Control → Quality Elf-spection, Inventory → Naughty-or-Nice Audit, Big Batch → Mass Toy Production, Sled Wright → Sleigh Mechanic), keeping the already-playful ones (Dasher, Dancer, Vixen, Comet, Rudolph, Mrs. Claus, Sugar Rush, …).
 - Renamed the Sled-type cards as playful sleigh upgrades (Kick Sled → Sleigh Wax Job, Cargo Sled → Turbo Boosters, Heavy Sled → Rocket Sleigh Engine) and the Present-type cards as Santa's-factory upgrades (Stocking Stuffer → Toy Conveyor Belt, Gift Box → Robo-Elf Assistant, Grand Present → Fully Automated Toy Factory), updating every "gain a …" reference in other cards too.
 - Renamed the three Reindeer-type cards with silly "make your reindeer better" names: Yearling Reindeer → Reindeer Energy Drink, Sturdy Reindeer → Magical Reindeer DNA, Lead Reindeer → Bionic Antler Upgrade.
