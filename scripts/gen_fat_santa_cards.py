@@ -56,7 +56,7 @@ C("Reindeer Feed", S, "$3", ["Action"], "+2 Reindeer\n+1 Action", {"Reindeer": "
 C("Sled Shed", S, "$4", ["Action"], "+2 Sled\n+1 Action", {"Sled": "+2", "Actions": "+1"})
 C("Bell Ringer", S, "$3", ["Action"], "+1 Card\n+1 Action\n+$1", {"Cards": "+1", "Actions": "+1", "Coins": "+1"})
 C("North Star", S, "$6", ["Action"], "+3 Cards\n+1 Buy", {"Cards": "+3", "Buys": "+1"})
-C("Candy Coins", S, "$4", ["Money"], "+$2\nWhen you play this, +1 Reindeer.", {"Coins": "+2", "Reindeer": "+1"})
+C("Candy Coins", S, "$4", ["Action"], "+$2\n+1 Reindeer", {"Coins": "+2", "Reindeer": "+1"})
 
 # ========================== SET: Santa's Workshop ==========================
 # Make, wrap and upgrade presents; convert actions/money into victory points.
@@ -84,7 +84,7 @@ C("Mass Toy Production", S, "$7", ["Action"], "+2 Cards\nGain 2 Toy Conveyor Bel
   {"Cards": "+2", "Gain": "2x Toy Conveyor Belt"})
 C("Quality Elf-spection", S, "$4", ["Action"], "+1 Card\n+1 Action\nYou may trash a card. If you do, +$1.",
   {"Cards": "+1", "Actions": "+1"})
-C("Ribbon Roll", S, "$2", ["Money"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
+C("Ribbon Roll", S, "$2", ["Action"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
 C("Tinsel Stash", S, "$5", ["Money"], "+$3\n+1 Buy", {"Coins": "+3", "Buys": "+1"})
 C("Gingerbread Crew", S, "$5", ["Action"], "+2 Cards\n+2 Actions", {"Cards": "+2", "Actions": "+2"})
 C("Naughty-or-Nice Audit", S, "$3", ["Action"],
@@ -123,7 +123,7 @@ C("Midnight Flight", S, "$8", ["Action", "Delivery"],
   {"Gain": "Fully Automated Toy Factory"})
 C("Team Harness", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1"})
-C("Feed Bag", S, "$2", ["Money"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
+C("Feed Bag", S, "$2", ["Action"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
 C("Sleigh Garage", S, "$5", ["Action"], "+2 Sled\n+1 Buy", {"Sled": "+2", "Buys": "+1"})
 C("Dasher", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})

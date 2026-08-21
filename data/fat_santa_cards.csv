@@ -39,8 +39,9 @@ Bell Ringer,$3,Action,,"+1 Card
 North Star,$6,Action,,"+3 Cards
 +1 Buy
 Rest"
-Candy Coins,$4,Money,,"+$2
-When you play this, +1 Reindeer."
+Candy Coins,$4,Action,,"+$2
++1 Reindeer
+Rest"
 Gift-Wrapping Frenzy,$4,Action,,Gain a Toy Conveyor Belt.
 Toy Maker,$5,Action,,"+$2
 Gain a Present card costing up to $5.
@@ -68,8 +69,9 @@ Gain 2 Toy Conveyor Belts.
 Rest"
 Quality Elf-spection,$4,Action,,"+1 Card
 You may trash a card. If you do, +$1."
-Ribbon Roll,$2,Money,,"+$1
-+1 Reindeer"
+Ribbon Roll,$2,Action,,"+$1
++1 Reindeer
+Rest"
 Tinsel Stash,$5,Money,,"+$3
 +1 Buy"
 Gingerbread Crew,$5,Action,,"+2 Cards
@@ -118,8 +120,9 @@ Rest"
 Team Harness,$4,Action,,"+1 Card
 +1 Reindeer
 +1 Sled"
-Feed Bag,$2,Money,,"+$1
-+1 Reindeer"
+Feed Bag,$2,Action,,"+$1
++1 Reindeer
+Rest"
 Sleigh Garage,$5,Action,,"+2 Sled
 +1 Buy
 Rest"
