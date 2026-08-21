@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Renamed the Sled-type cards as playful sleigh upgrades (Kick Sled → Sleigh Wax Job, Cargo Sled → Turbo Boosters, Heavy Sled → Rocket Sleigh Engine) and the Present-type cards as Santa's-factory upgrades (Stocking Stuffer → Toy Conveyor Belt, Gift Box → Robo-Elf Assistant, Grand Present → Fully Automated Toy Factory), updating every "gain a …" reference in other cards too.
 - Renamed the three Reindeer-type cards with silly "make your reindeer better" names: Yearling Reindeer → Reindeer Energy Drink, Sturdy Reindeer → Magical Reindeer DNA, Lead Reindeer → Bionic Antler Upgrade.
 - Added a "by type / color" sort to the card browser (now the default) that groups cards by their displayed color: Money, Reindeer, Sled, Present, default Actions, then Rest (coal grey), cost-ordered within each group.
 - Removed all Reaction cards: deleted the last remaining reaction (Warm Cocoa) and removed the Reaction card-type reference from the rules doc. Deck is now 79 cards (no Reaction type remains).

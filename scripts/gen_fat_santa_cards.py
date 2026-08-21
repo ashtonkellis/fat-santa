@@ -32,12 +32,12 @@ C("Gold Hoard", S, "$6", ["Money"], "+$3", {"Coins": "+3"})
 C("Peppermint Coin", S, "$4", ["Money"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
 C("Reindeer Energy Drink", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
 C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
-C("Kick Sled", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
-C("Cargo Sled", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
+C("Sleigh Wax Job", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
+C("Turbo Boosters", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
 # The three Present (victory) tiers follow a 2/5/8 cost -> 1/2/3 presents pattern.
-C("Stocking Stuffer", S, "$2", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
-C("Gift Box", S, "$5", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
-C("Grand Present", S, "$8", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
+C("Toy Conveyor Belt", S, "$2", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
+C("Robo-Elf Assistant", S, "$5", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
+C("Fully Automated Toy Factory", S, "$8", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Toy Stack", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("General Store", S, "$5", ["Action"], "+1 Card\n+1 Action\n+1 Buy\n+$1",
@@ -61,8 +61,8 @@ C("Candy Coins", S, "$4", ["Money"], "+$2\nWhen you play this, +1 Reindeer.", {"
 # ========================== SET: Santa's Workshop ==========================
 # Make, wrap and upgrade presents; convert actions/money into victory points.
 S = "Santa's Workshop"
-C("Wrapping Station", S, "$4", ["Action"], "+1 Action\nGain a Stocking Stuffer.",
-  {"Actions": "+1", "Gain": "Stocking Stuffer"})
+C("Wrapping Station", S, "$4", ["Action"], "+1 Action\nGain a Toy Conveyor Belt.",
+  {"Actions": "+1", "Gain": "Toy Conveyor Belt"})
 C("Toy Maker", S, "$5", ["Action"], "+$2\nGain a Present card costing up to $5.",
   {"Coins": "+2", "Gain": "Present <= $5"})
 C("Assembly Line", S, "$6", ["Action"], "+2 Cards\n+1 Action\nYou may play an Action card from your hand.",
@@ -80,8 +80,8 @@ C("Present Press", S, "$5", ["Action"],
 C("Cookie Bribe", S, "$3", ["Action"], "+1 Card\n+$2", {"Cards": "+1", "Coins": "+2"})
 C("Overtime", S, "$3", ["Action"], "+1 Card\n+2 Actions\nDiscard a card.",
   {"Cards": "+1", "Actions": "+2"})
-C("Big Batch", S, "$7", ["Action"], "+2 Cards\nGain 2 Stocking Stuffers.",
-  {"Cards": "+2", "Gain": "2x Stocking Stuffer"})
+C("Big Batch", S, "$7", ["Action"], "+2 Cards\nGain 2 Toy Conveyor Belts.",
+  {"Cards": "+2", "Gain": "2x Toy Conveyor Belt"})
 C("Quality Control", S, "$4", ["Action"], "+1 Card\n+1 Action\nYou may trash a card. If you do, +$1.",
   {"Cards": "+1", "Actions": "+1"})
 C("Ribbon Roll", S, "$2", ["Money"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
@@ -109,18 +109,18 @@ C("Reindeer Stable", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer",
 C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+1 Card", {"Reindeer": "+2", "Cards": "+1"})
 C("Blitzen Boost", S, "$6", ["Action"], "+3 Reindeer", {"Reindeer": "+3"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
-C("Heavy Sled", S, "$6", ["Sled"], "+3 Sled", {"Sled": "+3"})
+C("Rocket Sleigh Engine", S, "$6", ["Sled"], "+3 Sled", {"Sled": "+3"})
 C("Delivery Run", S, "$5", ["Action", "Delivery"],
-  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Gift Box.",
-  {"Gain": "Gift Box"})
+  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Robo-Elf Assistant.",
+  {"Gain": "Robo-Elf Assistant"})
 C("Rooftop Drop", S, "$4", ["Action", "Delivery"],
-  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Stocking Stuffer, then +2 Cards.",
-  {"Gain": "Stocking Stuffer", "Cards": "+2"})
+  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Toy Conveyor Belt, then +2 Cards.",
+  {"Gain": "Toy Conveyor Belt", "Cards": "+2"})
 C("Express Sleigh", S, "$7", ["Action", "Delivery"],
-  "+2 Reindeer\n+2 Sled\nDelivery: gain a Gift Box.", {"Reindeer": "+2", "Sled": "+2", "Gain": "Gift Box"})
+  "+2 Reindeer\n+2 Sled\nDelivery: gain a Robo-Elf Assistant.", {"Reindeer": "+2", "Sled": "+2", "Gain": "Robo-Elf Assistant"})
 C("Midnight Flight", S, "$8", ["Action", "Delivery"],
-  "Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Grand Present.",
-  {"Gain": "Grand Present"})
+  "Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Fully Automated Toy Factory.",
+  {"Gain": "Fully Automated Toy Factory"})
 C("Team Harness", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1"})
 C("Feed Bag", S, "$2", ["Money"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
@@ -138,11 +138,11 @@ C("Rudolph", S, "$6", ["Action"],
   "+2 Reindeer\n+2 Sled\nWhile this is in play, your Deliveries need 1 fewer Reindeer.",
   {"Reindeer": "+2", "Sled": "+2"})
 C("Loaded Sleigh", S, "$6", ["Action", "Delivery"],
-  "Delivery: If you have 3+ Reindeer, gain up to two Gift Boxes (one per 2 Sled you have).",
-  {"Gain": "up to 2x Gift Box"})
+  "Delivery: If you have 3+ Reindeer, gain up to two Robo-Elf Assistants (one per 2 Sled you have).",
+  {"Gain": "up to 2x Robo-Elf Assistant"})
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
-C("Sled Wright", S, "$4", ["Action"], "+1 Action\nGain a Kick Sled.", {"Actions": "+1", "Gain": "Kick Sled"})
+C("Sled Wright", S, "$4", ["Action"], "+1 Action\nGain a Sleigh Wax Job.", {"Actions": "+1", "Gain": "Sleigh Wax Job"})
 C("Bionic Antler Upgrade", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 Card.",
   {"Reindeer": "+2", "Cards": "+1"})
 
