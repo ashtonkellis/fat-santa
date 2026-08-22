@@ -6,6 +6,8 @@ _Nothing pending._
 
 ## Done
 
+- Unified the type system to exactly one of six types per card (Money, Reindeer, Sled, Present, Action, Rest): made Rest a real type (terminal cards), dropped Delivery/Duration as types (now flavor text), and updated the browser to color by the single type; refreshed docs/color-scheme.md, data/resource_colors.json, and the rules doc's card-types section.
+- Fixed Money to exactly 3 tiers following the 2/5/8 cost → +$1/+$2/+$3 pattern (re-costed Chimney Change $2, Santa's Piggy Bank $5, Scrooge's Vault $8) and reclassified the extras (Peppermint Coin, Tinsel Stash, Gift Fund) as Action → Rest.
 - Reclassified the Money-type cards that also produce another resource (Candy Coins, Ribbon Roll, Feed Bag — all money + Reindeer) as Action cards; they now carry the Rest keyword (terminal) and render coal grey. Pure-money and money+Buy cards (Chimney Change, Santa's Piggy Bank, Scrooge's Vault, Peppermint Coin, Tinsel Stash, Gift Fund) stay Money.
 - Added versioning: a repo-root `VERSION` file (integer build number) shown as a badge at the top of the card browser, a `scripts/bump_version.py` helper, and a documented deploy/versioning workflow in `CLAUDE.md` (bump VERSION before each deploy to main, then report the version).
 - Gave the whole deck a playfulness pass: renamed 23 flat/generic cards to festive-silly names (e.g. Spare Change → Chimney Change, Gold Hoard → Scrooge's Vault, General Store → Elf-Mart, Careful Count → Checking It Twice, Quality Control → Quality Elf-spection, Inventory → Naughty-or-Nice Audit, Big Batch → Mass Toy Production, Sled Wright → Sleigh Mechanic), keeping the already-playful ones (Dasher, Dancer, Vixen, Comet, Rudolph, Mrs. Claus, Sugar Rush, …).

@@ -148,10 +148,16 @@ as non-terminal so your chain can continue.
 
 ## Card types you'll meet
 
-- **Treasure** — played in the Buy phase for coins (Copper/Silver/Gold, plus some
-  Kingdom treasures).
-- **Victory** — worth points at the end; does nothing useful in hand during play.
-- **Action** — played in the Action phase for its printed effect.
+Every card has exactly **one** of six types, each shown by its own color (see
+`docs/color-scheme.md`):
+
+- **Money** — a simple coin producer (3 tiers: $2/$5/$8 → +$1/+$2/+$3).
+- **Reindeer** — produces Reindeer.
+- **Sled** — produces Sled.
+- **Present** — worth presents at game end (3 tiers: $2/$5/$8 → 1/2/3).
+- **Action** — a non-terminal engine card: after playing it you may keep playing.
+- **Rest** — a terminal engine card: it's the last card you play this turn (see
+  [The Rest keyword](#the-rest-keyword)).
 
 ---
 

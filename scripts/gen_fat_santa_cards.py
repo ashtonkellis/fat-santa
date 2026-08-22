@@ -26,10 +26,11 @@ def C(name, _group, cost, types, text, effects=None, presents=""):
 # ============================ SET: North Pole ============================
 # Foundation: basic money / reindeer / sled / present cards + core engine.
 S = "North Pole"
-C("Chimney Change", S, "$0", ["Money"], "+$1", {"Coins": "+1"})
-C("Santa's Piggy Bank", S, "$3", ["Money"], "+$2", {"Coins": "+2"})
-C("Scrooge's Vault", S, "$6", ["Money"], "+$3", {"Coins": "+3"})
-C("Peppermint Coin", S, "$4", ["Money"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
+# The three Money tiers follow a 2/5/8 cost -> +$1/+$2/+$3 pattern.
+C("Chimney Change", S, "$2", ["Money"], "+$1", {"Coins": "+1"})
+C("Santa's Piggy Bank", S, "$5", ["Money"], "+$2", {"Coins": "+2"})
+C("Scrooge's Vault", S, "$8", ["Money"], "+$3", {"Coins": "+3"})
+C("Peppermint Coin", S, "$4", ["Action"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
 C("Reindeer Energy Drink", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
 C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
 C("Sleigh Wax Job", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
@@ -51,7 +52,7 @@ C("Checking It Twice", S, "$2", ["Action"],
   "+1 Card\n+1 Action\nLook at the top card of your deck. You may discard it.",
   {"Cards": "+1", "Actions": "+1"})
 C("Chimney Sweep", S, "$4", ["Action"], "+$2\n+1 Buy", {"Coins": "+2", "Buys": "+1"})
-C("Gift Fund", S, "$3", ["Money"], "+$2\nIf you have a Sled in play, +$1.", {"Coins": "+2"})
+C("Gift Fund", S, "$3", ["Action"], "+$2\nIf you have a Sled in play, +$1.", {"Coins": "+2"})
 C("Reindeer Feed", S, "$3", ["Action"], "+2 Reindeer\n+1 Action", {"Reindeer": "+2", "Actions": "+1"})
 C("Sled Shed", S, "$4", ["Action"], "+2 Sled\n+1 Action", {"Sled": "+2", "Actions": "+1"})
 C("Bell Ringer", S, "$3", ["Action"], "+1 Card\n+1 Action\n+$1", {"Cards": "+1", "Actions": "+1", "Coins": "+1"})
@@ -85,7 +86,7 @@ C("Mass Toy Production", S, "$7", ["Action"], "+2 Cards\nGain 2 Toy Conveyor Bel
 C("Quality Elf-spection", S, "$4", ["Action"], "+1 Card\n+1 Action\nYou may trash a card. If you do, +$1.",
   {"Cards": "+1", "Actions": "+1"})
 C("Ribbon Roll", S, "$2", ["Action"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
-C("Tinsel Stash", S, "$5", ["Money"], "+$3\n+1 Buy", {"Coins": "+3", "Buys": "+1"})
+C("Tinsel Stash", S, "$5", ["Action"], "+$3\n+1 Buy", {"Coins": "+3", "Buys": "+1"})
 C("Gingerbread Crew", S, "$5", ["Action"], "+2 Cards\n+2 Actions", {"Cards": "+2", "Actions": "+2"})
 C("Naughty-or-Nice Audit", S, "$3", ["Action"],
   "+1 Card\n+1 Action\nLook at the top 2 cards of your deck; put them back in any order.",
@@ -110,15 +111,15 @@ C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+1 Card", {"Reindeer":
 C("Blitzen Boost", S, "$6", ["Action"], "+3 Reindeer", {"Reindeer": "+3"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
 C("Rocket Sleigh Engine", S, "$6", ["Sled"], "+3 Sled", {"Sled": "+3"})
-C("Delivery Run", S, "$5", ["Action", "Delivery"],
+C("Delivery Run", S, "$5", ["Action"],
   "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Robo-Elf Assistant.",
   {"Gain": "Robo-Elf Assistant"})
-C("Rooftop Drop", S, "$4", ["Action", "Delivery"],
+C("Rooftop Drop", S, "$4", ["Action"],
   "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Toy Conveyor Belt, then +2 Cards.",
   {"Gain": "Toy Conveyor Belt", "Cards": "+2"})
-C("Express Sleigh", S, "$7", ["Action", "Delivery"],
+C("Express Sleigh", S, "$7", ["Action"],
   "+2 Reindeer\n+2 Sled\nDelivery: gain a Robo-Elf Assistant.", {"Reindeer": "+2", "Sled": "+2", "Gain": "Robo-Elf Assistant"})
-C("Midnight Flight", S, "$8", ["Action", "Delivery"],
+C("Midnight Flight", S, "$8", ["Action"],
   "Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Fully Automated Toy Factory.",
   {"Gain": "Fully Automated Toy Factory"})
 C("Team Harness", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled",
@@ -137,7 +138,7 @@ C("Donner", S, "$5", ["Action"], "+2 Sled\n+1 Card", {"Sled": "+2", "Cards": "+1
 C("Rudolph", S, "$6", ["Action"],
   "+2 Reindeer\n+2 Sled\nWhile this is in play, your Deliveries need 1 fewer Reindeer.",
   {"Reindeer": "+2", "Sled": "+2"})
-C("Loaded Sleigh", S, "$6", ["Action", "Delivery"],
+C("Loaded Sleigh", S, "$6", ["Action"],
   "Delivery: If you have 3+ Reindeer, gain up to two Robo-Elf Assistants (one per 2 Sled you have).",
   {"Gain": "up to 2x Robo-Elf Assistant"})
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
@@ -158,12 +159,12 @@ C("Regifting", S, "$4", ["Action"],
   "You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.")
 C("Holiday Cheer", S, "$6", ["Action"], "+2 Cards\n+1 Buy\n+$2", {"Cards": "+2", "Buys": "+1", "Coins": "+2"})
 C("Sugar Rush", S, "$3", ["Action"], "+1 Card\n+3 Actions", {"Cards": "+1", "Actions": "+3"})
-C("Long Winter", S, "$5", ["Action", "Duration"],
+C("Long Winter", S, "$5", ["Action"],
   "Now and at the start of your next turn: +1 Card and +$1.", {"Cards": "+1", "Coins": "+1"})
 C("Mrs. Claus", S, "$5", ["Action"],
   "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled\n+$1",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1", "Coins": "+1"})
-C("Santa's Sack", S, "$6", ["Action", "Delivery"],
+C("Santa's Sack", S, "$6", ["Action"],
   "Delivery: If you have 3+ Reindeer and 2+ Sled this turn, gain a Present costing up to $8.",
   {"Gain": "Present <= $8"})
 
@@ -213,6 +214,26 @@ def apply_rest(c):
 
 for c in cards:
     apply_rest(c)
+
+# ------------------------------------------------------------------ single type
+# Every card ends up with exactly ONE of the six types:
+#   Money / Reindeer / Sled / Present  (resource producers)
+#   Action  (non-terminal engine card)
+#   Rest    (terminal engine card — ends your turn)
+# Resource cards keep their type; former Action cards become Rest if terminal
+# (they carry the standalone "Rest" keyword) else stay Action. Any secondary
+# types (Delivery/Duration) were already dropped at definition.
+def has_rest_keyword(c):
+    return any(line.strip() == "Rest" for line in c["text"].split("\n"))
+
+for c in cards:
+    if c["types"] == ["Action"]:
+        c["types"] = ["Rest"] if has_rest_keyword(c) else ["Action"]
+
+SIX = {"Money", "Reindeer", "Sled", "Present", "Action", "Rest"}
+for c in cards:
+    assert len(c["types"]) == 1 and c["types"][0] in SIX, \
+        f"{c['name']} has bad type {c['types']}"
 
 # Write a plain CSV (one row per card). No image fields, no "set" column.
 # Columns: name, cost, types, presents, text

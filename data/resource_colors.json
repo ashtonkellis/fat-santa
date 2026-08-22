@@ -1,11 +1,11 @@
 {
-  "description": "fat-santa card color scheme, keyed by primary card type. See docs/color-scheme.md.",
+  "description": "fat-santa card color scheme. Every card has exactly one of these six types; each maps to one color. See docs/color-scheme.md.",
   "colors": {
-    "Money":    { "label": "light yellow",          "hex": "#f7ecc6" },
-    "Reindeer": { "label": "light Christmas green",  "hex": "#d9edcf" },
-    "Sled":     { "label": "light blue",             "hex": "#d4e2f2" },
-    "Present":  { "label": "light purple",           "hex": "#e6dbf4" },
-    "Rest":     { "label": "coal grey (cards with the Rest keyword; overrides type tint)", "hex": "#c3c7cd" },
-    "Action":   { "label": "subtle Christmas off-white (default for all other cards)", "hex": "#f3f6ef" }
+    "Money":    { "label": "light yellow",           "hex": "#f7ecc6" },
+    "Reindeer": { "label": "light Christmas green",   "hex": "#d9edcf" },
+    "Sled":     { "label": "light blue",              "hex": "#d4e2f2" },
+    "Present":  { "label": "light purple",            "hex": "#e6dbf4" },
+    "Action":   { "label": "subtle Christmas off-white (non-terminal engine card)", "hex": "#f3f6ef" },
+    "Rest":     { "label": "coal grey (terminal engine card)", "hex": "#c3c7cd" }
   }
 }
