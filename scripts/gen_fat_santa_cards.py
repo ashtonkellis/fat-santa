@@ -52,7 +52,8 @@ C("Checking It Twice", S, "$2", ["Action"],
   "+1 Card\n+1 Action\nLook at the top card of your deck. You may discard it.",
   {"Cards": "+1", "Actions": "+1"})
 C("Chimney Sweep", S, "$4", ["Action"], "+$2\n+1 Buy", {"Coins": "+2", "Buys": "+1"})
-C("Gift Fund", S, "$3", ["Action"], "+$2\nIf you have a Sled in play, +$1.", {"Coins": "+2"})
+C("Care Package", S, "$3", ["Action"], "+1 Reindeer\n+1 Sled\n+$1",
+  {"Reindeer": "+1", "Sled": "+1", "Coins": "+1"})
 C("Reindeer Feed", S, "$3", ["Action"], "+2 Reindeer\n+1 Action", {"Reindeer": "+2", "Actions": "+1"})
 C("Sled Shed", S, "$4", ["Action"], "+2 Sled\n+1 Action", {"Sled": "+2", "Actions": "+1"})
 C("Bell Ringer", S, "$3", ["Action"], "+1 Card\n+1 Action\n+$1", {"Cards": "+1", "Actions": "+1", "Coins": "+1"})
@@ -112,16 +113,16 @@ C("Blitzen Boost", S, "$6", ["Action"], "+3 Reindeer", {"Reindeer": "+3"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
 C("Rocket Sleigh Engine", S, "$6", ["Sled"], "+3 Sled", {"Sled": "+3"})
 C("Delivery Run", S, "$5", ["Action"],
-  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Robo-Elf Assistant.",
+  "Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.",
   {"Gain": "Robo-Elf Assistant"})
 C("Rooftop Drop", S, "$4", ["Action"],
-  "Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Toy Conveyor Belt, then +2 Cards.",
-  {"Gain": "Toy Conveyor Belt", "Cards": "+2"})
+  "Spend 1 Reindeer and 1 Sled: gain a Toy Conveyor Belt.\n+1 Card",
+  {"Gain": "Toy Conveyor Belt", "Cards": "+1"})
 C("Express Sleigh", S, "$7", ["Action"],
-  "+2 Reindeer\n+2 Sled\nDelivery: gain a Robo-Elf Assistant.", {"Reindeer": "+2", "Sled": "+2", "Gain": "Robo-Elf Assistant"})
+  "+3 Reindeer\n+2 Sled\n+1 Card", {"Reindeer": "+3", "Sled": "+2", "Cards": "+1"})
 C("Midnight Flight", S, "$8", ["Action"],
-  "Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Fully Automated Toy Factory.",
-  {"Gain": "Fully Automated Toy Factory"})
+  "Spend 4 Reindeer and 2 Sled: gain a Fully Automated Toy Factory.\n+2 Cards",
+  {"Gain": "Fully Automated Toy Factory", "Cards": "+2"})
 C("Team Harness", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1"})
 C("Feed Bag", S, "$2", ["Action"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
@@ -136,11 +137,11 @@ C("Cupid", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Sled",
   {"Cards": "+1", "Actions": "+1", "Sled": "+1"})
 C("Donner", S, "$5", ["Action"], "+2 Sled\n+1 Card", {"Sled": "+2", "Cards": "+1"})
 C("Rudolph", S, "$6", ["Action"],
-  "+2 Reindeer\n+2 Sled\nWhile this is in play, your Deliveries need 1 fewer Reindeer.",
+  "+2 Reindeer\n+2 Sled\nWhile this is in play, your Spend costs need 1 fewer Reindeer.",
   {"Reindeer": "+2", "Sled": "+2"})
 C("Loaded Sleigh", S, "$6", ["Action"],
-  "Delivery: If you have 3+ Reindeer, gain up to two Robo-Elf Assistants (one per 2 Sled you have).",
-  {"Gain": "up to 2x Robo-Elf Assistant"})
+  "Spend 2 Reindeer and 2 Sled: gain a Robo-Elf Assistant.\n+$2",
+  {"Gain": "Robo-Elf Assistant", "Coins": "+2"})
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
 C("Sleigh Mechanic", S, "$4", ["Action"], "+1 Action\nGain a Sleigh Wax Job.", {"Actions": "+1", "Gain": "Sleigh Wax Job"})
@@ -165,7 +166,7 @@ C("Mrs. Claus", S, "$5", ["Action"],
   "+1 Card\n+1 Action\n+1 Reindeer\n+1 Sled\n+$1",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1", "Sled": "+1", "Coins": "+1"})
 C("Santa's Sack", S, "$6", ["Action"],
-  "Delivery: If you have 3+ Reindeer and 2+ Sled this turn, gain a Present costing up to $8.",
+  "Spend 3 Reindeer and 2 Sled: gain a Present costing up to $8.",
   {"Gain": "Present <= $8"})
 
 # ------------------------------------------------------------------ build

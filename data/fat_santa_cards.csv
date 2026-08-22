@@ -31,8 +31,9 @@ Look at the top card of your deck. You may discard it."
 Chimney Sweep,$4,Rest,,"+$2
 +1 Buy
 Rest"
-Gift Fund,$3,Rest,,"+$2
-If you have a Sled in play, +$1.
+Care Package,$3,Rest,,"+1 Reindeer
++1 Sled
++$1
 Rest"
 Reindeer Feed,$3,Action,,+2 Reindeer
 Sled Shed,$4,Action,,+2 Sled
@@ -110,15 +111,17 @@ Rest"
 Sleigh Bells,$3,Action,,"+1 Sled
 The next card you play this turn loses Rest."
 Rocket Sleigh Engine,$6,Sled,,+3 Sled
-Delivery Run,$5,Rest,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Robo-Elf Assistant.
+Delivery Run,$5,Rest,,"Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.
 Rest"
-Rooftop Drop,$4,Rest,,"Delivery: If you have 2+ Reindeer and 1+ Sled this turn, gain a Toy Conveyor Belt, then +2 Cards.
+Rooftop Drop,$4,Rest,,"Spend 1 Reindeer and 1 Sled: gain a Toy Conveyor Belt.
++1 Card
 Rest"
-Express Sleigh,$7,Rest,,"+2 Reindeer
+Express Sleigh,$7,Rest,,"+3 Reindeer
 +2 Sled
-Delivery: gain a Robo-Elf Assistant.
++1 Card
 Rest"
-Midnight Flight,$8,Rest,,"Delivery: If you have 4+ Reindeer and 2+ Sled this turn, gain a Fully Automated Toy Factory.
+Midnight Flight,$8,Rest,,"Spend 4 Reindeer and 2 Sled: gain a Fully Automated Toy Factory.
++2 Cards
 Rest"
 Team Harness,$4,Action,,"+1 Card
 +1 Reindeer
@@ -146,9 +149,10 @@ Donner,$5,Rest,,"+2 Sled
 Rest"
 Rudolph,$6,Rest,,"+2 Reindeer
 +2 Sled
-While this is in play, your Deliveries need 1 fewer Reindeer.
+While this is in play, your Spend costs need 1 fewer Reindeer.
 Rest"
-Loaded Sleigh,$6,Rest,,"Delivery: If you have 3+ Reindeer, gain up to two Robo-Elf Assistants (one per 2 Sled you have).
+Loaded Sleigh,$6,Rest,,"Spend 2 Reindeer and 2 Sled: gain a Robo-Elf Assistant.
++$2
 Rest"
 Stable Master,$5,Action,,"+1 Card
 +2 Reindeer"
@@ -175,5 +179,5 @@ Mrs. Claus,$5,Action,,"+1 Card
 +1 Reindeer
 +1 Sled
 +$1"
-Santa's Sack,$6,Rest,,"Delivery: If you have 3+ Reindeer and 2+ Sled this turn, gain a Present costing up to $8.
+Santa's Sack,$6,Rest,,"Spend 3 Reindeer and 2 Sled: gain a Present costing up to $8.
 Rest"
