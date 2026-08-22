@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Re-costed all resource-producer cards so every type follows 2/5/8 cost → 1/2/3 resources: Reindeer (Magical Reindeer DNA $4→$5; Bionic Antler Upgrade $5/+2+card → $8/+3 pure) and Sled (Rocket Sleigh Engine $6→$8). Money and Present already matched.
 - Redesigned the six "if you have X → get Y" cards: the delivery cards now use a clean **Spend N Reindeer and M Sled: gain a present** cost (Rooftop Drop, Delivery Run, Loaded Sleigh, Santa's Sack, Midnight Flight), and Gift Fund became **Care Package** (+1 Reindeer, +1 Sled, +$1). Fixed the two neighbors that referenced the old mechanic (Express Sleigh → +3 Reindeer/+2 Sled/+1 Card; Rudolph → "your Spend costs need 1 fewer Reindeer").
 - Unified the type system to exactly one of six types per card (Money, Reindeer, Sled, Present, Action, Rest): made Rest a real type (terminal cards), dropped Delivery/Duration as types (now flavor text), and updated the browser to color by the single type; refreshed docs/color-scheme.md, data/resource_colors.json, and the rules doc's card-types section.
 - Fixed Money to exactly 3 tiers following the 2/5/8 cost → +$1/+$2/+$3 pattern (re-costed Chimney Change $2, Santa's Piggy Bank $5, Scrooge's Vault $8) and reclassified the extras (Peppermint Coin, Tinsel Stash, Gift Fund) as Action → Rest.

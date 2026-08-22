@@ -32,7 +32,7 @@ C("Santa's Piggy Bank", S, "$5", ["Money"], "+$2", {"Coins": "+2"})
 C("Scrooge's Vault", S, "$8", ["Money"], "+$3", {"Coins": "+3"})
 C("Peppermint Coin", S, "$4", ["Action"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
 C("Reindeer Energy Drink", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
-C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
+C("Magical Reindeer DNA", S, "$5", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
 C("Sleigh Wax Job", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
 C("Turbo Boosters", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
 # The three Present (victory) tiers follow a 2/5/8 cost -> 1/2/3 presents pattern.
@@ -111,7 +111,7 @@ C("Reindeer Stable", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer",
 C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+1 Card", {"Reindeer": "+2", "Cards": "+1"})
 C("Blitzen Boost", S, "$6", ["Action"], "+3 Reindeer", {"Reindeer": "+3"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
-C("Rocket Sleigh Engine", S, "$6", ["Sled"], "+3 Sled", {"Sled": "+3"})
+C("Rocket Sleigh Engine", S, "$8", ["Sled"], "+3 Sled", {"Sled": "+3"})
 C("Delivery Run", S, "$5", ["Action"],
   "Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.",
   {"Gain": "Robo-Elf Assistant"})
@@ -145,8 +145,7 @@ C("Loaded Sleigh", S, "$6", ["Action"],
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
 C("Sleigh Mechanic", S, "$4", ["Action"], "+1 Action\nGain a Sleigh Wax Job.", {"Actions": "+1", "Gain": "Sleigh Wax Job"})
-C("Bionic Antler Upgrade", S, "$5", ["Reindeer"], "+2 Reindeer\nWhen you play this, +1 Card.",
-  {"Reindeer": "+2", "Cards": "+1"})
+C("Bionic Antler Upgrade", S, "$8", ["Reindeer"], "+3 Reindeer", {"Reindeer": "+3"})
 
 # ========================= SET: Naughty & Nice =========================
 # Interactive tricks and effects (no attacks, no reactions).
