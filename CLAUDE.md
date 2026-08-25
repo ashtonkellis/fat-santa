@@ -20,5 +20,9 @@ the top of the page (`index.html` reads it).
 - Deploying = fast-forward `main` to the working branch and push; the GitHub
   Actions workflow then publishes to GitHub Pages. Pushing only to the working
   branch does **not** deploy.
+- **Deploy automatically whenever the `## Pending` queue in `TODO.md` is empty**
+  — i.e. once all requested work is done, bump `VERSION`, fast-forward `main`,
+  and push, without asking for confirmation. (Committing to the working branch
+  as you go is fine; the deploy happens when the queue drains.)
 - **After the deploy finishes, tell the user which version number they should
   see** (e.g. "you should see v3" — matching the badge at the top of the page).
