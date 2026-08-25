@@ -297,7 +297,7 @@ function printCards() {
     card.className = "pcard";
     const head = document.createElement("div"); head.className = "pchead";
     const cost = document.createElement("div");
-    cost.className = "pcost" + (c.cost ? "" : " empty"); cost.textContent = c.cost || "";
+    cost.className = "pcost" + (c.cost ? "" : " empty"); cost.textContent = iconify(c.cost || "");
     const name = document.createElement("div"); name.className = "pname"; name.textContent = c.name;
     head.appendChild(cost); head.appendChild(name);
     if (c.presents) {
@@ -307,14 +307,29 @@ function printCards() {
     }
     card.appendChild(head);
     const types = document.createElement("div"); types.className = "ptypes";
-    types.textContent = typesStr(c); card.appendChild(types);
+    types.textContent = typeLabel(c); card.appendChild(types);
     if (c.text) {
       const text = document.createElement("div"); text.className = "ptext";
-      text.textContent = c.text; card.appendChild(text);
+      text.textContent = iconify(c.text); card.appendChild(text);
     }
     area.appendChild(card);
   });
   window.print();
+}
+
+// Resource icons: replace the resource words with icons for display only
+// (the underlying CSV keeps the words).
+const RES_ICON = { Money: "🪙", Reindeer: "🦌", Sled: "🛷", Present: "🎁" };
+function iconify(s) {
+  return String(s)
+    .replace(/reindeer/gi, "🦌")
+    .replace(/sled/gi, "🛷")
+    .replace(/presents?/gi, "🎁")
+    .replace(/\$(\d+)/g, "🪙$1");
+}
+function typeLabel(c) {
+  const pt = primaryType(c);
+  return RES_ICON[pt] || pt;   // resource types -> icon; Action / Rest -> word
 }
 
 function cardEl(c) {
@@ -325,7 +340,7 @@ function cardEl(c) {
   head.className = "chead";
   const cost = document.createElement("div");
   cost.className = "cost" + (c.cost ? "" : " empty");
-  cost.textContent = c.cost || "";
+  cost.textContent = iconify(c.cost || "");
   const name = document.createElement("div");
   name.className = "name"; name.textContent = c.name;
   head.appendChild(cost); head.appendChild(name);
@@ -338,12 +353,12 @@ function cardEl(c) {
   el.appendChild(head);
 
   const types = document.createElement("div");
-  types.className = "types"; types.textContent = typesStr(c);
+  types.className = "types"; types.textContent = typeLabel(c);
   el.appendChild(types);
 
   if (c.text) {
     const text = document.createElement("div");
-    text.className = "text"; text.textContent = c.text;
+    text.className = "text"; text.textContent = iconify(c.text);
     el.appendChild(text);
   }
   return el;
