@@ -2,7 +2,7 @@ name,cost,types,presents,text
 Chimney Change,$1,Money,,+$1
 Santa's Piggy Bank,$4,Money,,+$2
 Scrooge's Vault,$7,Money,,+$3
-Peppermint Coin,$4,Rest,,"+$1
+Peppermint Coin,$2,Rest,,"+$1
 +1 Buy
 Rest"
 Reindeer Energy Drink,$1,Reindeer,,+1 Reindeer
@@ -20,7 +20,7 @@ Elf-Mart,$5,Action,,"+1 Card
 +1 Buy
 +$1"
 Spring Cleaning,$2,Action,,"Discard any number of cards, then draw that many."
-Letter-Sorting Frenzy,$5,Action,,+2 Cards
+Letter-Sorting Frenzy,$5,Action,,+3 Cards
 Winter Fair,$5,Rest,,"+2 Buys
 +$2
 Rest"
@@ -46,9 +46,8 @@ Candy Coins,$4,Rest,,"+$2
 +1 Reindeer
 Rest"
 Gift-Wrapping Frenzy,$4,Action,,Gain a Toy Conveyor Belt.
-Toy Maker,$5,Rest,,"+$2
-Gain a Present card costing up to $5.
-Rest"
+Toy Maker,$5,Action,,"+$2
+Gain a Present card costing up to $5."
 Toy Assembly Line,$6,Action,,"+2 Cards
 You may play an Action card from your hand."
 Master Craftself,$6,Rest,,"Gain a card costing up to $5 to your hand.
@@ -73,7 +72,7 @@ Rest"
 Quality Elf-spection,$4,Action,,"+1 Card
 You may trash a card. If you do, +$1."
 Ribbon Roll,$2,Rest,,"+$1
-+1 Reindeer
++1 Sled
 Rest"
 Tinsel Stash,$5,Rest,,"+$3
 +1 Buy
@@ -101,12 +100,14 @@ When you discard this, +$1."
 Charity Drive,$5,Rest,,"+$2
 Gain a Present costing up to $5; if you do, +1 Card.
 Rest"
-Reindeer Stable,$4,Action,,"+1 Card
-+1 Reindeer"
+Reindeer Stable,$4,Rest,,"+2 Reindeer
++1 Buy
+Rest"
 Prancing Reindeer,$5,Rest,,"+2 Reindeer
 +1 Card
++1 Buy
 Rest"
-Blitzen Boost,$6,Rest,,"+3 Reindeer
+Blitzen Boost,$6,Rest,,"+4 Reindeer
 Rest"
 Sleigh Bells,$3,Action,,"+1 Sled
 The next card you play this turn loses Rest."
@@ -123,9 +124,10 @@ Rest"
 Midnight Flight,$8,Rest,,"Spend 4 Reindeer and 2 Sled: gain a Fully Automated Toy Factory.
 +2 Cards
 Rest"
-Team Harness,$4,Action,,"+1 Card
+Team Harness,$4,Rest,,"+1 Card
 +1 Reindeer
-+1 Sled"
++1 Sled
+Rest"
 Feed Bag,$2,Rest,,"+$1
 +1 Reindeer
 Rest"
@@ -154,8 +156,9 @@ Rest"
 Loaded Sleigh,$6,Rest,,"Spend 2 Reindeer and 2 Sled: gain a Robo-Elf Assistant.
 +$2
 Rest"
-Stable Master,$5,Action,,"+1 Card
-+2 Reindeer"
+Stable Master,$5,Rest,,"+2 Reindeer
++2 Sled
+Rest"
 Sleigh Mechanic,$4,Action,,Gain a Sleigh Wax Job.
 Bionic Antler Upgrade,$7,Reindeer,,+3 Reindeer
 Nice List Bonus,$5,Rest,,"+2 Cards
@@ -170,7 +173,7 @@ Holiday Cheer,$6,Rest,,"+2 Cards
 +1 Buy
 +$2
 Rest"
-Sugar Rush,$3,Action,,"+1 Card
+Sugar Rush,$4,Action,,"+1 Card
 The next 2 cards you play this turn lose Rest."
 Long Winter,$5,Rest,,"Now and at the start of your next turn: +1 Card and +$1.
 Rest"

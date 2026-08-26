@@ -141,7 +141,7 @@ as non-terminal so your chain can continue.
 - **Present Prototype** ($0): "+1 Card" — no `Rest`, so keep playing.
 - **Workshop Elf** ($3): "+1 Card / The next card you play this turn loses Rest."
   — draw 1, then your next card won't end your turn even if it has `Rest`.
-- **Sugar Rush** ($3): "+1 Card / The next 2 cards you play this turn lose Rest."
+- **Sugar Rush** ($4): "+1 Card / The next 2 cards you play this turn lose Rest."
   — chain up to two more terminal cards.
 
 ---

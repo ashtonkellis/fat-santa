@@ -177,12 +177,6 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +1 Sled; The next card you play this turn loses Rest.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Bells* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
-### Sugar Rush
-- **filename:** `sugar-rush.png`
-- **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** +1 Card; The next 2 cards you play this turn lose Rest.
-- **prompt:** A playful whimsical Christmas storybook illustration of *Sugar Rush* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
-
 ### Workshop Elf
 - **filename:** `workshop-elf.png`
 - **type / cost:** Action · $3
@@ -213,12 +207,6 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +1 Card; You may trash a card. If you do, +$1.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Quality Elf-spection* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
-### Reindeer Stable
-- **filename:** `reindeer-stable.png`
-- **type / cost:** Action · $4
-- **card effect (context, do NOT draw as text):** +1 Card; +1 Reindeer
-- **prompt:** A playful whimsical Christmas storybook illustration of *Reindeer Stable* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
-
 ### Sled Shed
 - **filename:** `sled-shed.png`
 - **type / cost:** Action · $4
@@ -231,11 +219,11 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** Gain a Sleigh Wax Job.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Mechanic* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
-### Team Harness
-- **filename:** `team-harness.png`
+### Sugar Rush
+- **filename:** `sugar-rush.png`
 - **type / cost:** Action · $4
-- **card effect (context, do NOT draw as text):** +1 Card; +1 Reindeer; +1 Sled
-- **prompt:** A playful whimsical Christmas storybook illustration of *Team Harness* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+- **card effect (context, do NOT draw as text):** +1 Card; The next 2 cards you play this turn lose Rest.
+- **prompt:** A playful whimsical Christmas storybook illustration of *Sugar Rush* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Vixen
 - **filename:** `vixen.png`
@@ -276,7 +264,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Letter-Sorting Frenzy
 - **filename:** `letter-sorting-frenzy.png`
 - **type / cost:** Action · $5
-- **card effect (context, do NOT draw as text):** +2 Cards
+- **card effect (context, do NOT draw as text):** +3 Cards
 - **prompt:** A playful whimsical Christmas storybook illustration of *Letter-Sorting Frenzy* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Mrs. Claus
@@ -285,11 +273,11 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +1 Card; +1 Reindeer; +1 Sled; +$1
 - **prompt:** A playful whimsical Christmas storybook illustration of *Mrs. Claus* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
-### Stable Master
-- **filename:** `stable-master.png`
+### Toy Maker
+- **filename:** `toy-maker.png`
 - **type / cost:** Action · $5
-- **card effect (context, do NOT draw as text):** +1 Card; +2 Reindeer
-- **prompt:** A playful whimsical Christmas storybook illustration of *Stable Master* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+- **card effect (context, do NOT draw as text):** +$2; Gain a Present card costing up to $5.
+- **prompt:** A playful whimsical Christmas storybook illustration of *Toy Maker* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Toy Assembly Line
 - **filename:** `toy-assembly-line.png`
@@ -306,10 +294,16 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +$1; +1 Reindeer; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Feed Bag* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
+### Peppermint Coin
+- **filename:** `peppermint-coin.png`
+- **type / cost:** Rest · $2
+- **card effect (context, do NOT draw as text):** +$1; +1 Buy; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Peppermint Coin* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
 ### Ribbon Roll
 - **filename:** `ribbon-roll.png`
 - **type / cost:** Rest · $2
-- **card effect (context, do NOT draw as text):** +$1; +1 Reindeer; Rest
+- **card effect (context, do NOT draw as text):** +$1; +1 Sled; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Ribbon Roll* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Care Package
@@ -342,23 +336,29 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +3 Cards; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Mountain of Toys* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
-### Peppermint Coin
-- **filename:** `peppermint-coin.png`
-- **type / cost:** Rest · $4
-- **card effect (context, do NOT draw as text):** +$1; +1 Buy; Rest
-- **prompt:** A playful whimsical Christmas storybook illustration of *Peppermint Coin* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
-
 ### Regifting
 - **filename:** `regifting.png`
 - **type / cost:** Rest · $4
 - **card effect (context, do NOT draw as text):** You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Regifting* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
+### Reindeer Stable
+- **filename:** `reindeer-stable.png`
+- **type / cost:** Rest · $4
+- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Buy; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Reindeer Stable* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
 ### Rooftop Drop
 - **filename:** `rooftop-drop.png`
 - **type / cost:** Rest · $4
 - **card effect (context, do NOT draw as text):** Spend 1 Reindeer and 1 Sled: gain a Toy Conveyor Belt.; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Rooftop Drop* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
+### Team Harness
+- **filename:** `team-harness.png`
+- **type / cost:** Rest · $4
+- **card effect (context, do NOT draw as text):** +1 Card; +1 Reindeer; +1 Sled; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Team Harness* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Toy Recycler
 - **filename:** `toy-recycler.png`
@@ -411,7 +411,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Prancing Reindeer
 - **filename:** `prancing-reindeer.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Card; Rest
+- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Card; +1 Buy; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Prancing Reindeer* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Sleigh Garage
@@ -420,17 +420,17 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +2 Sled; +1 Buy; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Garage* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
+### Stable Master
+- **filename:** `stable-master.png`
+- **type / cost:** Rest · $5
+- **card effect (context, do NOT draw as text):** +2 Reindeer; +2 Sled; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Stable Master* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
 ### Tinsel Stash
 - **filename:** `tinsel-stash.png`
 - **type / cost:** Rest · $5
 - **card effect (context, do NOT draw as text):** +$3; +1 Buy; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Tinsel Stash* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
-
-### Toy Maker
-- **filename:** `toy-maker.png`
-- **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +$2; Gain a Present card costing up to $5.; Rest
-- **prompt:** A playful whimsical Christmas storybook illustration of *Toy Maker* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Winter Fair
 - **filename:** `winter-fair.png`
@@ -441,7 +441,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Blitzen Boost
 - **filename:** `blitzen-boost.png`
 - **type / cost:** Rest · $6
-- **card effect (context, do NOT draw as text):** +3 Reindeer; Rest
+- **card effect (context, do NOT draw as text):** +4 Reindeer; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Blitzen Boost* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Comet
