@@ -2,7 +2,7 @@
 """Generate the example cards for 'fat-santa', a Christmas deckbuilder with
 four resources: Money ($), Reindeer, Sled, Presents.
 
-The three Present (victory) cards follow a 2/5/8 cost -> 1/2/3 presents pattern.
+The three Present (victory) cards follow a 1/4/7 cost -> 1/2/3 presents pattern.
 
 Output is data/fat_santa_cards.csv with columns: name, cost, types, presents,
 text. (Cards carry no "set" — the second argument to C() is only a build-time
@@ -26,19 +26,19 @@ def C(name, _group, cost, types, text, effects=None, presents=""):
 # ============================ SET: North Pole ============================
 # Foundation: basic money / reindeer / sled / present cards + core engine.
 S = "North Pole"
-# The three Money tiers follow a 2/5/8 cost -> +$1/+$2/+$3 pattern.
-C("Chimney Change", S, "$2", ["Money"], "+$1", {"Coins": "+1"})
-C("Santa's Piggy Bank", S, "$5", ["Money"], "+$2", {"Coins": "+2"})
-C("Scrooge's Vault", S, "$8", ["Money"], "+$3", {"Coins": "+3"})
+# The three Money tiers follow a 1/4/7 cost -> +$1/+$2/+$3 pattern.
+C("Chimney Change", S, "$1", ["Money"], "+$1", {"Coins": "+1"})
+C("Santa's Piggy Bank", S, "$4", ["Money"], "+$2", {"Coins": "+2"})
+C("Scrooge's Vault", S, "$7", ["Money"], "+$3", {"Coins": "+3"})
 C("Peppermint Coin", S, "$4", ["Action"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
-C("Reindeer Energy Drink", S, "$2", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
-C("Magical Reindeer DNA", S, "$5", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
-C("Sleigh Wax Job", S, "$2", ["Sled"], "+1 Sled", {"Sled": "+1"})
-C("Turbo Boosters", S, "$5", ["Sled"], "+2 Sled", {"Sled": "+2"})
-# The three Present (victory) tiers follow a 2/5/8 cost -> 1/2/3 presents pattern.
-C("Toy Conveyor Belt", S, "$2", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
-C("Robo-Elf Assistant", S, "$5", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
-C("Fully Automated Toy Factory", S, "$8", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
+C("Reindeer Energy Drink", S, "$1", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
+C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
+C("Sleigh Wax Job", S, "$1", ["Sled"], "+1 Sled", {"Sled": "+1"})
+C("Turbo Boosters", S, "$4", ["Sled"], "+2 Sled", {"Sled": "+2"})
+# The three Present (victory) tiers follow a 1/4/7 cost -> 1/2/3 presents pattern.
+C("Toy Conveyor Belt", S, "$1", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
+C("Robo-Elf Assistant", S, "$4", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
+C("Fully Automated Toy Factory", S, "$7", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+1 Buy\n+$1",
@@ -111,7 +111,7 @@ C("Reindeer Stable", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer",
 C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+1 Card", {"Reindeer": "+2", "Cards": "+1"})
 C("Blitzen Boost", S, "$6", ["Action"], "+3 Reindeer", {"Reindeer": "+3"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
-C("Rocket Sleigh Engine", S, "$8", ["Sled"], "+3 Sled", {"Sled": "+3"})
+C("Rocket Sleigh Engine", S, "$7", ["Sled"], "+3 Sled", {"Sled": "+3"})
 C("Delivery Run", S, "$5", ["Action"],
   "Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.",
   {"Gain": "Robo-Elf Assistant"})
@@ -145,7 +145,7 @@ C("Loaded Sleigh", S, "$6", ["Action"],
 C("Stable Master", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
 C("Sleigh Mechanic", S, "$4", ["Action"], "+1 Action\nGain a Sleigh Wax Job.", {"Actions": "+1", "Gain": "Sleigh Wax Job"})
-C("Bionic Antler Upgrade", S, "$8", ["Reindeer"], "+3 Reindeer", {"Reindeer": "+3"})
+C("Bionic Antler Upgrade", S, "$7", ["Reindeer"], "+3 Reindeer", {"Reindeer": "+3"})
 
 # ========================= SET: Naughty & Nice =========================
 # Interactive tricks and effects (no attacks, no reactions).

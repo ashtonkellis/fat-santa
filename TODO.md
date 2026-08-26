@@ -6,6 +6,9 @@ _Nothing pending._
 
 ## Done
 
+- Generated `docs/card-image-prompts.md` (via `scripts/gen_image_prompts.py`): a per-card art brief for ChatGPT/image models, with a shared style guide, exact output PNG filenames (slugified card names, e.g. `santas-piggy-bank.png`), and a prompt per card.
+- Made the print output show the per-type card colors (Money/Reindeer/Sled/Present/Action/Rest) to match the on-screen palette.
+- Re-costed the resource-tier cards from 2/5/8 to 1/4/7 (→ 1/2/3 resources) so they stay competitive with engine cards; updated the pattern references in the docs.
 - Updated the card UI to show resource icons instead of words (display-only; CSV keeps the words): 🪙 money, 🦌 Reindeer, 🛷 Sled, 🎁 Present — applied to the cost badge, the type label (resource types only), and the effect text, in both the browser cards and the print sheet.
 - Re-costed all resource-producer cards so every type follows 2/5/8 cost → 1/2/3 resources: Reindeer (Magical Reindeer DNA $4→$5; Bionic Antler Upgrade $5/+2+card → $8/+3 pure) and Sled (Rocket Sleigh Engine $6→$8). Money and Present already matched.
 - Redesigned the six "if you have X → get Y" cards: the delivery cards now use a clean **Spend N Reindeer and M Sled: gain a present** cost (Rooftop Drop, Delivery Run, Loaded Sleigh, Santa's Sack, Midnight Flight), and Gift Fund became **Care Package** (+1 Reindeer, +1 Sled, +$1). Fixed the two neighbors that referenced the old mechanic (Express Sleigh → +3 Reindeer/+2 Sled/+1 Card; Rudolph → "your Spend costs need 1 fewer Reindeer").

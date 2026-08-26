@@ -8,10 +8,10 @@ in `index.html` (`:root { --c-money … }`) and as data in
 
 | Type | Meaning | Color | Hex |
 |------|---------|-------|-----|
-| **Money** | buy currency (3 tiers: $2/$5/$8 → +$1/+$2/+$3) | light yellow | `#f7ecc6` |
+| **Money** | buy currency (3 tiers: $1/$4/$7 → +$1/+$2/+$3) | light yellow | `#f7ecc6` |
 | **Reindeer** | pulling power | light Christmas green | `#d9edcf` |
 | **Sled** | hauling capacity | light blue | `#d4e2f2` |
-| **Present** | victory points (3 tiers: $2/$5/$8 → 1/2/3) | light purple | `#e6dbf4` |
+| **Present** | victory points (3 tiers: $1/$4/$7 → 1/2/3) | light purple | `#e6dbf4` |
 | **Action** | non-terminal engine card | subtle Christmas off-white | `#f3f6ef` |
 | **Rest** | terminal engine card (ends your turn) | coal grey | `#c3c7cd` |
 

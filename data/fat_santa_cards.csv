@@ -1,17 +1,17 @@
 name,cost,types,presents,text
-Chimney Change,$2,Money,,+$1
-Santa's Piggy Bank,$5,Money,,+$2
-Scrooge's Vault,$8,Money,,+$3
+Chimney Change,$1,Money,,+$1
+Santa's Piggy Bank,$4,Money,,+$2
+Scrooge's Vault,$7,Money,,+$3
 Peppermint Coin,$4,Rest,,"+$1
 +1 Buy
 Rest"
-Reindeer Energy Drink,$2,Reindeer,,+1 Reindeer
-Magical Reindeer DNA,$5,Reindeer,,+2 Reindeer
-Sleigh Wax Job,$2,Sled,,+1 Sled
-Turbo Boosters,$5,Sled,,+2 Sled
-Toy Conveyor Belt,$2,Present,1,Worth 1 present.
-Robo-Elf Assistant,$5,Present,2,Worth 2 presents.
-Fully Automated Toy Factory,$8,Present,3,Worth 3 presents.
+Reindeer Energy Drink,$1,Reindeer,,+1 Reindeer
+Magical Reindeer DNA,$4,Reindeer,,+2 Reindeer
+Sleigh Wax Job,$1,Sled,,+1 Sled
+Turbo Boosters,$4,Sled,,+2 Sled
+Toy Conveyor Belt,$1,Present,1,Worth 1 present.
+Robo-Elf Assistant,$4,Present,2,Worth 2 presents.
+Fully Automated Toy Factory,$7,Present,3,Worth 3 presents.
 Workshop Elf,$3,Action,,"+1 Card
 The next card you play this turn loses Rest."
 Mountain of Toys,$4,Rest,,"+3 Cards
@@ -110,7 +110,7 @@ Blitzen Boost,$6,Rest,,"+3 Reindeer
 Rest"
 Sleigh Bells,$3,Action,,"+1 Sled
 The next card you play this turn loses Rest."
-Rocket Sleigh Engine,$8,Sled,,+3 Sled
+Rocket Sleigh Engine,$7,Sled,,+3 Sled
 Delivery Run,$5,Rest,,"Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.
 Rest"
 Rooftop Drop,$4,Rest,,"Spend 1 Reindeer and 1 Sled: gain a Toy Conveyor Belt.
@@ -157,7 +157,7 @@ Rest"
 Stable Master,$5,Action,,"+1 Card
 +2 Reindeer"
 Sleigh Mechanic,$4,Action,,Gain a Sleigh Wax Job.
-Bionic Antler Upgrade,$8,Reindeer,,+3 Reindeer
+Bionic Antler Upgrade,$7,Reindeer,,+3 Reindeer
 Nice List Bonus,$5,Rest,,"+2 Cards
 +1 Buy
 Each other player draws a card.

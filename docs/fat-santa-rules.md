@@ -151,10 +151,10 @@ as non-terminal so your chain can continue.
 Every card has exactly **one** of six types, each shown by its own color (see
 `docs/color-scheme.md`):
 
-- **Money** — a simple coin producer (3 tiers: $2/$5/$8 → +$1/+$2/+$3).
+- **Money** — a simple coin producer (3 tiers: $1/$4/$7 → +$1/+$2/+$3).
 - **Reindeer** — produces Reindeer.
 - **Sled** — produces Sled.
-- **Present** — worth presents at game end (3 tiers: $2/$5/$8 → 1/2/3).
+- **Present** — worth presents at game end (3 tiers: $1/$4/$7 → 1/2/3).
 - **Action** — a non-terminal engine card: after playing it you may keep playing.
 - **Rest** — a terminal engine card: it's the last card you play this turn (see
   [The Rest keyword](#the-rest-keyword)).
