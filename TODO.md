@@ -6,6 +6,8 @@ _Nothing pending._
 
 ## Done
 
+- Changed coin rendering in the card UI: each coin quantity is now overlaid on a larger coin image (the number sits centered on top of the 🪙 coin, instead of beside it). Applied to the cost badge and inline effect text, in both the browser grid and the print sheet (`iconify` now emits HTML with a `.coin` overlay component).
+
 - Fixed the balance issues surfaced by the card audit — removed all exact duplicates and same-cost strict dominations among engine cards: Ribbon Roll → +$1/+1 Sled (was a dup of Feed Bag); Reindeer Stable → +2 Reindeer/+1 Buy (was a dup of Vixen); Stable Master → +2 Reindeer/+2 Sled (was a dup of Dasher); Peppermint Coin re-costed $4→$2 (Chimney Sweep dominated it); Sugar Rush re-costed $3→$4 (dominated Workshop Elf); Team Harness made terminal (was a strictly-better cantrip vs Vixen/Cupid/Reindeer Stable); Blitzen Boost → +4 Reindeer (Comet dominated it); Prancing Reindeer → +2 Reindeer/+1 Card/+1 Buy (Dasher dominated it); Letter-Sorting Frenzy → +3 Cards (Gingerbread Crew dominated it); Toy Maker made non-terminal (Charity Drive/Golden Ticket dominated it). Verified no new dominations/duplicates; Long Winter's flags were duration false-positives and left as-is.
 - Generated `docs/card-image-prompts.md` (via `scripts/gen_image_prompts.py`): a per-card art brief for ChatGPT/image models, with a shared style guide, exact output PNG filenames (slugified card names, e.g. `santas-piggy-bank.png`), and a prompt per card.
 - Made the print output show the per-type card colors (Money/Reindeer/Sled/Present/Action/Rest) to match the on-screen palette.
