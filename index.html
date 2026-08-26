@@ -78,11 +78,13 @@
      and stays inline-sized within card text). */
   .coin { position: relative; display: inline-flex; align-items: center;
     justify-content: center; vertical-align: middle; line-height: 1; }
-  .coin .coin-i { font-size: 1.5em; line-height: 1; }
-  .coin .coin-n { position: absolute; inset: 0; display: flex; align-items: center;
-    justify-content: center; font-weight: 800; font-size: 0.78em; color: #4a3b10;
-    letter-spacing: -0.02em; text-shadow: 0 1px 1px rgba(255,255,255,.65);
-    padding-bottom: .06em; }
+  .coin .coin-i { font-size: 1.5em; line-height: 1; display: block; }
+  /* Center the number on the coin's geometric center, independent of the
+     emoji glyph's own line-box metrics. */
+  .coin .coin-n { position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); line-height: 1;
+    font-weight: 800; font-size: 0.78em; color: #4a3b10;
+    letter-spacing: -0.02em; text-shadow: 0 1px 1px rgba(255,255,255,.65); }
   .card .name { font-weight: 700; font-size: 16px; line-height: 1.15; }
   .card .vp { margin-left: auto; flex: 0 0 auto; font-weight: 800; font-size: 12px;
     background: #cfe3c6; border: 1px solid #9ec090; border-radius: 6px; padding: 1px 6px; color: #2f5324; }
