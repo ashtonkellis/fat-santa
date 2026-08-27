@@ -391,16 +391,22 @@ function artUrl(c) { return "card-art/web/" + slugName(c.name) + ".webp"; }
 // quantity the card produces, or stays empty (reserving its position) if the
 // card produces none. Card draw and +Buys are not resources — they appear in
 // the card text only, not as rail icons.
+// `ring` matches each resource's card color (see the --accent values on the
+// .t-* type classes): Sled blue, Present purple, Reindeer green, Money gold.
 const RESOURCE_SLOTS = [
-  { icon: "🛷", re: /\+(\d+)\s*Sled/i },
-  { icon: "🎁", get: c => parseInt(c.presents, 10) || 0 },
-  { icon: "🦌", re: /\+(\d+)\s*Reindeer/i },
-  { icon: "🪙", re: /\+\$(\d+)/ },
+  { icon: "🛷", re: /\+(\d+)\s*Sled/i,     ring: "#2f6fb0" },
+  { icon: "🎁", get: c => parseInt(c.presents, 10) || 0, ring: "#7a4fb0" },
+  { icon: "🦌", re: /\+(\d+)\s*Reindeer/i, ring: "#3f8f43" },
+  { icon: "🪙", re: /\+\$(\d+)/,           ring: "#c9962a" },
 ];
 function slotQty(c, slot) {
   if (slot.get) return slot.get(c);
   const m = (c.text || "").match(slot.re);
   return m ? parseInt(m[1], 10) : 0;
+}
+function hexA(hex, a) {
+  const m = hex.replace("#", "");
+  return `rgba(${parseInt(m.slice(0,2),16)},${parseInt(m.slice(2,4),16)},${parseInt(m.slice(4,6),16)},${a})`;
 }
 // A text line that is purely a four-resource production (e.g. "+$2",
 // "+1 Reindeer", "+2 Sled", "+2 Presents") — these are shown as rail icons, so
@@ -424,7 +430,10 @@ function buildFace(c, cls) {
     const qty = slotQty(c, slot);
     const chip = document.createElement("div");
     chip.className = "fa-chip" + (qty ? "" : " empty");
+    // ring colored to match the resource's card color
+    chip.style.borderColor = qty ? slot.ring : hexA(slot.ring, 0.4);
     if (qty) {
+      chip.style.boxShadow = "0 0 0 1px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.7)";
       chip.textContent = slot.icon;
       const cnt = document.createElement("span"); cnt.className = "n"; cnt.textContent = qty;
       chip.appendChild(cnt);

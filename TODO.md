@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Colored each resource chip's ring to match that resource's card color (Sled blue, Present purple, Reindeer green, Money gold); empty slots use a faint tint of the same color.
 - Stopped repeating the four resources in the bottom text box: lines that are purely a resource production (+$N / +N Reindeer / +N Sled / +N Presents) are dropped from the text since they already appear as rail icons (non-resource effects like +Cards, +Buys, Rest, Gain/Spend, and descriptions are kept); cards whose only effect is a resource now show no bottom text.
 - Enlarged the card name, effect text, resource icon chips, and cost square, and made the type-colored border much thicker (grid and print).
 - Made the left rail use four fixed resource slots in a constant order (top→down: Sled, Present, Reindeer, Money); a slot shows its icon + quantity or stays an empty placeholder so the resources always line up across cards. Removed the card-draw/+Buys icons from the rail — those are conveyed by the card text only.
