@@ -6,8 +6,7 @@ _Nothing pending._
 
 ## Done
 
-- Refined the left icon-slot shapes to right-pointing pennants/arrows to match the Terraforming Mars: Ares Expedition card art (iterated through ~18 clip-path candidates against the reference and picked the closest); each icon is left-aligned so the point shows to its right.
-- Replaced the continuous left banner with individual shapes — one behind each icon slot (cost + the four resources), tinted the same as the card border/type color, with gaps between them so the art shows through.
+- Removed the left-rail background shapes (pennants/trapezoids/banner) entirely; each resource icon is now just a thicker colored ring (matching its resource color) floating over the art, with the cost square kept distinct.
 - Increased the left padding on the card text so it no longer overlaps the left icon rail (text is indented past the rail, scrim stays full-width).
 - Increased the card effect-text size and added more padding so it sits further from the card edges (grid and print).
 - Changed the coin to a guaranteed-gold CSS coin (the 🪙 emoji renders silver on some platforms) — used in the rail Money chip and inline in card text.

@@ -75,14 +75,9 @@
   /* left rail: transparent, overlaying the art; holds the cost + output icons */
   .card .fa-side { position: absolute; top: 0; left: 0; bottom: 0; width: var(--side); z-index: 2;
     display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 9px 0 11px; }
-  /* one trapezoid shape (type color) behind each icon slot, with gaps */
+  /* each icon sits in its own slot (no background shape — just the icon) */
   .card .fa-slot { position: relative; flex: 0 0 auto; width: var(--side); height: 50px;
-    display: flex; align-items: center; justify-content: flex-start; padding-left: 5px; }
-  .card .fa-slot::before { content: ""; position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,.17), rgba(0,0,0,.30)), var(--accent, #b5892f);
-    clip-path: polygon(0 8%, 58% 0, 100% 50%, 58% 100%, 0 92%);   /* right-pointing pennant (TfM) */
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,.45)); }
-  .card .fa-slot > * { position: relative; z-index: 1; }
+    display: flex; align-items: center; justify-content: center; }
   /* cost: a gold square with the number (like the reference) */
   .card .fa-cost { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 9px;
     display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22px;
@@ -91,13 +86,13 @@
   .card .fa-cost.empty { display: none; }
   .card .fa-chip { position: relative; width: 42px; height: 42px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center; font-size: 24px;
-    background: rgba(0,0,0,.5); border: 2px solid rgba(255,255,255,.72);
+    background: rgba(0,0,0,.5); border: 4px solid rgba(255,255,255,.72);
     box-shadow: 0 1px 4px rgba(0,0,0,.7); }
   .card .fa-chip .n { position: absolute; right: -6px; bottom: -6px; min-width: 19px; height: 19px;
     padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #17140f; color: #fff;
     border: 1px solid rgba(255,255,255,.6); font-size: 12px; font-weight: 800; line-height: 17px; text-align: center; }
   /* empty slot: reserves the position so the four resources always line up */
-  .card .fa-chip.empty { background: rgba(0,0,0,.2); border: 2px solid rgba(255,255,255,.28); box-shadow: none; }
+  .card .fa-chip.empty { background: rgba(0,0,0,.2); border: 4px solid rgba(255,255,255,.28); box-shadow: none; }
   /* CSS gold coin inside the Money chip (guaranteed gold, unlike the emoji) */
   .card .fa-chip .fa-coin { width: 28px; height: 28px; border-radius: 50%;
     background: radial-gradient(circle at 38% 30%, #ffe9a0, #f2c545 48%, #cf8f22 100%);
@@ -163,23 +158,18 @@
     .print-area .pcard .fa-side { position: absolute; top: 0; left: 0; bottom: 0; width: var(--side); z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 2mm; padding: 2.2mm 0 2.8mm; }
     .print-area .pcard .fa-slot { position: relative; flex: 0 0 auto; width: var(--side); height: 12.5mm;
-      display: flex; align-items: center; justify-content: flex-start; padding-left: 1.2mm; }
-    .print-area .pcard .fa-slot::before { content: ""; position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,.17), rgba(0,0,0,.30)), var(--accent, #b5892f);
-      clip-path: polygon(0 8%, 58% 0, 100% 50%, 58% 100%, 0 92%);
-      filter: drop-shadow(0.25mm 0.25mm 0.5mm rgba(0,0,0,.45)); }
-    .print-area .pcard .fa-slot > * { position: relative; z-index: 1; }
+      display: flex; align-items: center; justify-content: center; }
     .print-area .pcard .fa-cost { flex: 0 0 auto; width: 10.5mm; height: 10.5mm; border-radius: 2.4mm;
       display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 5.6mm;
       line-height: 1; color: #4a3410; background: linear-gradient(180deg, #ffd76b, #e8a92a); border: 0.6mm solid #a9741a; }
     .print-area .pcard .fa-cost.empty { display: none; }
     .print-area .pcard .fa-chip { position: relative; width: 10.5mm; height: 10.5mm; border-radius: 50%;
       display: flex; align-items: center; justify-content: center; font-size: 6mm;
-      background: rgba(0,0,0,.5); border: 0.6mm solid rgba(255,255,255,.72); box-shadow: 0 0.2mm 0.6mm rgba(0,0,0,.7); }
+      background: rgba(0,0,0,.5); border: 1mm solid rgba(255,255,255,.72); box-shadow: 0 0.2mm 0.6mm rgba(0,0,0,.7); }
     .print-area .pcard .fa-chip .n { position: absolute; right: -1.5mm; bottom: -1.5mm; min-width: 4.7mm; height: 4.7mm;
       padding: 0 0.9mm; box-sizing: border-box; border-radius: 999px; background: #17140f; color: #fff;
       border: 0.3mm solid rgba(255,255,255,.6); font-size: 3mm; font-weight: 800; line-height: 4.1mm; text-align: center; }
-    .print-area .pcard .fa-chip.empty { background: rgba(0,0,0,.2); border: 0.6mm solid rgba(255,255,255,.28); box-shadow: none; }
+    .print-area .pcard .fa-chip.empty { background: rgba(0,0,0,.2); border: 1mm solid rgba(255,255,255,.28); box-shadow: none; }
     .print-area .pcard .fa-chip .fa-coin { width: 7mm; height: 7mm; border-radius: 50%;
       background: radial-gradient(circle at 38% 30%, #ffe9a0, #f2c545 48%, #cf8f22 100%);
       border: 0.5mm solid #a9741a; box-shadow: inset 0 0 0 0.4mm rgba(255,255,255,.28); }
