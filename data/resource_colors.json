@@ -1,11 +1,11 @@
 {
-  "description": "fat-santa card color scheme. Every card has exactly one of these six types; each maps to one color. See docs/color-scheme.md.",
+  "description": "fat-santa card color scheme. Every card has exactly one of these six types. On the full-art cards the type color is the thick card border (and, for the four resources, the colored ring around the rail icon). See docs/color-scheme.md. The `bg` values are the pale fallback background shown only when a card's art fails to load.",
   "colors": {
-    "Money":    { "label": "light yellow",           "hex": "#f7ecc6" },
-    "Reindeer": { "label": "light Christmas green",   "hex": "#d9edcf" },
-    "Sled":     { "label": "light blue",              "hex": "#d4e2f2" },
-    "Present":  { "label": "light purple",            "hex": "#e6dbf4" },
-    "Action":   { "label": "subtle Christmas off-white (non-terminal engine card)", "hex": "#f3f6ef" },
-    "Rest":     { "label": "coal grey (terminal engine card)", "hex": "#c3c7cd" }
+    "Money":    { "label": "gold",          "hex": "#c9962a", "bg": "#f7ecc6" },
+    "Reindeer": { "label": "Christmas green","hex": "#3f8f43", "bg": "#d9edcf" },
+    "Sled":     { "label": "blue",           "hex": "#2f6fb0", "bg": "#d4e2f2" },
+    "Present":  { "label": "purple",         "hex": "#7a4fb0", "bg": "#e6dbf4" },
+    "Action":   { "label": "grey (non-terminal engine card)", "hex": "#6b7078", "bg": "#f3f6ef" },
+    "Rest":     { "label": "Christmas red (terminal / stop card)", "hex": "#c1272d", "bg": "#c3c7cd" }
   }
 }

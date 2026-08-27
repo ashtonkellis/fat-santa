@@ -6,6 +6,9 @@ _Nothing pending._
 
 ## Done
 
+- Increased the card effect-text size and added more padding so it sits further from the card edges (grid and print).
+- Changed the coin to a guaranteed-gold CSS coin (the 🪙 emoji renders silver on some platforms) — used in the rail Money chip and inline in card text.
+- Recolored the card borders: Action cards now use the grey formerly used for stop cards, and Rest/"stop" cards now use a Christmas red (updated `docs/color-scheme.md` and `data/resource_colors.json`).
 - Colored each resource chip's ring to match that resource's card color (Sled blue, Present purple, Reindeer green, Money gold); empty slots use a faint tint of the same color.
 - Stopped repeating the four resources in the bottom text box: lines that are purely a resource production (+$N / +N Reindeer / +N Sled / +N Presents) are dropped from the text since they already appear as rail icons (non-resource effects like +Cards, +Buys, Rest, Gain/Spend, and descriptions are kept); cards whose only effect is a resource now show no bottom text.
 - Enlarged the card name, effect text, resource icon chips, and cost square, and made the type-colored border much thicker (grid and print).
