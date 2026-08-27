@@ -90,6 +90,8 @@
   .card .fa-chip .n { position: absolute; right: -5px; bottom: -5px; min-width: 15px; height: 15px;
     padding: 0 3px; box-sizing: border-box; border-radius: 999px; background: #17140f; color: #fff;
     border: 1px solid rgba(255,255,255,.6); font-size: 10px; font-weight: 800; line-height: 13px; text-align: center; }
+  /* empty slot: reserves the position so the four resources always line up */
+  .card .fa-chip.empty { background: rgba(0,0,0,.2); border: 2px solid rgba(255,255,255,.28); box-shadow: none; }
   /* name overlaid on the art (top), clear of the rail */
   .card .fa-name { position: absolute; top: 0; left: var(--side); right: 0; z-index: 1;
     padding: 8px 12px 22px; text-align: center; font-weight: 800; font-size: 15px; line-height: 1.14;
@@ -161,6 +163,7 @@
     .print-area .pcard .fa-chip .n { position: absolute; right: -1.2mm; bottom: -1.2mm; min-width: 3.8mm; height: 3.8mm;
       padding: 0 0.7mm; box-sizing: border-box; border-radius: 999px; background: #17140f; color: #fff;
       border: 0.25mm solid rgba(255,255,255,.6); font-size: 2.5mm; font-weight: 800; line-height: 3.3mm; text-align: center; }
+    .print-area .pcard .fa-chip.empty { background: rgba(0,0,0,.2); border: 0.5mm solid rgba(255,255,255,.28); box-shadow: none; }
     .print-area .pcard .fa-name { position: absolute; top: 0; left: var(--side); right: 0; z-index: 1;
       padding: 2mm 3mm 6mm; text-align: center; font-weight: 800; font-size: 3.7mm; line-height: 1.1; color: #fff;
       text-shadow: 0 0.3mm 0.6mm rgba(0,0,0,.95);
@@ -383,20 +386,21 @@ function artUrl(c) { return "card-art/web/" + slugName(c.name) + ".webp"; }
 // coin + name on a dark top scrim and the effect text on a parchment panel at
 // the bottom. `cls` is "card" (browser grid) or "pcard" (print sheet); the two
 // share this markup and differ only in CSS sizing.
-// Resources/bonuses a card produces, as [emoji, quantity] pairs, for the
-// left rail. Parsed from the card text (+$/Reindeer/Sled/Cards/Buys) plus the
-// Present (victory) value. Order: coins, reindeer, sled, present, cards, buys.
-function outputs(c) {
-  const t = c.text || "";
-  const n = re => { const m = t.match(re); return m ? parseInt(m[1], 10) : 0; };
-  const list = [];
-  const coins = n(/\+\$(\d+)/);           if (coins) list.push(["🪙", coins]);
-  const rein  = n(/\+(\d+)\s*Reindeer/i); if (rein)  list.push(["🦌", rein]);
-  const sled  = n(/\+(\d+)\s*Sled/i);     if (sled)  list.push(["🛷", sled]);
-  const pres  = parseInt(c.presents, 10); if (pres > 0) list.push(["🎁", pres]);
-  const cards = n(/\+(\d+)\s*Cards?/i);   if (cards) list.push(["🃏", cards]);
-  const buys  = n(/\+(\d+)\s*Buys?/i);    if (buys)  list.push(["🛒", buys]);
-  return list;
+// The left rail has one FIXED slot per resource, always in this order
+// (top -> down): Sled, Present, Reindeer, Money. A slot shows the icon + the
+// quantity the card produces, or stays empty (reserving its position) if the
+// card produces none. Card draw and +Buys are not resources — they appear in
+// the card text only, not as rail icons.
+const RESOURCE_SLOTS = [
+  { icon: "🛷", re: /\+(\d+)\s*Sled/i },
+  { icon: "🎁", get: c => parseInt(c.presents, 10) || 0 },
+  { icon: "🦌", re: /\+(\d+)\s*Reindeer/i },
+  { icon: "🪙", re: /\+\$(\d+)/ },
+];
+function slotQty(c, slot) {
+  if (slot.get) return slot.get(c);
+  const m = (c.text || "").match(slot.re);
+  return m ? parseInt(m[1], 10) : 0;
 }
 
 function buildFace(c, cls) {
@@ -411,11 +415,15 @@ function buildFace(c, cls) {
   cost.textContent = String(c.cost || "").replace(/^\$/, "");
   side.appendChild(cost);
   const outs = document.createElement("div"); outs.className = "fa-outs";
-  outputs(c).forEach(([icon, qty]) => {
-    const chip = document.createElement("div"); chip.className = "fa-chip";
-    chip.textContent = icon;
-    const cnt = document.createElement("span"); cnt.className = "n"; cnt.textContent = qty;
-    chip.appendChild(cnt);
+  RESOURCE_SLOTS.forEach(slot => {
+    const qty = slotQty(c, slot);
+    const chip = document.createElement("div");
+    chip.className = "fa-chip" + (qty ? "" : " empty");
+    if (qty) {
+      chip.textContent = slot.icon;
+      const cnt = document.createElement("span"); cnt.className = "n"; cnt.textContent = qty;
+      chip.appendChild(cnt);
+    }
     outs.appendChild(chip);
   });
   side.appendChild(outs);
