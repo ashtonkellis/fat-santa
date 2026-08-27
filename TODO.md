@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Enlarged the card name, effect text, resource icon chips, and cost square, and made the type-colored border much thicker (grid and print).
 - Made the left rail use four fixed resource slots in a constant order (top→down: Sled, Present, Reindeer, Money); a slot shows its icon + quantity or stays an empty placeholder so the resources always line up across cards. Removed the card-draw/+Buys icons from the rail — those are conveyed by the card text only.
 - Reworded the Present (victory) cards from "Worth N presents." to "+N Present(s)" so presents read as a resource like money/reindeer/sled; vertically centered the cost number in its square (`line-height: 1`).
 - Made the left icon rail transparent so it overlays the art (removed the solid type-colored banner); the cost square and output chips now float over the illustration (chips given more contrast for legibility), the type color moved to the card border, and the bottom text spans full width.
