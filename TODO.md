@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Reworked the full-art card face into the Terraforming Mars: Ares Expedition layout: a type-colored left rail carries the cost (gold square) and a vertical stack of the resource icons the card produces (🪙 coins, 🦌 reindeer, 🛷 sled, 🎁 presents, 🃏 cards, 🛒 buys — each with its quantity); the card name and rules text are overlaid directly on the art (top and bottom scrims), with a bulleted line per effect. Same markup drives the browser grid and the print sheet.
 - Purged the 79 unoptimized full-res card PNGs (~199 MB) from all Git history with `git filter-repo`, keeping the optimized `card-art/web/*.webp`; `.git` shrank 217 MB → 17 MB. Force-pushed the rewritten history to `main` and the working branch. (The `assets/` frames and all other history were preserved.)
 - Redesigned the card face as a full-card-art layout (Terraforming Mars: Ares Expedition style): the illustration fills the whole card, with the cost coin + card name on a dark top scrim and the effect text on a warm parchment panel at the bottom (type ribbon + present/VP badge). A per-type accent colors the border and ribbon. Shared markup (`buildFace`) drives both the browser grid and the print sheet; falls back to the pale type color if art is missing.
 - Added web-optimized card art: `scripts/optimize_card_art.py` resizes the full-res PNGs to 750px-wide WebP in `card-art/web/` (199 MB → 10 MB, ~130 KB each); the site loads these instead of the originals.
