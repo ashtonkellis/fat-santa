@@ -6,6 +6,8 @@ _Nothing pending._
 
 ## Done
 
+- Added a colored banner behind the left icon rail (tinted the same as the card border/type color) with a chevron right edge, Terraforming Mars style, so the cost and resource icons read clearly against it instead of floating over the art.
+- Increased the left padding on the card text so it no longer overlaps the left icon rail (text is indented past the rail, scrim stays full-width).
 - Increased the card effect-text size and added more padding so it sits further from the card edges (grid and print).
 - Changed the coin to a guaranteed-gold CSS coin (the 🪙 emoji renders silver on some platforms) — used in the rail Money chip and inline in card text.
 - Recolored the card borders: Action cards now use the grey formerly used for stop cards, and Rest/"stop" cards now use a Christmas red (updated `docs/color-scheme.md` and `data/resource_colors.json`).
