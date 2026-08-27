@@ -402,6 +402,11 @@ function slotQty(c, slot) {
   const m = (c.text || "").match(slot.re);
   return m ? parseInt(m[1], 10) : 0;
 }
+// A text line that is purely a four-resource production (e.g. "+$2",
+// "+1 Reindeer", "+2 Sled", "+2 Presents") — these are shown as rail icons, so
+// they are dropped from the bottom text box. Non-resource effects (+Cards,
+// +Buys, Rest, Gain/Spend, descriptions) are kept.
+const RESOURCE_LINE = /^\+(?:\$\d+|\d+\s*(?:Reindeer|Sled|Presents?))$/i;
 
 function buildFace(c, cls) {
   const el = document.createElement(cls === "pcard" ? "div" : "article");
@@ -434,11 +439,13 @@ function buildFace(c, cls) {
   name.textContent = c.name;
   el.appendChild(name);
 
-  // card text overlaid on the art (bottom), one bulleted line each
-  if (c.text) {
+  // card text overlaid on the art (bottom), one bulleted line each; the four
+  // resources are already on the rail, so drop those lines here.
+  const lines = (c.text || "").split("\n").map(l => l.trim())
+    .filter(l => l && !RESOURCE_LINE.test(l));
+  if (lines.length) {
     const wrap = document.createElement("div"); wrap.className = "fa-textwrap";
-    c.text.split("\n").forEach(line => {
-      if (!line.trim()) return;
+    lines.forEach(line => {
       const d = document.createElement("div"); d.className = "fa-line";
       d.innerHTML = iconify(line);
       wrap.appendChild(d);
