@@ -87,19 +87,19 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Toy Conveyor Belt
 - **filename:** `toy-conveyor-belt.png`
 - **type / cost:** Present · $1
-- **card effect (context, do NOT draw as text):** Worth 1 present.
+- **card effect (context, do NOT draw as text):** +1 Present
 - **prompt:** A playful whimsical Christmas storybook illustration of *Toy Conveyor Belt* (feature beautifully wrapped presents) — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Robo-Elf Assistant
 - **filename:** `robo-elf-assistant.png`
 - **type / cost:** Present · $4
-- **card effect (context, do NOT draw as text):** Worth 2 presents.
+- **card effect (context, do NOT draw as text):** +2 Presents
 - **prompt:** A playful whimsical Christmas storybook illustration of *Robo-Elf Assistant* (feature beautifully wrapped presents) — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Fully Automated Toy Factory
 - **filename:** `fully-automated-toy-factory.png`
 - **type / cost:** Present · $7
-- **card effect (context, do NOT draw as text):** Worth 3 presents.
+- **card effect (context, do NOT draw as text):** +3 Presents
 - **prompt:** A playful whimsical Christmas storybook illustration of *Fully Automated Toy Factory* (feature beautifully wrapped presents) — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 

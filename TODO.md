@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Reworded the Present (victory) cards from "Worth N presents." to "+N Present(s)" so presents read as a resource like money/reindeer/sled; vertically centered the cost number in its square (`line-height: 1`).
 - Made the left icon rail transparent so it overlays the art (removed the solid type-colored banner); the cost square and output chips now float over the illustration (chips given more contrast for legibility), the type color moved to the card border, and the bottom text spans full width.
 - Reworked the full-art card face into the Terraforming Mars: Ares Expedition layout: a type-colored left rail carries the cost (gold square) and a vertical stack of the resource icons the card produces (🪙 coins, 🦌 reindeer, 🛷 sled, 🎁 presents, 🃏 cards, 🛒 buys — each with its quantity); the card name and rules text are overlaid directly on the art (top and bottom scrims), with a bulleted line per effect. Same markup drives the browser grid and the print sheet.
 - Purged the 79 unoptimized full-res card PNGs (~199 MB) from all Git history with `git filter-repo`, keeping the optimized `card-art/web/*.webp`; `.git` shrank 217 MB → 17 MB. Force-pushed the rewritten history to `main` and the working branch. (The `assets/` frames and all other history were preserved.)

@@ -36,9 +36,9 @@ C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2
 C("Sleigh Wax Job", S, "$1", ["Sled"], "+1 Sled", {"Sled": "+1"})
 C("Turbo Boosters", S, "$4", ["Sled"], "+2 Sled", {"Sled": "+2"})
 # The three Present (victory) tiers follow a 1/4/7 cost -> 1/2/3 presents pattern.
-C("Toy Conveyor Belt", S, "$1", ["Present"], "Worth 1 present.", {"Presents": "1"}, "1")
-C("Robo-Elf Assistant", S, "$4", ["Present"], "Worth 2 presents.", {"Presents": "2"}, "2")
-C("Fully Automated Toy Factory", S, "$7", ["Present"], "Worth 3 presents.", {"Presents": "3"}, "3")
+C("Toy Conveyor Belt", S, "$1", ["Present"], "+1 Present", {"Presents": "1"}, "1")
+C("Robo-Elf Assistant", S, "$4", ["Present"], "+2 Presents", {"Presents": "2"}, "2")
+C("Fully Automated Toy Factory", S, "$7", ["Present"], "+3 Presents", {"Presents": "3"}, "3")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+1 Buy\n+$1",
