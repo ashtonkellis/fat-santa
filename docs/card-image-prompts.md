@@ -126,7 +126,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### All Hands on Deck
 - **filename:** `all-hands-on-deck.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** The next card you play this turn loses Rest.; +1 Buy
+- **card effect (context, do NOT draw as text):** Skip your next rest.; +1 Buy
 - **prompt:** A playful whimsical Christmas storybook illustration of *All Hands on Deck* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Bell Ringer
@@ -138,13 +138,13 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Elf Overtime
 - **filename:** `elf-overtime.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** +1 Card; The next card you play this turn loses Rest.; Discard a card.
+- **card effect (context, do NOT draw as text):** +1 Card; Skip your next rest.; Discard a card.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Elf Overtime* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Gift Wrap
 - **filename:** `gift-wrap.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** The next card you play this turn loses Rest.; The next Present you buy this turn costs $2 less.
+- **card effect (context, do NOT draw as text):** Skip your next rest.; The next Present you buy this turn costs $2 less.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Gift Wrap* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Naughty-or-Nice Audit
@@ -174,13 +174,13 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Sleigh Bells
 - **filename:** `sleigh-bells.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** +1 Sled; The next card you play this turn loses Rest.
+- **card effect (context, do NOT draw as text):** +1 Sled; Skip your next rest.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Bells* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Workshop Elf
 - **filename:** `workshop-elf.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** +1 Card; The next card you play this turn loses Rest.
+- **card effect (context, do NOT draw as text):** +1 Card; Skip your next rest.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Workshop Elf* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Craft Fair
@@ -222,7 +222,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Sugar Rush
 - **filename:** `sugar-rush.png`
 - **type / cost:** Action · $4
-- **card effect (context, do NOT draw as text):** +1 Card; The next 2 cards you play this turn lose Rest.
+- **card effect (context, do NOT draw as text):** +1 Card; Skip your next 2 rests.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sugar Rush* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Vixen
@@ -240,7 +240,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Elf Union
 - **filename:** `elf-union.png`
 - **type / cost:** Action · $5
-- **card effect (context, do NOT draw as text):** +1 Card; The next card you play this turn loses Rest.; +$1
+- **card effect (context, do NOT draw as text):** +1 Card; Skip your next rest.; +$1
 - **prompt:** A playful whimsical Christmas storybook illustration of *Elf Union* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Elf-Mart
@@ -258,7 +258,7 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 ### Gingerbread Crew
 - **filename:** `gingerbread-crew.png`
 - **type / cost:** Action · $5
-- **card effect (context, do NOT draw as text):** +2 Cards; The next card you play this turn loses Rest.
+- **card effect (context, do NOT draw as text):** +2 Cards; Skip your next rest.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Gingerbread Crew* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Letter-Sorting Frenzy

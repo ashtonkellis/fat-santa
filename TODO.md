@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Reworded the 8 "loses Rest" enabler cards to "Skip your next rest." / "Skip your next 2 rests." and marked that line with a ☕ coffee icon (in place of the ✦ bullet); updated the rules doc, CSV, and image prompts. The terminal "Rest" keyword is unchanged.
 - Removed the left-rail background shapes (pennants/trapezoids/banner) entirely; each resource icon is now just a thicker colored ring (matching its resource color) floating over the art, with the cost square kept distinct.
 - Increased the left padding on the card text so it no longer overlaps the left icon rail (text is indented past the rail, scrim stays full-width).
 - Increased the card effect-text size and added more padding so it sits further from the card edges (grid and print).

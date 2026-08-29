@@ -182,14 +182,14 @@ assert not dupes, f"duplicate names: {dupes}"
 
 # ------------------------------------------------------------------ Rest keyword
 # The "Rest" mechanic replaces +Actions on Action cards:
-#   +3 Actions -> "The next 2 cards you play this turn lose Rest."
-#   +2 Actions -> "The next card you play this turn loses Rest."
+#   +3 Actions -> "Skip your next 2 rests."   (play past 2 terminal cards)
+#   +2 Actions -> "Skip your next rest."       (play past 1 terminal card)
 #   +1 Action  -> removed (non-terminal; no Rest)
 #   no +Action -> gain the keyword "Rest" on a new line at the end
 # Non-Action cards (Money/Reindeer/Sled/Present) are untouched.
 import re
-REST_1 = "The next card you play this turn loses Rest."
-REST_2 = "The next 2 cards you play this turn lose Rest."
+REST_1 = "Skip your next rest."
+REST_2 = "Skip your next 2 rests."
 
 def apply_rest(c):
     if "Action" not in c["types"]:

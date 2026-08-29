@@ -77,10 +77,9 @@ next. How long you may keep playing is governed by the **Rest** keyword:
   card you play this turn**. After it resolves you stop playing cards and move on.
 - A card **without** `Rest` does **not** end your turn — after playing it you may
   keep playing more cards.
-- **"The next card you play this turn loses Rest."** — the next card you play
-  ignores its own `Rest`, so it won't end your turn (your chain continues).
-- **"The next 2 cards you play this turn lose Rest."** — the same, applied to your
-  next two cards.
+- **"☕ Skip your next rest."** — the next card you play ignores its own `Rest`,
+  so it won't end your turn (your chain continues).
+- **"☕ Skip your next 2 rests."** — the same, applied to your next two cards.
 
 Watch for these other keywords while resolving cards:
 
@@ -126,22 +125,22 @@ fat-santa replaces Dominion's "+Actions" bookkeeping with a single keyword,
   keep playing cards. (These are the former "+1 Action" cantrips — the
   "+1 Action" line was simply dropped, because not ending your turn is the
   default for a card with no `Rest`.)
-- Two effects let you play *past* a Rest card by stripping the keyword off your
-  upcoming cards:
-  - **"The next card you play this turn loses Rest."** — your next card ignores
-    its own `Rest`, so it no longer ends your turn. (Was **+2 Actions**.)
-  - **"The next 2 cards you play this turn lose Rest."** — applies to your next
-    two cards. (Was **+3 Actions**.)
+- Two effects (marked with a ☕ coffee icon) let you play *past* a Rest card by
+  skipping the rest it would force:
+  - **"☕ Skip your next rest."** — your next card ignores its own `Rest`, so it
+    no longer ends your turn. (Was **+2 Actions**.)
+  - **"☕ Skip your next 2 rests."** — applies to your next two cards.
+    (Was **+3 Actions**.)
 
-In short: `Rest` = terminal (your last card). "Loses Rest" = treat that next card
-as non-terminal so your chain can continue.
+In short: `Rest` = terminal (your last card). "Skip your next rest" (☕) = treat
+that next card as non-terminal so your chain can continue.
 
 **Examples**
 - **Toy Stack** ($4): "+3 Cards / Rest" — draw 3, then your turn ends.
 - **Present Prototype** ($0): "+1 Card" — no `Rest`, so keep playing.
-- **Workshop Elf** ($3): "+1 Card / The next card you play this turn loses Rest."
+- **Workshop Elf** ($3): "+1 Card / ☕ Skip your next rest."
   — draw 1, then your next card won't end your turn even if it has `Rest`.
-- **Sugar Rush** ($4): "+1 Card / The next 2 cards you play this turn lose Rest."
+- **Sugar Rush** ($4): "+1 Card / ☕ Skip your next 2 rests."
   — chain up to two more terminal cards.
 
 ---
@@ -180,8 +179,8 @@ still tied after that, they share the victory).
 - **Start:** 7 Copper + 3 Estate; draw 5.
 - **Each turn:** play Action cards until you play one with **Rest** → play
   Treasures & buy 1 card → discard all, draw 5.
-- **Rest:** a card with `Rest` is the last card you play this turn; "loses Rest"
-  lets your next card(s) keep the chain going.
+- **Rest:** a card with `Rest` is the last card you play this turn; "☕ Skip your
+  next rest" lets your next card(s) keep the chain going.
 - **Other bonuses:** +Card (draw), +Buy (buy more), +$ (more coins).
 - **Money:** Copper $1, Silver $2, Gold $3.
 - **Points:** Estate 1, Duchy 3, Province 6, Curse −1.

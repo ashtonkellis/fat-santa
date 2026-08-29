@@ -13,7 +13,7 @@ Toy Conveyor Belt,$1,Present,1,+1 Present
 Robo-Elf Assistant,$4,Present,2,+2 Presents
 Fully Automated Toy Factory,$7,Present,3,+3 Presents
 Workshop Elf,$3,Action,,"+1 Card
-The next card you play this turn loses Rest."
+Skip your next rest."
 Mountain of Toys,$4,Rest,,"+3 Cards
 Rest"
 Elf-Mart,$5,Action,,"+1 Card
@@ -24,7 +24,7 @@ Letter-Sorting Frenzy,$5,Action,,+3 Cards
 Winter Fair,$5,Rest,,"+2 Buys
 +$2
 Rest"
-All Hands on Deck,$3,Action,,"The next card you play this turn loses Rest.
+All Hands on Deck,$3,Action,,"Skip your next rest.
 +1 Buy"
 Checking It Twice,$2,Action,,"+1 Card
 Look at the top card of your deck. You may discard it."
@@ -53,7 +53,7 @@ You may play an Action card from your hand."
 Master Craftself,$6,Rest,,"Gain a card costing up to $5 to your hand.
 Put a card from your hand onto your deck.
 Rest"
-Gift Wrap,$3,Action,,"The next card you play this turn loses Rest.
+Gift Wrap,$3,Action,,"Skip your next rest.
 The next Present you buy this turn costs $2 less."
 Toy Recycler,$4,Rest,,"Trash a card from your hand.
 Gain a card costing up to $2 more than it.
@@ -64,7 +64,7 @@ Cookie Bribe,$3,Rest,,"+1 Card
 +$2
 Rest"
 Elf Overtime,$3,Action,,"+1 Card
-The next card you play this turn loses Rest.
+Skip your next rest.
 Discard a card."
 Mass Toy Production,$7,Rest,,"+2 Cards
 Gain 2 Toy Conveyor Belts.
@@ -78,7 +78,7 @@ Tinsel Stash,$5,Rest,,"+$3
 +1 Buy
 Rest"
 Gingerbread Crew,$5,Action,,"+2 Cards
-The next card you play this turn loses Rest."
+Skip your next rest."
 Naughty-or-Nice Audit,$3,Action,,"+1 Card
 Look at the top 2 cards of your deck; put them back in any order."
 Golden Ticket,$5,Rest,,"+1 Buy
@@ -91,7 +91,7 @@ Rest"
 Craft Fair,$4,Action,,"+1 Card
 +1 Buy"
 Elf Union,$5,Action,,"+1 Card
-The next card you play this turn loses Rest.
+Skip your next rest.
 +$1"
 Present Prototype,$0,Action,,+1 Card
 Santa's Ledger,$3,Action,,"+1 Card
@@ -110,7 +110,7 @@ Rest"
 Blitzen Boost,$6,Rest,,"+4 Reindeer
 Rest"
 Sleigh Bells,$3,Action,,"+1 Sled
-The next card you play this turn loses Rest."
+Skip your next rest."
 Rocket Sleigh Engine,$7,Sled,,+3 Sled
 Delivery Run,$5,Rest,,"Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.
 Rest"
@@ -174,7 +174,7 @@ Holiday Cheer,$6,Rest,,"+2 Cards
 +$2
 Rest"
 Sugar Rush,$4,Action,,"+1 Card
-The next 2 cards you play this turn lose Rest."
+Skip your next 2 rests."
 Long Winter,$5,Rest,,"Now and at the start of your next turn: +1 Card and +$1.
 Rest"
 Mrs. Claus,$5,Action,,"+1 Card
