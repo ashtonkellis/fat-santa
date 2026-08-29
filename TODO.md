@@ -6,6 +6,9 @@ _Nothing pending._
 
 ## Done
 
+- Added a cycle of four terminal cards — Elf Payroll (+$1), Reindeer Roll Call (+1 Reindeer), Sleigh Fleet (+1 Sled), Production Bonus (+1 Present) — each paying out "for each Action card you have in play" (deck is now 83 cards; they need art generated from the updated image-prompts brief). Switched the Present rail slot to read the card text so these show on the rail.
+- Added a 😴 sleeping icon next to the terminal "Rest" ability on cards (marker in place of the ✦ bullet, like the ☕ on "skip your next rest").
+
 - Reworded the 8 "loses Rest" enabler cards to "Skip your next rest." / "Skip your next 2 rests." and marked that line with a ☕ coffee icon (in place of the ✦ bullet); updated the rules doc, CSV, and image prompts. The terminal "Rest" keyword is unchanged.
 - Removed the left-rail background shapes (pennants/trapezoids/banner) entirely; each resource icon is now just a thicker colored ring (matching its resource color) floating over the art, with the cost square kept distinct.
 - Increased the left padding on the card text so it no longer overlaps the left icon rail (text is indented past the rail, scrim stays full-width).

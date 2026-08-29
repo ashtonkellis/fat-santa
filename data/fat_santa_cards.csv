@@ -183,3 +183,11 @@ Mrs. Claus,$5,Action,,"+1 Card
 +$1"
 Santa's Sack,$6,Rest,,"Spend 3 Reindeer and 2 Sled: gain a Present costing up to $8.
 Rest"
+Elf Payroll,$5,Rest,,"+$1 for each Action card you have in play.
+Rest"
+Reindeer Roll Call,$5,Rest,,"+1 Reindeer for each Action card you have in play.
+Rest"
+Sleigh Fleet,$5,Rest,,"+1 Sled for each Action card you have in play.
+Rest"
+Production Bonus,$5,Rest,,"+1 Present for each Action card you have in play.
+Rest"

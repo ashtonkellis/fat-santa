@@ -169,13 +169,23 @@ C("Santa's Sack", S, "$6", ["Action"],
   "Spend 3 Reindeer and 2 Sled: gain a Present costing up to $8.",
   {"Gain": "Present <= $8"})
 
+# ===================== SET: Tally (Action-count cycle) =====================
+# A cycle of four cards — one per resource — that pay out based on how many
+# Action cards you have in play. Terminal (they gain "Rest"), so you play them
+# after building your Action chain.
+S = "Tally"
+C("Elf Payroll", S, "$5", ["Action"], "+$1 for each Action card you have in play.")
+C("Reindeer Roll Call", S, "$5", ["Action"], "+1 Reindeer for each Action card you have in play.")
+C("Sleigh Fleet", S, "$5", ["Action"], "+1 Sled for each Action card you have in play.")
+C("Production Bonus", S, "$5", ["Action"], "+1 Present for each Action card you have in play.")
+
 # ------------------------------------------------------------------ build
 by_group = collections.OrderedDict()
 for c in cards:
     by_group.setdefault(c["_group"], 0)
     by_group[c["_group"]] += 1
 
-assert len(cards) == 79, f"expected 79 cards, got {len(cards)}"
+assert len(cards) == 83, f"expected 83 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"

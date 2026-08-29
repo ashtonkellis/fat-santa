@@ -1,6 +1,6 @@
 # fat-santa — card art brief
 
-Please generate **one illustration per card** listed below (79 cards total). Hand this whole file to the image model.
+Please generate **one illustration per card** listed below (83 cards total). Hand this whole file to the image model.
 
 ## Style (apply to every image)
 
@@ -390,6 +390,12 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **card effect (context, do NOT draw as text):** +2 Sled; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Donner* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
+### Elf Payroll
+- **filename:** `elf-payroll.png`
+- **type / cost:** Rest · $5
+- **card effect (context, do NOT draw as text):** +$1 for each Action card you have in play.; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Elf Payroll* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
 ### Golden Ticket
 - **filename:** `golden-ticket.png`
 - **type / cost:** Rest · $5
@@ -413,6 +419,24 @@ Please generate **one illustration per card** listed below (79 cards total). Han
 - **type / cost:** Rest · $5
 - **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Card; +1 Buy; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Prancing Reindeer* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
+### Production Bonus
+- **filename:** `production-bonus.png`
+- **type / cost:** Rest · $5
+- **card effect (context, do NOT draw as text):** +1 Present for each Action card you have in play.; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Production Bonus* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
+### Reindeer Roll Call
+- **filename:** `reindeer-roll-call.png`
+- **type / cost:** Rest · $5
+- **card effect (context, do NOT draw as text):** +1 Reindeer for each Action card you have in play.; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Reindeer Roll Call* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
+### Sleigh Fleet
+- **filename:** `sleigh-fleet.png`
+- **type / cost:** Rest · $5
+- **card effect (context, do NOT draw as text):** +1 Sled for each Action card you have in play.; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Fleet* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Sleigh Garage
 - **filename:** `sleigh-garage.png`

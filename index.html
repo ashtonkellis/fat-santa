@@ -123,8 +123,9 @@
     color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.98); }
   .card .fa-line::before { content: "\2726"; position: absolute; left: 0; top: 0.05em;
     font-size: 14px; color: #ffd76b; }
-  .card .fa-line.fa-coffee { padding-left: 25px; }
+  .card .fa-line.fa-coffee, .card .fa-line.fa-sleep { padding-left: 25px; }
   .card .fa-line.fa-coffee::before { content: "\2615\FE0F"; color: initial; font-size: 18px; top: -0.08em; left: 0; }
+  .card .fa-line.fa-sleep::before { content: "\1F634"; color: initial; font-size: 18px; top: -0.08em; left: 0; }
 
   /* per-type accent (left rail + border tint) and pale fallback background */
   .t-Money    { --accent: #c9962a; --pale: var(--c-money); }
@@ -186,8 +187,9 @@
       line-height: 1.25; color: #fff; text-shadow: 0 0.3mm 0.5mm rgba(0,0,0,.98); }
     .print-area .pcard .fa-line::before { content: "\2726"; position: absolute; left: 0; top: 0.05em;
       font-size: 3.4mm; color: #ffd76b; }
-    .print-area .pcard .fa-line.fa-coffee { padding-left: 6mm; }
+    .print-area .pcard .fa-line.fa-coffee, .print-area .pcard .fa-line.fa-sleep { padding-left: 6mm; }
     .print-area .pcard .fa-line.fa-coffee::before { content: "\2615\FE0F"; color: initial; font-size: 4.4mm; top: -0.08em; }
+    .print-area .pcard .fa-line.fa-sleep::before { content: "\1F634"; color: initial; font-size: 4.4mm; top: -0.08em; }
     @page { size: A4; margin: 8mm; }
   }
 </style>
@@ -407,9 +409,9 @@ function artUrl(c) { return "card-art/web/" + slugName(c.name) + ".webp"; }
 // `ring` matches each resource's card color (see the --accent values on the
 // .t-* type classes): Sled blue, Present purple, Reindeer green, Money gold.
 const RESOURCE_SLOTS = [
-  { icon: "🛷", re: /\+(\d+)\s*Sled/i,     ring: "#2f6fb0" },
-  { icon: "🎁", get: c => parseInt(c.presents, 10) || 0, ring: "#7a4fb0" },
-  { icon: "🦌", re: /\+(\d+)\s*Reindeer/i, ring: "#3f8f43" },
+  { icon: "🛷", re: /\+(\d+)\s*Sled/i,      ring: "#2f6fb0" },
+  { icon: "🎁", re: /\+(\d+)\s*Presents?/i, ring: "#7a4fb0" },
+  { icon: "🦌", re: /\+(\d+)\s*Reindeer/i,  ring: "#3f8f43" },
   { icon: "🪙", re: /\+\$(\d+)/,           ring: "#c9962a", coin: true },
 ];
 function slotQty(c, slot) {
@@ -477,8 +479,12 @@ function buildFace(c, cls) {
     const wrap = document.createElement("div"); wrap.className = "fa-textwrap";
     lines.forEach(line => {
       const d = document.createElement("div");
-      // the "skip your next rest" ability gets a ☕ marker instead of the ✦ bullet
-      d.className = "fa-line" + (/skip your next .*rest/i.test(line) ? " fa-coffee" : "");
+      // special markers replace the ✦ bullet: ☕ for "skip your next rest",
+      // 😴 for the terminal "Rest" keyword.
+      let cls = "fa-line";
+      if (/skip your next .*rest/i.test(line)) cls += " fa-coffee";
+      else if (/^rest$/i.test(line.trim())) cls += " fa-sleep";
+      d.className = cls;
       d.innerHTML = iconify(line);
       wrap.appendChild(d);
     });
