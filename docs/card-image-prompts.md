@@ -126,7 +126,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### All Hands on Deck
 - **filename:** `all-hands-on-deck.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** Skip your next rest.; +1 Buy
+- **card effect (context, do NOT draw as text):** Skip your next rest.; +$1
 - **prompt:** A playful whimsical Christmas storybook illustration of *All Hands on Deck* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Bell Ringer
@@ -162,7 +162,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Santa's Ledger
 - **filename:** `santas-ledger.png`
 - **type / cost:** Action · $3
-- **card effect (context, do NOT draw as text):** +1 Card; +1 Buy; When you discard this, +$1.
+- **card effect (context, do NOT draw as text):** +1 Card; When you discard this, +$1.
 - **prompt:** A playful whimsical Christmas storybook illustration of *Santa's Ledger* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Secret Santa
@@ -186,7 +186,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Craft Fair
 - **filename:** `craft-fair.png`
 - **type / cost:** Action · $4
-- **card effect (context, do NOT draw as text):** +1 Card; +1 Buy
+- **card effect (context, do NOT draw as text):** +2 Cards
 - **prompt:** A playful whimsical Christmas storybook illustration of *Craft Fair* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Cupid
@@ -246,7 +246,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Elf-Mart
 - **filename:** `elf-mart.png`
 - **type / cost:** Action · $5
-- **card effect (context, do NOT draw as text):** +1 Card; +1 Buy; +$1
+- **card effect (context, do NOT draw as text):** +1 Card; +$2
 - **prompt:** A playful whimsical Christmas storybook illustration of *Elf-Mart* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Gift Compactor
@@ -297,7 +297,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Peppermint Coin
 - **filename:** `peppermint-coin.png`
 - **type / cost:** Rest · $2
-- **card effect (context, do NOT draw as text):** +$1; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +$1; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Peppermint Coin* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Ribbon Roll
@@ -327,7 +327,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Chimney Sweep
 - **filename:** `chimney-sweep.png`
 - **type / cost:** Rest · $4
-- **card effect (context, do NOT draw as text):** +$2; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +$2; You may trash a card from your hand.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Chimney Sweep* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Mountain of Toys
@@ -345,7 +345,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Reindeer Stable
 - **filename:** `reindeer-stable.png`
 - **type / cost:** Rest · $4
-- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Reindeer Stable* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Rooftop Drop
@@ -399,7 +399,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Golden Ticket
 - **filename:** `golden-ticket.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +1 Buy; +$2; Gain a Present costing up to $4.; Rest
+- **card effect (context, do NOT draw as text):** +$3; Gain a Present costing up to $4.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Golden Ticket* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Long Winter
@@ -411,13 +411,13 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Nice List Bonus
 - **filename:** `nice-list-bonus.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +2 Cards; +1 Buy; Each other player draws a card.; Rest
+- **card effect (context, do NOT draw as text):** +2 Cards; Each other player draws a card.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Nice List Bonus* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Prancing Reindeer
 - **filename:** `prancing-reindeer.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +2 Reindeer; +1 Card; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +2 Reindeer; +2 Cards; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Prancing Reindeer* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Production Bonus
@@ -441,7 +441,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Sleigh Garage
 - **filename:** `sleigh-garage.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +2 Sled; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +2 Sled; +$1; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Sleigh Garage* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Stable Master
@@ -453,13 +453,13 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Tinsel Stash
 - **filename:** `tinsel-stash.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +$3; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +$3; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Tinsel Stash* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Winter Fair
 - **filename:** `winter-fair.png`
 - **type / cost:** Rest · $5
-- **card effect (context, do NOT draw as text):** +2 Buys; +$2; Rest
+- **card effect (context, do NOT draw as text):** +$2; +2 Cards; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Winter Fair* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Blitzen Boost
@@ -471,13 +471,13 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Comet
 - **filename:** `comet.png`
 - **type / cost:** Rest · $6
-- **card effect (context, do NOT draw as text):** +3 Reindeer; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +3 Reindeer; +1 Card; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Comet* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Holiday Cheer
 - **filename:** `holiday-cheer.png`
 - **type / cost:** Rest · $6
-- **card effect (context, do NOT draw as text):** +2 Cards; +1 Buy; +$2; Rest
+- **card effect (context, do NOT draw as text):** +2 Cards; +$3; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Holiday Cheer* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Loaded Sleigh
@@ -495,7 +495,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### North Star
 - **filename:** `north-star.png`
 - **type / cost:** Rest · $6
-- **card effect (context, do NOT draw as text):** +3 Cards; +1 Buy; Rest
+- **card effect (context, do NOT draw as text):** +3 Cards; +$1; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *North Star* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Rudolph
@@ -513,7 +513,7 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 ### Wholesale Toys
 - **filename:** `wholesale-toys.png`
 - **type / cost:** Rest · $6
-- **card effect (context, do NOT draw as text):** +1 Buy; +$3; Rest
+- **card effect (context, do NOT draw as text):** +$2; Gain 2 Toy Conveyor Belts.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Wholesale Toys* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Express Sleigh

@@ -30,7 +30,7 @@ S = "North Pole"
 C("Chimney Change", S, "$1", ["Money"], "+$1", {"Coins": "+1"})
 C("Santa's Piggy Bank", S, "$4", ["Money"], "+$2", {"Coins": "+2"})
 C("Scrooge's Vault", S, "$7", ["Money"], "+$3", {"Coins": "+3"})
-C("Peppermint Coin", S, "$2", ["Action"], "+$1\n+1 Buy", {"Coins": "+1", "Buys": "+1"})
+C("Peppermint Coin", S, "$2", ["Action"], "+$1\n+1 Card", {"Coins": "+1", "Cards": "+1"})
 C("Reindeer Energy Drink", S, "$1", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
 C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
 C("Sleigh Wax Job", S, "$1", ["Sled"], "+1 Sled", {"Sled": "+1"})
@@ -41,23 +41,23 @@ C("Robo-Elf Assistant", S, "$4", ["Present"], "+2 Presents", {"Presents": "2"}, 
 C("Fully Automated Toy Factory", S, "$7", ["Present"], "+3 Presents", {"Presents": "3"}, "3")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
-C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+1 Buy\n+$1",
-  {"Cards": "+1", "Actions": "+1", "Buys": "+1", "Coins": "+1"})
+C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+$2",
+  {"Cards": "+1", "Actions": "+1", "Coins": "+2"})
 C("Spring Cleaning", S, "$2", ["Action"], "+1 Action\nDiscard any number of cards, then draw that many.",
   {"Actions": "+1"})
 C("Letter-Sorting Frenzy", S, "$5", ["Action"], "+3 Cards\n+1 Action", {"Cards": "+3", "Actions": "+1"})
-C("Winter Fair", S, "$5", ["Action"], "+2 Buys\n+$2", {"Buys": "+2", "Coins": "+2"})
-C("All Hands on Deck", S, "$3", ["Action"], "+2 Actions\n+1 Buy", {"Actions": "+2", "Buys": "+1"})
+C("Winter Fair", S, "$5", ["Action"], "+$2\n+2 Cards", {"Coins": "+2", "Cards": "+2"})
+C("All Hands on Deck", S, "$3", ["Action"], "+2 Actions\n+$1", {"Actions": "+2", "Coins": "+1"})
 C("Checking It Twice", S, "$2", ["Action"],
   "+1 Card\n+1 Action\nLook at the top card of your deck. You may discard it.",
   {"Cards": "+1", "Actions": "+1"})
-C("Chimney Sweep", S, "$4", ["Action"], "+$2\n+1 Buy", {"Coins": "+2", "Buys": "+1"})
+C("Chimney Sweep", S, "$4", ["Action"], "+$2\nYou may trash a card from your hand.", {"Coins": "+2"})
 C("Care Package", S, "$3", ["Action"], "+1 Reindeer\n+1 Sled\n+$1",
   {"Reindeer": "+1", "Sled": "+1", "Coins": "+1"})
 C("Reindeer Feed", S, "$3", ["Action"], "+2 Reindeer\n+1 Action", {"Reindeer": "+2", "Actions": "+1"})
 C("Sled Shed", S, "$4", ["Action"], "+2 Sled\n+1 Action", {"Sled": "+2", "Actions": "+1"})
 C("Bell Ringer", S, "$3", ["Action"], "+1 Card\n+1 Action\n+$1", {"Cards": "+1", "Actions": "+1", "Coins": "+1"})
-C("North Star", S, "$6", ["Action"], "+3 Cards\n+1 Buy", {"Cards": "+3", "Buys": "+1"})
+C("North Star", S, "$6", ["Action"], "+3 Cards\n+$1", {"Cards": "+3", "Coins": "+1"})
 C("Candy Coins", S, "$4", ["Action"], "+$2\n+1 Reindeer", {"Coins": "+2", "Reindeer": "+1"})
 
 # ========================== SET: Santa's Workshop ==========================
@@ -87,29 +87,29 @@ C("Mass Toy Production", S, "$7", ["Action"], "+2 Cards\nGain 2 Toy Conveyor Bel
 C("Quality Elf-spection", S, "$4", ["Action"], "+1 Card\n+1 Action\nYou may trash a card. If you do, +$1.",
   {"Cards": "+1", "Actions": "+1"})
 C("Ribbon Roll", S, "$2", ["Action"], "+$1\n+1 Sled", {"Coins": "+1", "Sled": "+1"})
-C("Tinsel Stash", S, "$5", ["Action"], "+$3\n+1 Buy", {"Coins": "+3", "Buys": "+1"})
+C("Tinsel Stash", S, "$5", ["Action"], "+$3\n+1 Card", {"Coins": "+3", "Cards": "+1"})
 C("Gingerbread Crew", S, "$5", ["Action"], "+2 Cards\n+2 Actions", {"Cards": "+2", "Actions": "+2"})
 C("Naughty-or-Nice Audit", S, "$3", ["Action"],
   "+1 Card\n+1 Action\nLook at the top 2 cards of your deck; put them back in any order.",
   {"Cards": "+1", "Actions": "+1"})
-C("Golden Ticket", S, "$5", ["Action"], "+1 Buy\n+$2\nGain a Present costing up to $4.",
-  {"Buys": "+1", "Coins": "+2", "Gain": "Present <= $4"})
-C("Wholesale Toys", S, "$6", ["Action"], "+1 Buy\n+$3", {"Buys": "+1", "Coins": "+3"})
-C("Craft Fair", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Buy", {"Cards": "+1", "Actions": "+1", "Buys": "+1"})
+C("Golden Ticket", S, "$5", ["Action"], "+$3\nGain a Present costing up to $4.",
+  {"Coins": "+3", "Gain": "Present <= $4"})
+C("Wholesale Toys", S, "$6", ["Action"], "+$2\nGain 2 Toy Conveyor Belts.", {"Coins": "+2", "Gain": "2x Toy Conveyor Belt"})
+C("Craft Fair", S, "$4", ["Action"], "+2 Cards\n+1 Action", {"Cards": "+2", "Actions": "+1"})
 C("Elf Union", S, "$5", ["Action"], "+1 Card\n+2 Actions\n+$1", {"Cards": "+1", "Actions": "+2", "Coins": "+1"})
 C("Present Prototype", S, "$0", ["Action"], "+1 Card\n+1 Action", {"Cards": "+1", "Actions": "+1"})
-C("Santa's Ledger", S, "$3", ["Action"], "+1 Card\n+1 Action\n+1 Buy\nWhen you discard this, +$1.",
-  {"Cards": "+1", "Actions": "+1", "Buys": "+1"})
+C("Santa's Ledger", S, "$3", ["Action"], "+1 Card\n+1 Action\nWhen you discard this, +$1.",
+  {"Cards": "+1", "Actions": "+1"})
 C("Charity Drive", S, "$5", ["Action"], "+$2\nGain a Present costing up to $5; if you do, +1 Card.",
   {"Coins": "+2", "Gain": "Present <= $5"})
 
 # ========================= SET: Sleigh & Stable =========================
 # Reindeer, sleds and Delivery cards that convert them into presents.
 S = "Sleigh & Stable"
-C("Reindeer Stable", S, "$4", ["Action"], "+2 Reindeer\n+1 Buy",
-  {"Reindeer": "+2", "Buys": "+1"})
-C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+1 Card\n+1 Buy",
-  {"Reindeer": "+2", "Cards": "+1", "Buys": "+1"})
+C("Reindeer Stable", S, "$4", ["Action"], "+2 Reindeer\n+1 Card",
+  {"Reindeer": "+2", "Cards": "+1"})
+C("Prancing Reindeer", S, "$5", ["Action"], "+2 Reindeer\n+2 Cards",
+  {"Reindeer": "+2", "Cards": "+2"})
 C("Blitzen Boost", S, "$6", ["Action"], "+4 Reindeer", {"Reindeer": "+4"})
 C("Sleigh Bells", S, "$3", ["Action"], "+1 Sled\n+2 Actions", {"Sled": "+1", "Actions": "+2"})
 C("Rocket Sleigh Engine", S, "$7", ["Sled"], "+3 Sled", {"Sled": "+3"})
@@ -127,13 +127,13 @@ C("Midnight Flight", S, "$8", ["Action"],
 C("Team Harness", S, "$4", ["Action"], "+1 Card\n+1 Reindeer\n+1 Sled",
   {"Cards": "+1", "Reindeer": "+1", "Sled": "+1"})
 C("Feed Bag", S, "$2", ["Action"], "+$1\n+1 Reindeer", {"Coins": "+1", "Reindeer": "+1"})
-C("Sleigh Garage", S, "$5", ["Action"], "+2 Sled\n+1 Buy", {"Sled": "+2", "Buys": "+1"})
+C("Sleigh Garage", S, "$5", ["Action"], "+2 Sled\n+$1", {"Sled": "+2", "Coins": "+1"})
 C("Dasher", S, "$5", ["Action"], "+1 Card\n+1 Action\n+2 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+2"})
 C("Dancer", S, "$5", ["Action"], "+2 Reindeer\n+$1", {"Reindeer": "+2", "Coins": "+1"})
 C("Vixen", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Reindeer",
   {"Cards": "+1", "Actions": "+1", "Reindeer": "+1"})
-C("Comet", S, "$6", ["Action"], "+3 Reindeer\n+1 Buy", {"Reindeer": "+3", "Buys": "+1"})
+C("Comet", S, "$6", ["Action"], "+3 Reindeer\n+1 Card", {"Reindeer": "+3", "Cards": "+1"})
 C("Cupid", S, "$4", ["Action"], "+1 Card\n+1 Action\n+1 Sled",
   {"Cards": "+1", "Actions": "+1", "Sled": "+1"})
 C("Donner", S, "$5", ["Action"], "+2 Sled\n+1 Card", {"Sled": "+2", "Cards": "+1"})
@@ -151,14 +151,14 @@ C("Bionic Antler Upgrade", S, "$7", ["Reindeer"], "+3 Reindeer", {"Reindeer": "+
 # ========================= SET: Naughty & Nice =========================
 # Interactive tricks and effects (no attacks, no reactions).
 S = "Naughty & Nice"
-C("Nice List Bonus", S, "$5", ["Action"], "+2 Cards\n+1 Buy\nEach other player draws a card.",
-  {"Cards": "+2", "Buys": "+1"})
+C("Nice List Bonus", S, "$5", ["Action"], "+2 Cards\nEach other player draws a card.",
+  {"Cards": "+2"})
 C("Secret Santa", S, "$3", ["Action"],
   "+2 Cards\n+1 Action\nEach player passes a card from their hand to the player on their left, at once.",
   {"Cards": "+2", "Actions": "+1"})
 C("Regifting", S, "$4", ["Action"],
   "You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.")
-C("Holiday Cheer", S, "$6", ["Action"], "+2 Cards\n+1 Buy\n+$2", {"Cards": "+2", "Buys": "+1", "Coins": "+2"})
+C("Holiday Cheer", S, "$6", ["Action"], "+2 Cards\n+$3", {"Cards": "+2", "Coins": "+3"})
 C("Sugar Rush", S, "$4", ["Action"], "+1 Card\n+3 Actions", {"Cards": "+1", "Actions": "+3"})
 C("Long Winter", S, "$5", ["Action"],
   "Now and at the start of your next turn: +1 Card and +$1.", {"Cards": "+1", "Coins": "+1"})

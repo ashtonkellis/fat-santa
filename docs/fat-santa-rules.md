@@ -84,7 +84,6 @@ next. How long you may keep playing is governed by the **Rest** keyword:
 Watch for these other keywords while resolving cards:
 
 - **+X Cards** — draw that many cards.
-- **+X Buys** — you may buy that many *extra* cards in your Buy phase.
 - **+$X** — adds that many coins to spend this turn.
 
 See **[The Rest keyword](#the-rest-keyword)** below for the full explanation and
@@ -93,13 +92,13 @@ examples.
 ### B — Buy phase
 1. Play as many **Treasure** cards from your hand as you like, adding up their
    coins (plus any **+$** you earned during your Action phase).
-2. Spend those coins to **buy** cards from the Supply. By default you may buy
-   **one** card; each **+Buy** you earned lets you buy one more. Your total coins
-   are a shared pool you can split across your purchases.
+2. Spend those coins to **buy** cards from the Supply. You may buy **any number
+   of cards you can afford** this turn — your total coins are a shared pool you
+   spend across your purchases, buying as many cards as the coins cover.
 3. A bought card goes to your **discard pile** (not your hand). You may buy a $0
    card even with no coins.
 
-Coins are not tokens — they exist only for this turn. Unspent coins and Buys
+Coins are not tokens — they exist only for this turn. Unspent coins
 vanish at end of turn.
 
 ### C — Clean-up phase
@@ -178,10 +177,10 @@ still tied after that, they share the victory).
 
 - **Start:** 7 Copper + 3 Estate; draw 5.
 - **Each turn:** play Action cards until you play one with **Rest** → play
-  Treasures & buy 1 card → discard all, draw 5.
+  Treasures & buy as many cards as you can afford → discard all, draw 5.
 - **Rest:** a card with `Rest` is the last card you play this turn; "☕ Skip your
   next rest" lets your next card(s) keep the chain going.
-- **Other bonuses:** +Card (draw), +Buy (buy more), +$ (more coins).
+- **Other bonuses:** +Card (draw), +$ (more coins).
 - **Money:** Copper $1, Silver $2, Gold $3.
 - **Points:** Estate 1, Duchy 3, Province 6, Curse −1.
 - **Game ends:** Province pile empty, or any 3 piles empty.
