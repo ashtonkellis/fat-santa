@@ -1,6 +1,6 @@
 # fat-santa — card art brief
 
-Please generate **one illustration per card** listed below (83 cards total). Hand this whole file to the image model.
+Please generate **one illustration per card** listed below (85 cards total). Hand this whole file to the image model.
 
 ## Style (apply to every image)
 
@@ -110,6 +110,12 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 - **type / cost:** Action · $0
 - **card effect (context, do NOT draw as text):** +1 Card
 - **prompt:** A playful whimsical Christmas storybook illustration of *Present Prototype* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
+
+### Little Helper
+- **filename:** `little-helper.png`
+- **type / cost:** Action · $1
+- **card effect (context, do NOT draw as text):** +1 resource of your choice.
+- **prompt:** A playful whimsical Christmas storybook illustration of *Little Helper* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Checking It Twice
 - **filename:** `checking-it-twice.png`
@@ -287,6 +293,12 @@ Please generate **one illustration per card** listed below (83 cards total). Han
 
 
 ## Rest cards
+
+### Odd Jobs
+- **filename:** `odd-jobs.png`
+- **type / cost:** Rest · $1
+- **card effect (context, do NOT draw as text):** +1 resource of your choice.; Rest
+- **prompt:** A playful whimsical Christmas storybook illustration of *Odd Jobs* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Feed Bag
 - **filename:** `feed-bag.png`

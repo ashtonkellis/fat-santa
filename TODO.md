@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Added two $1 flexible starter cards, each giving "+1 resource of your choice": Little Helper (Action, non-terminal) and Odd Jobs (Rest, terminal). Kept them at cost $1 so cost-based effects (trashing, gain-up-to-$X) still apply. Deck is now 85 cards; both need art from the image-prompts brief.
 - Made buys unlimited: players may now buy any number of cards they can afford each turn (updated the rules doc), which retired the +Buy mechanic. Redesigned all 17 former +Buy cards (same names/art) to replace the +Buy with a fitting effect — e.g. Chimney Sweep → "+$2 / trash a card", Wholesale Toys → "+$2 / gain 2 Toy Conveyor Belts", Winter Fair → "+$2 / +2 Cards", Elf-Mart → "+1 Card / +$2", Golden Ticket → "+$3 / gain a Present", the reindeer/sled cards → extra Cards or +$. Verified no new duplicates or same-cost dominations.
 - Added a cycle of four terminal cards — Elf Payroll (+$1), Reindeer Roll Call (+1 Reindeer), Sleigh Fleet (+1 Sled), Production Bonus (+1 Present) — each paying out "for each Action card you have in play" (deck is now 83 cards; they need art generated from the updated image-prompts brief). Switched the Present rail slot to read the card text so these show on the rail.
 - Added a 😴 sleeping icon next to the terminal "Rest" ability on cards (marker in place of the ✦ bullet, like the ☕ on "skip your next rest").

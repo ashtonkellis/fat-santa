@@ -39,6 +39,10 @@ C("Turbo Boosters", S, "$4", ["Sled"], "+2 Sled", {"Sled": "+2"})
 C("Toy Conveyor Belt", S, "$1", ["Present"], "+1 Present", {"Presents": "1"}, "1")
 C("Robo-Elf Assistant", S, "$4", ["Present"], "+2 Presents", {"Presents": "2"}, "2")
 C("Fully Automated Toy Factory", S, "$7", ["Present"], "+3 Presents", {"Presents": "3"}, "3")
+# Starter helpers ($1, in the starting deck): gain one resource of your choice.
+# One keeps your turn going (Action), one ends it (Rest).
+C("Little Helper", S, "$1", ["Action"], "+1 Action\n+1 resource of your choice.")
+C("Odd Jobs", S, "$1", ["Action"], "+1 resource of your choice.")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+$2",
@@ -185,7 +189,7 @@ for c in cards:
     by_group.setdefault(c["_group"], 0)
     by_group[c["_group"]] += 1
 
-assert len(cards) == 83, f"expected 83 cards, got {len(cards)}"
+assert len(cards) == 85, f"expected 85 cards, got {len(cards)}"
 names = [c["name"] for c in cards]
 dupes = [n for n, k in collections.Counter(names).items() if k > 1]
 assert not dupes, f"duplicate names: {dupes}"
