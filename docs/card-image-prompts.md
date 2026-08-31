@@ -297,7 +297,7 @@ Please generate **one illustration per card** listed below (85 cards total). Han
 ### Odd Jobs
 - **filename:** `odd-jobs.png`
 - **type / cost:** Rest · $1
-- **card effect (context, do NOT draw as text):** +1 resource of your choice.; Rest
+- **card effect (context, do NOT draw as text):** Choose one: trash a card from your hand, draw a card, or gain 1 resource of your choice.; Rest
 - **prompt:** A playful whimsical Christmas storybook illustration of *Odd Jobs* — festive North Pole style, bright warm colors, single centered subject, simple background, no text.
 
 ### Feed Bag

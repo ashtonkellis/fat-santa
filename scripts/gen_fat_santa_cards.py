@@ -42,7 +42,8 @@ C("Fully Automated Toy Factory", S, "$7", ["Present"], "+3 Presents", {"Presents
 # Starter helpers ($1, in the starting deck): gain one resource of your choice.
 # One keeps your turn going (Action), one ends it (Rest).
 C("Little Helper", S, "$1", ["Action"], "+1 Action\n+1 resource of your choice.")
-C("Odd Jobs", S, "$1", ["Action"], "+1 resource of your choice.")
+C("Odd Jobs", S, "$1", ["Action"],
+  "Choose one: trash a card from your hand, draw a card, or gain 1 resource of your choice.")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+$2",
