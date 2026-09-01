@@ -296,6 +296,7 @@ function load() {
         types: (r.types || "").split("/").map(s => s.trim()).filter(Boolean),
         presents: r.presents || "",
         text: r.text || "",
+        starter: r.starter || "",   // copies in the 10-card starting deck ("" = not a starter)
       }));
       initControls();
       render();

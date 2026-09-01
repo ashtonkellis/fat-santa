@@ -1,189 +1,189 @@
-name,cost,types,presents,text
-Chimney Change,$1,Money,,+$1
-Santa's Piggy Bank,$4,Money,,+$2
-Scrooge's Vault,$7,Money,,+$3
+name,cost,types,presents,text,starter
+Chimney Change,$1,Money,,+$1,2
+Santa's Piggy Bank,$4,Money,,+$2,
+Scrooge's Vault,$7,Money,,+$3,
 Peppermint Coin,$2,Rest,,"+$1
 +1 Card
-Rest"
-Reindeer Energy Drink,$1,Reindeer,,+1 Reindeer
-Magical Reindeer DNA,$4,Reindeer,,+2 Reindeer
-Sleigh Wax Job,$1,Sled,,+1 Sled
-Turbo Boosters,$4,Sled,,+2 Sled
-Toy Conveyor Belt,$1,Present,1,+1 Present
-Robo-Elf Assistant,$4,Present,2,+2 Presents
-Fully Automated Toy Factory,$7,Present,3,+3 Presents
-Little Helper,$1,Action,,+1 resource of your choice.
+Rest",
+Reindeer Energy Drink,$1,Reindeer,,+1 Reindeer,2
+Magical Reindeer DNA,$4,Reindeer,,+2 Reindeer,
+Sleigh Wax Job,$1,Sled,,+1 Sled,2
+Turbo Boosters,$4,Sled,,+2 Sled,
+Toy Conveyor Belt,$1,Present,1,+1 Present,2
+Robo-Elf Assistant,$4,Present,2,+2 Presents,
+Fully Automated Toy Factory,$7,Present,3,+3 Presents,
+Little Helper,$1,Action,,+1 resource of your choice.,1
 Odd Jobs,$1,Rest,,"Choose one: trash a card from your hand, draw a card, or gain 1 resource of your choice.
-Rest"
+Rest",1
 Workshop Elf,$3,Action,,"+1 Card
-Skip your next rest."
+Skip your next rest.",
 Mountain of Toys,$4,Rest,,"+3 Cards
-Rest"
+Rest",
 Elf-Mart,$5,Action,,"+1 Card
-+$2"
-Spring Cleaning,$2,Action,,"Discard any number of cards, then draw that many."
-Letter-Sorting Frenzy,$5,Action,,+3 Cards
++$2",
+Spring Cleaning,$2,Action,,"Discard any number of cards, then draw that many.",
+Letter-Sorting Frenzy,$5,Action,,+3 Cards,
 Winter Fair,$5,Rest,,"+$2
 +2 Cards
-Rest"
+Rest",
 All Hands on Deck,$3,Action,,"Skip your next rest.
-+$1"
++$1",
 Checking It Twice,$2,Action,,"+1 Card
-Look at the top card of your deck. You may discard it."
+Look at the top card of your deck. You may discard it.",
 Chimney Sweep,$4,Rest,,"+$2
 You may trash a card from your hand.
-Rest"
+Rest",
 Care Package,$3,Rest,,"+1 Reindeer
 +1 Sled
 +$1
-Rest"
-Reindeer Feed,$3,Action,,+2 Reindeer
-Sled Shed,$4,Action,,+2 Sled
+Rest",
+Reindeer Feed,$3,Action,,+2 Reindeer,
+Sled Shed,$4,Action,,+2 Sled,
 Bell Ringer,$3,Action,,"+1 Card
-+$1"
++$1",
 North Star,$6,Rest,,"+3 Cards
 +$1
-Rest"
+Rest",
 Candy Coins,$4,Rest,,"+$2
 +1 Reindeer
-Rest"
-Gift-Wrapping Frenzy,$4,Action,,Gain a Toy Conveyor Belt.
+Rest",
+Gift-Wrapping Frenzy,$4,Action,,Gain a Toy Conveyor Belt.,
 Toy Maker,$5,Action,,"+$2
-Gain a Present card costing up to $5."
+Gain a Present card costing up to $5.",
 Toy Assembly Line,$6,Action,,"+2 Cards
-You may play an Action card from your hand."
+You may play an Action card from your hand.",
 Master Craftself,$6,Rest,,"Gain a card costing up to $5 to your hand.
 Put a card from your hand onto your deck.
-Rest"
+Rest",
 Gift Wrap,$3,Action,,"Skip your next rest.
-The next Present you buy this turn costs $2 less."
+The next Present you buy this turn costs $2 less.",
 Toy Recycler,$4,Rest,,"Trash a card from your hand.
 Gain a card costing up to $2 more than it.
-Rest"
+Rest",
 Gift Compactor,$5,Action,,"+1 Card
-You may trash a Money card from your hand. If you do, gain a Present costing up to $6."
+You may trash a Money card from your hand. If you do, gain a Present costing up to $6.",
 Cookie Bribe,$3,Rest,,"+1 Card
 +$2
-Rest"
+Rest",
 Elf Overtime,$3,Action,,"+1 Card
 Skip your next rest.
-Discard a card."
+Discard a card.",
 Mass Toy Production,$7,Rest,,"+2 Cards
 Gain 2 Toy Conveyor Belts.
-Rest"
+Rest",
 Quality Elf-spection,$4,Action,,"+1 Card
-You may trash a card. If you do, +$1."
+You may trash a card. If you do, +$1.",
 Ribbon Roll,$2,Rest,,"+$1
 +1 Sled
-Rest"
+Rest",
 Tinsel Stash,$5,Rest,,"+$3
 +1 Card
-Rest"
+Rest",
 Gingerbread Crew,$5,Action,,"+2 Cards
-Skip your next rest."
+Skip your next rest.",
 Naughty-or-Nice Audit,$3,Action,,"+1 Card
-Look at the top 2 cards of your deck; put them back in any order."
+Look at the top 2 cards of your deck; put them back in any order.",
 Golden Ticket,$5,Rest,,"+$3
 Gain a Present costing up to $4.
-Rest"
+Rest",
 Wholesale Toys,$6,Rest,,"+$2
 Gain 2 Toy Conveyor Belts.
-Rest"
-Craft Fair,$4,Action,,+2 Cards
+Rest",
+Craft Fair,$4,Action,,+2 Cards,
 Elf Union,$5,Action,,"+1 Card
 Skip your next rest.
-+$1"
-Present Prototype,$0,Action,,+1 Card
++$1",
+Present Prototype,$0,Action,,+1 Card,
 Santa's Ledger,$3,Action,,"+1 Card
-When you discard this, +$1."
+When you discard this, +$1.",
 Charity Drive,$5,Rest,,"+$2
 Gain a Present costing up to $5; if you do, +1 Card.
-Rest"
+Rest",
 Reindeer Stable,$4,Rest,,"+2 Reindeer
 +1 Card
-Rest"
+Rest",
 Prancing Reindeer,$5,Rest,,"+2 Reindeer
 +2 Cards
-Rest"
+Rest",
 Blitzen Boost,$6,Rest,,"+4 Reindeer
-Rest"
+Rest",
 Sleigh Bells,$3,Action,,"+1 Sled
-Skip your next rest."
-Rocket Sleigh Engine,$7,Sled,,+3 Sled
+Skip your next rest.",
+Rocket Sleigh Engine,$7,Sled,,+3 Sled,
 Delivery Run,$5,Rest,,"Spend 2 Reindeer and 1 Sled: gain a Robo-Elf Assistant.
-Rest"
+Rest",
 Rooftop Drop,$4,Rest,,"Spend 1 Reindeer and 1 Sled: gain a Toy Conveyor Belt.
 +1 Card
-Rest"
+Rest",
 Express Sleigh,$7,Rest,,"+3 Reindeer
 +2 Sled
 +1 Card
-Rest"
+Rest",
 Midnight Flight,$8,Rest,,"Spend 4 Reindeer and 2 Sled: gain a Fully Automated Toy Factory.
 +2 Cards
-Rest"
+Rest",
 Team Harness,$4,Rest,,"+1 Card
 +1 Reindeer
 +1 Sled
-Rest"
+Rest",
 Feed Bag,$2,Rest,,"+$1
 +1 Reindeer
-Rest"
+Rest",
 Sleigh Garage,$5,Rest,,"+2 Sled
 +$1
-Rest"
+Rest",
 Dasher,$5,Action,,"+1 Card
-+2 Reindeer"
++2 Reindeer",
 Dancer,$5,Rest,,"+2 Reindeer
 +$1
-Rest"
+Rest",
 Vixen,$4,Action,,"+1 Card
-+1 Reindeer"
++1 Reindeer",
 Comet,$6,Rest,,"+3 Reindeer
 +1 Card
-Rest"
+Rest",
 Cupid,$4,Action,,"+1 Card
-+1 Sled"
++1 Sled",
 Donner,$5,Rest,,"+2 Sled
 +1 Card
-Rest"
+Rest",
 Rudolph,$6,Rest,,"+2 Reindeer
 +2 Sled
 While this is in play, your Spend costs need 1 fewer Reindeer.
-Rest"
+Rest",
 Loaded Sleigh,$6,Rest,,"Spend 2 Reindeer and 2 Sled: gain a Robo-Elf Assistant.
 +$2
-Rest"
+Rest",
 Stable Master,$5,Rest,,"+2 Reindeer
 +2 Sled
-Rest"
-Sleigh Mechanic,$4,Action,,Gain a Sleigh Wax Job.
-Bionic Antler Upgrade,$7,Reindeer,,+3 Reindeer
+Rest",
+Sleigh Mechanic,$4,Action,,Gain a Sleigh Wax Job.,
+Bionic Antler Upgrade,$7,Reindeer,,+3 Reindeer,
 Nice List Bonus,$5,Rest,,"+2 Cards
 Each other player draws a card.
-Rest"
+Rest",
 Secret Santa,$3,Action,,"+2 Cards
-Each player passes a card from their hand to the player on their left, at once."
+Each player passes a card from their hand to the player on their left, at once.",
 Regifting,$4,Rest,,"You may trash a Present from your hand. If you do, +$ equal to its cost plus $1.
-Rest"
+Rest",
 Holiday Cheer,$6,Rest,,"+2 Cards
 +$3
-Rest"
+Rest",
 Sugar Rush,$4,Action,,"+1 Card
-Skip your next 2 rests."
+Skip your next 2 rests.",
 Long Winter,$5,Rest,,"Now and at the start of your next turn: +1 Card and +$1.
-Rest"
+Rest",
 Mrs. Claus,$5,Action,,"+1 Card
 +1 Reindeer
 +1 Sled
-+$1"
++$1",
 Santa's Sack,$6,Rest,,"Spend 3 Reindeer and 2 Sled: gain a Present costing up to $8.
-Rest"
+Rest",
 Elf Payroll,$5,Rest,,"+$1 for each Action card you have in play.
-Rest"
+Rest",
 Reindeer Roll Call,$5,Rest,,"+1 Reindeer for each Action card you have in play.
-Rest"
+Rest",
 Sleigh Fleet,$5,Rest,,"+1 Sled for each Action card you have in play.
-Rest"
+Rest",
 Production Bonus,$5,Rest,,"+1 Present for each Action card you have in play.
-Rest"
+Rest",

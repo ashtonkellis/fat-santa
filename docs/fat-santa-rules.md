@@ -26,10 +26,16 @@ engine and when to start cashing it in for points.
 ## Components & setup
 
 **Each player's starting deck (10 cards):**
-- 7 × Copper
-- 3 × Estate
+- 2 × Chimney Change (Money)
+- 2 × Reindeer Energy Drink (Reindeer)
+- 2 × Sleigh Wax Job (Sled)
+- 2 × Toy Conveyor Belt (Present)
+- 1 × Little Helper (Action)
+- 1 × Odd Jobs (Rest)
 
-Shuffle your 10 cards into a face-down deck and draw a hand of **5**.
+These are the game's **starter cards** (all cost $1 and are flagged in
+`data/fat_santa_cards.csv` via the `starter` column). Shuffle your 10 cards
+into a face-down deck and draw a hand of **5**.
 
 **The Supply** (shared, in the middle of the table):
 
@@ -175,7 +181,7 @@ still tied after that, they share the victory).
 
 ## Quick reference
 
-- **Start:** 7 Copper + 3 Estate; draw 5.
+- **Start:** 10 starter cards (2× each $1 resource card + Little Helper + Odd Jobs); draw 5.
 - **Each turn:** play Action cards until you play one with **Rest** → play
   Treasures & buy as many cards as you can afford → discard all, draw 5.
 - **Rest:** a card with `Rest` is the last card you play this turn; "☕ Skip your

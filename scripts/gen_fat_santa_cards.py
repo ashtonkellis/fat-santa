@@ -12,7 +12,7 @@ import csv, collections
 
 cards = []
 
-def C(name, _group, cost, types, text, effects=None, presents=""):
+def C(name, _group, cost, types, text, effects=None, presents="", starter=""):
     cards.append({
         "name": name,
         "cost": cost,                     # money cost, e.g. "$4"
@@ -20,6 +20,7 @@ def C(name, _group, cost, types, text, effects=None, presents=""):
         "presents": presents,             # victory points (presents) at game end
         "effects": effects or {},         # machine-readable resource outputs
         "text": text,
+        "starter": starter,               # copies in each player's starting deck ("" = not a starter)
         "_group": _group,                 # build-time grouping only; not written
     })
 
@@ -27,23 +28,23 @@ def C(name, _group, cost, types, text, effects=None, presents=""):
 # Foundation: basic money / reindeer / sled / present cards + core engine.
 S = "North Pole"
 # The three Money tiers follow a 1/4/7 cost -> +$1/+$2/+$3 pattern.
-C("Chimney Change", S, "$1", ["Money"], "+$1", {"Coins": "+1"})
+C("Chimney Change", S, "$1", ["Money"], "+$1", {"Coins": "+1"}, starter="2")
 C("Santa's Piggy Bank", S, "$4", ["Money"], "+$2", {"Coins": "+2"})
 C("Scrooge's Vault", S, "$7", ["Money"], "+$3", {"Coins": "+3"})
 C("Peppermint Coin", S, "$2", ["Action"], "+$1\n+1 Card", {"Coins": "+1", "Cards": "+1"})
-C("Reindeer Energy Drink", S, "$1", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"})
+C("Reindeer Energy Drink", S, "$1", ["Reindeer"], "+1 Reindeer", {"Reindeer": "+1"}, starter="2")
 C("Magical Reindeer DNA", S, "$4", ["Reindeer"], "+2 Reindeer", {"Reindeer": "+2"})
-C("Sleigh Wax Job", S, "$1", ["Sled"], "+1 Sled", {"Sled": "+1"})
+C("Sleigh Wax Job", S, "$1", ["Sled"], "+1 Sled", {"Sled": "+1"}, starter="2")
 C("Turbo Boosters", S, "$4", ["Sled"], "+2 Sled", {"Sled": "+2"})
 # The three Present (victory) tiers follow a 1/4/7 cost -> 1/2/3 presents pattern.
-C("Toy Conveyor Belt", S, "$1", ["Present"], "+1 Present", {"Presents": "1"}, "1")
+C("Toy Conveyor Belt", S, "$1", ["Present"], "+1 Present", {"Presents": "1"}, "1", starter="2")
 C("Robo-Elf Assistant", S, "$4", ["Present"], "+2 Presents", {"Presents": "2"}, "2")
 C("Fully Automated Toy Factory", S, "$7", ["Present"], "+3 Presents", {"Presents": "3"}, "3")
 # Starter helpers ($1, in the starting deck): gain one resource of your choice.
 # One keeps your turn going (Action), one ends it (Rest).
-C("Little Helper", S, "$1", ["Action"], "+1 Action\n+1 resource of your choice.")
+C("Little Helper", S, "$1", ["Action"], "+1 Action\n+1 resource of your choice.", starter="1")
 C("Odd Jobs", S, "$1", ["Action"],
-  "Choose one: trash a card from your hand, draw a card, or gain 1 resource of your choice.")
+  "Choose one: trash a card from your hand, draw a card, or gain 1 resource of your choice.", starter="1")
 C("Workshop Elf", S, "$3", ["Action"], "+1 Card\n+2 Actions", {"Cards": "+1", "Actions": "+2"})
 C("Mountain of Toys", S, "$4", ["Action"], "+3 Cards", {"Cards": "+3"})
 C("Elf-Mart", S, "$5", ["Action"], "+1 Card\n+1 Action\n+$2",
@@ -252,11 +253,13 @@ for c in cards:
         f"{c['name']} has bad type {c['types']}"
 
 # Write a plain CSV (one row per card). No image fields, no "set" column.
-# Columns: name, cost, types, presents, text
+# Columns: name, cost, types, presents, text, starter
+# (starter = copies of this card in each player's 10-card starting deck; blank
+#  for the ~cards you buy during the game.)
 out = "/home/user/fat-santa/data/fat_santa_cards.csv"
 with open(out, "w", newline="") as f:
     w = csv.writer(f)
-    w.writerow(["name", "cost", "types", "presents", "text"])
+    w.writerow(["name", "cost", "types", "presents", "text", "starter"])
     for c in cards:
         w.writerow([
             c["name"],
@@ -264,6 +267,7 @@ with open(out, "w", newline="") as f:
             "/".join(c["types"]),
             c["presents"],
             c["text"],                 # newlines within the card text are kept (quoted)
+            c["starter"],
         ])
 print("wrote", out)
 print("total:", len(cards))
