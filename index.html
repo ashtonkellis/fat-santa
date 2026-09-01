@@ -376,15 +376,24 @@ function render() {
     "showing " + rows.length + " of " + state.cards.length;
 }
 
+// Copies of each card to print: 4 of every resource-producer card and every
+// starting-deck card (a supply pile / starting hand), 1 of every other card.
+function printCount(c) {
+  const isResource = ["Money", "Reindeer", "Sled", "Present"].includes(primaryType(c));
+  return (isResource || c.starter) ? 4 : 1;
+}
 function printCards() {
   const rows = state.filtered;
   if (!rows.length) { alert("No cards to print — adjust your filters."); return; }
-  if (rows.length > 100 &&
-      !confirm("You're about to print " + rows.length + " cards (" +
-               Math.ceil(rows.length / 9) + "+ pages). Continue?")) return;
+  const total = rows.reduce((n, c) => n + printCount(c), 0);
+  if (total > 100 &&
+      !confirm("You're about to print " + total + " cards (" +
+               Math.ceil(total / 9) + "+ pages). Continue?")) return;
   const area = document.getElementById("printArea");
   area.innerHTML = "";
-  rows.forEach(c => area.appendChild(buildFace(c, "pcard")));
+  rows.forEach(c => {
+    for (let i = 0; i < printCount(c); i++) area.appendChild(buildFace(c, "pcard"));
+  });
   window.print();
 }
 
