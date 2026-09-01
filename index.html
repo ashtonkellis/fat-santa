@@ -124,13 +124,12 @@
   .card .fa-line::before { content: "\2726"; position: absolute; left: 0; top: 0.05em;
     font-size: 14px; color: #ffd76b; }
   .card .fa-line.fa-coffee, .card .fa-line.fa-sleep, .card .fa-line.fa-draw,
-  .card .fa-line.fa-discard, .card .fa-line.fa-trash, .card .fa-line.fa-gain { padding-left: 25px; }
+  .card .fa-line.fa-discard, .card .fa-line.fa-trash { padding-left: 25px; }
   .card .fa-line.fa-coffee::before  { content: "\2615\FE0F"; color: initial; font-size: 18px; top: -0.08em; left: 0; }
   .card .fa-line.fa-sleep::before   { content: "\1F634"; color: initial; font-size: 18px; top: -0.08em; left: 0; }
   .card .fa-line.fa-draw::before    { content: "\1F3B4"; color: initial; font-size: 16px; top: -0.04em; left: 0; }
-  .card .fa-line.fa-discard::before { content: "\1F4E4"; color: initial; font-size: 16px; top: -0.04em; left: 0; }
+  .card .fa-line.fa-discard::before { content: "\267B\FE0F"; color: initial; font-size: 16px; top: -0.04em; left: 0; }
   .card .fa-line.fa-trash::before   { content: "\1F5D1\FE0F"; color: initial; font-size: 16px; top: -0.04em; left: 0; }
-  .card .fa-line.fa-gain::before    { content: "\1F4E5"; color: initial; font-size: 16px; top: -0.04em; left: 0; }
 
   /* per-type accent (left rail + border tint) and pale fallback background */
   .t-Money    { --accent: #c9962a; --pale: var(--c-money); }
@@ -194,13 +193,12 @@
       font-size: 3.4mm; color: #ffd76b; }
     .print-area .pcard .fa-line.fa-coffee, .print-area .pcard .fa-line.fa-sleep,
     .print-area .pcard .fa-line.fa-draw, .print-area .pcard .fa-line.fa-discard,
-    .print-area .pcard .fa-line.fa-trash, .print-area .pcard .fa-line.fa-gain { padding-left: 6mm; }
+    .print-area .pcard .fa-line.fa-trash { padding-left: 6mm; }
     .print-area .pcard .fa-line.fa-coffee::before  { content: "\2615\FE0F"; color: initial; font-size: 4.4mm; top: -0.08em; }
     .print-area .pcard .fa-line.fa-sleep::before   { content: "\1F634"; color: initial; font-size: 4.4mm; top: -0.08em; }
     .print-area .pcard .fa-line.fa-draw::before    { content: "\1F3B4"; color: initial; font-size: 4mm; top: -0.04em; }
-    .print-area .pcard .fa-line.fa-discard::before { content: "\1F4E4"; color: initial; font-size: 4mm; top: -0.04em; }
+    .print-area .pcard .fa-line.fa-discard::before { content: "\267B\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
     .print-area .pcard .fa-line.fa-trash::before   { content: "\1F5D1\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
-    .print-area .pcard .fa-line.fa-gain::before    { content: "\1F4E5"; color: initial; font-size: 4mm; top: -0.04em; }
     @page { size: A4; margin: 8mm; }
   }
 </style>
@@ -499,7 +497,6 @@ function buildFace(c, cls) {
       else if (/trash/i.test(line)) cls += " fa-trash";
       else if (/discard/i.test(line)) cls += " fa-discard";
       else if (/\+\d+\s*cards?\b/i.test(line) || (/\bdraws?\b/i.test(line) && !/each/i.test(line))) cls += " fa-draw";
-      else if (/\bgain\b/i.test(line)) cls += " fa-gain";
       d.className = cls;
       d.innerHTML = iconify(line);
       wrap.appendChild(d);

@@ -6,7 +6,7 @@ _Nothing pending._
 
 ## Done
 
-- Added effect icons that replace the ✦ bullet on card-text lines for common actions: 🎴 draw (+N Cards), 📤 discard, 🗑️ trash, 📥 gain (joining the existing 😴 Rest and ☕ skip-your-next-rest). Compound/modal lines keep the plain ✦ bullet.
+- Added effect icons that replace the ✦ bullet on card-text lines for common actions: 🎴 draw (+N Cards), ♻️ discard, 🗑️ trash (joining the existing 😴 Rest and ☕ skip-your-next-rest). Gain and compound/modal lines keep the plain ✦ bullet.
 - Added the final six card illustrations (little-helper, odd-jobs, elf-payroll, reindeer-roll-call, sleigh-fleet, production-bonus): downloaded the originals from Drive, optimized to WebP in `card-art/web/`, and committed. All 85 cards now have art. Added a `.gitignore` rule so full-res originals stay out of the repo (only the WebP are tracked).
 - Added two $1 flexible starter cards: Little Helper (Action, non-terminal) gives "+1 resource of your choice"; Odd Jobs (Rest, terminal) is a modal "Choose one: trash a card, draw a card, or gain 1 resource of your choice". Kept them at cost $1 so cost-based effects (trashing, gain-up-to-$X) still apply. Deck is now 85 cards; both need art from the image-prompts brief.
 - Made buys unlimited: players may now buy any number of cards they can afford each turn (updated the rules doc), which retired the +Buy mechanic. Redesigned all 17 former +Buy cards (same names/art) to replace the +Buy with a fitting effect — e.g. Chimney Sweep → "+$2 / trash a card", Wholesale Toys → "+$2 / gain 2 Toy Conveyor Belts", Winter Fair → "+$2 / +2 Cards", Elf-Mart → "+1 Card / +$2", Golden Ticket → "+$3 / gain a Present", the reindeer/sled cards → extra Cards or +$. Verified no new duplicates or same-cost dominations.
