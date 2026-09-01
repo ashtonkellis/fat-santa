@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Refactor / dead-code cleanup: removed unused JS (`presentBadge`, `typeLabel`, the `RES_ICON` map, the hidden `.coin-i` emoji span it left behind) from `index.html`, and deleted the leftover Dominion card data (`data/dominion_cards.json` + `.md`, ~212K) that no code referenced. No behavior change (verified all 85 cards + coins still render).
 - Made the print sheet output the right number of copies: 4× of every resource-producer card and every starting-deck (starter) card, 1× of every other card (the page-count/confirm now reflects the total copies).
 - Defined the 10-card starting deck (2× each $1 resource card — Chimney Change, Reindeer Energy Drink, Sleigh Wax Job, Toy Conveyor Belt — plus 1× Little Helper and 1× Odd Jobs). Flagged these in the card data via a new `starter` column in the CSV (copies per starting deck) and rewrote the rules doc's setup + quick reference. Added a ⭐ starter icon (small circle, top-right) to those six card faces; the name is padded so it never runs under it.
 - Added effect icons that replace the ✦ bullet on card-text lines for common actions: 🎴 draw (+N Cards), ♻️ discard, 🗑️ trash (joining the existing 😴 Rest and ☕ skip-your-next-rest). Gain and compound/modal lines keep the plain ✦ bullet.

@@ -119,7 +119,6 @@
     border-radius: 50%; vertical-align: -0.33em;
     background: radial-gradient(circle at 38% 30%, #ffe9a0, #f2c545 48%, #cf8f22 100%);
     border: 0.11em solid #a9741a; box-shadow: inset -0.04em -0.06em 0.1em rgba(0,0,0,.28); }
-  .coin .coin-i { display: none; }
   .coin .coin-n { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
     line-height: 1; font-weight: 800; font-size: 0.82em; color: #5a3d0a; }
   /* card text overlaid on the art (bottom), clear of the rail */
@@ -266,11 +265,6 @@ function colorKey(c) {
   const order = { Money: 0, Reindeer: 1, Sled: 2, Present: 3, Action: 4, Rest: 5 };
   return order[primaryType(c)] ?? 4;
 }
-function presentBadge(v) {
-  if (v == null || v === "") return "";
-  if (v === "*" || v === "?") return "★🎁";      // variable-value Present card
-  return v + "🎁";
-}
 
 /* minimal RFC-4180-ish CSV parser (handles quotes, commas, embedded newlines) */
 function parseCSV(text) {
@@ -397,15 +391,14 @@ function printCards() {
   window.print();
 }
 
-// Resource icons: replace the resource words with icons for display only
-// (the underlying CSV keeps the words).
-const RES_ICON = { Money: "🪙", Reindeer: "🦌", Sled: "🛷", Present: "🎁" };
+// Display-only icons: replace the resource words with icons (the underlying
+// CSV keeps the words).
 function escHtml(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-// A coin renders as the number centered on top of a larger coin image.
+// A gold CSS coin with the number N centered on it.
 function coinHtml(n) {
-  return '<span class="coin"><span class="coin-i">🪙</span><span class="coin-n">' + n + '</span></span>';
+  return '<span class="coin"><span class="coin-n">' + n + '</span></span>';
 }
 // Returns HTML (set via innerHTML): resource words -> icons, and every "$N"
 // -> a coin with N overlaid on it.
@@ -415,10 +408,6 @@ function iconify(s) {
     .replace(/sled/gi, "🛷")
     .replace(/presents?/gi, "🎁")
     .replace(/\$(\d+)/g, (_, n) => coinHtml(n));
-}
-function typeLabel(c) {
-  const pt = primaryType(c);
-  return RES_ICON[pt] || pt;   // resource types -> icon; Action / Rest -> word
 }
 
 // Card name -> web-optimized art path (matches scripts/optimize_card_art.py slugs).
