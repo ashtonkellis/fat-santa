@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Wrote `docs/flip-chart-image-prompts.md`: a 33-image art brief for the Cities & Knights–style flip-chart tracker — three resource tracks (Present, Reindeer, Sled), each with a 6-step quality ladder (level 1 junk → level 6 icon: Nintendo 64 / Rudolph / Santa's rocket sleigh) and 5 count cards (1–5 of the item), matching the existing card-art style; images output as 1024×1024 PNGs in `flip-chart-art/`.
 - Removed the legacy card generator: deleted `card-generator.html` and the `assets/` folder (card frames + blank-playing-card PDFs, ~2.5 MB) it used, plus the "Open card generator" header link and its now-unused `.primary` CSS. All card rendering lives in `index.html`'s full-art faces now.
 - Refactor / dead-code cleanup: removed unused JS (`presentBadge`, `typeLabel`, the `RES_ICON` map, the hidden `.coin-i` emoji span it left behind) from `index.html`, and deleted the leftover Dominion card data (`data/dominion_cards.json` + `.md`, ~212K) that no code referenced. No behavior change (verified all 85 cards + coins still render).
 - Made the print sheet output the right number of copies: 4× of every resource-producer card and every starting-deck (starter) card, 1× of every other card (the page-count/confirm now reflects the total copies).
