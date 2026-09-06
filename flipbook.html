@@ -130,13 +130,13 @@
   //   { level: N }               -> the three tracks at quality rank N
   //   { blank: true }            -> intentionally blank (back cover)
   // PAGES lists leaves top -> bottom. Leaf 1 front is the cover.
-  // Per spec: leaf 1 front = logo, leaf 1 back = rank 1 (worst); leaf 2 front =
-  // rank 1, back = rank 2; then repeat one rank per side (rank 3, 4, 5, 6).
+  // Per spec: leaf 1 front = logo, leaf 1 back = rank 1 (worst); then one rank
+  // per side, each rank once (rank 2, 3, 4, 5, 6), best at the bottom.
   var PAGES = [
     { front: { cover: true }, back: { level: 1 } },
-    { front: { level: 1 },    back: { level: 2 } },
-    { front: { level: 3 },    back: { level: 4 } },
-    { front: { level: 5 },    back: { level: 6 } }
+    { front: { level: 2 },    back: { level: 3 } },
+    { front: { level: 4 },    back: { level: 5 } },
+    { front: { level: 6 },    back: { blank: true } }
   ];
 
   function cell(res, lvl) {
