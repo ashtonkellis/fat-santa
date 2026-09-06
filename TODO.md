@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Added a Flip Book viewer page (`flipbook.html`) linked from the main page header ("📖 Flip book"): shows the flip-chart tracker art as three resource tracks (Present, Reindeer, Sled), each with a labeled quality ladder (Level 1–6) and count pages (×1–×5), plus the title banner; matches the dark card-browser theme, lazy-loads images, and click opens the full page image.
 - Repaired `board-art/fat-santa-title.png`: replaced the truncated PNG with the recovered original artwork, rebuilt as a valid 2250×750 image at 300 DPI, and verified by full decode.
 - Wrote `docs/flip-chart-image-prompts.md`: a 33-image art brief for the Cities & Knights–style flip-chart tracker — three resource tracks (Present, Reindeer, Sled), each with a 6-step quality ladder (level 1 junk → level 6 icon: Nintendo 64 / Rudolph / Santa's rocket sleigh) and 5 count cards (1–5 of the item), matching the existing card-art style; images output as 1024×1024 PNGs in `flip-chart-art/`.
 - Removed the legacy card generator: deleted `card-generator.html` and the `assets/` folder (card frames + blank-playing-card PDFs, ~2.5 MB) it used, plus the "Open card generator" header link and its now-unused `.primary` CSS. All card rendering lives in `index.html`'s full-art faces now.
