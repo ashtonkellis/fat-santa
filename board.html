@@ -1,0 +1,219 @@
+<!doctype html>
+<!--
+  Game-board viewer / print UI — companion to index.html and flipbook.html.
+  Renders a fat-santa play & supply board (labeled zones, no external art beyond
+  the title banner) and prints it at a chosen size: a single A4 sheet, or a
+  tiled poster (2x2 / 3x3) split across sheets you tape together. Static, no deps.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fat-santa Game Board</title>
+<style>
+  :root {
+    --bg: #14171c; --panel: #1e232b; --panel2: #262c36; --line: #333b47;
+    --text: #e8ebf0; --muted: #99a3b2; --accent: #f4b942; --accent2: #5aa9e6;
+    --c-money: #f7ecc6; --c-reindeer: #d9edcf; --c-sled: #d4e2f2; --c-present: #e6dbf4;
+    /* board palette (print-friendly, warm parchment) */
+    --board-bg: #f7efdd; --board-ink: #3a2f1c; --board-line: #c9b072;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  a { color: var(--accent2); }
+
+  header { padding: 22px 24px 16px; background: linear-gradient(180deg, #1b2029, #14171c);
+    border-bottom: 1px solid var(--line); }
+  header .top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 22px; }
+  header .ver { font-size: 12px; font-weight: 700; color: var(--accent);
+    background: var(--panel2); border: 1px solid var(--line); border-radius: 20px; padding: 2px 10px; }
+  header .links { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  header .links a, header .links button.linkbtn {
+    text-decoration: none; background: var(--panel2); border: 1px solid var(--line);
+    padding: 7px 13px; border-radius: 8px; color: var(--text); font-weight: 600; font-size: 13px; cursor: pointer; }
+  header .links button.linkbtn:hover { border-color: var(--accent); }
+  header .links select { background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 10px; font: inherit; font-size: 13px; }
+  header p.desc { color: var(--muted); margin: 8px 0 0; max-width: 820px; font-size: 13px; }
+
+  main { padding: 20px 24px 70px; }
+  .stage { max-width: 1000px; margin: 0 auto; }
+  .board-wrap { width: 100%; aspect-ratio: 285 / 198; container-type: inline-size; }
+
+  /* ---- the board itself (scales to its container) ---- */
+  .board {
+    width: 100%; height: 100%; background: var(--board-bg); color: var(--board-ink);
+    border-radius: 2%; padding: 1.6%; display: grid; gap: 1.4%;
+    grid-template-rows: 15% 1fr 15%;
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    /* size-relative font so text scales with the board (container is the wrapper) */
+    font-size: 1.6cqw;
+  }
+  .b-header { display: flex; align-items: center; justify-content: center;
+    background: #fff6; border: 0.15em solid #d8b45f; border-radius: 1.4%; overflow: hidden; }
+  .b-header img { height: 100%; width: 100%; object-fit: contain; }
+
+  .b-mid { display: grid; grid-template-columns: 26% 1fr; gap: 1.4%; min-height: 0; }
+  .b-basics { display: grid; grid-template-rows: repeat(6, 1fr); gap: 4%; min-height: 0; }
+  .chip { display: flex; align-items: center; gap: 0.6em; padding: 0 0.8em;
+    border-radius: 0.8em; border: 0.14em solid; background: #fff8; font-weight: 700; }
+  .chip .em { font-size: 1.7em; line-height: 1; }
+  .chip .lbl { font-size: 1.05em; }
+  .chip.money    { border-color: #c9962a; background: #fbf1cf; }
+  .chip.present  { border-color: #7a4fb0; background: #efe6f8; }
+  .chip.reindeer { border-color: #3f8f43; background: #e2f2da; }
+  .chip.sled     { border-color: #2f6fb0; background: #dce8f6; }
+  .chip.trash    { border-color: #9a3b3b; background: #f6e3e3; }
+
+  .b-supply { display: grid; grid-template-rows: auto 1fr; gap: 3%; min-height: 0;
+    background: #fff6; border: 0.15em dashed #caa46a; border-radius: 1.4%; padding: 1.4%; }
+  .b-supply .title { font-weight: 800; font-size: 1.5em; letter-spacing: 0.06em;
+    text-transform: uppercase; text-align: center; color: #8a6a1f; }
+  .b-supply .grid { display: grid; grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr); gap: 3%; min-height: 0; }
+  .slot { border: 0.14em dashed #b79a5a; border-radius: 0.6em; background: #fffdf6;
+    display: flex; align-items: center; justify-content: center; color: #a98f56;
+    font-size: 0.95em; font-weight: 700; text-align: center; }
+
+  .b-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4%; }
+  .phase { border: 0.15em solid #d8b45f; border-radius: 1%; background: #fff8;
+    padding: 0.6em 0.8em; display: flex; flex-direction: column; justify-content: center; }
+  .phase .h { font-weight: 800; font-size: 1.25em; color: #8a6a1f; }
+  .phase .t { font-size: 0.98em; line-height: 1.25; }
+
+  /* ---- print: single sheet or tiled poster ---- */
+  .print-root { display: none; }
+  @media print {
+    body > header, body > main { display: none !important; }
+    .print-root { display: block !important; }
+    @page { size: A4 landscape; margin: 6mm; }
+    .sheet { width: 285mm; height: 198mm; overflow: hidden; position: relative;
+      page-break-after: always; }
+    .sheet:last-child { page-break-after: auto; }
+    .sheet .poster { position: absolute; top: 0; left: 0; container-type: inline-size; }
+    .sheet .poster .board { border-radius: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>🗺️ fat-santa Game Board</h1>
+    <span class="ver" id="ver" title="Deployed version"></span>
+    <div class="links">
+      <label>Size
+        <select id="sizeSel">
+          <option value="1">1 page (A4)</option>
+          <option value="2">Poster 2×2</option>
+          <option value="3">Poster 3×3</option>
+        </select>
+      </label>
+      <button id="printBtn" class="linkbtn">🖨 Print board</button>
+      <a href="flipbook.html">📖 Flip book</a>
+      <a href="index.html">← Cards</a>
+    </div>
+  </div>
+  <p class="desc">A print-and-play supply &amp; play board: the shared supply grid, the
+  basic resource piles, a trash pile, and the turn phases (A → B → C). Pick a size and
+  print — <strong>1 page</strong> fits an A4 sheet; the <strong>poster</strong> sizes tile
+  across sheets you tape together.</p>
+</header>
+
+<main><div class="stage"><div class="board-wrap" id="preview"></div></div></main>
+
+<div class="print-root" id="printRoot"></div>
+
+<script>
+  fetch("VERSION", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.text() : ""; })
+    .then(function (t) { t = (t || "").trim(); if (t) document.getElementById("ver").textContent = "v" + t; })
+    .catch(function () {});
+
+  var BANNER = "board-art/fat-santa-title.png";
+
+  var BASICS = [
+    { cls: "money",    em: "🪙", lbl: "Money — $1 / $4 / $7" },
+    { cls: "present",  em: "🎁", lbl: "Presents — $1 / $4 / $7" },
+    { cls: "reindeer", em: "🦌", lbl: "Reindeer" },
+    { cls: "sled",     em: "🛷", lbl: "Sled" },
+    { cls: "money",    em: "🎴", lbl: "Starter cards" },
+    { cls: "trash",    em: "🗑️", lbl: "Trash" }
+  ];
+  var PHASES = [
+    { h: "A — Action", t: "Play cards one at a time. Playing a card with Rest (😴) ends the phase." },
+    { h: "B — Buy", t: "Play Money, then buy any number of cards you can afford." },
+    { h: "C — Clean-up", t: "Discard your hand & played cards, then draw a fresh hand of 5." }
+  ];
+
+  function buildBoard() {
+    var b = document.createElement("div"); b.className = "board";
+
+    var head = document.createElement("div"); head.className = "b-header";
+    head.innerHTML = '<img src="' + BANNER + '" alt="Fat Santa">';
+    b.appendChild(head);
+
+    var mid = document.createElement("div"); mid.className = "b-mid";
+    var basics = document.createElement("div"); basics.className = "b-basics";
+    BASICS.forEach(function (x) {
+      var c = document.createElement("div"); c.className = "chip " + x.cls;
+      c.innerHTML = '<span class="em">' + x.em + '</span><span class="lbl">' + x.lbl + '</span>';
+      basics.appendChild(c);
+    });
+    mid.appendChild(basics);
+
+    var supply = document.createElement("div"); supply.className = "b-supply";
+    var st = document.createElement("div"); st.className = "title"; st.textContent = "Supply — Kingdom piles";
+    supply.appendChild(st);
+    var grid = document.createElement("div"); grid.className = "grid";
+    for (var i = 1; i <= 10; i++) {
+      var s = document.createElement("div"); s.className = "slot"; s.textContent = "Pile " + i;
+      grid.appendChild(s);
+    }
+    supply.appendChild(grid);
+    mid.appendChild(supply);
+    b.appendChild(mid);
+
+    var phases = document.createElement("div"); phases.className = "b-phases";
+    PHASES.forEach(function (p) {
+      var el = document.createElement("div"); el.className = "phase";
+      el.innerHTML = '<div class="h">' + p.h + '</div><div class="t">' + p.t + '</div>';
+      phases.appendChild(el);
+    });
+    b.appendChild(phases);
+    return b;
+  }
+
+  // Screen preview.
+  document.getElementById("preview").appendChild(buildBoard());
+
+  // Build the print sheets for the chosen tile count (N x N), slicing the board
+  // across page-sized clip windows.
+  var PAGE_W = 285, PAGE_H = 198; // mm, matches @page A4 landscape minus margins
+  function buildPrint(n) {
+    var root = document.getElementById("printRoot");
+    root.innerHTML = "";
+    for (var r = 0; r < n; r++) {
+      for (var c = 0; c < n; c++) {
+        var sheet = document.createElement("div"); sheet.className = "sheet";
+        var poster = document.createElement("div"); poster.className = "poster";
+        poster.style.width = (PAGE_W * n) + "mm";
+        poster.style.height = (PAGE_H * n) + "mm";
+        poster.style.left = "-" + (PAGE_W * c) + "mm";
+        poster.style.top = "-" + (PAGE_H * r) + "mm";
+        poster.appendChild(buildBoard());
+        sheet.appendChild(poster);
+        root.appendChild(sheet);
+      }
+    }
+  }
+
+  document.getElementById("printBtn").addEventListener("click", function () {
+    buildPrint(parseInt(document.getElementById("sizeSel").value, 10) || 1);
+    window.print();
+  });
+</script>
+</body>
+</html>
