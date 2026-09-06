@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Committed a print-ready `board-art/fat-santa-board.pdf` (single A4 landscape page, full-res world-map board, aspect-correct with a small print margin).
 - Recovered the illustrated world-map board from Google Drive (the repo's `board-art/world-map.png` had been truncated/corrupted at ~786 KB, like the banner earlier): pulled the valid 1535×1024 source via the Drive connector, saved it as an optimized `board-art/world-map.webp` (~518 KB), deleted the corrupt PNG, and reworked `board.html` to display and print this illustrated "North Pole" world-map board (replacing the earlier CSS supply-grid layout).
 - Added a printable game board (`board.html`, linked "🗺️ Board" from the main and flip-book pages): a size selector prints the board at 1 page (A4 landscape) or as a 2×2 / 3×3 tiled poster, slicing the image across page-sized clip windows to tape together.
 - Added a print sheet to `flipbook.html` ("🖨 Print flip book"): lays out every flip-book card at 2.5 in (63.5 mm) square with cut outlines and labels, three per row in reading order (worst, then cost 1–5 across Present · Sled · Reindeer), with the title banner as a full-width cover strip. Hidden on screen; `@media print` hides the browser view and shows only the sheet (A4, ~2 pages).
