@@ -127,15 +127,16 @@
 
   // A "side" of a leaf is one of:
   //   { cover: true }            -> the title banner
-  //   { level: N }               -> the three tracks at quality level N
+  //   { level: N }               -> the three tracks at quality rank N
   //   { blank: true }            -> intentionally blank (back cover)
   // PAGES lists leaves top -> bottom. Leaf 1 front is the cover.
-  // Page 1 is fixed per spec; pages 2-4 are a PROPOSED continuation (2 levels per leaf).
+  // Per spec: leaf 1 front = logo, leaf 1 back = rank 1 (worst); leaf 2 front =
+  // rank 1, back = rank 2; then repeat one rank per side (rank 3, 4, 5, 6).
   var PAGES = [
     { front: { cover: true }, back: { level: 1 } },
-    { front: { level: 2 },    back: { level: 3 } },
-    { front: { level: 4 },    back: { level: 5 } },
-    { front: { level: 6 },    back: { blank: true } }
+    { front: { level: 1 },    back: { level: 2 } },
+    { front: { level: 3 },    back: { level: 4 } },
+    { front: { level: 5 },    back: { level: 6 } }
   ];
 
   function cell(res, lvl) {
