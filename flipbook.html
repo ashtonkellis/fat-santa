@@ -98,9 +98,9 @@
     </div>
   </div>
   <p class="desc">The flip book laid out leaf by leaf — each leaf has a
-  <strong>front</strong> and a <strong>back</strong>. The level sides show the three
-  resource tracks together (<strong>Present · Sled · Reindeer</strong>), worst at the
-  top of the book, best at the bottom. Click any page to open the full image.</p>
+  <strong>front</strong> and a <strong>back</strong>. Every content side shows the three
+  resource tracks together (<strong>Present · Sled · Reindeer</strong>): leaf 1 back is
+  their worst, then the cost pages climb 1 → 5. Click any page to open the full image.</p>
 </header>
 
 <main id="book"></main>
@@ -125,30 +125,34 @@
   // Column order on every level side (as specified): Present, then Sled, then Reindeer.
   var COL_ORDER = ["present", "sled", "reindeer"];
 
+  function plural(res) { return res === "reindeer" ? "reindeer" : res + "s"; }
+
   // A "side" of a leaf is one of:
-  //   { cover: true }            -> the title banner
-  //   { level: N }               -> the three tracks at quality rank N
-  //   { blank: true }            -> intentionally blank (back cover)
+  //   { cover: true }    -> the title banner
+  //   { quality: N }     -> the three tracks at quality rank N (worst..best art)
+  //   { count: N }       -> the three tracks showing N of the resource (cost N)
+  //   { blank: true }    -> intentionally blank (back cover)
   // PAGES lists leaves top -> bottom. Leaf 1 front is the cover.
-  // Per spec: leaf 1 front = logo, leaf 1 back = rank 1 (worst); then one rank
-  // per side, each rank once (rank 2, 3, 4, 5, 6), best at the bottom.
+  // Per spec: leaf 1 front = logo, leaf 1 back = rank 1 (worst); then the cost
+  // pages climb one per side, each once (cost 1, 2, 3, 4, 5).
   var PAGES = [
-    { front: { cover: true }, back: { level: 1 } },
-    { front: { level: 2 },    back: { level: 3 } },
-    { front: { level: 4 },    back: { level: 5 } },
-    { front: { level: 6 },    back: { blank: true } }
+    { front: { cover: true }, back: { quality: 1 } },
+    { front: { count: 1 },    back: { count: 2 } },
+    { front: { count: 3 },    back: { count: 4 } },
+    { front: { count: 5 },    back: { blank: true } }
   ];
 
-  function cell(res, lvl) {
-    var src = ART + res + "-quality-" + lvl + ".png";
+  function cell(res, kind, n) {
+    var src = ART + res + "-" + kind + "-" + n + ".png";
+    var sub = kind === "quality" ? WORDS[res][n - 1] : n + " " + (n === 1 ? res : plural(res));
     var fig = document.createElement("figure");
     fig.className = "cell " + res;
     fig.innerHTML =
       '<a href="' + src + '" target="_blank" rel="noopener">' +
-        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + ' level ' + lvl + '">' +
+        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + " " + kind + " " + n + '">' +
       '</a>' +
       '<figcaption><div class="rn">' + RES_NAME[res] + '</div>' +
-      '<div class="rs">' + WORDS[res][lvl - 1] + '</div></figcaption>';
+      '<div class="rs">' + sub + '</div></figcaption>';
     return fig;
   }
 
@@ -165,12 +169,16 @@
       var b = document.createElement("div"); b.className = "blank";
       b.textContent = "(blank — back cover)";
       el.appendChild(b);
-    } else if (side.level) {
+    } else if (side.quality || side.count) {
+      var kind = side.quality ? "quality" : "count";
+      var n = side.quality || side.count;
       var lt = document.createElement("div"); lt.className = "lvl-tag";
-      lt.textContent = "Level " + side.level + (side.level === 1 ? " — the worst" : side.level === 6 ? " — the best" : "");
+      lt.textContent = kind === "quality"
+        ? "Rank " + n + (n === 1 ? " — the worst" : n === 6 ? " — the best" : "")
+        : "Cost " + n;
       el.appendChild(lt);
       var cols = document.createElement("div"); cols.className = "cols";
-      COL_ORDER.forEach(function (res) { cols.appendChild(cell(res, side.level)); });
+      COL_ORDER.forEach(function (res) { cols.appendChild(cell(res, kind, n)); });
       el.appendChild(cols);
     }
     return el;
@@ -190,25 +198,28 @@
     book.appendChild(leaf);
   });
 
-  // Count pages (x1..x5 per resource) — not yet placed in the book above.
-  var counts = document.createElement("section");
-  counts.className = "counts";
-  counts.innerHTML = '<div class="note"><strong>Count pages</strong> (×1–×5 of each resource) ' +
-    'are shown below for reference — tell me where they belong in the flip book and I\'ll place them.</div>';
+  // Quality ranks 2-6 (the "increasing quality" art, up to the Nintendo 64) are
+  // not placed in the book above — shown here for reference pending placement.
+  var extra = document.createElement("section");
+  extra.className = "counts";
+  extra.innerHTML = '<div class="note"><strong>Quality ranks 2–6</strong> (the increasing-quality ' +
+    'art — cheap trinket → Nintendo 64, etc.) are not in the book above. Rank 1 (worst) sits on ' +
+    'leaf 1 back; tell me where ranks 2–6 belong and I\'ll place them.</div>';
   COL_ORDER.forEach(function (res) {
-    var h = document.createElement("h2"); h.textContent = RES_NAME[res] + " — count pages"; counts.appendChild(h);
+    var h = document.createElement("h2"); h.textContent = RES_NAME[res] + " — quality ranks 2–6"; extra.appendChild(h);
     var g = document.createElement("div"); g.className = "count-grid";
-    for (var n = 1; n <= 5; n++) {
-      var src = ART + res + "-count-" + n + ".png";
+    for (var n = 2; n <= 6; n++) {
+      var src = ART + res + "-quality-" + n + ".png";
       var fig = document.createElement("figure"); fig.className = "cell " + res; fig.style.margin = "0";
       fig.innerHTML = '<a href="' + src + '" target="_blank" rel="noopener">' +
-        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + ' x' + n + '"></a>' +
-        '<figcaption><div class="rn">×' + n + '</div></figcaption>';
+        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + ' rank ' + n + '"></a>' +
+        '<figcaption><div class="rn">Rank ' + n + '</div>' +
+        '<div class="rs">' + WORDS[res][n - 1] + '</div></figcaption>';
       g.appendChild(fig);
     }
-    counts.appendChild(g);
+    extra.appendChild(g);
   });
-  book.appendChild(counts);
+  book.appendChild(extra);
 </script>
 </body>
 </html>
