@@ -1,9 +1,10 @@
 <!doctype html>
 <!--
   Flip-book viewer — companion page to index.html.
-  Displays the flip-chart tracker art (flip-chart-art/*.png): three resource
-  tracks (Present, Reindeer, Sled), each with a 6-step quality ladder and
-  5 count pages. Static, dependency-free.
+  Models the physical flip book as a sequence of leaves, each with a FRONT
+  and a BACK. A "levels" side shows the three resource tracks (Present, Sled,
+  Reindeer) at a given quality level; the cover side shows the title banner.
+  Art lives in flip-chart-art/*.png and board-art/*.png. Static, no deps.
 -->
 <html lang="en">
 <head>
@@ -34,43 +35,57 @@
     text-decoration: none; background: var(--panel2); border: 1px solid var(--line);
     padding: 7px 13px; border-radius: 8px; color: var(--text); font-weight: 600; font-size: 13px;
   }
-  header p.desc { color: var(--muted); margin: 8px 0 0; max-width: 820px; font-size: 13px; }
+  header p.desc { color: var(--muted); margin: 8px 0 0; max-width: 860px; font-size: 13px; }
 
-  .banner { text-align: center; padding: 20px 24px 4px; }
-  .banner img { max-width: 640px; width: 100%; height: auto; border-radius: 10px; }
+  main { padding: 18px 24px 70px; max-width: 1080px; margin: 0 auto; }
 
-  main { padding: 14px 24px 70px; max-width: 1200px; margin: 0 auto; }
+  .leaf { margin: 26px 0; }
+  .leaf > .leaf-title { font-size: 17px; font-weight: 700; margin: 0 0 10px;
+    display: flex; align-items: center; gap: 10px; }
+  .leaf > .leaf-title .pill { font-size: 11px; font-weight: 700; color: var(--bg);
+    background: var(--accent); border-radius: 20px; padding: 2px 9px; text-transform: uppercase; letter-spacing: .03em; }
 
-  .track { margin: 30px 0 10px; }
-  .track > h2 {
-    margin: 0 0 4px; font-size: 20px; display: flex; align-items: center; gap: 10px;
+  .sides { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 720px) { .sides { grid-template-columns: 1fr; } }
+
+  .side {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px; display: flex; flex-direction: column;
   }
-  .track .em { font-size: 26px; line-height: 1; }
-  .track .rule { height: 3px; border-radius: 3px; margin: 6px 0 16px; }
-  .track.present .rule { background: var(--c-present); }
-  .track.reindeer .rule { background: var(--c-reindeer); }
-  .track.sled .rule { background: var(--c-sled); }
+  .side > .side-tag { font-size: 12px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .05em; margin: 0 0 10px; }
 
-  .subhead { color: var(--muted); font-size: 13px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .04em; margin: 18px 0 10px; }
+  /* cover side (logo banner) */
+  .cover { flex: 1; display: flex; align-items: center; justify-content: center;
+    background: var(--panel2); border-radius: 10px; padding: 16px; min-height: 180px; }
+  .cover img { max-width: 100%; height: auto; border-radius: 8px; }
 
-  .strip {
-    display: grid; gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-  figure.page { margin: 0; }
-  figure.page a { display: block; }
-  figure.page img {
-    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
-    border-radius: 10px; border: 1px solid var(--line);
-    background: var(--panel2); box-shadow: 0 3px 9px rgba(0,0,0,.30);
-  }
-  .track.present figure.page img { border-color: var(--c-present); }
-  .track.reindeer figure.page img { border-color: var(--c-reindeer); }
-  .track.sled figure.page img { border-color: var(--c-sled); }
-  figure.page figcaption { margin-top: 7px; text-align: center; }
-  figure.page .lvl { font-weight: 700; font-size: 14px; }
-  figure.page .sub { color: var(--muted); font-size: 12px; }
+  /* blank side */
+  .blank { flex: 1; min-height: 180px; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 13px; background: var(--panel2); border-radius: 10px;
+    border: 1px dashed var(--line); }
+
+  /* levels side: three resource columns */
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  figure.cell { margin: 0; }
+  figure.cell a { display: block; }
+  figure.cell img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+    border-radius: 9px; border: 1px solid var(--line); background: var(--panel2); }
+  figure.cell.present img { border-color: var(--c-present); }
+  figure.cell.sled img { border-color: var(--c-sled); }
+  figure.cell.reindeer img { border-color: var(--c-reindeer); }
+  figure.cell figcaption { margin-top: 6px; text-align: center; }
+  figure.cell .rn { font-weight: 700; font-size: 13px; }
+  figure.cell .rs { color: var(--muted); font-size: 11px; }
+  .lvl-tag { font-size: 12px; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+
+  .note { margin: 30px 0 0; padding: 12px 14px; border-left: 3px solid var(--accent);
+    background: var(--panel); border-radius: 0 8px 8px 0; color: var(--muted); font-size: 13px; }
+  .note strong { color: var(--text); }
+
+  section.counts { margin-top: 40px; padding-top: 8px; border-top: 1px solid var(--line); }
+  section.counts h2 { font-size: 18px; margin: 18px 0 4px; }
+  .count-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
 </style>
 </head>
 <body>
@@ -82,80 +97,117 @@
       <a href="index.html">← Cards</a>
     </div>
   </div>
-  <p class="desc">The flip-chart tracker pages (Cities &amp; Knights style). Each of the
-  three resource tracks has a <strong>quality ladder</strong> — level 1 (junk) up to
-  level 6 (the dream) — and <strong>count pages</strong> showing 1–5 of the resource.
-  Click any page to open the full image.</p>
+  <p class="desc">The flip book laid out leaf by leaf — each leaf has a
+  <strong>front</strong> and a <strong>back</strong>. The level sides show the three
+  resource tracks together (<strong>Present · Sled · Reindeer</strong>), worst at the
+  top of the book, best at the bottom. Click any page to open the full image.</p>
 </header>
 
-<div class="banner"><img src="board-art/fat-santa-title.png" alt="Fat Santa title banner" /></div>
-
-<main id="tracks"></main>
+<main id="book"></main>
 
 <script>
-  // Show the deployed version (from the repo-root VERSION file) at the top.
+  // Deployed version badge.
   fetch("VERSION", { cache: "no-store" })
     .then(function (r) { return r.ok ? r.text() : ""; })
     .then(function (t) { t = (t || "").trim(); if (t) document.getElementById("ver").textContent = "v" + t; })
     .catch(function () {});
 
-  // Flip-book data. Filenames follow flip-chart-art/<key>-quality-<1..6>.png
-  // and flip-chart-art/<key>-count-<1..5>.png (see docs/flip-chart-image-prompts.md).
-  var DIR = "flip-chart-art/";
-  var TRACKS = [
-    { key: "present", emoji: "🎁", name: "Present",
-      quality: ["a lump of coal", "a cheap trinket", "a decent gift",
-                "a really good gift", "a spectacular gift", "a Nintendo 64"] },
-    { key: "reindeer", emoji: "🦌", name: "Reindeer",
-      quality: ["scrawny & sickly", "ordinary", "healthy",
-                "strong", "majestic", "Rudolph"] },
-    { key: "sled", emoji: "🛷", name: "Sled",
-      quality: ["broken cardboard", "basic wooden sled", "freshly painted",
-                "racing sled", "classic sleigh", "rocket sleigh"] },
+  var ART = "flip-chart-art/";
+  var BANNER = "board-art/fat-santa-title.png";
+
+  // Short descriptor per resource + quality level (1..6).
+  var WORDS = {
+    present:  ["a lump of coal", "a cheap trinket", "a decent gift", "a really good gift", "a spectacular gift", "a Nintendo 64"],
+    sled:     ["broken cardboard", "basic wooden sled", "freshly painted", "racing sled", "classic sleigh", "rocket sleigh"],
+    reindeer: ["scrawny & sickly", "ordinary", "healthy", "strong", "majestic", "Rudolph"]
+  };
+  var RES_NAME = { present: "Present", sled: "Sled", reindeer: "Reindeer" };
+  // Column order on every level side (as specified): Present, then Sled, then Reindeer.
+  var COL_ORDER = ["present", "sled", "reindeer"];
+
+  // A "side" of a leaf is one of:
+  //   { cover: true }            -> the title banner
+  //   { level: N }               -> the three tracks at quality level N
+  //   { blank: true }            -> intentionally blank (back cover)
+  // PAGES lists leaves top -> bottom. Leaf 1 front is the cover.
+  // Page 1 is fixed per spec; pages 2-4 are a PROPOSED continuation (2 levels per leaf).
+  var PAGES = [
+    { front: { cover: true }, back: { level: 1 } },
+    { front: { level: 2 },    back: { level: 3 } },
+    { front: { level: 4 },    back: { level: 5 } },
+    { front: { level: 6 },    back: { blank: true } }
   ];
 
-  function page(src, lvl, sub) {
+  function cell(res, lvl) {
+    var src = ART + res + "-quality-" + lvl + ".png";
     var fig = document.createElement("figure");
-    fig.className = "page";
-    var a = document.createElement("a");
-    a.href = src; a.target = "_blank"; a.rel = "noopener";
-    var img = document.createElement("img");
-    img.src = src; img.loading = "lazy"; img.alt = lvl + (sub ? " — " + sub : "");
-    a.appendChild(img);
-    var cap = document.createElement("figcaption");
-    cap.innerHTML = '<div class="lvl">' + lvl + "</div>" +
-                    (sub ? '<div class="sub">' + sub + "</div>" : "");
-    fig.appendChild(a); fig.appendChild(cap);
+    fig.className = "cell " + res;
+    fig.innerHTML =
+      '<a href="' + src + '" target="_blank" rel="noopener">' +
+        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + ' level ' + lvl + '">' +
+      '</a>' +
+      '<figcaption><div class="rn">' + RES_NAME[res] + '</div>' +
+      '<div class="rs">' + WORDS[res][lvl - 1] + '</div></figcaption>';
     return fig;
   }
 
-  var root = document.getElementById("tracks");
-  TRACKS.forEach(function (t) {
-    var sec = document.createElement("section");
-    sec.className = "track " + t.key;
-    sec.innerHTML = '<h2><span class="em">' + t.emoji + "</span>" + t.name + " track</h2>" +
-                    '<div class="rule"></div>';
-
-    var qh = document.createElement("div"); qh.className = "subhead";
-    qh.textContent = "Quality ladder"; sec.appendChild(qh);
-    var qs = document.createElement("div"); qs.className = "strip";
-    for (var i = 1; i <= 6; i++) {
-      qs.appendChild(page(DIR + t.key + "-quality-" + i + ".png",
-                          "Level " + i, t.quality[i - 1]));
+  function sideEl(side, tag) {
+    var el = document.createElement("div");
+    el.className = "side";
+    var t = document.createElement("div"); t.className = "side-tag"; t.textContent = tag;
+    el.appendChild(t);
+    if (side.cover) {
+      var c = document.createElement("div"); c.className = "cover";
+      c.innerHTML = '<img src="' + BANNER + '" alt="Fat Santa title banner">';
+      el.appendChild(c);
+    } else if (side.blank) {
+      var b = document.createElement("div"); b.className = "blank";
+      b.textContent = "(blank — back cover)";
+      el.appendChild(b);
+    } else if (side.level) {
+      var lt = document.createElement("div"); lt.className = "lvl-tag";
+      lt.textContent = "Level " + side.level + (side.level === 1 ? " — the worst" : side.level === 6 ? " — the best" : "");
+      el.appendChild(lt);
+      var cols = document.createElement("div"); cols.className = "cols";
+      COL_ORDER.forEach(function (res) { cols.appendChild(cell(res, side.level)); });
+      el.appendChild(cols);
     }
-    sec.appendChild(qs);
+    return el;
+  }
 
-    var ch = document.createElement("div"); ch.className = "subhead";
-    ch.textContent = "Count pages"; sec.appendChild(ch);
-    var cs = document.createElement("div"); cs.className = "strip";
-    for (var j = 1; j <= 5; j++) {
-      cs.appendChild(page(DIR + t.key + "-count-" + j + ".png",
-                          "×" + j, j === 1 ? t.name : t.name + "s"));
-    }
-    sec.appendChild(cs);
-
-    root.appendChild(sec);
+  var book = document.getElementById("book");
+  PAGES.forEach(function (pg, i) {
+    var leaf = document.createElement("section");
+    leaf.className = "leaf";
+    var title = document.createElement("div"); title.className = "leaf-title";
+    title.innerHTML = '<span class="pill">Leaf ' + (i + 1) + '</span>';
+    leaf.appendChild(title);
+    var sides = document.createElement("div"); sides.className = "sides";
+    sides.appendChild(sideEl(pg.front, "Front"));
+    sides.appendChild(sideEl(pg.back, "Back"));
+    leaf.appendChild(sides);
+    book.appendChild(leaf);
   });
+
+  // Count pages (x1..x5 per resource) — not yet placed in the book above.
+  var counts = document.createElement("section");
+  counts.className = "counts";
+  counts.innerHTML = '<div class="note"><strong>Count pages</strong> (×1–×5 of each resource) ' +
+    'are shown below for reference — tell me where they belong in the flip book and I\'ll place them.</div>';
+  COL_ORDER.forEach(function (res) {
+    var h = document.createElement("h2"); h.textContent = RES_NAME[res] + " — count pages"; counts.appendChild(h);
+    var g = document.createElement("div"); g.className = "count-grid";
+    for (var n = 1; n <= 5; n++) {
+      var src = ART + res + "-count-" + n + ".png";
+      var fig = document.createElement("figure"); fig.className = "cell " + res; fig.style.margin = "0";
+      fig.innerHTML = '<a href="' + src + '" target="_blank" rel="noopener">' +
+        '<img src="' + src + '" loading="lazy" alt="' + RES_NAME[res] + ' x' + n + '"></a>' +
+        '<figcaption><div class="rn">×' + n + '</div></figcaption>';
+      g.appendChild(fig);
+    }
+    counts.appendChild(g);
+  });
+  book.appendChild(counts);
 </script>
 </body>
 </html>
