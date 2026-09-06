@@ -6,6 +6,7 @@ _Nothing pending._
 
 ## Done
 
+- Added a print sheet to `flipbook.html` ("🖨 Print flip book"): lays out every flip-book card at 2.5 in (63.5 mm) square with cut outlines and labels, three per row in reading order (worst, then cost 1–5 across Present · Sled · Reindeer), with the title banner as a full-width cover strip. Hidden on screen; `@media print` hides the browser view and shows only the sheet (A4, ~2 pages).
 - Built `flipbook.html` as a leaf-by-leaf flip book (page fronts and backs). Leaf 1: front = the Fat Santa title banner, back = the three tracks at rank 1/worst (Present · Sled · Reindeer). Then the cost pages climb one per side, each once: leaf 2 = cost 1/2, leaf 3 = cost 3/4, leaf 4 = cost 5 + blank back cover. Quality ranks 2–6 (increasing-quality art up to the Nintendo 64) are shown in a reference section below, pending placement.
 - Added a Flip Book viewer page (`flipbook.html`) linked from the main page header ("📖 Flip book"): shows the flip-chart tracker art as three resource tracks (Present, Reindeer, Sled), each with a labeled quality ladder (Level 1–6) and count pages (×1–×5), plus the title banner; matches the dark card-browser theme, lazy-loads images, and click opens the full page image.
 - Repaired `board-art/fat-santa-title.png`: replaced the truncated PNG with the recovered original artwork, rebuilt as a valid 2250×750 image at 300 DPI, and verified by full decode.

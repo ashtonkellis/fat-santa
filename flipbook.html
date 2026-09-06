@@ -86,6 +86,30 @@
   section.counts { margin-top: 40px; padding-top: 8px; border-top: 1px solid var(--line); }
   section.counts h2 { font-size: 18px; margin: 18px 0 4px; }
   .count-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+
+  .links button.linkbtn {
+    text-decoration: none; background: var(--panel2); border: 1px solid var(--line);
+    padding: 7px 13px; border-radius: 8px; color: var(--text); font-weight: 600; font-size: 13px; cursor: pointer;
+  }
+  .links button.linkbtn:hover { border-color: var(--accent); }
+
+  /* ---- print sheet: flip-book cards at 2.5 in (63.5 mm) square ---- */
+  .flip-print { display: none; }
+  @media print {
+    body > header, body > main { display: none !important; }
+    .flip-print { display: block !important; background: #fff; color: #000; }
+    @page { size: A4; margin: 8mm; }
+    .flip-print .cover-strip { width: 190.5mm; height: 63.5mm; margin: 0 auto 5mm; }
+    .flip-print .cover-strip img { width: 100%; height: 100%; object-fit: contain;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .flip-print .rows { display: flex; flex-wrap: wrap; gap: 0; justify-content: center; }
+    .flip-print .pcard { width: 63.5mm; page-break-inside: avoid; }
+    .flip-print .pcard .art { width: 63.5mm; height: 63.5mm; display: block;
+      object-fit: cover; outline: 0.2mm solid #999;   /* cut guide */
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .flip-print .pcard .cap { height: 5mm; font-size: 2.8mm; line-height: 5mm;
+      text-align: center; color: #333; }
+  }
 </style>
 </head>
 <body>
@@ -94,6 +118,7 @@
     <h1>📖 fat-santa Flip Book</h1>
     <span class="ver" id="ver" title="Deployed version"></span>
     <div class="links">
+      <button id="printBtn" class="linkbtn">🖨 Print flip book</button>
       <a href="index.html">← Cards</a>
     </div>
   </div>
@@ -104,6 +129,9 @@
 </header>
 
 <main id="book"></main>
+
+<!-- Print sheet (shown only when printing): every flip-book card at 2.5in square. -->
+<div class="flip-print" id="flipPrint"></div>
 
 <script>
   // Deployed version badge.
@@ -220,6 +248,38 @@
     extra.appendChild(g);
   });
   book.appendChild(extra);
+
+  // ---- Print sheet: every card in the book, 2.5in square, in reading order.
+  // Each content side of the book = one row of three cards (Present, Sled, Reindeer).
+  function printLabel(res, kind, n) {
+    return RES_NAME[res] + " · " + (kind === "quality"
+      ? (n === 1 ? "worst" : "rank " + n)
+      : n + " " + (n === 1 ? res : plural(res)));
+  }
+  var flipPrint = document.getElementById("flipPrint");
+  // Cover banner spans the three columns (matches the on-screen leaf-1 front).
+  var cover = document.createElement("div"); cover.className = "cover-strip";
+  cover.innerHTML = '<img src="' + BANNER + '" alt="Fat Santa cover">';
+  flipPrint.appendChild(cover);
+  var rows = document.createElement("div"); rows.className = "rows";
+  PAGES.forEach(function (pg) {
+    ["front", "back"].forEach(function (which) {
+      var side = pg[which];
+      if (!(side.quality || side.count)) return;   // skip cover / blank
+      var kind = side.quality ? "quality" : "count";
+      var n = side.quality || side.count;
+      COL_ORDER.forEach(function (res) {
+        var src = ART + res + "-" + kind + "-" + n + ".png";
+        var pc = document.createElement("div"); pc.className = "pcard";
+        pc.innerHTML = '<img class="art" src="' + src + '" alt="">' +
+          '<div class="cap">' + printLabel(res, kind, n) + '</div>';
+        rows.appendChild(pc);
+      });
+    });
+  });
+  flipPrint.appendChild(rows);
+
+  document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
 </script>
 </body>
 </html>
