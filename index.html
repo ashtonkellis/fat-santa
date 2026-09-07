@@ -97,8 +97,10 @@
     background: radial-gradient(circle at 38% 30%, #ffe9a0, #f2c545 48%, #cf8f22 100%);
     border: 2px solid #a9741a; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.28); }
   /* name overlaid on the art (top), clear of the rail */
-  .card .fa-name { position: absolute; top: 0; left: var(--side); right: 0; z-index: 1;
-    padding: 9px 12px 26px; text-align: center; font-weight: 800; font-size: 18px; line-height: 1.14;
+  .card .fa-name { position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+    /* full-width scrim; symmetric side padding keeps the title centered on the
+       card while clearing the cost square (left) and starter badge (right) */
+    padding: 9px 54px 26px; text-align: center; font-weight: 800; font-size: 18px; line-height: 1.14;
     color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 0 3px rgba(0,0,0,.9);
     background: linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,.28) 60%, transparent); }
   /* starter badge (⭐ in a small circle, top-right) for starting-deck cards;
@@ -107,7 +109,7 @@
     width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
     font-size: 16px; border-radius: 50%; background: rgba(0,0,0,.45);
     border: 2px solid rgba(255,255,255,.72); box-shadow: 0 1px 3px rgba(0,0,0,.55); }
-  .card.has-starter .fa-name { padding-right: 36px; }
+  /* name is centered full-width; the ⭐ badge overlays the top-right corner */
 
   /* A coin: the number sits centered on top of a larger coin image.
      Size scales with the parent font-size (so it grows in the cost badge
@@ -164,7 +166,7 @@
        fit 2 across, scattering cards over many pages). */
     .print-area { display: block !important; }
     .print-area .print-page {
-      display: grid; grid-template-columns: repeat(3, 63.5mm); grid-auto-rows: 88.9mm;
+      display: grid; grid-template-columns: repeat(4, 63.5mm); grid-auto-rows: 88.9mm;
       justify-content: center; align-content: start;
       page-break-after: always; break-after: page;
     }
@@ -197,15 +199,17 @@
     .print-area .pcard .fa-chip .fa-coin { width: 7mm; height: 7mm; border-radius: 50%;
       background: radial-gradient(circle at 38% 30%, #ffe9a0, #f2c545 48%, #cf8f22 100%);
       border: 0.5mm solid #a9741a; box-shadow: inset 0 0 0 0.4mm rgba(255,255,255,.28); }
-    .print-area .pcard .fa-name { position: absolute; top: 0; left: var(--side); right: 0; z-index: 1;
-      padding: 2.2mm 3mm 6.5mm; text-align: center; font-weight: 800; font-size: 4.6mm; line-height: 1.1; color: #fff;
+    .print-area .pcard .fa-name { position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+      /* full-width scrim; symmetric side padding centers the title while
+         clearing the cost square (left) and starter badge (right) */
+      padding: 2.2mm 13mm 6.5mm; text-align: center; font-weight: 800; font-size: 4.6mm; line-height: 1.1; color: #fff;
       text-shadow: 0 0.3mm 0.6mm rgba(0,0,0,.95);
       background: linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,.28) 60%, transparent); }
     .print-area .pcard .fa-starter { position: absolute; right: 2mm; top: 2mm; z-index: 3;
       width: 7mm; height: 7mm; display: flex; align-items: center; justify-content: center;
       font-size: 4mm; border-radius: 50%; background: rgba(0,0,0,.45);
       border: 0.5mm solid rgba(255,255,255,.72); }
-    .print-area .pcard.has-starter .fa-name { padding-right: 9mm; }
+    /* name centered full-width; starter ⭐ overlays the corner */
     .print-area .pcard .fa-textwrap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
       padding: 7.5mm 5mm 4.5mm calc(var(--side) + 2mm);   /* clear the left icon rail */
       background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.74) 34%, rgba(0,0,0,.32) 72%, transparent); }
@@ -221,9 +225,11 @@
     .print-area .pcard .fa-line.fa-draw::before    { content: "\1F3B4"; color: initial; font-size: 4mm; top: -0.04em; }
     .print-area .pcard .fa-line.fa-discard::before { content: "\267B\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
     .print-area .pcard .fa-line.fa-trash::before   { content: "\1F5D1\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
-    /* No fixed size: use the printer's selected paper (Letter or A4). Small
-       margins so a 3x3 grid of 2.5x3.5in cards fits on both. */
-    @page { margin: 5mm; }
+    /* Landscape so a 4x2 grid of 2.5x3.5in cards fits with room to spare on
+       both dimensions (this survives iOS/AirPrint's mandatory margins better
+       than a portrait 3x3, whose vertical slack was too small). Uses the
+       printer's selected paper (Letter or A4). */
+    @page { size: landscape; margin: 6mm; }
   }
 </style>
 </head>
@@ -396,13 +402,13 @@ function printCards() {
   const total = rows.reduce((n, c) => n + printCount(c), 0);
   if (total > 100 &&
       !confirm("You're about to print " + total + " cards (" +
-               Math.ceil(total / 9) + "+ pages). Continue?")) return;
+               Math.ceil(total / 8) + "+ pages). Continue?")) return;
   const area = document.getElementById("printArea");
   area.innerHTML = "";
   // Expand to individual copies, then group into pages of 9 (3x3 per sheet).
   const faces = [];
   rows.forEach(c => { for (let i = 0; i < printCount(c); i++) faces.push(c); });
-  const PER_PAGE = 9;
+  const PER_PAGE = 8;   // 4 columns x 2 rows per landscape sheet
   for (let i = 0; i < faces.length; i += PER_PAGE) {
     const page = document.createElement("div");
     page.className = "print-page";

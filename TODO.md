@@ -6,6 +6,8 @@ _Nothing pending._
 
 ## Done
 
+- Switched the card print sheet to a 4×2 = 8-card landscape layout (`@page size: landscape`, `repeat(4, 63.5mm)` grid, 8 per page → 16 sheets) so a 2.5×3.5in grid has ≥1in slack on both dimensions and survives iOS/AirPrint's mandatory margins (the portrait 3×3 had only ~0.5in vertical slack).
+- Fixed the card name rendering: it was anchored at the left rail (`left: var(--side)`), so the title sat right-of-center with a partial black scrim box. Now the scrim spans the full card width and the title is centered with symmetric side padding that clears the cost square (left) and starter ⭐ (right) — verified on short and long names (grid + print).
 - Fixed the card print sheet for real (iOS/AirPrint): the flow-based layout (flex, then inline-block) relied on the browser's page fragmentation, which iOS mis-handles — it ignores small @page margins, so only 2 cards fit per row and cards scattered across ~32 pages. Reworked `printCards()` to group cards into explicit `.print-page` blocks of 9, each a fixed 3-column CSS grid (`repeat(3, 63.5mm)`) forced onto its own sheet with a hard page break. Now guaranteed 3×3 = 9 whole cards per sheet (127 copies → 15 sheets), columns can't reflow to 2, and no card splits across sheets.
 - Fixed the game-card print size to exact poker dimensions: the print sheet cards were 63×88 mm (2.48×3.46 in); bumped to 63.5×88.9 mm so they print at a true 2.5×3.5 in (verified by measuring the rendered card in print media).
 - Committed a print-ready `board-art/fat-santa-board.pdf` (single A4 landscape page, full-res world-map board, aspect-correct with a small print margin).
