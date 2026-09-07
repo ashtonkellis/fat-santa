@@ -157,11 +157,16 @@
   @media print {
     body { background: #fff; }
     body > header, body > .controls, body > main, body > footer { display: none !important; }
-    .print-area { display: flex !important; flex-wrap: wrap; gap: 0; }
+    /* block flow + inline-block cards so break-inside:avoid actually works
+       (flexbox ignores it and slices cards across page breaks); font-size:0
+       removes the whitespace between inline-block cards. */
+    .print-area { display: block !important; font-size: 0; text-align: left; }
     /* full-art card face at real poker size (Ares Expedition style) */
     .print-area .pcard {
+      display: inline-block; vertical-align: top;
       position: relative; width: 63.5mm; height: 88.9mm; box-sizing: border-box; overflow: hidden;
-      border: 1.8mm solid var(--accent, #b5892f); border-radius: 3mm; page-break-inside: avoid;
+      border: 1.8mm solid var(--accent, #b5892f); border-radius: 3mm;
+      page-break-inside: avoid; break-inside: avoid;
       color: #fff; background-color: var(--pale, var(--c-default));
       background-size: cover; background-position: center; background-repeat: no-repeat;
       --side: 15.5mm;
@@ -209,7 +214,9 @@
     .print-area .pcard .fa-line.fa-draw::before    { content: "\1F3B4"; color: initial; font-size: 4mm; top: -0.04em; }
     .print-area .pcard .fa-line.fa-discard::before { content: "\267B\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
     .print-area .pcard .fa-line.fa-trash::before   { content: "\1F5D1\FE0F"; color: initial; font-size: 4mm; top: -0.04em; }
-    @page { size: A4; margin: 8mm; }
+    /* No fixed size: use the printer's selected paper (Letter or A4). Small
+       margins so a 3x3 grid of 2.5x3.5in cards fits on both. */
+    @page { margin: 5mm; }
   }
 </style>
 </head>
