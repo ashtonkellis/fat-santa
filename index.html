@@ -157,13 +157,20 @@
   @media print {
     body { background: #fff; }
     body > header, body > .controls, body > main, body > footer { display: none !important; }
-    /* block flow + inline-block cards so break-inside:avoid actually works
-       (flexbox ignores it and slices cards across page breaks); font-size:0
-       removes the whitespace between inline-block cards. */
-    .print-area { display: block !important; font-size: 0; text-align: left; }
+    /* Deterministic pagination: JS groups cards into explicit .print-page
+       blocks of 9 (a fixed 3x3 grid), each forced onto its own sheet with a
+       hard page break. This does NOT rely on the browser's flow fragmentation
+       (which iOS/AirPrint mis-handles — it ignores small @page margins and only
+       fit 2 across, scattering cards over many pages). */
+    .print-area { display: block !important; }
+    .print-area .print-page {
+      display: grid; grid-template-columns: repeat(3, 63.5mm); grid-auto-rows: 88.9mm;
+      justify-content: center; align-content: start;
+      page-break-after: always; break-after: page;
+    }
+    .print-area .print-page:last-child { page-break-after: auto; break-after: auto; }
     /* full-art card face at real poker size (Ares Expedition style) */
     .print-area .pcard {
-      display: inline-block; vertical-align: top;
       position: relative; width: 63.5mm; height: 88.9mm; box-sizing: border-box; overflow: hidden;
       border: 1.8mm solid var(--accent, #b5892f); border-radius: 3mm;
       page-break-inside: avoid; break-inside: avoid;
@@ -392,9 +399,18 @@ function printCards() {
                Math.ceil(total / 9) + "+ pages). Continue?")) return;
   const area = document.getElementById("printArea");
   area.innerHTML = "";
-  rows.forEach(c => {
-    for (let i = 0; i < printCount(c); i++) area.appendChild(buildFace(c, "pcard"));
-  });
+  // Expand to individual copies, then group into pages of 9 (3x3 per sheet).
+  const faces = [];
+  rows.forEach(c => { for (let i = 0; i < printCount(c); i++) faces.push(c); });
+  const PER_PAGE = 9;
+  for (let i = 0; i < faces.length; i += PER_PAGE) {
+    const page = document.createElement("div");
+    page.className = "print-page";
+    for (let j = i; j < Math.min(i + PER_PAGE, faces.length); j++) {
+      page.appendChild(buildFace(faces[j], "pcard"));
+    }
+    area.appendChild(page);
+  }
   window.print();
 }
 
