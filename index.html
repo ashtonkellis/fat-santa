@@ -168,9 +168,11 @@
     .print-area .print-page {
       display: grid; grid-template-columns: repeat(4, 63.5mm); grid-auto-rows: 88.9mm;
       justify-content: center; align-content: start;
-      /* @page margin is 0, so give each sheet its own safe margin here; the grid
-         (254mm) then centers in the full paper width, clearing the printer edge. */
-      box-sizing: border-box; padding: 10mm 6mm;
+      /* No padding here: iOS/AirPrint reserves its own page margins, and adding
+         our own on top pushed the 2 rows past the printable height (bottom row
+         spilled to the next sheet). The two rows (177.8mm) fit inside iOS's
+         printable area on their own; the grid just centers horizontally. */
+      box-sizing: border-box; padding: 0;
       page-break-after: always; break-after: page;
     }
     .print-area .print-page:last-child { page-break-after: auto; break-after: auto; }
